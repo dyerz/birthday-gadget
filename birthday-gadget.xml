@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam" >
+<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam" render_inline="required" >
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="max_add" default_value="5" datatype="hidden" /> 
