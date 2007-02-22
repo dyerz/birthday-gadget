@@ -7,7 +7,7 @@
 <Content type="html"><![CDATA[
   <script>
     // Track this gadget using Google Analytics.
-    IG_Analytics("UA-310375-4", "/birthday-gadget");
+    _IG_Analytics("UA-310375-4", "/birthday-gadget");
   </script>
 
   <script type="text/javascript">
