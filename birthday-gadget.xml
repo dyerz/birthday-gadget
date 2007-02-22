@@ -55,7 +55,7 @@
         theform.appendChild(theName);
         theform.appendChild(thex);
         theform.appendChild(thebr);
-        theform.appendChild(thebutton);
+        theform.appendChild(thebutton);}
     }
    
   </script>
