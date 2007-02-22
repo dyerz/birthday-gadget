@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam" render_inline="required" >
+<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam" >
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="max_add" default_value="5" datatype="hidden" /> 
@@ -70,7 +70,7 @@
   
   <div id="Entry">
     <form name="setInfo" id="setInfo">
-      <input type="text" name="setDate0" value="YYYY/MM/DD" size="11" onClick="setVars(0);" />
+      <input type="text" name="setDate0" value="YYYY/MM/DD" size="11" onclick="javascript:setVars(0);" />
       <input type="text" name="setName0" />
       <br /><input type="button" name="setAdd" value="Add" onClick="" /></form>
   </div>
