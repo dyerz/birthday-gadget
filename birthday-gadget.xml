@@ -70,8 +70,11 @@
 
 
   </script>
-  
-  <div id="Entry">
+  <div id="Nav__MODULE_ID__">
+    <a onClick="view__MODULE_ID__(); return true;" href="#"><span id="sview__MODULE_ID__">view</span></a> |
+    <a onClick="add__MODULE_ID__(); return true;" href="#"><span id="sedit__MODULE_ID__">add</span></a>
+  </div>
+  <div id="Entry__MODULE_ID__">
     <form name="setInfo__MODULE_ID__" id="setInfo__MODULE_ID__">
       <input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" onclick="setVars__MODULE_ID__(0);" />
       <input type="text" name="setName0__MODULE_ID__" />
