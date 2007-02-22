@@ -39,7 +39,7 @@
         thex=document.createElement("span");
         thex.id="setSpan"+(num + 1)+"__MODULE_ID__";
         thex.innerHTML=" X ";
-        thex.onclick=function(){remove(num+1);};
+        thex.onclick=function(){remove__MODULE_ID__(num+1);};
         thespace=document.createTextNode(" ");
         theDate=document.createElement("input");
         theDate.setAttribute("value", "YYYY/MM/DD");
@@ -64,8 +64,7 @@
     <form name="setInfo__MODULE_ID__" id="setInfo__MODULE_ID__">
       <input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" onClick="setVars__MODULE_ID__(this, 0);" />
       <input type="text" name="setName0__MODULE_ID__" />
-      <input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" />
-    </form>
+      <br /><input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" /></form>
   </div>
 
 
