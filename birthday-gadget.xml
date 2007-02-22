@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam D." >
+<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam" >
     <Require feature="analytics" /> 
 </ModulePrefs>
+<UserPref name="max_add" default_value="5" datatype="hidden" /> 
 <Content type="html"><![CDATA[
-  <script>
+  <script type="text/javasript">
     // Track this gadget using Google Analytics.
     IG_Analytics("UA-310375-4", "/birthday-gadget");
-   
-    function clearText(){
-      if(this.value=="YYYY/MM/DD") this.value="";
+    var prefs = new _IG_Prefs(__MODULE_ID__);
     
+    function remove__MODULE_ID__(num){
+      thedate=document.getElementById("setDate"+num+"__MODULE_ID__");
+      thename=document.getElementById("setName"+num+"__MODULE_ID__");
+      thespan=document.getElementById("setSpan"+num+"__MODULE_ID__");
+      theform=document.getElementById("setInfo__MODULE_ID__");
+      thebr=thespan.nextSibling;
+      theform.removeChild(thedate);
+      theform.removeChild(thename);
+      theform.removeChild(thespan);
+      theform.removeChild(thebr);
+      if(num>1) test=document.getElementById("setDate"+(num-1)+"__MODULE_ID__");
+      else test=theform.firstChild.nextSibling;
+      test.onclick=function(){setVars(num-1);}
+      if(num-1>0) document.getElementById("setSpan"+(num-1)+"__MODULE_ID__").style.display="";}
+    
+    function setVars__MODULE_ID__(setLoc, num){
+      theform=document.getElementById("setInfo");
+      setLoc=theform.elements[num*2];
+      setLoc.onclick="";
+      if(setLoc.value=="YYYY/MM/DD"){ setLoc.value="";}
+      
+      if(num<5){
+        thebutton=theform.lastChild;
+        theform.removeChild(thebutton);
+        if(num>0) document.getElementById("setSpan"+(num)+"__MODULE_ID__").style.display="none";
+        thebr=document.createElement("br");
+        thex=document.createElement("span");
+        thex.id="setSpan"+(num + 1)+"__MODULE_ID__";
+        thex.innerHTML=" X ";
+        thex.onclick=function(){remove(num+1);};
+        thespace=document.createTextNode(" ");
+        theDate=document.createElement("input");
+        theDate.setAttribute("value", "YYYY/MM/DD");
+        theDate.setAttribute("id", "setDate"+(num + 1)+"__MODULE_ID__");
+        theDate.setAttribute("name", "setDate"+(num + 1)+"__MODULE_ID__");
+        theDate.setAttribute("size", "11");
+        theDate.onclick=function(){setVars__MODULE_ID__(num+1);};
+        theform.appendChild(theDate);
+        theform.appendChild(thespace);
+        theName=document.createElement("input");
+        theName.setAttribute("id", "setName"+(num + 1)+"__MODULE_ID__");
+        theName.setAttribute("name", "setName"+(num + 1)+"__MODULE_ID__");
+        theform.appendChild(theName);
+        theform.appendChild(thex);
+        theform.appendChild(thebr);
+        theform.appendChild(thebutton);
     }
+   
   </script>
   
-  <div id="Entry">
-    <form name="setInfo">
-      <input type="text" name="setDate" value="YYYY/MM/DD" size="11" onClick="clearText();" />
-      <input type="text" name="setName" />
-      <input type="button" name="setAdd" value="Add" onClick="" />
+  <div id="Entry__MODULE_ID__">
+    <form name="setInfo__MODULE_ID__" id="setInfo__MODULE_ID__">
+      <input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" onClick="setVars__MODULE_ID__(this, 0);" />
+      <input type="text" name="setName0__MODULE_ID__" />
+      <input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" />
     </form>
   </div>
 
