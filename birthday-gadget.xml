@@ -5,9 +5,12 @@
 </ModulePrefs>
 <UserPref name="max_add" default_value="5" datatype="hidden" /> 
 <Content type="html"><![CDATA[
-  <script type="text/javascript">
+  <script>
     // Track this gadget using Google Analytics.
     IG_Analytics("UA-310375-4", "/birthday-gadget");
+  </script>
+
+  <script type="text/javascript">
     var prefs = new _IG_Prefs(__MODULE_ID__);
 
     function remove(num){
