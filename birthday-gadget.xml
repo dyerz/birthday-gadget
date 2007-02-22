@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Birthday Gadget" />
+<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam D." >
+    <Require feature="analytics" /> 
+</ModulePrefs>
 <Content type="html"><![CDATA[
-<script type="text/javascript">
-
-</script>
-<div id="Entry">
-  <form name="setInfo">
-    <input type="text" name="setDate" value="YYYY/MM/DD" size="11" />
-    <input type="text" name="setName" />
-    <input type="submit" name="setAdd" value="Add" />
-  </form>
-</div>
+  <script>
+    // Track this gadget using Google Analytics.
+    IG_Analytics("UA-310375-4", "/birthday-gadget");
+   
+    function clearText(){
+      if(this.value=="YYYY/MM/DD") this.value="";
+    
+    }
+  </script>
+  
+  <div id="Entry">
+    <form name="setInfo">
+      <input type="text" name="setDate" value="YYYY/MM/DD" size="11" onClick="clearText();" />
+      <input type="text" name="setName" />
+      <input type="button" name="setAdd" value="Add" onClick="" />
+    </form>
+  </div>
 
 
 
