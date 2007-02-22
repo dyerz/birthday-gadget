@@ -9,7 +9,7 @@
     // Track this gadget using Google Analytics.
     IG_Analytics("UA-310375-4", "/birthday-gadget");
     var prefs = new _IG_Prefs(__MODULE_ID__);
-    
+
     function remove(num){
       thedate=document.getElementById("setDate"+num+"");
       thename=document.getElementById("setName"+num+"");
@@ -29,7 +29,10 @@
       theform=document.getElementById("setInfo");
       setLoc=theform.elements[num*2];
       setLoc.onclick="";
-      if(setLoc.value=="YYYY/MM/DD"){ setLoc.value="";}
+      
+      
+      if(setLoc.value=="YYYY/MM/DD"){
+        setLoc.value="";}
       
       if(num<5){
         thebutton=theform.lastChild;
@@ -55,9 +58,14 @@
         theform.appendChild(theName);
         theform.appendChild(thex);
         theform.appendChild(thebr);
-        theform.appendChild(thebutton);}
+        theform.appendChild(thebutton);
+        
+      }
+    
+    
     }
-   
+
+
   </script>
   
   <div id="Entry">
