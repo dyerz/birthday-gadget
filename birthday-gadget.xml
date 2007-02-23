@@ -5,14 +5,13 @@
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
 <UserPref name="birthdays" display_name="Add Birthdays" datatype="list" required="true" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
-<UserPref name="showDays" display_name="Visible Birthdays" default_value="7" datatype="enum" >
+<UserPref name="showBDay" display_name="Visible Birthdays" default_value="5" />
+<UserPref name="warning" display_name="Days Notice" default_value="7" datatype="enum" >
   <EnumValue value="3" />
-  <EnumValue value="4" />
-  <EnumValue value="5" />
-  <EnumValue value="6" />
   <EnumValue value="7" />
   <EnumValue value="10" />
   <EnumValue value="14" />
+  <EnumValue value="21" />
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
@@ -82,11 +81,10 @@
         month[11]="Dec";
       if(date.length>5) date=date.substr(5);
       
-      return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));
-      
+      return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));}
     
-    
-    }
+    function myPad(num){
+      return (num<10)?" "+num:num;}
     
     function setup__MODULE_ID__() {
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
@@ -122,16 +120,24 @@
       if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";
       else{
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
-        for(var i=0; i<displayArray.length; i++){
-          if(i==prefs__MODULE_ID__.getInt("showDays")) break;
-          var age="";
-          if(displayArray[i][0].length>5){
-            var d = new Date();
-            var b = Date.parse(displayArray[i][0]);
-            age=Math.floor((d-b)/year);
-            if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
-            else age+="Y";}
-          html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[i][0])+"</td><td>"+displayArray[i][1]+"</td><td>"+age+"</td></tr>";}
+        var birthdaysVisible=0;
+        var tempDate=new Date;
+        for(var i=0; i<prefs__MODULE_ID__.getInt("warning"); i++);
+          if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBD")) break;
+          tempDate=tempDate.getTime()+(i*1000*60*60*24);
+          iDate=myPad(tempDate.getMonth+1)+"/"+myPad(tempDate.getDate);
+          for(var j=0; j<displayArray.length; j++){
+            jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
+            if(jDate==iDate){
+              var age="";
+              if(displayArray[j][0].length>5){
+                var d = new Date();
+                var b = Date.parse(displayArray[j][0]);
+                age=Math.floor((d-b)/year);
+                if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
+                else age+="Y";}
+              html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
+              html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
         html__MODULE_ID__+="</table>";}
         
       
