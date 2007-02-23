@@ -61,12 +61,12 @@
         if(date=="YYYY/MM/DD" || date=="MM/DD") continue;
         
         if(date.length==5){
-          if(/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray[]=[date, name];
+          if(/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray[]=Array(date, name);
           else{
             errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use MM/DD.<br />";
             continue;}}
         else if(tempSplit[0].length==10){
-          if(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray[]=[date, name];
+          if(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray[]=Array(date, name);
           else{
             errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD.<br />";
             continue;}}
