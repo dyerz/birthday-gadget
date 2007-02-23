@@ -140,7 +140,7 @@
           for(var j=0; j<displayArray.length; j++){
             jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
             if(jDate==iDate){
-              var birthdaysVisible++;
+              birthdaysVisible++;
               var age="";
               if(displayArray[j][0].length>5){
                 var d = new Date();
