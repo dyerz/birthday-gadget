@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Never Forget" description="Never miss your friends' birthdays again!" author="Adam" >
+<ModulePrefs title="Never Forget" description="Never miss your friends' birthdays again!" author="Adam" description="__MSG_description__">
     <Require feature="analytics" /> 
 </ModulePrefs>
+<UserPref name="title" display_name="__MSG_title__" required="false" default_value="__MSG_todo__" />
 <UserPref name="max_add" default_value="5" datatype="hidden" /> 
 <Content type="html"><![CDATA[
   <script>
@@ -79,7 +80,9 @@
       <td><input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" maxlength="10" /></td>
       <td style="width: 100%"><input style="width: 100%" type="text" name="setName0__MODULE_ID__" /></td></tr>
       </table>
-      <input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" /></form>
+      <div style="text-align: right">
+      <input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" />
+      </div></form>
   </div>
 
 
