@@ -48,8 +48,8 @@
     
     function sortDate__MODULE_ID__(a,b){
       splita=a.split(";"); splitb=b.split(";");
-      tempa=(splita.length>5)?splita.substr(5):splita;
-      tempb=(splitb.length>5)?splitb.substr(5):splitb;
+      tempa=(splita[0].length>5)?splita[0].substr(5):splita[0];
+      tempb=(splitb[0].length>5)?splitb[0].substr(5):splitb[0];
       montha=tempa.substr(0,2); monthb=tempb.substr(0,2);
       daya=tempa.substr(3,2); dayb=tempb.substr(3,2);
       
