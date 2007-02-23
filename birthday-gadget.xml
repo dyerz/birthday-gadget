@@ -62,9 +62,9 @@
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
       var year=1000*60*60*24*365;
       var displayArray=new Array();
+      birthdayArray.sort(sortDate__MODULE_ID__);
       
       for(var i=0; i<birthdayArray.length; i++){
-        birthdayArray.sort(sortDate__MODULE_ID__);
         tempSplit=birthdayArray[i].split(";");
         
         if(tempSplit.length==1){
@@ -105,18 +105,12 @@
       
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
-      
-      
-      
-      
 
-    
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
 
   </script>
   <div id="error__MODULE_ID__"></div>
   <div id="table__MODULE_ID__"></div>
-
 
 ]]></Content>
 </Module>
