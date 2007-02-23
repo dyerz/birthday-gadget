@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="__UP_title__" description="Never miss your friends' birthdays again!" author="Adam" description="__MSG_description__">
+<ModulePrefs title="__UP_title__" description="Never miss your friends' birthdays again!" author="Adam">
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Never Forget" />
