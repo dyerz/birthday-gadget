@@ -16,10 +16,15 @@
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
+    #error__MODULE_ID__{
+      font-size: 12pt;
+      color: red;
+      padding: 8px;
+    
+    }
+  
     #table__MODULE_ID__{
       width: 100%;
-    
-    
     }
     .bdtable{
       width: 100%;
