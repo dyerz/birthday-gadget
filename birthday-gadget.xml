@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Birthday Gadget" description="Never miss your friends' birthdays again!" author="Adam" >
+<ModulePrefs title="Never Forget" description="Never miss your friends' birthdays again!" author="Adam" >
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="max_add" default_value="5" datatype="hidden" /> 
@@ -52,6 +52,7 @@
         theDate.setAttribute("id", "setDate"+(num + 1)+"__MODULE_ID__");
         theDate.setAttribute("name", "setDate"+(num + 1)+"__MODULE_ID__");
         theDate.setAttribute("size", "11");
+        theDate.setAttribute("maxlength", "10");
         theDate.onclick=function(){setVars__MODULE_ID__(num+1);};
         theform.appendChild(theDate);
         theform.appendChild(thespace);
@@ -64,8 +65,6 @@
         theform.appendChild(thebutton);
         
       }
-    
-    
     }
 
 
@@ -76,9 +75,11 @@
   </div>
   <div id="Entry__MODULE_ID__">
     <form name="setInfo__MODULE_ID__" id="setInfo__MODULE_ID__">
-      <input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" onclick="setVars__MODULE_ID__(0);" />
-      <input type="text" name="setName0__MODULE_ID__" />
-      <br /><input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" /></form>
+      <table style="margin: 0; padding: 0;"><tr><th>Birthday</th><th>Name</th></tr><tr>
+      <td><input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" maxlength="10" /></td>
+      <td style="width: 100%"><input style="width: 100%" type="text" name="setName0__MODULE_ID__" /></td></tr>
+      </table>
+      <input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" /></form>
   </div>
 
 
