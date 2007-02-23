@@ -27,7 +27,11 @@
       padding: 0;
     }
     .bdtable th{
+      border-bottom: 1px solid #000;
       width: 33%;
+    }
+    .bdtable td{
+      text-align: center;
     }
   </style>
 
