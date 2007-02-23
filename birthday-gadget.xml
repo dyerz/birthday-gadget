@@ -47,7 +47,9 @@
     var today=new Date();
     
     function sortDate__MODULE_ID__(a,b){
-      tempa=(a.length>5)?a.substr(5):a; tempb=(b.length>5)?b.substr(5):b;
+      splita=a.split(";"); splitb=b.split(";");
+      tempa=(splita.length>5)?splita.substr(5):splita;
+      tempb=(splitb.length>5)?splitb.substr(5):splitb;
       montha=tempa.substr(0,2); monthb=tempb.substr(0,2);
       daya=tempa.substr(3,2); dayb=tempb.substr(3,2);
       
