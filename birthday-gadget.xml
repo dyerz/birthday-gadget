@@ -122,7 +122,7 @@
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
         var birthdaysVisible=0;
         var tempDate=new Date;
-        for(var i=0; i<prefs__MODULE_ID__.getInt("warning"); i++);
+        for(var i=0; i<prefs__MODULE_ID__.getInt("warning"); i++){
           if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBD")) break;
           tempDate=tempDate.getTime()+(i*1000*60*60*24);
           iDate=myPad(tempDate.getMonth+1)+"/"+myPad(tempDate.getDate);
@@ -137,7 +137,7 @@
                 if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
                 else age+="Y";}
               html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
-              html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
+              html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}}
         html__MODULE_ID__+="</table>";}
         
       
