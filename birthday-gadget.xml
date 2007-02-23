@@ -135,7 +135,7 @@
         var tempDate=new Date;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
         for(var i=0; i<tempWarning; i++){
-          if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBD")) break;
+          if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
           tempDate=tempDate.getTime()+(i*1000*60*60*24);
           iDate=myPad(tempDate.getMonth+1)+"/"+myPad(tempDate.getDate);
           for(var j=0; j<displayArray.length; j++){
