@@ -90,7 +90,7 @@
           errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
           continue;}}
         
-      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please <a href=\"#\" onClick="_edit(__MODULE_ID__)">Edit Settings</a> to add your own the ";
+      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please <a href=\"#\" onClick=\"_edit(__MODULE_ID__)\">Edit Settings</a> to add your own the ";
       else{
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
         for(var i=0; i<displayArray.length; i++){
