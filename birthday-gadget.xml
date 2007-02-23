@@ -92,7 +92,7 @@
         
       if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display";
       else{
-        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th>Name</th><th style=\"width: 4em;\">Age</th></tr>";
+        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
         for(var i=0; i<displayArray.length; i++){
           if(i==prefs__MODULE_ID__.getInt("showDays")) break;
           var age="";
@@ -100,7 +100,8 @@
             var d = new Date();
             var b = Date.parse(displayArray[i][0]);
             age=Math.floor((d-b)/year);
-            if(age==0) age=Math.floor(((d-b)/year)*12);}
+            if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
+            else age+="Y";}
           html__MODULE_ID__+="<tr><td>"+displayArray[i][0]+"</td><td>"+displayArray[i][1]+"</td><td>"+age+"</td></tr>";}
         html__MODULE_ID__+="</table>";}
         
