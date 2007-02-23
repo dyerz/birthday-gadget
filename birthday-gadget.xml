@@ -16,7 +16,13 @@
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
+    #table__MODULE_ID__{
+      width: 100%;
+    
+    
+    }
     .bdtable{
+      width: 100%;
       margin: 0;
       padding: 0;
     }
