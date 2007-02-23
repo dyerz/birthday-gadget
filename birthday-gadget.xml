@@ -153,7 +153,7 @@
         html__MODULE_ID__+="</table>";}
       
       if(birthdaysVisible==0){
-        html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getInt("showBD")+" Days.";}
+        html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getString("warning")+" Days.";}
       
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
