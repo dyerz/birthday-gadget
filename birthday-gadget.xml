@@ -27,7 +27,7 @@
   <script type="text/javascript">
     var prefs__MODULE_ID__ = new _IG_Prefs(__MODULE_ID__);
     var errorStr__MODULE_ID__="";
-    var html__MODULE_ID__="<table><tr><th>Date</th><th>Name</th><th>Age</th></tr>";
+    var html__MODULE_ID__="";
     var today=new Date();
     
     function sortDate(a,b){
@@ -76,6 +76,7 @@
         
       if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display";
       else{
+        html__MODULE_ID__+="<table><tr><th>Date</th><th>Name</th><th>Age</th></tr>";
         for(var i=0; i<displayArray.length; i++){
           var age="";
           if(displayArray[i][0].length>5){
