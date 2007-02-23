@@ -3,7 +3,7 @@
 <ModulePrefs title="__UP_title__" description="Never miss your friends' birthdays again!" author="Adam">
     <Require feature="analytics" /> 
 </ModulePrefs>
-<UserPref name="title" display_name="Title" required="false" default_value="Never Forget" />
+<UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
 <UserPref name="birthdays" display_name="Add Birthdays" datatype="list" required="true" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
 <UserPref name="showDays" display_name="Visible Birthdays" default_value="7" datatype="enum" >
   <EnumValue value="3" />
@@ -90,7 +90,7 @@
           errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
           continue;}}
         
-      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please <a href=\"#\" onClick=\"_IG_DD_open(event,__MODULE_ID__)\">Edit Settings</a> to add your own the ";
+      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";
       else{
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
         for(var i=0; i<displayArray.length; i++){
