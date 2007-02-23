@@ -16,7 +16,13 @@
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
-
+    .bdtable{
+      margin: 0;
+      padding: 0;
+    }
+    .bdtable th{
+      width: 33%;
+    }
   </style>
 
   <script>
@@ -76,7 +82,7 @@
         
       if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display";
       else{
-        html__MODULE_ID__+="<table><tr><th>Date</th><th>Name</th><th>Age</th></tr>";
+        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th>Name</th><th>Age</th></tr>";
         for(var i=0; i<displayArray.length; i++){
           var age="";
           if(displayArray[i][0].length>5){
