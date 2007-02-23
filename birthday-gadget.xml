@@ -4,7 +4,7 @@
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
-<UserPref name="birthdays" display_name="Add Birthdays" datatype="list" required="true" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="birthdays" display_name="Add Birthdays" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
 <UserPref name="showBDay" display_name="Visible Birthdays" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
@@ -133,7 +133,8 @@
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
         var birthdaysVisible=0;
         var tempDate=new Date;
-        for(var i=0; i<prefs__MODULE_ID__.getInt("warning"); i++){
+        var tempWarning=prefs__MODULE_ID__.getInt("warning");
+        for(var i=0; i<tempWarning; i++){
           if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBD")) break;
           tempDate=tempDate.getTime()+(i*1000*60*60*24);
           iDate=myPad(tempDate.getMonth+1)+"/"+myPad(tempDate.getDate);
