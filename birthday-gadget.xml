@@ -43,12 +43,12 @@
         else return 0;}}
     
     function setup__MODULE_ID__() {
-      var birthdayArray=prefs.getArray("birthdays");
+      var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
       var year=1000*60*60*24*365;
       var displayArray=new Array();
       
       for(var i=0; i<birthdayArray.length; i++){
-        if(i==prefs.getInt("showDays")) break;
+        if(i==prefs__MODULE_ID__.getInt("showDays")) break;
         birthdayArray.sort(sortDate);
         tempSplit=birthdayArray[i].split(";");
         
