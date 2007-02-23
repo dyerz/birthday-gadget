@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="__UP_title__" description="Never miss your friends' birthdays again!" author="Adam">
+<ModulePrefs title="__UP_title__" description="Never miss your friends' birthdays again!" author="Adam" author_email="birthdaygadget@gmail.com">
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
@@ -32,9 +32,11 @@
       padding: 0;
     }
     .bdtable th{
+      font-size: 18px;
       border-bottom: 1px solid #000;
     }
     .bdtable td{
+      font-size: 16px;
       text-align: center;
     }
   </style>
@@ -63,6 +65,28 @@
         if(daya>dayb) return 1;
         else if(daya<dayb) return -1;
         else return 0;}}
+      
+    function formatDate__MODULE_ID__(date){
+      var month=new Array(12);
+        month[0]="Jan";
+        month[1]="Feb";
+        month[2]="Mar";
+        month[3]="Apr";
+        month[4]="May";
+        month[5]="Jun";
+        month[6]="Jul";
+        month[7]="Aug";
+        month[8]="Sep";
+        month[9]="Oct";
+        month[10]="Nov";
+        month[11]="Dec";
+      if(date.length>5) date=date.substr(5);
+      
+      return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));
+      
+    
+    
+    }
     
     function setup__MODULE_ID__() {
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
@@ -107,7 +131,7 @@
             age=Math.floor((d-b)/year);
             if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
             else age+="Y";}
-          html__MODULE_ID__+="<tr><td>"+displayArray[i][0]+"</td><td>"+displayArray[i][1]+"</td><td>"+age+"</td></tr>";}
+          html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[i][0])+"</td><td>"+displayArray[i][1]+"</td><td>"+age+"</td></tr>";}
         html__MODULE_ID__+="</table>";}
         
       
