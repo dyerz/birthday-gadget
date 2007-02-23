@@ -17,7 +17,7 @@
 <Content type="html"><![CDATA[
   <style type="text/css">
     #error__MODULE_ID__{
-      font-size: 12pt;
+      font-size: 12px;
       color: red;
       padding: 8px;
     
