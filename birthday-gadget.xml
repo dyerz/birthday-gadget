@@ -74,7 +74,7 @@
           errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
           continue;}}
         
-      if(displayArray.length==0) error__MODULE_ID__+="No birthdays to display";
+      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display";
       else{
         for(var i=0; i<displayArray.length; i++){
           var age="";
