@@ -132,11 +132,11 @@
       else{
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th style=\"width: 100%;\">Name</th><th>Age</th></tr>";
         var birthdaysVisible=0;
-        var tempDate=new Date;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
         for(var i=0; i<tempWarning; i++){
           if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
-          tempDate=tempDate.setTime(i*1000*60*60*24);
+          var tempDate=new Date;
+          tempDate.setTime(i*1000*60*60*24);
           iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
           for(var j=0; j<displayArray.length; j++){
             jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
