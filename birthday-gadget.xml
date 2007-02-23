@@ -4,15 +4,81 @@
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Never Forget" />
-<UserPref name="max_add" default_value="5" datatype="hidden" /> 
+<UserPref name="showDays" display_name="Visible Days" required="false" default_value="7" />
+<UserPref name="max_add" default_value="5" datatype="hidden" />
+<UserPref name="mylist" display_name="Add Birthdays" datatype="list" required="true" /> 
+<UserPref name="names" default_value="" datatype="hidden" />
+<UserPref name="dates" default_value="" datatype="hidden" />
+
 <Content type="html"><![CDATA[
+  <style type="text/css">
+    .nav a:link {
+        text-decoration: underline;
+        color: #7777cc;
+    }
+    .nav a:visited {
+        text-decoration: underline;
+        color: #7777cc;
+    }
+    .nav a:hover {
+        text-decoration: none;
+        color: #7777cc;
+    }
+    .nav a:active {
+        text-decoration: underline;
+        color: #7777cc;
+    }
+
+    .nav {
+        font-size: 12px;
+        color: #7777cc;
+        text-align: right;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+
+  </style>
+
   <script>
     // Track this gadget using Google Analytics.
     _IG_Analytics("UA-310375-4", "/birthday-gadget");
   </script>
 
   <script type="text/javascript">
-    var prefs = new _IG_Prefs(__MODULE_ID__);
+    var prefs__MODULE_ID__ = new _IG_Prefs(__MODULE_ID__);
+    
+    function getDates__MODULE_ID__(){
+      var dateStr=prefs__MODULE_ID__.getString("dates");
+      var nameStr=prefs__MODULE_ID__.getString("names");
+      
+      if(dateStr.length==0) return new Array();
+      
+      var datevals=dateStr.split(';');
+      var namevals=nameStr.split(';');
+      var birthdays=new Array();
+      
+      for (var i=0; i<datevals.length; i++) {
+        if (datevals[i].length == 0) { continue; }
+        var date = datevals[i];
+        var name = namevals[i];
+        if (tuple[1].length != 0) {
+          weight = parseFloat(tuple[1]);
+        }
+        birthdays.push([date, weight]);
+      }
+        return birthdays;
+    
+    
+    }
+    
+    function setup__MODULE_ID__(){
+      var dates=getDates__MODULE_ID__();
+      
+      if(dates.length==0) return;
+    
+    
+    }
 
     function remove__MODULE_ID__(num){
       thedate=_gel("setDate"+num+"__MODULE_ID__");
@@ -38,7 +104,7 @@
       if(setLoc.value=="YYYY/MM/DD"){
         setLoc.value="";}
       
-      if(num<prefs.getInt("max_add")){
+      if(num<prefs__MODULE_ID__.getInt("max_add")){
         thebutton=theform.lastChild;
         theform.removeChild(thebutton);
         if(num>0) _gel("setSpan"+(num)+"__MODULE_ID__").style.display="none";
@@ -68,13 +134,21 @@
       }
     }
 
+    function onLoadFunc__MODULE_ID__() {
+      setup__MODULE_ID__();
+    
+      if (need__MODULE_ID__()) { add__MODULE_ID__(); }
+      else { view__MODULE_ID__(); }}
+    
+    _IG_RegisterOnloadHandler(onLoadFunc__MODULE_ID__);
 
   </script>
-  <div id="Nav__MODULE_ID__">
+  <div class="nav" id="Nav__MODULE_ID__">
     <a onClick="view__MODULE_ID__(); return true;" href="#"><span id="sview__MODULE_ID__">view</span></a> |
-    <a onClick="add__MODULE_ID__(); return true;" href="#"><span id="sedit__MODULE_ID__">add</span></a>
+    <a onClick="add__MODULE_ID__(); return true;" href="#"><span id="sedit__MODULE_ID__">add</span></a> |
+    <a onClick="edit__MODULE_ID__(); return true;" href="#"><span id="sedit__MODULE_ID__">add</span></a>
   </div>
-  <div id="Entry__MODULE_ID__">
+  <div id="add__MODULE_ID__">
     <form name="setInfo__MODULE_ID__" id="setInfo__MODULE_ID__">
       <table style="margin: 0; padding: 0;"><tr><th>Birthday</th><th>Name</th></tr><tr>
       <td><input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" maxlength="10" /></td>
