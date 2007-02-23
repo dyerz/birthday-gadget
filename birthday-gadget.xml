@@ -46,7 +46,7 @@
     var html__MODULE_ID__="";
     var today=new Date();
     
-    function sortDate(a,b){
+    function sortDate__MODULE_ID__(a,b){
       tempa=(a.length>5)?a.substr(5):a; tempb=(b.length>5)?b.substr(5):b;
       montha=tempa.substr(0,2); monthb=tempb.substr(0,2);
       daya=tempa.substr(3,2); dayb=tempb.substr(3,2);
@@ -64,8 +64,7 @@
       var displayArray=new Array();
       
       for(var i=0; i<birthdayArray.length; i++){
-        if(i==prefs__MODULE_ID__.getInt("showDays")) break;
-        birthdayArray.sort(sortDate);
+        birthdayArray.sort(sortDate__MODULE_ID__);
         tempSplit=birthdayArray[i].split(";");
         
         if(tempSplit.length==1){
@@ -94,6 +93,7 @@
       else{
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th>Date</th><th>Name</th><th>Age</th></tr>";
         for(var i=0; i<displayArray.length; i++){
+          if(i==prefs__MODULE_ID__.getInt("showDays")) break;
           var age="";
           if(displayArray[i][0].length>5){
             var d = new Date();
