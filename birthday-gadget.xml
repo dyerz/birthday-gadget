@@ -4,39 +4,18 @@
     <Require feature="analytics" /> 
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Never Forget" />
-<UserPref name="showDays" display_name="Visible Days" required="false" default_value="7" />
-<UserPref name="max_add" default_value="5" datatype="hidden" />
-<UserPref name="mylist" display_name="Add Birthdays" datatype="list" required="true" /> 
-<UserPref name="names" default_value="" datatype="hidden" />
-<UserPref name="dates" default_value="" datatype="hidden" />
-
+<UserPref name="birthdays" display_name="Add Birthdays" datatype="list" required="true" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="showDays" display_name="Visible Birthdays" default_value="7" datatype="enum" >
+  <EnumValue value="3" />
+  <EnumValue value="4" />
+  <EnumValue value="5" />
+  <EnumValue value="6" />
+  <EnumValue value="7" />
+  <EnumValue value="10" />
+  <EnumValue value="14" />
+</UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
-    .nav a:link {
-        text-decoration: underline;
-        color: #7777cc;
-    }
-    .nav a:visited {
-        text-decoration: underline;
-        color: #7777cc;
-    }
-    .nav a:hover {
-        text-decoration: none;
-        color: #7777cc;
-    }
-    .nav a:active {
-        text-decoration: underline;
-        color: #7777cc;
-    }
-
-    .nav {
-        font-size: 12px;
-        color: #7777cc;
-        text-align: right;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
 
   </style>
 
@@ -47,118 +26,79 @@
 
   <script type="text/javascript">
     var prefs__MODULE_ID__ = new _IG_Prefs(__MODULE_ID__);
+    var errorStr__MODULE_ID__="";
+    var html__MODULE_ID__="<table><tr><th>Date</th><th>Name</th><th>Age</th></tr>";
+    var today=new Date();
     
-    function getDates__MODULE_ID__(){
-      var dateStr=prefs__MODULE_ID__.getString("dates");
-      var nameStr=prefs__MODULE_ID__.getString("names");
+    function sortDate(a,b){
+      tempa=(a.length>5)?a.substr(5):a; tempb=(b.length>5)?b.substr(5):b;
+      montha=tempa.substr(0,2); monthb=tempb.substr(0,2);
+      daya=tempa.substr(3,2); dayb=tempb.substr(3,2);
       
-      if(dateStr.length==0) return new Array();
-      
-      var datevals=dateStr.split(';');
-      var namevals=nameStr.split(';');
-      var birthdays=new Array();
-      
-      for (var i=0; i<datevals.length; i++) {
-        if (datevals[i].length == 0) { continue; }
-        var date = datevals[i];
-        var name = namevals[i];
-        if (tuple[1].length != 0) {
-          weight = parseFloat(tuple[1]);
-        }
-        birthdays.push([date, weight]);
-      }
-        return birthdays;
+      if(montha>monthb) return 1;
+      else if(montha<monthb) return -1;
+      else {
+        if(daya>dayb) return 1;
+        else if(daya<dayb) return -1;
+        else return 0;}}
     
-    
-    }
-    
-    function setup__MODULE_ID__(){
-      var dates=getDates__MODULE_ID__();
+    function setup__MODULE_ID__() {
+      var birthdayArray=prefs.getArray("birthdays");
+      var year=1000*60*60*24*365;
+      var displayArray=new Array();
       
-      if(dates.length==0) return;
-    
-    
-    }
-
-    function remove__MODULE_ID__(num){
-      thedate=_gel("setDate"+num+"__MODULE_ID__");
-      thename=_gel("setName"+num+"__MODULE_ID__");
-      thespan=_gel("setSpan"+num+"__MODULE_ID__");
-      theform=_gel("setInfo__MODULE_ID__");
-      thebr=thespan.nextSibling;
-      theform.removeChild(thedate);
-      theform.removeChild(thename);
-      theform.removeChild(thespan);
-      theform.removeChild(thebr);
-      if(num>1) test=_gel("setDate"+(num-1)+"__MODULE_ID__");
-      else test=theform.firstChild.nextSibling;
-      test.onclick=function(){setVars__MODULE_ID__(num-1);}
-      if(num-1>0) _gel("setSpan"+(num-1)+"__MODULE_ID__").style.display="";}
-    
-    function setVars__MODULE_ID__(num){
-      theform=_gel("setInfo__MODULE_ID__");
-      setLoc=theform.elements[num*2];
-      setLoc.onclick="";
-      
-      
-      if(setLoc.value=="YYYY/MM/DD"){
-        setLoc.value="";}
-      
-      if(num<prefs__MODULE_ID__.getInt("max_add")){
-        thebutton=theform.lastChild;
-        theform.removeChild(thebutton);
-        if(num>0) _gel("setSpan"+(num)+"__MODULE_ID__").style.display="none";
-        thebr=document.createElement("br");
-        thex=document.createElement("span");
-        thex.id="setSpan"+(num + 1)+"__MODULE_ID__";
-        thex.innerHTML=" X ";
-        thex.onclick=function(){remove__MODULE_ID__(num+1);};
-        thespace=document.createTextNode(" ");
-        theDate=document.createElement("input");
-        theDate.setAttribute("value", "YYYY/MM/DD");
-        theDate.setAttribute("id", "setDate"+(num + 1)+"__MODULE_ID__");
-        theDate.setAttribute("name", "setDate"+(num + 1)+"__MODULE_ID__");
-        theDate.setAttribute("size", "11");
-        theDate.setAttribute("maxlength", "10");
-        theDate.onclick=function(){setVars__MODULE_ID__(num+1);};
-        theform.appendChild(theDate);
-        theform.appendChild(thespace);
-        theName=document.createElement("input");
-        theName.setAttribute("id", "setName"+(num + 1)+"__MODULE_ID__");
-        theName.setAttribute("name", "setName"+(num + 1)+"__MODULE_ID__");
-        theform.appendChild(theName);
-        theform.appendChild(thex);
-        theform.appendChild(thebr);
-        theform.appendChild(thebutton);
+      for(var i=0; i<birthdayArray.length; i++){
+        if(i==prefs.getInt("showDays")) break;
+        birthdayArray.sort(sortDate);
+        tempSplit=birthdayArray[i].split(";");
         
-      }
-    }
+        if(tempSplit.length==1){
+          errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" incorrectly split, use a ';' between date and name.<br />";
+          continue;}
+        
+        date=tempSplit[0];
+        name=tempSplit[1];
+        if(date=="YYYY/MM/DD" || date=="MM/DD") continue;
+        
+        if(date.length==5){
+          if(/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray[]=[date, name];
+          else{
+            errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use MM/DD.<br />";
+            continue;}}
+        else if(tempSplit[0].length==10){
+          if(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray[]=[date, name];
+          else{
+            errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD.<br />";
+            continue;}}
+        else{
+          errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
+          continue;}}
+        
+      if(displayArray.length==0) error__MODULE_ID__+="No birthdays to display";
+      else{
+        for(var i=0; i<displayArray.length; i++){
+          var age="";
+          if(displayArray[i][0].length>5){
+            var d = new Date();
+            var b = Date.parse(displayArray[i][0]);
+            age=Math.floor((d-b)/year);}
+          html__MODULE_ID__+="<tr><td>"+displayArray[i][0]+"</td><td>"+displayArray[i][1]+"</td><td>"+age+"</td></tr>";}
+        html__MODULE_ID__+="</table>";}
+        
+      
+      _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
+      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
+      
+      
+      
+      
 
-    function onLoadFunc__MODULE_ID__() {
-      setup__MODULE_ID__();
     
-      if (need__MODULE_ID__()) { add__MODULE_ID__(); }
-      else { view__MODULE_ID__(); }}
-    
-    _IG_RegisterOnloadHandler(onLoadFunc__MODULE_ID__);
+    _IG_RegisterOnloadHandler(setup__MODULE_ID__);
 
   </script>
-  <div class="nav" id="Nav__MODULE_ID__">
-    <a onClick="view__MODULE_ID__(); return true;" href="#"><span id="sview__MODULE_ID__">view</span></a> |
-    <a onClick="add__MODULE_ID__(); return true;" href="#"><span id="sedit__MODULE_ID__">add</span></a> |
-    <a onClick="edit__MODULE_ID__(); return true;" href="#"><span id="sedit__MODULE_ID__">add</span></a>
-  </div>
-  <div id="add__MODULE_ID__">
-    <form name="setInfo__MODULE_ID__" id="setInfo__MODULE_ID__">
-      <table style="margin: 0; padding: 0;"><tr><th>Birthday</th><th>Name</th></tr><tr>
-      <td><input type="text" name="setDate0__MODULE_ID__" value="YYYY/MM/DD" size="11" maxlength="10" /></td>
-      <td style="width: 100%"><input style="width: 100%" type="text" name="setName0__MODULE_ID__" /></td></tr>
-      </table>
-      <div style="text-align: right">
-      <input type="button" name="setAdd__MODULE_ID__" value="Add" onClick="" />
-      </div></form>
-  </div>
-
+  <div id="error__MODULE_ID__"></div>
+  <div id="table__MODULE_ID__"></div>
 
 
 ]]></Content>
