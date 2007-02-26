@@ -143,6 +143,7 @@
           for(var j=0; j<displayArray.length; j++){
             jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
             debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
+            if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
             if(jDate==iDate){
               birthdaysVisible++;
               var age="";
