@@ -59,6 +59,7 @@
   <script type="text/javascript">
     var prefs__MODULE_ID__ = new _IG_Prefs(__MODULE_ID__);
     var errorStr__MODULE_ID__="";
+    var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
     var today=new Date();
     
@@ -140,6 +141,7 @@
           iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
           for(var j=0; j<displayArray.length; j++){
             jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
+            debug+=i+") "+iDate+" --> "+jDate+"<br />";
             if(jDate==iDate){
               birthdaysVisible++;
               var age="";
@@ -157,12 +159,14 @@
         html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getString("warning")+" Days.";}
       
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
+      _gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__;
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
 
   </script>
   <div id="error__MODULE_ID__"></div>
+  <div id="debug__MODULE_ID__"></div>
   <div id="table__MODULE_ID__"></div>
 
 ]]></Content>
