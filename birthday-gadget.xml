@@ -168,6 +168,7 @@
       if(birthdaysVisible==0){
         html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getString("warning")+" Days.";}
       
+      _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
