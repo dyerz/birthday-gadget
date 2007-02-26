@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="__UP_title__" description="Never miss your friends' birthdays again!" author="Adam" author_email="birthdaygadget@gmail.com">
+<ModulePrefs title="__UP_title__"
+  description="Never miss your friends' birthdays again!"
+  author="Adam"
+  author_email="birthdaygadget@gmail.com"
+  height="20">
     <Require feature="analytics" /> 
     <Require feature="dynamic-height"/> 
 </ModulePrefs>
