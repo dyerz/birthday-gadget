@@ -166,6 +166,7 @@
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
+    _IG_AdjustIFrameHeight();
 
   </script>
   <div id="error__MODULE_ID__"></div>
