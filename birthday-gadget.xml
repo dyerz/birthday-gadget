@@ -3,6 +3,7 @@
 <ModulePrefs title="__UP_title__"
   directory_title="Birthday Remindersx"
   description="Never miss your friends' birthdays again!"
+  screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
   author="Adam"
   author_email="birthdaygadget@gmail.com"
   height="40">
