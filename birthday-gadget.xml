@@ -4,6 +4,7 @@
   directory_title="Birthday Reminders"
   description="Never miss your friends' birthdays again!"
   screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
+  thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
   author="Adam"
   author_email="birthdaygadget@gmail.com"
   height="40">
