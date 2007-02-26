@@ -131,7 +131,7 @@
         
       if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";
       else{
-        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 5em;\">Date</th><th style=\"width: 80%;\">Name</th><th>Age</th></tr>";
+        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 6em;\">Date</th><th style=\"width: 80%;\">Name</th><th>Age</th></tr>";
         var birthdaysVisible=0;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
         for(var i=0; i<tempWarning; i++){
