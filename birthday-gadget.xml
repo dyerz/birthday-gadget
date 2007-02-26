@@ -96,7 +96,7 @@
       return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));}
     
     function myPad(num){
-      return (num<10)?" "+num:num;}
+      return (num<10)?"0"+num:num;}
     
     function setup__MODULE_ID__() {
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
