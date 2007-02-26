@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
 <ModulePrefs title="__UP_title__"
+  directory_title="Birthday Remindersx"
   description="Never miss your friends' birthdays again!"
   author="Adam"
   author_email="birthdaygadget@gmail.com"
-  height="20">
+  height="40">
     <Require feature="analytics" /> 
     <Require feature="dynamic-height"/> 
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
-<UserPref name="birthdays" display_name="Add Birthdays" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="birthdays" display_name="Birthdays" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
 <UserPref name="showBDay" display_name="Visible Birthdays" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
