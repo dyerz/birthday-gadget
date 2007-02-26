@@ -160,7 +160,7 @@
         html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getString("warning")+" Days.";}
       
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
-      _gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__;
+      //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
