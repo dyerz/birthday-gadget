@@ -108,6 +108,9 @@
       return (num<10)?"0"+num:num;}
     
     function setMode__MODULE_ID__(mode) {
+      var birthdayString=prefs__MODULE_ID__.getArray("data");
+      html__MODULE_ID__+="<form><textarea>+birthdayString+"</textarea>";
+      html__MODULE_ID__+="<input type=\"submit\" value=\"Update\" /></form>";
 
 }
 
@@ -144,10 +147,11 @@
           continue;}}
         
       if(displayArray.length==0) {
+        setMode("edit");
         errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";}
         
       else{
-        html__MODULE_ID__+="<div class=\"nav\"><a href=\"#\" onClick=\"setMode__MODULE_ID__('Edit')\">Edit Birthdays</a></div>";
+        html__MODULE_ID__+="<div class=\"nav\"><a href=\"#\" onClick=\"setMode__MODULE_ID__('edit')\">Edit Birthdays</a></div>";
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">Date</th><th style=\"width: 80%;\">Name</th><th>Age</th></tr>";
         var birthdaysVisible=0;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
