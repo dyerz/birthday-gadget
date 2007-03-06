@@ -13,6 +13,7 @@
 </ModulePrefs>
 <UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
 <UserPref name="birthdays" display_name="Birthdays" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="data" default_value="" datatype="hidden" />
 <UserPref name="showBDay" display_name="Visible Birthdays" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
@@ -106,8 +107,13 @@
     function myPad(num){
       return (num<10)?"0"+num:num;}
     
+    function setMode__MODULE_ID__(mode) {
+
+}
+
     function setup__MODULE_ID__() {
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
+      var birthdayString=prefs__MODULE_ID__.getArray("data");
       var year=1000*60*60*24*365;
       var displayArray=new Array();
       birthdayArray.sort(sortDate__MODULE_ID__);
@@ -137,8 +143,11 @@
           errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
           continue;}}
         
-      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";
+      if(displayArray.length==0) {
+        errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";}
+        
       else{
+        html__MODULE_ID__+="<div class=\"nav\"><a href=\"#\" onClick=\"setMode__MODULE_ID__('Edit')\">Edit Birthdays</a></div>";
         html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">Date</th><th style=\"width: 80%;\">Name</th><th>Age</th></tr>";
         var birthdaysVisible=0;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
