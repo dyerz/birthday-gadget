@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Recordatorios Del Cumpleaños</msg>
+  <msg name="description">¡Nunca falte los cumpleaños de sus amigos otra vez!</msg>
+  <msg name="title_name">Título</msg>
+  <msg name="birthday_name">Cumpleaños</msg>
+  <msg name="show_name">Cumpleaños Visibles</msg>
+  <msg name="notice_name">Aviso De Días</msg>
+  <msg name="table_date">Fecha</msg>
+  <msg name="table_name">Nombre</msg>
+  <msg name="table_age">Edad</msg>
+  <msg name="no_bd_1">Ningunos cumpleaños que vienen para arriba en los </msg>
+  <msg name="no_bd_2"> días próximos.</msg>
+</messagebundle>

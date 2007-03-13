@@ -12,7 +12,7 @@
     <Require feature="dynamic-height"/> 
 </ModulePrefs>
 <Locale messages="bd_content/bd_en.xml" />
-<Locale lang="" messages="bd_content/bd_en.xml" />
+<Locale lang="es" messages="bd_content/bd_es.xml" />
 <UserPref name="title" display_name="__MSG_title_name__" required="false" default_value="__MSG_title__" />
 <UserPref name="birthdays" display_name="__MSG_birthday_name__" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
 <UserPref name="showBDay" display_name="__MSG_show_name__" default_value="5" datatype="enum" >
