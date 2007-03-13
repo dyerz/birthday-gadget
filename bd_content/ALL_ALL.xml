@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Birthday Reminders</msg>
+  <msg name="description">Never miss your friends' birthdays again!</msg>
+  <msg name="titleName">Title</msg>
+  <msg name="birthdayName">Birthdays</msg>
+  <msg name="showName">Visible Birthdays</msg>
+  <msg name="noticeName">Days Notice</msg>
+  <msg name="tableDate">Date</msg>
+  <msg name="tableName">Name</msg>
+  <msg name="tableAge">Age</msg>
+  <msg name="none">No birthdays to display, please Edit Settings above to add the birthdays you want to remember.</msg>
+  <msg name="nobd1">No birthdays coming up in the next </msg>
+  <msg name="nobd2"> Days.</msg>
+</messagebundle>

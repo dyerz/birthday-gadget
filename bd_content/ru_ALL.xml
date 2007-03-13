@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Памятки Дня рождения</msg>
+  <msg name="description">Никогда не пропускайте дни рождения ваших друзей снова!</msg>
+  <msg name="titleName">Заголовок</msg>
+  <msg name="birthdayName">Дни рождения</msg>
+  <msg name="showName">Видимые Дни рождения</msg>
+  <msg name="noticeName">Извещение о Дней</msg>
+  <msg name="tableDate">Дата</msg>
+  <msg name="tableName">Имя</msg>
+  <msg name="tableAge">Время</msg>
+  <msg name="none">Никакие дни рождения, котор нужно показать, угодить не редактируют установки выше для того чтобы добавить дни рождения, котор вы хотите вспомнить.</msg>
+  <msg name="nobd1">Отсутствие дней рождения come up в следующих </msg>
+  <msg name="nobd2"> днях.</msg>
+</messagebundle>
