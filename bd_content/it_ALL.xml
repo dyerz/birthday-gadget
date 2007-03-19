@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Ricordi Di Compleanno</msg>
+  <msg name="description">Non manchi mai ancora i compleanni dei vostri amici!</msg>
+  <msg name="titleName">Titolo</msg>
+  <msg name="birthdayName">Compleanni</msg>
+  <msg name="showName">Compleanni Visibili</msg>
+  <msg name="noticeName">Di Giorni di preavviso</msg>
+  <msg name="tableDate">Data</msg>
+  <msg name="tableName">Nome</msg>
+  <msg name="tableAge">Età</msg>
+  <msg name="none">Nessun compleanno da visualizzare, soddisfare pubblica le regolazioni qui sopra per aggiungere i compleanni che desiderate ricordarsi di.</msg>
+  <msg name="nobd1">Nessun compleanni che vengono in su nei </msg>
+  <msg name="nobd2"> giorni prossimi.</msg>
+</messagebundle>
