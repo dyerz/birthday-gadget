@@ -10,6 +10,7 @@
   height="100">
     <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ALL_ALL.xml" />
     <Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
+    <Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
     <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
     <Require feature="analytics" /> 
     <Require feature="dynamic-height" /> 
@@ -169,7 +170,7 @@
         html__MODULE_ID__+="</table>";}
       
       if(birthdaysVisible==0){
-        html__MODULE_ID__="__MSG_nobd1__"+prefs__MODULE_ID__.getString("warning")+"__MSG_nobd2__";}
+        html__MODULE_ID__="__MSG_nobd1__ "+prefs__MODULE_ID__.getString("warning")+" __MSG_nobd2__";}
       
       _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
