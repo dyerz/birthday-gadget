@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Geburtstag-Anzeigen</msg>
+  <msg name="description">Vermissen Sie nie Geburtstage Ihrer Freunde wieder!</msg>
+  <msg name="titleName">Titel</msg>
+  <msg name="birthdayName">Geburtstage</msg>
+  <msg name="showName">Sichtbare Geburtstage</msg>
+  <msg name="noticeName">Tagesnachricht</msg>
+  <msg name="tableDate">Datum</msg>
+  <msg name="tableName">Name</msg>
+  <msg name="tableAge">Alter</msg>
+  <msg name="none">Keine anzuzeigen Geburtstage, zu gefallen redigieren Einstellungen oben, um an die Geburtstage zu addieren, die Sie sich erinnern möchten.</msg>
+  <msg name="nobd1">Keine Geburtstage, die oben an den folgenden </msg>
+  <msg name="nobd2"> Tagen kommen.</msg>
+</messagebundle>
