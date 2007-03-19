@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Rappels D'Anniversaire</msg>
+  <msg name="description">Ne manquez encore jamais les anniversaires de vos amis !</msg>
+  <msg name="titleName">Titre</msg>
+  <msg name="birthdayName">Anniversaires</msg>
+  <msg name="showName">Anniversaires Évidents</msg>
+  <msg name="noticeName">Jours de préavis</msg>
+  <msg name="tableDate">Date</msg>
+  <msg name="tableName">Nom</msg>
+  <msg name="tableAge">Âge</msg>
+  <msg name="none">Anniversaire à montrer, satisfaire n'édite pas des arrangements ci-dessus pour ajouter les anniversaires que vous voulez vous rappeler.</msg>
+  <msg name="nobd1">Aucuns anniversaires étant soulevés en </msg>
+  <msg name="nobd2"> jours suivants.</msg>
+</messagebundle>
