@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
 <ModulePrefs title="__UP_title__"
-  directory_title="Birthday Reminders"
-  description="Never miss your friends' birthdays again!"
+  directory_title="__MSG_title__"
+  description="__MSG_description__"
   screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
   thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
   author="Adam"
   author_email="birthdaygadget@gmail.com"
   height="100">
+    <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ALL_ALL.xml" />
+    <Locale lang="de" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/de_ALL.xml" />
+    <Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
+    <Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
+    <Locale lang="it" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/it_ALL.xml" />
+    <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
     <Require feature="analytics" /> 
-    <Require feature="dynamic-height"/> 
+    <Require feature="dynamic-height" /> 
 </ModulePrefs>
-<UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
-<UserPref name="birthdays" display_name="Birthdays" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
-<UserPref name="showBDay" display_name="Visible Birthdays" default_value="5" datatype="enum" >
+<UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
+<UserPref name="birthdays" display_name="__MSG_birthdayName__" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="showBDay" display_name="__MSG_showName__" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
   <EnumValue value="3" />
@@ -25,7 +31,7 @@
   <EnumValue value="9" />
   <EnumValue value="10" />
 </UserPref>
-<UserPref name="warning" display_name="Days Notice" default_value="7" datatype="enum" >
+<UserPref name="warning" display_name="__MSG_noticeName__" default_value="7" datatype="enum" >
   <EnumValue value="3" />
   <EnumValue value="7" />
   <EnumValue value="10" />
@@ -137,9 +143,9 @@
           errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
           continue;}}
         
-      if(displayArray.length==0) errorStr__MODULE_ID__+="No birthdays to display, please Edit Settings above to add the birthdays you want to remember.";
+      if(displayArray.length==0) errorStr__MODULE_ID__+="__MSG_none__";
       else{
-        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">Date</th><th style=\"width: 80%;\">Name</th><th>Age</th></tr>";
+        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
         var birthdaysVisible=0;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
         for(var i=0; i<tempWarning; i++){
@@ -166,7 +172,7 @@
         html__MODULE_ID__+="</table>";}
       
       if(birthdaysVisible==0){
-        html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getString("warning")+" Days.";}
+        html__MODULE_ID__="__MSG_nobd1__ "+prefs__MODULE_ID__.getString("warning")+" __MSG_nobd2__";}
       
       _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
