@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">생일 신호</msg>
+  <msg name="description">결코 너의 친구 생일을 다시 놓치지 말라!</msg>
+  <msg name="titleName">제목</msg>
+  <msg name="birthdayName">생일</msg>
+  <msg name="showName">보이는 생일</msg>
+  <msg name="noticeName">일 고시</msg>
+  <msg name="tableDate">날짜</msg>
+  <msg name="tableName">이름</msg>
+  <msg name="tableAge">나이</msg>
+  <msg name="none">너가 생각하고 싶는 생일을 추가하기 위하여 보일 것이다 생일은, 만족시키기 위하여 조정을 의 위에 편집하지 않는다.</msg>
+  <msg name="nobd1">다음 </msg>
+  <msg name="nobd2"> 일안에 오르는 생일.</msg>
+</messagebundle>

@@ -11,5 +11,5 @@
   <msg name="tableAge">Age</msg>
   <msg name="none">No birthdays to display, please Edit Settings above to add the birthdays you want to remember.</msg>
   <msg name="nobd1">No birthdays coming up in the next </msg>
-  <msg name="nobd2"> Days.</msg>
+  <msg name="nobd2"> days.</msg>
 </messagebundle>
