@@ -12,4 +12,16 @@
   <msg name="none">Никакие дни рождения, котор нужно показать, угодить не редактируют установки выше для того чтобы добавить дни рождения, котор вы хотите вспомнить.</msg>
   <msg name="nobd1">Отсутствие дней рождения come up в следующих </msg>
   <msg name="nobd2"> днях.</msg>
+  <msg name="ajan">ianv.</msg>
+  <msg name="afeb">fev.</msg>
+  <msg name="amar">mart</msg>
+  <msg name="aapr">apr.</msg>
+  <msg name="amay">mai</msg>
+  <msg name="ajun">iiun</msg>
+  <msg name="ajul">iiul</msg>
+  <msg name="aaug">avg.</msg>
+  <msg name="asep">sent.</msg>
+  <msg name="aoct">okt.</msg>
+  <msg name="anov">noiabr</msg>
+  <msg name="adec">dek.</msg>
 </messagebundle>

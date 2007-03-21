@@ -12,4 +12,16 @@
   <msg name="none">Ningunos cumpleaños a exhibir, satisfacer corrigen ajustes arriba para agregar los cumpleaños que usted desea recordar.</msg>
   <msg name="nobd1">Ningunos cumpleaños que vienen para arriba en los </msg>
   <msg name="nobd2"> días próximos.</msg>
+  <msg name="ajan">enero</msg>
+  <msg name="afeb">feb.</msg>
+  <msg name="amar">marzo</msg>
+  <msg name="aapr">abr.</msg>
+  <msg name="amay">mayo</msg>
+  <msg name="ajun">jun.</msg>
+  <msg name="ajul">jul.</msg>
+  <msg name="aaug">agosto</msg>
+  <msg name="asep">sept.</msg>
+  <msg name="aoct">oct.</msg>
+  <msg name="anov">nov.</msg>
+  <msg name="adec">dic.</msg>
 </messagebundle>

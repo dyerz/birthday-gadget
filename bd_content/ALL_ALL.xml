@@ -12,4 +12,16 @@
   <msg name="none">No birthdays to display, please Edit Settings above to add the birthdays you want to remember.</msg>
   <msg name="nobd1">No birthdays coming up in the next </msg>
   <msg name="nobd2"> days.</msg>
+  <msg name="ajan">Jan.</msg>
+  <msg name="afeb">Feb.</msg>
+  <msg name="amar">Mar.</msg>
+  <msg name="aapr">Apr.</msg>
+  <msg name="amay">May</msg>
+  <msg name="ajun">June</msg>
+  <msg name="ajul">July</msg>
+  <msg name="aaug">Aug.</msg>
+  <msg name="asep">Sept.</msg>
+  <msg name="aoct">Oct.</msg>
+  <msg name="anov">Nov.</msg>
+  <msg name="adec">Dec.</msg>
 </messagebundle>

@@ -12,4 +12,16 @@
   <msg name="none">너가 생각하고 싶는 생일을 추가하기 위하여 보일 것이다 생일은, 만족시키기 위하여 조정을 의 위에 편집하지 않는다.</msg>
   <msg name="nobd1">다음 </msg>
   <msg name="nobd2"> 일안에 오르는 생일.</msg>
+  <msg name="ajan">1월</msg>
+  <msg name="afeb">2월</msg>
+  <msg name="amar">3월</msg>
+  <msg name="aapr">4월</msg>
+  <msg name="amay">5월</msg>
+  <msg name="ajun">6월</msg>
+  <msg name="ajul">7월</msg>
+  <msg name="aaug">8월</msg>
+  <msg name="asep">9월</msg>
+  <msg name="aoct">10월</msg>
+  <msg name="anov">11월</msg>
+  <msg name="adec">12월</msg>
 </messagebundle>

@@ -12,4 +12,16 @@
   <msg name="none">Anniversaire à montrer, satisfaire n'édite pas des arrangements ci-dessus pour ajouter les anniversaires que vous voulez vous rappeler.</msg>
   <msg name="nobd1">Aucuns anniversaires étant soulevés en </msg>
   <msg name="nobd2"> jours suivants.</msg>
+  <msg name="ajan">janv.</msg>
+  <msg name="afeb">fevr.</msg>
+  <msg name="amar">mars</msg>
+  <msg name="aapr">avril</msg>
+  <msg name="amay">mai</msg>
+  <msg name="ajun">juin</msg>
+  <msg name="ajul">juil.</msg>
+  <msg name="aaug">août</msg>
+  <msg name="asep">sept.</msg>
+  <msg name="aoct">oct.</msg>
+  <msg name="anov">nov.</msg>
+  <msg name="adec">déc.</msg>
 </messagebundle>
