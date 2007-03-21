@@ -13,6 +13,7 @@
     <Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
     <Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
     <Locale lang="it" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/it_ALL.xml" />
+    <Locale lang="ko" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ko_ALL.xml" />
     <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
     <Require feature="analytics" /> 
     <Require feature="dynamic-height" /> 
@@ -93,18 +94,18 @@
       
     function formatDate__MODULE_ID__(date){
       var month=new Array(12);
-        month[0]="Jan";
-        month[1]="Feb";
-        month[2]="Mar";
-        month[3]="Apr";
-        month[4]="May";
-        month[5]="Jun";
-        month[6]="Jul";
-        month[7]="Aug";
-        month[8]="Sep";
-        month[9]="Oct";
-        month[10]="Nov";
-        month[11]="Dec";
+        month[0]="__MSG_ajan__";
+        month[1]="__MSG_afeb__";
+        month[2]="__MSG_amar__";
+        month[3]="__MSG_aapr__";
+        month[4]="__MSG_amay__";
+        month[5]="__MSG_ajun__";
+        month[6]="__MSG_ajul__";
+        month[7]="__MSG_aaug__";
+        month[8]="__MSG_asep__";
+        month[9]="__MSG_aoct__";
+        month[10]="__MSG_anov__";
+        month[11]="__MSG_adec__";
       if(date.length>5) date=date.substr(5);
       
       return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));}
