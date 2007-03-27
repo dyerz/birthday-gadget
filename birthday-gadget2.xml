@@ -83,7 +83,7 @@
     var errorStr__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
-    var quick__MODULE_ID__="<a href=\"\">Quick Mode</a>";
+    var quick__MODULE_ID__="<a href=\"#\" onClick=\"quickmode__MODULE_ID__();\">Quick Mode</a>";
     var today=new Date();
     
     function sortDate__MODULE_ID__(a,b){
@@ -126,9 +126,10 @@
       prefs.set("birthdays", newArray);
       
       _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
-      setup__MODULE_ID__("noreloaded");}
+      setup__MODULE_ID__("noreload");}
     
     function quickmode__MODULE_ID(){
+      quick__MODULE_ID__="<a href=\"#\" onClick=\"setup__MODULE_ID__();\">Back</a>";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
       var mainString=mainString.replace(/\|/g; "\n");
@@ -139,6 +140,8 @@
       html__MODULE_ID__+="<form id=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\"id=\"updateTextarea__MODULE_ID__\">";+mainString+"</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Update\" onClick=\"update__MODULE_ID__();\" onKeyPress=\"update__MODULE_ID__();\" /></form>";
+    
+      showAll__MODULE_ID__();
     }
     
     
@@ -204,10 +207,14 @@
         html__MODULE_ID__="__MSG_nobd1__ "+prefs__MODULE_ID__.getString("warning")+" __MSG_nobd2__";}
       
       if(loadStatus!="") _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
+      showAll__MODULE_ID__();}
+
+    function showAll__MODULE_ID__(){
       _gel("quick__MODULE_ID__").innerHTML=quickStr__MODULE_ID__;
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
+
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
     _IG_AdjustIFrameHeight();
