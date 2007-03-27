@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title></title>
+  <script text="text/javascript">
+    var myarray="123;123|123;123|123;123|123;123|123;123|123;123|123;123|123;123|123;123";
+    
+    function addarray(){
+      var textstr="";
+      var lines=myarray.split("|");
+      
+      for(var i=0; i<lines.length; i++){
+        textstr+=lines[i]+"\n";
+      }
+      var lines2=myarray.replace(/\|/g, "\n");
+
+      var numLines=lines.length+1;
+      var maxLines=15;
+      var finalLines=(numLines>maxLines)?maxLines:numLines;
+
+      document.form1.textarea1.rows=finalLines;
+      document.form1.textarea1.value=textstr;
+      document.form1.textarea2.value=lines2;}
+      
+    function savearray(){
+      var newstr=document.form1.textarea1.value;
+      var test1=newstr.replace(/\n/g, "|");
+      document.getElementById("test1").innerHTML=test1;
+      
+      var textstr="";
+      var lines=myarray.split("\n");
+      for(var i=0; i<lines.length; i++){
+        textstr+=lines[i];
+        if(i!=lines.length-1) textstr+="|";
+      
+      }
+      
+       document.getElementById("test2").innerHTML=textstr;
+   
+    myarray=test1;
+    
+    }
+  </script>
+  </head>
+  <body onload="addarray()">
+<a href="#" onClick="addarray()">Add Array</a>
+<form name="form1" onSubmit="savearray()">
+<div style="width: 50%;"><textarea style="width: 100%;" rows="10" name="textarea1"></textarea></div>
+<textarea rows="10" cols="10" name="textarea2"></textarea>
+<input type="button" value="Save" onClick="savearray()" onKeyPress="savearray()" />
+</form>
+<a href="#" onClick="savearray()">Save Array</a>
+
+<div id="test1"></div>
+<div id="test2"></div>
+  </body>
+</html>

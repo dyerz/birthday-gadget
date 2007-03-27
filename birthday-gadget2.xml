@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
 <ModulePrefs title="__UP_title__"
-  directory_title="Birthday Reminders"
-  description="Never miss your friends' birthdays again!"
+  directory_title="__MSG_title__"
+  description="__MSG_description__"
   screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
   thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
   author="Adam"
   author_email="birthdaygadget@gmail.com"
-  height="200">
+  height="100">
+    <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ALL_ALL.xml" />
+    <Locale lang="de" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/de_ALL.xml" />
+    <Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
+    <Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
+    <Locale lang="it" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/it_ALL.xml" />
+    <Locale lang="ko" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ko_ALL.xml" />
+    <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
     <Require feature="analytics" /> 
-    <Require feature="dynamic-height"/> 
-    <Require feature="setprefs" />
+    <Require feature="dynamic-height" />
+    <Require feature="setprefs"/>
 </ModulePrefs>
-<UserPref name="title" display_name="Title" required="false" default_value="Birthday Reminder" />
-<UserPref name="birthdays" display_name="Birthdays" datatype="list" default_value="" /> 
-<UserPref name="data" default_value="" datatype="hidden" />
-<UserPref name="showBDay" display_name="Visible Birthdays" default_value="5" datatype="enum" >
+<UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
+<UserPref name="birthdays" display_name="__MSG_birthdayName__" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="showBDay" display_name="__MSG_showName__" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
   <EnumValue value="3" />
@@ -27,7 +33,7 @@
   <EnumValue value="9" />
   <EnumValue value="10" />
 </UserPref>
-<UserPref name="warning" display_name="Days Notice" default_value="7" datatype="enum" >
+<UserPref name="warning" display_name="__MSG_noticeName__" default_value="7" datatype="enum" >
   <EnumValue value="3" />
   <EnumValue value="7" />
   <EnumValue value="10" />
@@ -36,11 +42,17 @@
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
+    #quick__MODULE_ID__{
+      font-size: 8px;
+      text-align: right;
+      width: 100%;
+    
+    }
+  
     #error__MODULE_ID__{
       font-size: 12px;
       color: red;
       padding: 8px;
-    
     }
   
     #table__MODULE_ID__{
@@ -71,9 +83,8 @@
     var errorStr__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
-    var nav__MODULE_ID__="";
+    var quick__MODULE_ID__="<a href=\"\">Quick Mode</a>";
     var today=new Date();
-    var displayArray__MODULE_ID__=new Array();
     
     function sortDate__MODULE_ID__(a,b){
       splita=a.split(";"); splitb=b.split(";");
@@ -91,85 +102,79 @@
       
     function formatDate__MODULE_ID__(date){
       var month=new Array(12);
-        month[0]="Jan";
-        month[1]="Feb";
-        month[2]="Mar";
-        month[3]="Apr";
-        month[4]="May";
-        month[5]="Jun";
-        month[6]="Jul";
-        month[7]="Aug";
-        month[8]="Sep";
-        month[9]="Oct";
-        month[10]="Nov";
-        month[11]="Dec";
+        month[0]="__MSG_ajan__";
+        month[1]="__MSG_afeb__";
+        month[2]="__MSG_amar__";
+        month[3]="__MSG_aapr__";
+        month[4]="__MSG_amay__";
+        month[5]="__MSG_ajun__";
+        month[6]="__MSG_ajul__";
+        month[7]="__MSG_aaug__";
+        month[8]="__MSG_asep__";
+        month[9]="__MSG_aoct__";
+        month[10]="__MSG_anov__";
+        month[11]="__MSG_adec__";
       if(date.length>5) date=date.substr(5);
       
       return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));}
     
     function myPad(num){
       return (num<10)?"0"+num:num;}
-
-    function testInStr(tempStr){
-      tempSplit=tempStr.split(";");
       
-      if(tempSplit.length==1){
-        errorStr__MODULE_ID__+="Error: "+tempStr+" incorrectly split, use a ';' between date and name.<br />";
-        return;}
+    function update__MODULE_ID__(){
+      var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
+      prefs.set("birthdays", newArray);
       
-      date=tempSplit[0];
-      name=tempSplit[1];
-      if(date=="YYYY/MM/DD" || date=="MM/DD") return;
-      
-      if(date.length==5){
-        if(/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray__MODULE_ID__.push(Array(date, name));
-        else{
-          errorStr__MODULE_ID__+="Error: "+tempStr+" date is not formatted correctly, use MM/DD.<br />";
-          return;}}
-      else if(tempSplit[0].length==10){
-        if(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray__MODULE_ID__.push(Array(date, name));
-        else{
-          errorStr__MODULE_ID__+="Error: "+tempStr+" date is not formatted correctly, use YYYY/MM/DD.<br />";
-          return;}}
-      else{
-        errorStr__MODULE_ID__+="Error: "+tempStr+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
-        return;}}
+      setup__MODULE_ID__();}
     
-    function updateData__MODULE_ID__(){
-      var textInStr=document.dataForm__MODULE_ID__.dataText__MODULE_ID__.value;
-      textInArr=textInStr.split("\n");
-      errorStr__MODULE_ID__="";
-      for(var i=0; i<textInArr.length; i++){
-        if(textInArr[i].length>0){
-          testInStr(textInArr[i]);}}
-      theOldString=prefs__MODULE_ID__.getString("data");
-
-      alert(displayArray__MODULE_ID__);
-      if(errorStr__MODULE_ID__.length>0) setMode__MODULE_ID__("edit", textInStr);
-      else setMode__MODULE_ID__("view", "");
+    function quickmode__MODULE_ID(){
+      var mainString=prefs__MODULE_ID__.getString("birthdays");
+      var numLines=mainString.split("\n").length+1;
+      var mainString=mainString.replace(/\|/g; "\n");
+      var maxLines=15;
+      var finalLines=(numLines>maxLines)?maxLines:numLines;
+    
+      html__MODULE_ID__="<p style=\"font-weight: bold;\">One Birthday per line.</p>";
+      html__MODULE_ID__+="<form id=\"updateForm__MODULE_ID__\">";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\"id=\"updateTextarea__MODULE_ID__\">";+mainString+"</textarea>";
+      html__MODULE_ID__+="<input type=\"button\" value=\"Update\" onClick=\"update__MODULE_ID__();\" onKeyPress=\"update__MODULE_ID__();\" /></form>";
     }
-
-    function clearme(theElement){
-      original="YYYY/MM/DD;Name\nMM/DD;Name\n";
-      if(theElement.value==original) theElement.value="";}
-
-    function setMode__MODULE_ID__(mode, extraData){
-      html__MODULE_ID__="";
-      nav__MODULE_ID__="";
-      if(mode=="edit"){
-        var birthdayString=prefs__MODULE_ID__.getString("data");
-        debug__MODULE_ID__=birthdayString;
-        if(birthdayString.length==0) birthdayString="YYYY/MM/DD;Name\nMM/DD;Name\n";
-        else nav__MODULE_ID__+="<a href=\"#\" onClick=\"setMode__MODULE_ID__('view');\">Back</a>";
-        textAreaValue=(extraData!="")?extraData:birthdayString; 
-        html__MODULE_ID__+="<form name=\"dataForm__MODULE_ID__\" onSubmit=\"updateData__MODULE_ID__();\">";
-        html__MODULE_ID__+="<textarea name=\"dataText__MODULE_ID__\" rows=\"5\" cols=\"25\" onFocus=\"clearme(this);\">"+textAreaValue+"</textarea>";
-        html__MODULE_ID__+="<br /><input type=\"submit\" value=\"Set Birthdays\" onClick=\"\"/></form>";
-        }
-      else if(mode=="view"){
-        var year=1000*60*60*24*365;
-        nav__MODULE_ID__+="<a href=\"#\" onClick=\"setMode__MODULE_ID__('edit');\">Edit Birthdays</a>";
-        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">Date</th><th style=\"width: 80%;\">Name</th><th>Age</th></tr>";
+    
+    
+    function setup__MODULE_ID__() {
+      var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
+      var year=1000*60*60*24*365;
+      var displayArray=new Array();
+      birthdayArray.sort(sortDate__MODULE_ID__);
+      
+      for(var i=0; i<birthdayArray.length; i++){
+        tempSplit=birthdayArray[i].split(";");
+        
+        if(tempSplit.length==1){
+          errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" incorrectly split, use a ';' between date and name.<br />";
+          continue;}
+        
+        date=tempSplit[0];
+        name=tempSplit[1];
+        if(date=="YYYY/MM/DD" || date=="MM/DD") continue;
+        
+        if(date.length==5){
+          if(/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray.push(Array(date, name));
+          else{
+            errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use MM/DD.<br />";
+            continue;}}
+        else if(tempSplit[0].length==10){
+          if(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray.push(Array(date, name));
+          else{
+            errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD.<br />";
+            continue;}}
+        else{
+          errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
+          continue;}}
+        
+      if(displayArray.length==0) errorStr__MODULE_ID__+="__MSG_none__";
+      else{
+        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
         var birthdaysVisible=0;
         var tempWarning=prefs__MODULE_ID__.getInt("warning");
         for(var i=0; i<tempWarning; i++){
@@ -178,78 +183,36 @@
           var millisec=tempDate.getTime();
           tempDate.setTime(millisec+i*1000*60*60*24);
           iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
-          for(var j=0; j<displayArray__MODULE_ID__.length; j++){
-            jDate=(displayArray__MODULE_ID__[j][0].length>5)?displayArray__MODULE_ID__[j][0].substr(5):displayArray__MODULE_ID__[j][0];
-            //debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
+          for(var j=0; j<displayArray.length; j++){
+            jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
+            debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
             if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
             if(jDate==iDate){
               birthdaysVisible++;
               var age="";
-              if(displayArray__MODULE_ID__[j][0].length>5){
+              if(displayArray[j][0].length>5){
                 var d = new Date();
-                var b = Date.parse(displayArray__MODULE_ID__[j][0]);
+                var b = Date.parse(displayArray[j][0]);
                 age=Math.floor((d-b)/year);
-                if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
-                else age+="Y";}
-              html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray__MODULE_ID__[j][0]);
-              html__MODULE_ID__+="</td><td>"+displayArray__MODULE_ID__[j][1]+"</td><td>"+age+"</td></tr>";}}}
-        html__MODULE_ID__+="</table>";
+                if(age==0) age=Math.floor(((d-b)/year)*12)+"M";}
+              html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
+              html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
+        html__MODULE_ID__+="</table>";}
       
       if(birthdaysVisible==0){
-        html__MODULE_ID__="No birthdays coming up in the next "+prefs__MODULE_ID__.getString("warning")+" Days.";}}
-
-      _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
-      _gel("nav__MODULE_ID__").innerHTML=nav__MODULE_ID__;
-      _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
-      _gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
-      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
-        
-    }
-
-    function convertArray__MODULE_ID__(theArray){
-      var theNewString="";
-      for(var i=0; i<theArray.length; i++){
-        if(theArray[i]=="YYYY/MM/DD;Name" || theArray[i]=="MM/DD;Name") continue;
-        else theNewString+="|"+theArray[i];}
-      var theOldString=prefs__MODULE_ID__.getString("data");
-      if(theNewString.length>0){
-        if(theOldString.length>0) theOldString+=theNewString
-        else theOldString=theNewString.substr(1);
-        prefs__MODULE_ID__.set("birthdays", "");
-        prefs__MODULE_ID__.set("data", theOldString);}}
-    
-    function loadString(theString){
-      tempArr=theString.split("|");
-      step2Arr=new Array();
-      for(var i=0; i<tempArr.length; i++){
-        if(tempArr.length>0) step2Arr.push(tempArr[i]);}
-      if(step2Arr.length>0){
-        step2Arr.sort(sortDate__MODULE_ID__);
-        for(var j=0; j<step2Arr.length; j++){
-          testInStr(step2Arr[j]);}}}
-
-    function setup__MODULE_ID__(){
-      var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
-      var birthdayString=prefs__MODULE_ID__.getString("data");
+        html__MODULE_ID__="__MSG_nobd1__ "+prefs__MODULE_ID__.getString("warning")+" __MSG_nobd2__";}
       
-      if(birthdayArray.length>0){
-        convertArray__MODULE_ID__(birthdayArray);
-        birthdayString=prefs__MODULE_ID__.getString("data");}
-      if(birthdayString.length>0) loadString(birthdayString);
-       
-      if(displayArray__MODULE_ID__.length==0) {
-        errorStr__MODULE_ID__+="No birthdays to display, please add the birthdays you want to remember in the space provided below.";
-        setMode__MODULE_ID__("edit", "");}
-      else{
-        setMode__MODULE_ID__("view", "");}
-              
-}
+      _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
+      _gel("quick__MODULE_ID__").innerHTML=quickStr__MODULE_ID__;
+      _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
+      //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
+      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
     _IG_AdjustIFrameHeight();
 
   </script>
-  <div class="nav" id="nav__MODULE_ID__"></div>
+  <div id="quick__MODULE_ID__"></div>
   <div id="error__MODULE_ID__"></div>
   <div id="debug__MODULE_ID__"></div>
   <div id="table__MODULE_ID__"></div>
