@@ -125,7 +125,8 @@
       var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
       prefs.set("birthdays", newArray);
       
-      setup__MODULE_ID__();}
+      _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
+      setup__MODULE_ID__("noreloaded");}
     
     function quickmode__MODULE_ID(){
       var mainString=prefs__MODULE_ID__.getString("birthdays");
@@ -141,7 +142,7 @@
     }
     
     
-    function setup__MODULE_ID__() {
+    function setup__MODULE_ID__(loadStatus="") {
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
       var year=1000*60*60*24*365;
       var displayArray=new Array();
@@ -202,7 +203,7 @@
       if(birthdaysVisible==0){
         html__MODULE_ID__="__MSG_nobd1__ "+prefs__MODULE_ID__.getString("warning")+" __MSG_nobd2__";}
       
-      _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
+      if(loadStatus!="") _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
       _gel("quick__MODULE_ID__").innerHTML=quickStr__MODULE_ID__;
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
