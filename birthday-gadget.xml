@@ -166,8 +166,7 @@
                 var d = new Date();
                 var b = Date.parse(displayArray[j][0]);
                 age=Math.floor((d-b)/year);
-                if(age==0) age=Math.floor(((d-b)/year)*12)+"M";
-                else age+="Y";}
+                if(age==0) age=Math.floor(((d-b)/year)*12)+"M";}
               html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
               html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
         html__MODULE_ID__+="</table>";}
