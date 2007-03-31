@@ -132,7 +132,7 @@
       quick__MODULE_ID__="<a href=\"#\" onClick=\"setup__MODULE_ID__();\">Back</a>";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
-      var mainString=mainString.replace(/\|/g; "\n");
+      var mainString=mainString.replace(/\|/g, "\n");
       var maxLines=15;
       var finalLines=(numLines>maxLines)?maxLines:numLines;
     
@@ -213,11 +213,12 @@
       _gel("quick__MODULE_ID__").innerHTML=quickStr__MODULE_ID__;
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
-      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
+      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
+      _IG_AdjustIFrameHeight();}
 
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
-    _IG_AdjustIFrameHeight();
+
 
   </script>
   <div id="quick__MODULE_ID__"></div>
