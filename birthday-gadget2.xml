@@ -123,6 +123,7 @@
       
     function update__MODULE_ID__(){
       var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
+      newArray=mainString.replace(/\n/g, "|");
       prefs__MODULE_ID__.set("birthdays", newArray);
       
       _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
