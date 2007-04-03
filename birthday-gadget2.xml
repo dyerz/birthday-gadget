@@ -43,7 +43,7 @@
 <Content type="html"><![CDATA[
   <style type="text/css">
     #quick__MODULE_ID__{
-      font-size: 8px;
+      font-size: 10px;
       text-align: right;
       width: 100%;
     
@@ -86,6 +86,10 @@
     var quickStr__MODULE_ID__="";
     var today=new Date();
     
+    
+    String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
+
+    
     function sortDate__MODULE_ID__(a,b){
       splita=a.split(";"); splitb=b.split(";");
       tempa=(splita[0].length>5)?splita[0].substr(5):splita[0];
@@ -123,6 +127,7 @@
       
     function update__MODULE_ID__(){
       var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
+      newArray=newArray.trim();
       newArray=newArray.replace(/\n/g, "|");
       prefs__MODULE_ID__.set("birthdays", newArray);
       
@@ -141,7 +146,7 @@
     
       errorStr__MODULE_ID__="<span style=\"font-weight: bold;\">One Birthday per line.</span>";
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
-      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\">"+mainString+"</textarea>";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Update\" onClick=\"update__MODULE_ID__();\" onKeyPress=\"update__MODULE_ID__();\" /></form>";
     
       showAll__MODULE_ID__();
