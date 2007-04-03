@@ -147,6 +147,8 @@
     
     function setup__MODULE_ID__(loadStatus) {
       if (typeof loadStatus == "undefined") { loadStatus="";}
+      errorStr__MODULE_ID__="";
+      html__MODULE_ID__="";
       
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
       var year=1000*60*60*24*365;
