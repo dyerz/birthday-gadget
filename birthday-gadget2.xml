@@ -20,7 +20,7 @@
     <Require feature="setprefs"/>
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
-<UserPref name="birthdays" display_name="__MSG_birthdayName__" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="birthdays" datatype="hidden" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
 <UserPref name="showBDay" display_name="__MSG_showName__" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
@@ -134,8 +134,10 @@
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
+      var minLines=5;
       var maxLines=15;
       var finalLines=(numLines>maxLines)?maxLines:numLines;
+      var finalLines=(minLines>finalLines)?minLines:finalLines;
     
       errorStr__MODULE_ID__="<span style=\"font-weight: bold;\">One Birthday per line.</span>";
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
