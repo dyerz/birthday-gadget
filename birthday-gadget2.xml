@@ -128,7 +128,7 @@
       _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
       setup__MODULE_ID__("noreload");}
     
-    function quickmode__MODULE_ID(){
+    function quickmode__MODULE_ID__(){
       quickStr__MODULE_ID__="<a href=\"#\" onClick=\"setup__MODULE_ID__();\">Back</a>";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
