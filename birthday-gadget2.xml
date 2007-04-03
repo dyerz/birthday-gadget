@@ -83,7 +83,7 @@
     var errorStr__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
-    var quickStr__MODULE_ID__="<a href=\"#\" onClick=\"quickmode__MODULE_ID__();\">Quick Mode</a>";
+    var quickStr__MODULE_ID__="";
     var today=new Date();
     
     function sortDate__MODULE_ID__(a,b){
@@ -150,6 +150,7 @@
       if (typeof loadStatus == "undefined") { loadStatus="";}
       errorStr__MODULE_ID__="";
       html__MODULE_ID__="";
+      quickStr__MODULE_ID__="<a href=\"#\" onClick=\"quickmode__MODULE_ID__();\">Quick Mode</a>";
       
       var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
       var year=1000*60*60*24*365;
