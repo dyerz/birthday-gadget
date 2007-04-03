@@ -83,7 +83,7 @@
     var errorStr__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
-    var quick__MODULE_ID__="<a href=\"#\" onClick=\"quickmode__MODULE_ID__();\">Quick Mode</a>";
+    var quickStr__MODULE_ID__="<a href=\"#\" onClick=\"quickmode__MODULE_ID__();\">Quick Mode</a>";
     var today=new Date();
     
     function sortDate__MODULE_ID__(a,b){
@@ -129,7 +129,7 @@
       setup__MODULE_ID__("noreload");}
     
     function quickmode__MODULE_ID(){
-      quick__MODULE_ID__="<a href=\"#\" onClick=\"setup__MODULE_ID__();\">Back</a>";
+      quickStr__MODULE_ID__="<a href=\"#\" onClick=\"setup__MODULE_ID__();\">Back</a>";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
