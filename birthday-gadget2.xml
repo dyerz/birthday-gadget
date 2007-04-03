@@ -136,9 +136,9 @@
       var maxLines=15;
       var finalLines=(numLines>maxLines)?maxLines:numLines;
     
-      html__MODULE_ID__="<p style=\"font-weight: bold;\">One Birthday per line.</p>";
+      error__MODULE_ID__="<span style=\"font-weight: bold;\">One Birthday per line.</span>";
       html__MODULE_ID__+="<form id=\"updateForm__MODULE_ID__\">";
-      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\"id=\"updateTextarea__MODULE_ID__\">";+mainString+"</textarea>";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\"id=\"updateTextarea__MODULE_ID__\">"+mainString+"</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Update\" onClick=\"update__MODULE_ID__();\" onKeyPress=\"update__MODULE_ID__();\" /></form>";
     
       showAll__MODULE_ID__();
