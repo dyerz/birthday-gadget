@@ -123,7 +123,7 @@
       
     function update__MODULE_ID__(){
       var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
-      prefs.set("birthdays", newArray);
+      prefs__MODULE_ID__.set("birthdays", newArray);
       
       _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
       setup__MODULE_ID__("noreload");}
@@ -137,7 +137,7 @@
       var finalLines=(numLines>maxLines)?maxLines:numLines;
     
       errorStr__MODULE_ID__="<span style=\"font-weight: bold;\">One Birthday per line.</span>";
-      html__MODULE_ID__+="<form name=\"updateForm__MODULE_ID__\">";
+      html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\">"+mainString+"</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Update\" onClick=\"update__MODULE_ID__();\" onKeyPress=\"update__MODULE_ID__();\" /></form>";
     
