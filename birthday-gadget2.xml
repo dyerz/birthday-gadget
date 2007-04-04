@@ -142,34 +142,42 @@
       var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
       return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
     
-    function sortArrayDate__MODULE_ID__(){
-      if(!saveArray__MODULE_ID__()) return;
-      sortedstr="";
-      sortedarr=myarray.split("|").sort(sortDate__MODULE_ID__);
-      for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
-      myarray=sortedstr.substring(0, modArray__MODULE_ID__.length-1);
-      addarray();}
-    
     function sortName__MODULE_ID__(a, b){
       var aA=a.split(";"); var bA=b.split(";");
       var aM=aA[0].split("/"); var bM=bA[0].split("/");
       var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
       return aA[1]>bA[1]?1:aA[1]<bA[1]?-1:aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:0;}
     
-    function sortArrayName__MODULE_ID__(){
-      if(!saveArray__MODULE_ID__()) return;
+    function sortYear__MODULE_ID__(a, b){
+      var aA=a.split(";"); var bA=b.split(";");
+      var aM=aA[0].split("/"); var bM=bA[0].split("/");
+      var lA=aM.length; var lB=bM.length;
+      if(lA<lB) return -1
+      var ma=lA==2?0:1; var mb=lB==2?0:1; var da=ma+1; var db=mb+1;
+      if(lA==lB && lA==3){ if(aM[0]!=bM[0]) return aM[0]>bM[0]?1:-1}
+      return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+    
+    function sortArray__MODULE_ID__(){
+      if(!save__MODULE_ID__("nosort")) return;
       sortedstr="";
-      sortedarr=myarray.split("|").sort(sortName__MODULE_ID__);
+      switch(document.form1.sort.value){
+        case "Date": sortedarr=myarray.split("|").sort(sortDate__MODULE_ID__); break;
+        case "Name": sortedarr=myarray.split("|").sort(sortName__MODULE_ID__); break;
+        case "Year": sortedarr=myarray.split("|").sort(sortYear__MODULE_ID__); break;}
       for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
-      myarray=sortedstr.substring(0, modArray__MODULE_ID__.length-1);
+      myarray=sortedstr.substring(0, modarray.length-1);
       addarray();}
     
-    function save__MODULE_ID__(){
+
+    
+    function save__MODULE_ID__(special){
+      if(typeof special == "undefined") special="";
       modArray__MODULE_ID__="";
       var newstr=document.form1.textarea1.value.trim();
       if(!testArray__MODULE_ID__(newstr)) return false;
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
       addarray(); //to be converted
+      toggle__MODULE_ID__('On')
       return true;}
 
 
@@ -221,7 +229,7 @@
       if(saved__MODULE_ID__()) setup__MODULE_ID__();
       else if(confirm("All changes will be lost.")) setup__MODULE_ID__();}
 
-    function toggle(direction){
+    function toggle__MODULE_ID__(direction){
       switch(direction){
         case "Off": document.form1.sort.disabled=true; break;
         case "On": document.form1.sort.disabled=false; break;}}
@@ -236,7 +244,7 @@
       var finalLines=numLines>maxLines?maxLines:minLines>numLines?minLines:numLines;
     
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
-      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\">"+mainString+"\n</textarea>";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle('Off')\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
       html__MODULE_ID__+="Sort By: <select name=\"sort\" onChange=\"sortArray()\">";
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
@@ -251,6 +259,7 @@
       clearAll__MODULE_ID__();
       
       displayArray__MODULE_ID__=prefs__MODULE_ID__.getArray("birthdays");
+      displayArray__MODULE_ID__.sort(sortName__MODULE_ID__)
       var year=1000*60*60*24*365;
 
       if(displayArray__MODULE_ID__.length==0) editMode__MODULE_ID__("__MSG_none__");
@@ -269,21 +278,21 @@
         var millisec=tempDate.getTime();
         tempDate.setTime(millisec+i*1000*60*60*24);
         iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
-        for(var j=0; j<displayArray.length; j++){
-          jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
+        for(var j=0; j<displayArray__MODULE_ID__.length; j++){
+          jDate=(displayArray__MODULE_ID__[j][0].length>5)?displayArray__MODULE_ID__[j][0].substr(5):displayArray__MODULE_ID__[j][0];
           debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
           if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
           if(jDate==iDate){
             birthdaysVisible++;
             var age="";
-            if(displayArray[j][0].length>5){
+            if(displayArray__MODULE_ID__[j][0].length>5){
               var d = new Date();
               var b = Date.parse(displayArray[j][0]);
               age=Math.floor((d-b)/year);
               if(age==0) age=Math.floor(((d-b)/year)*12);
               age=age==0?"<1M":age+"M";
-            html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
-            html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
+            html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray__MODULE_ID__[j][0]);
+            html__MODULE_ID__+="</td><td>"+displayArray__MODULE_ID__[j][1]+"</td><td>"+age+"</td></tr>";}}}
       html__MODULE_ID__+="</table>";}
       
       if(birthdaysVisible==0) html__MODULE_ID__="__MSG_nobd1__ "+warning+" __MSG_nobd2__";
