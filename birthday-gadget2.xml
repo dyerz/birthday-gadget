@@ -266,7 +266,7 @@
         var millisec=tempDate.getTime();
         tempDate.setTime(millisec+i*1000*60*60*24);
         iDate=String.leftPad(tempDate.getMonth() + 1, 2, "0")+"/"+String.leftPad(tempDate.getDate(), 2, "0");
-      alert(2);
+      alert(2+displayArray__MODULE_ID__.length);
         for(var j=0; j<displayArray__MODULE_ID__.length; j++){
           jDate=(displayArray__MODULE_ID__[j][0].length>5)?displayArray__MODULE_ID__[j][0].substr(5):displayArray__MODULE_ID__[j][0];
           debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
