@@ -239,8 +239,8 @@
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
       html__MODULE_ID__+="Sort By: <select name=\"sort\" onChange=\"sortArray()\">";
-      html__MODULE_ID__+="<option selected value=\"Date\">Date</option>
-      html__MODULE_ID__+="<option value=\"Name\">Name</option>
+      html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
+      html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select></form>";
 
       showAll__MODULE_ID__();
