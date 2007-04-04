@@ -289,7 +289,7 @@
       error__MODULE_ID__="";
       //debug__MODULE_ID__=""; //debug only
       note__MODULE_ID__="";
-      html__MODULE_ID__"";
+      html__MODULE_ID__="";
       showAll__MODULE_ID__();}
 
     function showAll__MODULE_ID__(){
