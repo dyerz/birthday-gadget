@@ -239,7 +239,7 @@
     function setup__MODULE_ID__() {
       var tempArray=prefs__MODULE_ID__.getString("birthdays");
 
-      if(tempArray.length==0) editMode__MODULE_ID__("__MSG_none__");
+      if(tempArray.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
       tempArray=tempArray.split("|");
       tempArray.sort(sortName__MODULE_ID__);
