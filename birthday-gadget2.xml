@@ -288,7 +288,7 @@
             var age="";
             if(displayArray__MODULE_ID__[j][0].length>5){
               var d = new Date();
-              var b = Date.parse(displayArray[j][0]);
+              var b = Date.parse(displayArray__MODULE_ID__[j][0]);
               age=Math.floor((d-b)/year);
               if(age==0) age=Math.floor(((d-b)/year)*12);
               age=age==0?"<1M":age+"M";
