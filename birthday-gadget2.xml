@@ -261,7 +261,7 @@
 
       tempArray.sort(sortName__MODULE_ID__);
       for(var i=0; i<tempArray.length; i++){
-        displayArray__MODULE_ID__.push(tempArray.split(";"));}
+        displayArray__MODULE_ID__.push(tempArray[i].split(";"));}
 
       displayMode__MODULE_ID__();}
 
