@@ -213,10 +213,10 @@
     function toggle__MODULE_ID__(direction){
       switch(direction){
         case "Off":
-          document.updateForm__MODULE_ID__.save__MODULE_ID__.disabled=false; 
+          document.updateForm__MODULE_ID__.saveButton__MODULE_ID__.disabled=false; 
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=true; saved__MODULE_ID__=false; break;
         case "On":
-          document.updateForm__MODULE_ID__.save__MODULE_ID__.disabled=true; 
+          document.updateForm__MODULE_ID__.saveButton__MODULE_ID__.disabled=true; 
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
     function editMode__MODULE_ID__(passError){
@@ -233,7 +233,7 @@
     
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
-      html__MODULE_ID__+="<input name=\"save__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
+      html__MODULE_ID__+="<input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
       html__MODULE_ID__+=" Sort By: <select name=\"sort__MODULE_ID__\" onChange=\"sortArray__MODULE_ID__()\">";
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
