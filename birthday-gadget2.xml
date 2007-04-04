@@ -285,6 +285,7 @@
       showAll__MODULE_ID__();}
 
     function clearAll__MODULE_ID__(){
+      displayArray__MODULE_ID__="";
       quick__MODULE_ID__="";
       error__MODULE_ID__="";
       debug__MODULE_ID__=""; //debug only
