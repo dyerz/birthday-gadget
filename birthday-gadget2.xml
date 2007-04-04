@@ -185,7 +185,6 @@
       toggle__MODULE_ID__('On')
       return true;}
 
-
     function formatDate__MODULE_ID__(date){
       var month=new Array(12);
         month[0]="__MSG_ajan__";
@@ -237,7 +236,7 @@
     }
         
     function setup__MODULE_ID__() {
-      var tempArray=prefs__MODULE_ID__.getArray("birthdays");
+      var tempArray=prefs__MODULE_ID__.getString("birthdays");
 
       if(tempArray.length==0) editMode__MODULE_ID__("__MSG_none__");
 
@@ -287,15 +286,14 @@
     function clearAll__MODULE_ID__(){
       quick__MODULE_ID__="";
       error__MODULE_ID__="";
-      //debug__MODULE_ID__=""; //debug only
+      debug__MODULE_ID__=""; //debug only
       note__MODULE_ID__="";
-      html__MODULE_ID__="";
-      showAll__MODULE_ID__();}
+      html__MODULE_ID__="";}
 
     function showAll__MODULE_ID__(){
       _gel("quick__MODULE_ID__").innerHTML=quick__MODULE_ID__;
       _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
-      //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
+      _gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
       _gel("note__MODULE_ID__").innerHTML=note__MODULE_ID__;
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
       _IG_AdjustIFrameHeight();}
