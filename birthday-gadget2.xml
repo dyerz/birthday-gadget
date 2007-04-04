@@ -85,11 +85,9 @@
     var html__MODULE_ID__="";
     var quickStr__MODULE_ID__="";
     var today=new Date();
-    
-    
+     
     String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
 
-    
     function sortDate__MODULE_ID__(a,b){
       splita=a.split(";"); splitb=b.split(";");
       tempa=(splita[0].length>5)?splita[0].substr(5):splita[0];
@@ -119,6 +117,8 @@
         month[10]="__MSG_anov__";
         month[11]="__MSG_adec__";
       if(date.length>5) date=date.substr(5);
+      
+      test=parseInt(date.substr(3,2));
       
       return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));}
     
