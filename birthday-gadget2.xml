@@ -243,8 +243,9 @@
       var tempStr=prefs__MODULE_ID__.getString("birthdays");
       if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
-      alert("-1"+tempStr);
+      alert("-1 "+tempStr);
       tempArray=tempStr.split("|");
+      alert("0 "+tempArray.length)
       tempArray.sort(sortName__MODULE_ID__);
       for(var i=0; i<tempArray.length; i++){
         data=tempArray[i].split(";")
