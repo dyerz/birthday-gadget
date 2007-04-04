@@ -213,6 +213,7 @@
         case "On": document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
     function editMode__MODULE_ID__(passError){
+      clearAll__MODULE_ID__();
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
