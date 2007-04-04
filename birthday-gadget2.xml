@@ -252,7 +252,7 @@
       var year=1000*60*60*24*365;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"editMode__MODULE_ID__();\">Quick Edit</a>";
 
-      html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
+      html__MODULE_ID__="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
       var birthdaysVisible=0;
       var warning=prefs__MODULE_ID__.getInt("warning");
       var maxBirthdaysVisible=prefs__MODULE_ID__.getInt("showBDay");
@@ -285,11 +285,11 @@
       showAll__MODULE_ID__();}
 
     function clearAll__MODULE_ID__(){
-      _gel("quick__MODULE_ID__").innerHTML="";
-      _gel("error__MODULE_ID__").innerHTML="";
-      //_gel("debug__MODULE_ID__").innerHTML=""; //debug only
-      _gel("note__MODULE_ID__").innerHTML="";
-      _gel("table__MODULE_ID__").innerHTML="";
+      quick__MODULE_ID__="";
+      error__MODULE_ID__="";
+      //debug__MODULE_ID__=""; //debug only
+      note__MODULE_ID__="";
+      html__MODULE_ID__"";
       showAll__MODULE_ID__();}
 
     function showAll__MODULE_ID__(){
