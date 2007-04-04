@@ -212,9 +212,6 @@
       if(date.length>5) date=date.substr(5);
 
       return month[parseInt(date.substr(0,2), 10)-1]+ " " + parseInt(date.substr(3,2), 10);}
-    
-    function myPad(num){
-      return (num<10)?"0"+num:num;}
       
     function update__MODULE_ID__(){
       var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
@@ -251,21 +248,25 @@
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select></form>";
 
+
+      _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
       showAll__MODULE_ID__();
     }
         
-    function setup__MODULE_ID__(loadStatus) {
-      if(typeof loadStatus == "undefined") loadStatus="";
+    function setup__MODULE_ID__() {
       clearAll__MODULE_ID__();
-      
-      displayArray__MODULE_ID__=prefs__MODULE_ID__.getArray("birthdays");
-      displayArray__MODULE_ID__.sort(sortName__MODULE_ID__)
-      var year=1000*60*60*24*365;
+      var tempArray=prefs__MODULE_ID__.getArray("birthdays");
 
-      if(displayArray__MODULE_ID__.length==0) editMode__MODULE_ID__("__MSG_none__");
+      if(tempArray.length==0) editMode__MODULE_ID__("__MSG_none__");
+
+      tempArray.sort(sortName__MODULE_ID__);
+      for(var i=0; i<tempArray.length; i++){
+        displayArray__MODULE_ID__.push(tempArray.split(";"));}
+
       displayMode__MODULE_ID__();}
 
     function displayMode__MODULE_ID__(){
+      var year=1000*60*60*24*365;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"editMode__MODULE_ID__();\">Quick Edit</a>";
 
       html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
@@ -277,7 +278,7 @@
         var tempDate=new Date;
         var millisec=tempDate.getTime();
         tempDate.setTime(millisec+i*1000*60*60*24);
-        iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
+        iDate=String.leftPad(tempDate.getMonth() + 1, 2, "0")+"/"+String.leftPad(tempDate.getDate(), 2, "0");
         for(var j=0; j<displayArray__MODULE_ID__.length; j++){
           jDate=(displayArray__MODULE_ID__[j][0].length>5)?displayArray__MODULE_ID__[j][0].substr(5):displayArray__MODULE_ID__[j][0];
           debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
@@ -297,7 +298,7 @@
       
       if(birthdaysVisible==0) html__MODULE_ID__="__MSG_nobd1__ "+warning+" __MSG_nobd2__";
       
-      if(loadStatus!="") _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
+      _IG_Analytics("UA-310375-4", "/birthday-gadget/display");
       showAll__MODULE_ID__();}
 
     function clearAll__MODULE_ID__(){
