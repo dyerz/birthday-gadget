@@ -181,6 +181,8 @@
       var newstr=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value.trim();
       if(!testArray__MODULE_ID__(newstr)) return false;
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
+      if(special=="") sortArray__MODULE_ID__();
+      document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");
       prefs__MODULE_ID__.set("birthdays", myarray);
       toggle__MODULE_ID__('On')
       return true;}
