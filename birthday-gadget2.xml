@@ -246,7 +246,7 @@
       alert("-1 "+tempStr);
       tempArray=tempStr.split("|");
       alert("0 "+tempArray.length)
-      tempArray.sort(sortName__MODULE_ID__);
+      tempArray=tempArray.sort(sortName__MODULE_ID__);
       for(var i=0; i<tempArray.length; i++){
         data=tempArray[i].split(";")
         displayArray__MODULE_ID__.push(Array(data[0], data[1]));}
