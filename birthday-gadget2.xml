@@ -159,7 +159,8 @@
       var aA=a.split(";"); var bA=b.split(";");
       var aM=aA[0].split("/"); var bM=bA[0].split("/");
       var lA=aM.length; var lB=bM.length;
-      if(lA<lB) return -1
+      if(lA<lB) return -1;
+      if(lA>lB) return 1;
       var ma=lA==2?0:1; var mb=lB==2?0:1; var da=ma+1; var db=mb+1;
       if(lA==lB && lA==3){ if(aM[0]!=bM[0]) return aM[0]>bM[0]?1:-1}
       return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
