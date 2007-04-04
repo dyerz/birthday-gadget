@@ -237,6 +237,7 @@
         
     function setup__MODULE_ID__() {
       var tempArray=prefs__MODULE_ID__.getString("birthdays");
+      tempArray=tempArray.split("|");
 
       if(tempArray.length==0) editMode__MODULE_ID__("__MSG_none__");
 
