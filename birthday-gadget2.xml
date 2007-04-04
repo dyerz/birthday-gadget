@@ -88,6 +88,7 @@
     var error__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
+    var note__MODULE_ID__="";
     var today=new Date();
     var sError__MODULE_ID__="";
     var modArray__MODULE_ID__="";
@@ -177,7 +178,7 @@
     function save__MODULE_ID__(special){
       if(typeof special == "undefined") special="";
       modArray__MODULE_ID__="";
-      var newstr=document.form1.textarea1.value.trim();
+      var newstr=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value.trim();
       if(!testArray__MODULE_ID__(newstr)) return false;
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
       add__MODULE_ID__();
