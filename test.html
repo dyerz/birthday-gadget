@@ -5,55 +5,148 @@
   <meta name="generator" content="PSPad editor, www.pspad.com">
   <title></title>
   <script text="text/javascript">
+    var origarray="123;123|123;123|123;123|123;123|123;123|123;123|123;123|123;123|123;123";
     var myarray="123;123|123;123|123;123|123;123|123;123|123;123|123;123|123;123|123;123";
+    var backarray="";
+    var specificError="";
+    var modarray="";
+    var sortVisible="Yes";
     
+    String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
+    String.leftPad = function (val, size, ch) {
+      var result = new String(val);
+      if (ch == null) {ch = " ";}
+      while (result.length < size) {result = ch + result;}
+      return result;}
+
+    function loadarray(){
+      if(confirm("All changes will be lost.")) {myarray=origarray; addarray();}}
+
     function addarray(){
       var textstr="";
       var lines=myarray.split("|");
-      
-      for(var i=0; i<lines.length; i++){
-        textstr+=lines[i]+"\n";
-      }
-      var lines2=myarray.replace(/\|/g, "\n");
+      var textstr=myarray.replace(/\|/g, "\n");
 
       var numLines=lines.length+1;
       var maxLines=15;
       var finalLines=(numLines>maxLines)?maxLines:numLines;
 
+      backarray=myarray;
+      document.getElementById("length").innerHTML=textstr.length;
+      document.getElementById("test1").innerHTML=textstr;
       document.form1.textarea1.rows=finalLines;
-      document.form1.textarea1.value=textstr;
-      document.form1.textarea2.value=lines2;}
-      
-    function savearray(){
-      var newstr=document.form1.textarea1.value;
-      var test1=newstr.replace(/\n/g, "|");
-      document.getElementById("test1").innerHTML=test1;
-      
-      var textstr="";
-      var lines=myarray.split("\n");
-      for(var i=0; i<lines.length; i++){
-        textstr+=lines[i];
-        if(i!=lines.length-1) textstr+="|";
-      
-      }
-      
-       document.getElementById("test2").innerHTML=textstr;
-   
-    myarray=test1;
+      document.form1.textarea1.value=textstr;}
     
-    }
+    function errorStr(message){
+      document.getElementById("errorDiv").innerHTML=message+specificError;
+      return false;}
+    
+    function testDate(inputDate){
+      if(inputDate.length<=5){
+        var mDays=new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+        tempSmall=inputDate.split("/");
+        if(tempSmall.length!=2) { specificError+="Date format not supported"; return(false);}
+        intSmallM=parseInt(tempSmall[0], 10); intSmallD=parseInt(tempSmall[1], 10);
+        if(!(intSmallM>=1 && intSmallM<=12)) { specificError+="Incorrect month, date format is MM/DD"; return(false);}
+        if(!(intSmallD>=1 && intSmallD<=mDays[intSmallM-1])) { specificError+="Incorrect day, date format is MM/DD"; return(false);}
+        dateString=String.leftPad(intSmallM, 2, "0")+"/"+String.leftPad(intSmallD, 2, "0");
+        modarray+=dateString+";";
+        return true;}
+      var convertedDate=Date.parse(inputDate);
+      var d=new Date();
+      var todayDate=d.getTime();
+      if(isNaN(convertedDate)){ specificError+="Date format not supported"; return(false);}
+      if(convertedDate>todayDate){ specificError+="Date is in the future"; return(false);}
+      d.setTime(convertedDate);
+      dateString=d.getFullYear()+"/"+String.leftPad(d.getMonth() + 1, 2, "0")+"/"+String.leftPad(d.getDate(), 2, "0");
+      modarray+=dateString+";";
+      return(true);}
+    
+    function testName(inputName){
+      if(inputName.indexOf("|")!=-1){ specificError+="'|' not allowed in name"; return(false);}
+      modarray+=inputName+"|"; return(true);}
+    
+    function testArray(inputText){
+      document.getElementById("errorDiv").innerHTML="";
+      specificError="<br />";
+      var temparr=inputText.split("\n");
+      for(var i=0; i<temparr.length; i++){
+        if(temparr[i].length==0) continue;
+        if(temparr[i].indexOf(";")!=temparr[i].lastIndexOf(";")){
+          specificError+="One ';' per line";
+          return(errorStr("Incorrect format: "+temparr[i]));}
+        tempcombo=temparr[i].split(";");
+        if(!testDate(tempcombo[0])) return(errorStr("Error in line "+(i+1)+": Incorrect Date "+tempcombo[0]));
+        if(!testName(tempcombo[1])) return(errorStr("Error in line "+(i+1)+": Incorrect Name "+tempcombo[1]));}
+      return true;}
+    
+    function sortDate(a, b){
+      var aA=a.split(";"); var bA=b.split(";");
+      var aM=aA[0].split("/"); var bM=bA[0].split("/");
+      var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+      return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+    
+    function sortName(a, b){
+      var aA=a.split(";"); var bA=b.split(";");
+      var aM=aA[0].split("/"); var bM=bA[0].split("/");
+      var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+      return aA[1]>bA[1]?1:aA[1]<bA[1]?-1:aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:0;}
+    
+    function sortYear(a, b){
+      var aA=a.split(";"); var bA=b.split(";");
+      var aM=aA[0].split("/"); var bM=bA[0].split("/");
+      var lA=aM.length; var lB=bM.length;
+      if(lA<lB) return -1
+      var ma=lA==2?0:1; var mb=lB==2?0:1; var da=ma+1; var db=mb+1;
+      if(lA==lB && lA==3){ if(aM[0]!=bM[0]) return aM[0]>bM[0]?1:-1}
+      return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+    
+    function sortArray(){
+      if(!saveArray("nosort")) return;
+      sortedstr="";
+      switch(document.form1.sort.value){
+        case "Date": sortedarr=myarray.split("|").sort(sortDate); break;
+        case "Name": sortedarr=myarray.split("|").sort(sortName); break;
+        case "Year": sortedarr=myarray.split("|").sort(sortYear); break;}
+      for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
+      myarray=sortedstr.substring(0, modarray.length-1);
+      addarray();}
+    
+    function toggle(direction){
+      switch(direction){
+        case "Off":
+          var temp=document.form1.textarea1.value;
+          if(temp==backarray){document.form1.sort.disabled=false; masterSave=true; break;}
+          document.form1.sort.disabled=true; masterSave=false; break;
+        case "On": document.form1.sort.disabled=false; masterSave=true; break;}}
+    
+    function saveArray(special){
+      if(typeof special == "undefined") special="";
+      modarray="";
+      var newstr=document.form1.textarea1.value.trim();
+      if(!testArray(newstr)) return(false);
+      myarray=modarray.substring(0, modarray.length-1);
+      if(special=="") sortArray();
+      addarray();
+      toggle('On')
+      return(true);}
   </script>
   </head>
   <body onload="addarray()">
-<a href="#" onClick="addarray()">Add Array</a>
-<form name="form1" onSubmit="savearray()">
-<div style="width: 50%;"><textarea style="width: 100%;" rows="10" name="textarea1"></textarea></div>
-<textarea rows="10" cols="10" name="textarea2"></textarea>
-<input type="button" value="Save" onClick="savearray()" onKeyPress="savearray()" />
+  <div id="errorDiv"></div>
+<a href="#" onClick="loadarray()">Load Array</a> <a href="#" onClick="addarray()">Add Array</a>
+<form name="form1" onSubmit="saveArray()">
+<div style="width: 50%;"><textarea style="width: 100%;" rows="10" name="textarea1" onKeyUp="toggle('Off')"></textarea></div>
+<input type="button" value="Save" onClick="saveArray()" onKeyPress="saveArray()" />
+Sort By: <select name="sort" onChange="sortArray()">
+<option selected value="Date">Date</option>
+<option value="Name">Name</option>
+<option value="Year">Year</option>
+</select>
 </form>
-<a href="#" onClick="savearray()">Save Array</a>
+<a href="#" onClick="saveArray()">Save Array</a>
 
 <div id="test1"></div>
-<div id="test2"></div>
+<div id="length"></div>
   </body>
 </html>

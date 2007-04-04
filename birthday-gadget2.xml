@@ -46,7 +46,6 @@
       font-size: 10px;
       text-align: right;
       width: 100%;
-    
     }
   
     #error__MODULE_ID__{
@@ -58,50 +57,136 @@
     #table__MODULE_ID__{
       width: 100%;
     }
+    
     .bdtable{
       width: 100%;
       margin: 0;
       padding: 0;
     }
+    
     .bdtable th{
       font-size: 18px;
       border-bottom: 1px solid #000;
     }
+    
     .bdtable td{
       font-size: 16px;
       text-align: center;
     }
   </style>
 
-  <script>
-    // Track this gadget using Google Analytics.
-    _IG_Analytics("UA-310375-4", "/birthday-gadget");
-  </script>
+  <script>_IG_Analytics("UA-310375-4", "/birthday-gadget");</script>
 
   <script type="text/javascript">
-    var prefs__MODULE_ID__ = new _IG_Prefs(__MODULE_ID__);
-    var errorStr__MODULE_ID__="";
+    var prefs__MODULE_ID__=new _IG_Prefs(__MODULE_ID__);
+    var quick__MODULE_ID__="";
+    var error__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
-    var quickStr__MODULE_ID__="";
     var today=new Date();
+    var sError__MODULE_ID__="";
+    var modArray__MODULE_ID__="";
+    var displayArray__MODULE_ID__=new Array();
      
     String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
+    String.leftPad = function (val, size, ch) {
+      var result = new String(val);
+      if (ch == null) {ch = " ";}
+      while (result.length < size) {result = ch + result;}
+      return result;}
 
-    function sortDate__MODULE_ID__(a,b){
-      splita=a.split(";"); splitb=b.split(";");
-      tempa=(splita[0].length>5)?splita[0].substr(5):splita[0];
-      tempb=(splitb[0].length>5)?splitb[0].substr(5):splitb[0];
-      montha=tempa.substr(0,2); monthb=tempb.substr(0,2);
-      daya=tempa.substr(3,2); dayb=tempb.substr(3,2);
-      
-      if(montha>monthb) return 1;
-      else if(montha<monthb) return -1;
-      else {
-        if(daya>dayb) return 1;
-        else if(daya<dayb) return -1;
-        else return 0;}}
-      
+/* NEW CODE ********************************************************* */
+    function errorStr__MODULE_ID__(message){ error__MODULE_ID__=message+sError__MODULE_ID__; return false;}
+    
+    function testDate__MODULE_ID__(inputDate){
+      if(inputDate.length<=5){
+        var mDays=new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+        tempSmall=inputDate.split("/");
+        if(tempSmall.length!=2) { specificError+="Date format not supported"; return false;}
+        intSmallM=parseInt(tempSmall[0], 10); intSmallD=parseInt(tempSmall[1], 10);
+        if(!(intSmallM>=1 && intSmallM<=12)) { specificError+="Incorrect month, date format is MM/DD"; return false;}
+        if(!(intSmallD>=1 && intSmallD<=mDays[intSmallM-1])) { specificError+="Incorrect day, date format is MM/DD"; return false;}
+        dateString=String.leftPad(intSmallM, 2, "0")+"/"+String.leftPad(intSmallD, 2, "0");
+        modArray__MODULE_ID__+=dateString+";";
+        return true;}
+      var convertedDate=Date.parse(inputDate);
+      var d=new Date();
+      var todayDate=d.getTime();
+      if(isNaN(convertedDate)){ sError__MODULE_ID__+="Date format not supported"; return false;}
+      if(convertedDate>todayDate){ sError__MODULE_ID__+="Date is in the future"; return false;}
+      d.setTime(convertedDate);
+      dateString=d.getFullYear()+"/"+String.leftPad(d.getMonth() + 1, 2, "0")+"/"+String.leftPad(d.getDate(), 2, "0");
+      modArray__MODULE_ID__+=dateString+";";
+      return true;}
+    
+    function testName__MODULE_ID__(inputName){
+      if(inputName.indexOf("|")!=-1){ sError__MODULE_ID__+="'|' not allowed in name"; return false;}
+      modArray__MODULE_ID__+=inputName+"|"; return true;}
+    
+    function testArray__MODULE_ID__(inputText){
+      sError__MODULE_ID__="<br />";
+      var arr=inputText.split("\n");
+      for(var i=0; i<arr.length; i++){
+        if(arr[i].length==0) continue;
+        if(arr[i].indexOf(";")!=arr[i].lastIndexOf(";")){
+          sError__MODULE_ID__+="One ';' per line";
+          return(errorStr__MODULE_ID__("Incorrect format: "+arr[i]));}
+        combo=arr[i].split(";");
+        if(!testDate__MODULE_ID__(combo[0])) return(errorStr__MODULE_ID__("Error in line "+(i+1)+": Incorrect Date "+combo[0]));
+        if(!testName__MODULE_ID__(combo[1])) return(errorStr__MODULE_ID__("Error in line "+(i+1)+": Incorrect Name "+combo[1]));}
+      return true;}
+    
+    function sortDate__MODULE_ID__(a, b){
+      var aA=a.split(";"); var bA=b.split(";");
+      var aM=aA[0].split("/"); var bM=bA[0].split("/");
+      var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+      return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+    
+    function sortArrayDate__MODULE_ID__(){
+      if(!saveArray__MODULE_ID__()) return;
+      sortedstr="";
+      sortedarr=myarray.split("|").sort(sortDate__MODULE_ID__);
+      for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
+      myarray=sortedstr.substring(0, modArray__MODULE_ID__.length-1);
+      addarray();}
+    
+    function sortName__MODULE_ID__(a, b){
+      var aA=a.split(";"); var bA=b.split(";");
+      var aM=aA[0].split("/"); var bM=bA[0].split("/");
+      var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+      return aA[1]>bA[1]?1:aA[1]<bA[1]?-1:aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:0;}
+    
+    function sortArrayName__MODULE_ID__(){
+      if(!saveArray__MODULE_ID__()) return;
+      sortedstr="";
+      sortedarr=myarray.split("|").sort(sortName__MODULE_ID__);
+      for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
+      myarray=sortedstr.substring(0, modArray__MODULE_ID__.length-1);
+      addarray();}
+    
+    function save__MODULE_ID__(){
+      modArray__MODULE_ID__="";
+      var newstr=document.form1.textarea1.value.trim();
+      if(!testArray__MODULE_ID__(newstr)) return false;
+      myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
+      addarray(); //to be converted
+      return true;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function formatDate__MODULE_ID__(date){
       var month=new Array(12);
         month[0]="__MSG_ajan__";
@@ -132,97 +217,89 @@
       _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
       setup__MODULE_ID__("noreload");}
     
-    function quickmode__MODULE_ID__(){
-      quickStr__MODULE_ID__="<a href=\"#\" onClick=\"setup__MODULE_ID__();\">Back</a>";
+    function confirm__MODULE_ID__(){
+      if(saved__MODULE_ID__()) setup__MODULE_ID__();
+      else if(confirm("All changes will be lost.")) setup__MODULE_ID__();}
+
+    function toggle(direction){
+      switch(direction){
+        case "Off": document.form1.sort.disabled=true; break;
+        case "On": document.form1.sort.disabled=false; break;}}
+    
+    function editMode__MODULE_ID__(passError){
+      if(typeof passError != "undefined") error__MODULE_ID__=passError;
+      quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
-      var minLines=5;
-      var maxLines=15;
-      var finalLines=(numLines>maxLines)?maxLines:numLines;
-      var finalLines=(minLines>finalLines)?minLines:finalLines;
+      var minLines=5; var maxLines=15;
+      var finalLines=numLines>maxLines?maxLines:minLines>numLines?minLines:numLines;
     
-      errorStr__MODULE_ID__="<span style=\"font-weight: bold;\">One Birthday per line.</span>";
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\">"+mainString+"\n</textarea>";
-      html__MODULE_ID__+="<input type=\"button\" value=\"Update\" onClick=\"update__MODULE_ID__();\" onKeyPress=\"update__MODULE_ID__();\" /></form>";
-    
+      html__MODULE_ID__+="<input type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
+      html__MODULE_ID__+="Sort By: <select name=\"sort\" onChange=\"sortArray()\">";
+      html__MODULE_ID__+="<option selected value=\"Date\">Date</option>
+      html__MODULE_ID__+="<option value=\"Name\">Name</option>
+      html__MODULE_ID__+="<option value=\"Year\">Year</option></select></form>";
+
       showAll__MODULE_ID__();
     }
-    
-    
+        
     function setup__MODULE_ID__(loadStatus) {
-      if (typeof loadStatus == "undefined") { loadStatus="";}
-      errorStr__MODULE_ID__="";
-      html__MODULE_ID__="";
-      quickStr__MODULE_ID__="<a href=\"#\" onClick=\"quickmode__MODULE_ID__();\">Quick Mode</a>";
+      if(typeof loadStatus == "undefined") loadStatus="";
+      clearAll__MODULE_ID__();
       
-      var birthdayArray=prefs__MODULE_ID__.getArray("birthdays");
+      displayArray__MODULE_ID__=prefs__MODULE_ID__.getArray("birthdays");
       var year=1000*60*60*24*365;
-      var displayArray=new Array();
-      birthdayArray.sort(sortDate__MODULE_ID__);
-      
-      for(var i=0; i<birthdayArray.length; i++){
-        tempSplit=birthdayArray[i].split(";");
-        
-        if(tempSplit.length==1){
-          errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" incorrectly split, use a ';' between date and name.<br />";
-          continue;}
-        
-        date=tempSplit[0];
-        name=tempSplit[1];
-        if(date=="YYYY/MM/DD" || date=="MM/DD") continue;
-        
-        if(date.length==5){
-          if(/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray.push(Array(date, name));
-          else{
-            errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use MM/DD.<br />";
-            continue;}}
-        else if(tempSplit[0].length==10){
-          if(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/.test(date)) displayArray.push(Array(date, name));
-          else{
-            errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD.<br />";
-            continue;}}
-        else{
-          errorStr__MODULE_ID__+="Error: "+birthdayArray[i]+" date is not formatted correctly, use YYYY/MM/DD or MM/DD.<br />";
-          continue;}}
-        
-      if(displayArray.length==0) errorStr__MODULE_ID__+="__MSG_none__";
-      else{
-        html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
-        var birthdaysVisible=0;
-        var tempWarning=prefs__MODULE_ID__.getInt("warning");
-        for(var i=0; i<tempWarning; i++){
+
+      if(displayArray__MODULE_ID__.length==0) editMode__MODULE_ID__("__MSG_none__");
+      displayMode__MODULE_ID__();}
+
+    function displayMode__MODULE_ID__(){
+      quick__MODULE_ID__="<a href=\"#\" onClick=\"editMode__MODULE_ID__();\">Quick Edit</a>";
+
+      html__MODULE_ID__+="<table class=\"bdtable\"><tr><th style=\"width: 20%;\">__MSG_tableDate__</th><th style=\"width: 80%;\">__MSG_tableName__</th><th>__MSG_tableAge__</th></tr>";
+      var birthdaysVisible=0;
+      var warning=prefs__MODULE_ID__.getInt("warning");
+      var maxBirthdaysVisible=prefs__MODULE_ID__.getInt("showBDay");
+      for(var i=0; i<warning; i++){
+        if(birthdaysVisible>=maxBirthdaysVisible) break;
+        var tempDate=new Date;
+        var millisec=tempDate.getTime();
+        tempDate.setTime(millisec+i*1000*60*60*24);
+        iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
+        for(var j=0; j<displayArray.length; j++){
+          jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
+          debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
           if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
-          var tempDate=new Date;
-          var millisec=tempDate.getTime();
-          tempDate.setTime(millisec+i*1000*60*60*24);
-          iDate=myPad(tempDate.getMonth()+1)+"/"+myPad(tempDate.getDate());
-          for(var j=0; j<displayArray.length; j++){
-            jDate=(displayArray[j][0].length>5)?displayArray[j][0].substr(5):displayArray[j][0];
-            debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
-            if(birthdaysVisible>=prefs__MODULE_ID__.getInt("showBDay")) break;
-            if(jDate==iDate){
-              birthdaysVisible++;
-              var age="";
-              if(displayArray[j][0].length>5){
-                var d = new Date();
-                var b = Date.parse(displayArray[j][0]);
-                age=Math.floor((d-b)/year);
-                if(age==0) age=Math.floor(((d-b)/year)*12)+"M";}
-              html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
-              html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
-        html__MODULE_ID__+="</table>";}
+          if(jDate==iDate){
+            birthdaysVisible++;
+            var age="";
+            if(displayArray[j][0].length>5){
+              var d = new Date();
+              var b = Date.parse(displayArray[j][0]);
+              age=Math.floor((d-b)/year);
+              if(age==0) age=Math.floor(((d-b)/year)*12);
+              age=age==0?"<1M":age+"M";
+            html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray[j][0]);
+            html__MODULE_ID__+="</td><td>"+displayArray[j][1]+"</td><td>"+age+"</td></tr>";}}}
+      html__MODULE_ID__+="</table>";}
       
-      if(birthdaysVisible==0){
-        html__MODULE_ID__="__MSG_nobd1__ "+prefs__MODULE_ID__.getString("warning")+" __MSG_nobd2__";}
+      if(birthdaysVisible==0) html__MODULE_ID__="__MSG_nobd1__ "+warning+" __MSG_nobd2__";
       
       if(loadStatus!="") _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
       showAll__MODULE_ID__();}
 
+    function clearAll__MODULE_ID__(){
+      _gel("quick__MODULE_ID__").innerHTML="";
+      _gel("error__MODULE_ID__").innerHTML="";
+      //_gel("debug__MODULE_ID__").innerHTML=""; //debug only
+      _gel("table__MODULE_ID__").innerHTML="";}
+
     function showAll__MODULE_ID__(){
-      _gel("quick__MODULE_ID__").innerHTML=quickStr__MODULE_ID__;
-      _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
+      _gel("quick__MODULE_ID__").innerHTML=quick__MODULE_ID__;
+      _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
       _IG_AdjustIFrameHeight();}
