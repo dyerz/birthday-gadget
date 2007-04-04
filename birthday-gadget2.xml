@@ -217,6 +217,7 @@
     
     function editMode__MODULE_ID__(passError){
       clearAll__MODULE_ID__();
+      displayArray__MODULE_ID__=new Array();
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
@@ -243,14 +244,10 @@
       var tempStr=prefs__MODULE_ID__.getString("birthdays");
       if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
-      alert("-1 "+tempStr);
       tempArray=tempStr.split("|");
-      alert("0 "+tempArray.length)
       tempArray=tempArray.sort(sortName__MODULE_ID__);
-      alert(".5 "+tempArray.length)
       for(var i=0; i<tempArray.length; i++){
-        data=tempArray[i].split(";")
-        displayArray__MODULE_ID__.push(Array(data[0], data[1]));}
+        displayArray__MODULE_ID__.push(tempArray[i].split(";"));}
 
       displayMode__MODULE_ID__();}
 
@@ -263,14 +260,12 @@
       var birthdaysVisible=0;
       var warning=prefs__MODULE_ID__.getInt("warning");
       var maxBirthdaysVisible=prefs__MODULE_ID__.getInt("showBDay");
-      alert("1"+displayArray__MODULE_ID__);
       for(var i=0; i<warning; i++){
         if(birthdaysVisible>=maxBirthdaysVisible) break;
         var tempDate=new Date;
         var millisec=tempDate.getTime();
         tempDate.setTime(millisec+i*1000*60*60*24);
         iDate=String.leftPad(tempDate.getMonth() + 1, 2, "0")+"/"+String.leftPad(tempDate.getDate(), 2, "0");
-      //alert("2"+displayArray__MODULE_ID__.length);
         for(var j=0; j<displayArray__MODULE_ID__.length; j++){
           jDate=(displayArray__MODULE_ID__[j][0].length>5)?displayArray__MODULE_ID__[j][0].substr(5):displayArray__MODULE_ID__[j][0];
           debug__MODULE_ID__+=i+") "+iDate+" --> "+jDate+"<br />";
@@ -294,7 +289,6 @@
       showAll__MODULE_ID__();}
 
     function clearAll__MODULE_ID__(){
-      displayArray__MODULE_ID__=new Array();
       quick__MODULE_ID__="";
       error__MODULE_ID__="";
       debug__MODULE_ID__=""; //debug only
