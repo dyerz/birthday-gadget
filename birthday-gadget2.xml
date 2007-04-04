@@ -259,7 +259,7 @@
       var birthdaysVisible=0;
       var warning=prefs__MODULE_ID__.getInt("warning");
       var maxBirthdaysVisible=prefs__MODULE_ID__.getInt("showBDay");
-      alert("1");
+      alert("1"+displayArray__MODULE_ID__);
       for(var i=0; i<warning; i++){
         if(birthdaysVisible>=maxBirthdaysVisible) break;
         var tempDate=new Date;
