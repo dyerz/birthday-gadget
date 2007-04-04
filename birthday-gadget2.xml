@@ -277,9 +277,9 @@
               var d = new Date();
               var b = Date.parse(displayArray__MODULE_ID__[j][0]);
               age=Math.floor((d-b)/year);
-              if(age==0){ age=Math.floor(((d-b)/year)*12); age=age==0?"<1M":age+"M";}
+              if(age==0){ age=Math.floor(((d-b)/year)*12); age=age==0?"<1M":age+"M";}}
             html__MODULE_ID__+="<tr><td>"+formatDate__MODULE_ID__(displayArray__MODULE_ID__[j][0]);
-            html__MODULE_ID__+="</td><td>"+displayArray__MODULE_ID__[j][1]+"</td><td>"+age+"</td></tr>";}}}}
+            html__MODULE_ID__+="</td><td>"+displayArray__MODULE_ID__[j][1]+"</td><td>"+age+"</td></tr>";}}}
       html__MODULE_ID__+="</table>";
       
       if(birthdaysVisible==0) html__MODULE_ID__="__MSG_nobd1__ "+warning+" __MSG_nobd2__";
