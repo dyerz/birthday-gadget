@@ -238,7 +238,7 @@
         
     function setup__MODULE_ID__() {
       var tempArray=prefs__MODULE_ID__.getString("birthdays");
-
+alert(tempArray.length);
       if(tempArray.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
       tempArray=tempArray.split("|");
@@ -285,7 +285,7 @@
       showAll__MODULE_ID__();}
 
     function clearAll__MODULE_ID__(){
-      displayArray__MODULE_ID__="";
+      displayArray__MODULE_ID__=new Array();
       quick__MODULE_ID__="";
       error__MODULE_ID__="";
       debug__MODULE_ID__=""; //debug only
