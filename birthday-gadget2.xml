@@ -167,7 +167,7 @@
     function sortArray__MODULE_ID__(){
       if(!save__MODULE_ID__("nosort")) return;
       sortedstr="";
-      switch(document.form1.sort.value){
+      switch(document.updateForm__MODULE_ID__.sort__MODULE_ID__.value){
         case "Date": sortedarr=myarray.split("|").sort(sortDate__MODULE_ID__); break;
         case "Name": sortedarr=myarray.split("|").sort(sortName__MODULE_ID__); break;
         case "Year": sortedarr=myarray.split("|").sort(sortYear__MODULE_ID__); break;}
