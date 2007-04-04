@@ -172,8 +172,8 @@
         case "Name": sortedarr=myarray.split("|").sort(sortName__MODULE_ID__); break;
         case "Year": sortedarr=myarray.split("|").sort(sortYear__MODULE_ID__); break;}
       for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
-      myarray=sortedstr.substring(0, modarray.length-1);
-      add__MODULE_ID__();}
+      myarray=sortedstr.substring(0, modArray__MODULE_ID__.length-1);
+      prefs__MODULE_ID__.set("birthdays", myarray);}
  
     function save__MODULE_ID__(special){
       if(typeof special == "undefined") special="";
@@ -181,24 +181,9 @@
       var newstr=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value.trim();
       if(!testArray__MODULE_ID__(newstr)) return false;
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
-      add__MODULE_ID__();
-      prefs__MODULE_ID__.set("birthdays", newArray);
+      prefs__MODULE_ID__.set("birthdays", myarray);
       toggle__MODULE_ID__('On')
       return true;}
-
-    function add__MODULE_ID__(){
-      var textstr=myarray.replace(/\|/g, "\n");
-
-      var numLines=lines.length+1;
-      var maxLines=15;
-      var finalLines=(numLines>maxLines)?maxLines:numLines;
-
-      backarray=myarray;
-      document.getElementById("length").innerHTML=textstr.length;
-      document.getElementById("test1").innerHTML=textstr;
-      document.form1.textarea1.rows=finalLines;
-      document.form1.textarea1.value=textstr;}
-    
 
 
     function formatDate__MODULE_ID__(date){
@@ -239,9 +224,9 @@
       var finalLines=numLines>maxLines?maxLines:minLines>numLines?minLines:numLines;
     
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
-      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle('Off')\">"+mainString+"\n</textarea>";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
-      html__MODULE_ID__+="Sort By: <select name=\"sort\" onChange=\"sortArray__MODULE_ID__()\">";
+      html__MODULE_ID__+=" Sort By: <select name=\"sort\" onChange=\"sortArray__MODULE_ID__()\">";
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select></form>";
