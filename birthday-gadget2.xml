@@ -118,7 +118,8 @@
         month[11]="__MSG_adec__";
       if(date.length>5) date=date.substr(5);
       
-      test=parseInt(date.substr(3,2));
+      test1=date.substr(3,2);
+      test2=parseInt(date.substr(3,2));
       
       return month[parseInt(date.substr(0,2))-1]+ " " + parseInt(date.substr(3,2));}
     
