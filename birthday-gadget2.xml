@@ -237,7 +237,6 @@
     }
         
     function setup__MODULE_ID__() {
-      clearAll__MODULE_ID__();
       var tempArray=prefs__MODULE_ID__.getArray("birthdays");
 
       if(tempArray.length==0) editMode__MODULE_ID__("__MSG_none__");
@@ -249,6 +248,7 @@
       displayMode__MODULE_ID__();}
 
     function displayMode__MODULE_ID__(){
+      clearAll__MODULE_ID__();
       var year=1000*60*60*24*365;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"editMode__MODULE_ID__();\">Quick Edit</a>";
 
