@@ -20,7 +20,7 @@
     <Require feature="setprefs"/>
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
-<UserPref name="birthdays" datatype="hidden" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
+<UserPref name="birthdays" datatype="hidden" default_value="" /> 
 <UserPref name="showBDay" display_name="__MSG_showName__" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
@@ -51,6 +51,11 @@
     #error__MODULE_ID__{
       font-size: 12px;
       color: red;
+      padding: 8px;
+    }
+  
+    #error__MODULE_ID__{
+      font-size: 12px;
       padding: 8px;
     }
   
@@ -87,6 +92,7 @@
     var sError__MODULE_ID__="";
     var modArray__MODULE_ID__="";
     var displayArray__MODULE_ID__=new Array();
+    var saved__MODULE_ID__=false;
      
     String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
     String.leftPad = function (val, size, ch) {
@@ -166,33 +172,32 @@
         case "Year": sortedarr=myarray.split("|").sort(sortYear__MODULE_ID__); break;}
       for(var i=0; i<sortedarr.length; i++){ sortedstr+=sortedarr[i]+"|";}
       myarray=sortedstr.substring(0, modarray.length-1);
-      addarray();}
-    
-
-    
+      add__MODULE_ID__();}
+ 
     function save__MODULE_ID__(special){
       if(typeof special == "undefined") special="";
       modArray__MODULE_ID__="";
       var newstr=document.form1.textarea1.value.trim();
       if(!testArray__MODULE_ID__(newstr)) return false;
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
-      addarray(); //to be converted
+      add__MODULE_ID__();
+      prefs__MODULE_ID__.set("birthdays", newArray);
       toggle__MODULE_ID__('On')
       return true;}
 
+    function add__MODULE_ID__(){
+      var textstr=myarray.replace(/\|/g, "\n");
 
+      var numLines=lines.length+1;
+      var maxLines=15;
+      var finalLines=(numLines>maxLines)?maxLines:numLines;
 
-
-
-
-
-
-
-
-
-
-
-
+      backarray=myarray;
+      document.getElementById("length").innerHTML=textstr.length;
+      document.getElementById("test1").innerHTML=textstr;
+      document.form1.textarea1.rows=finalLines;
+      document.form1.textarea1.value=textstr;}
+    
 
 
     function formatDate__MODULE_ID__(date){
@@ -213,27 +218,19 @@
 
       return month[parseInt(date.substr(0,2), 10)-1]+ " " + parseInt(date.substr(3,2), 10);}
       
-    function update__MODULE_ID__(){
-      var newArray=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value;
-      newArray=newArray.trim();
-      newArray=newArray.replace(/\n/g, "|");
-      prefs__MODULE_ID__.set("birthdays", newArray);
-      
-      _IG_Analytics("UA-310375-4", "/birthday-gadget/updated");
-      setup__MODULE_ID__("noreload");}
-    
     function confirm__MODULE_ID__(){
-      if(saved__MODULE_ID__()) setup__MODULE_ID__();
+      if(saved__MODULE_ID__) setup__MODULE_ID__();
       else if(confirm("All changes will be lost.")) setup__MODULE_ID__();}
 
     function toggle__MODULE_ID__(direction){
       switch(direction){
-        case "Off": document.form1.sort.disabled=true; break;
-        case "On": document.form1.sort.disabled=false; break;}}
+        case "Off": document.form1.sort.disabled=true; saved__MODULE_ID__=false; break;
+        case "On": document.form1.sort.disabled=false; saved__MODULE_ID__=true; break;}}
     
     function editMode__MODULE_ID__(passError){
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
+      note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
@@ -243,7 +240,7 @@
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle('Off')\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
-      html__MODULE_ID__+="Sort By: <select name=\"sort\" onChange=\"sortArray()\">";
+      html__MODULE_ID__+="Sort By: <select name=\"sort\" onChange=\"sortArray__MODULE_ID__()\">";
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select></form>";
@@ -305,12 +302,14 @@
       _gel("quick__MODULE_ID__").innerHTML="";
       _gel("error__MODULE_ID__").innerHTML="";
       //_gel("debug__MODULE_ID__").innerHTML=""; //debug only
+      _gel("note__MODULE_ID__").innerHTML="";
       _gel("table__MODULE_ID__").innerHTML="";}
 
     function showAll__MODULE_ID__(){
       _gel("quick__MODULE_ID__").innerHTML=quick__MODULE_ID__;
       _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
+      _gel("note__MODULE_ID__").innerHTML=note__MODULE_ID__;
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
       _IG_AdjustIFrameHeight();}
 
@@ -322,6 +321,7 @@
   <div id="quick__MODULE_ID__"></div>
   <div id="error__MODULE_ID__"></div>
   <div id="debug__MODULE_ID__"></div>
+  <div id="note__MODULE_ID__"></div>
   <div id="table__MODULE_ID__"></div>
 
 ]]></Content>
