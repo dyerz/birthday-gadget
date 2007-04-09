@@ -139,7 +139,7 @@
       var arr=inputText.split("\n");
       for(var i=0; i<arr.length; i++){
         if(arr[i].length==0) continue;
-        if(arr[i].indexOf(";")!=arr[i].lastIndexOf(";")){
+        if(arr[i].indexOf(";")==-1 || arr[i].indexOf(";")!=arr[i].lastIndexOf(";")){
           sError__MODULE_ID__+="One ';' per line";
           return(errorStr__MODULE_ID__("Incorrect format: "+arr[i]));}
         combo=arr[i].split(";");
@@ -309,10 +309,15 @@
       if(typeof sc == "undefined") sc="all";    
     
       if(sc=="quick" || sc=="all") _gel("quick__MODULE_ID__").innerHTML=quick__MODULE_ID__;
+      _gel("quick__MODULE_ID__").style.display=quick__MODULE_ID__==""?"none":"";
       if(sc=="error" || sc=="all") _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
+      _gel("error__MODULE_ID__").style.display=error__MODULE_ID__==""?"none":"";
       //if(sc=="debug" || sc=="all") _gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
+      _gel("debug__MODULE_ID__").style.display=debug__MODULE_ID__==""?"none":"";
       if(sc=="note" || sc=="all") _gel("note__MODULE_ID__").innerHTML=note__MODULE_ID__;
+      _gel("note__MODULE_ID__").style.display=note__MODULE_ID__==""?"none":"";
       if(sc=="html" || sc=="all") _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
+      _gel("table__MODULE_ID__").style.display=html__MODULE_ID__==""?"none":"";
       _IG_AdjustIFrameHeight();}
 
 
