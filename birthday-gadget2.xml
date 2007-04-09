@@ -227,8 +227,8 @@
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
     function setCaretToEnd(input) {
-      if (input.setSelectionRange) {
         input.focus();
+      if (input.setSelectionRange) {
         input.scrollTop=input.value.length;}
       else if (input.createTextRange) {
         var range = input.createTextRange();
@@ -259,7 +259,6 @@
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
       show__MODULE_ID__();
       setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
-      document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.focus();
     }
         
     function setup__MODULE_ID__() {

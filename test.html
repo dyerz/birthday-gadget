@@ -22,19 +22,34 @@
     function loadarray(){
       if(confirm("All changes will be lost.")) {myarray=origarray; addarray();}}
 
+    function setCaretToEnd(input) {
+      if (input.setSelectionRange) {
+        input.focus();
+        input.scrollTop=input.value.length;}
+      else if (input.createTextRange) {
+        var range = input.createTextRange();
+        range.collapse(false);
+        range.select();}}
+
+    
+    
     function addarray(){
       var textstr="";
       var lines=myarray.split("|");
       var textstr=myarray.replace(/\|/g, "\n");
       var numLines=lines.length+1;
-      var maxLines=15;
+      var maxLines=5;
       var finalLines=(numLines>maxLines)?maxLines:numLines;
 
       backarray=myarray;
       document.getElementById("length").innerHTML=textstr.length;
       document.getElementById("test1").innerHTML=textstr;
       document.form1.textarea1.rows=finalLines;
-      document.form1.textarea1.value=textstr;}
+      document.form1.textarea1.value=textstr+"\n";
+      
+      setCaretToEnd(document.form1.textarea1);
+      document.form1.textarea1.focus();
+      }
     
     function errorStr(message){
       document.getElementById("errorDiv").innerHTML=message+specificError;
