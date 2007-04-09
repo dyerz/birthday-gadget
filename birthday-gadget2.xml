@@ -22,6 +22,9 @@
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
 <UserPref name="birthdays" datatype="hidden" default_value="" /> 
+<UserPref name="data1" datatype="hidden" default_value="" /> 
+<UserPref name="data2" datatype="hidden" default_value="" /> 
+<UserPref name="data3" datatype="hidden" default_value="" /> 
 <UserPref name="showBDay" display_name="__MSG_showName__" default_value="5" datatype="enum" >
   <EnumValue value="1" />
   <EnumValue value="2" />
@@ -224,7 +227,7 @@
     function toggle__MODULE_ID__(direction){
       var field=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__;
       var countfield=_gel("length__MODULE_ID__");
-      var max=1500;
+      var max=1400;
       if (field.value.length > max) field.value = field.value.substring(0, max);
       else countfield.innerHTML = String.leftPad(field.value.length, 4, "0")+"/"+max;
       switch(direction){
@@ -253,10 +256,10 @@
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("|").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
-      var minLines=5; var maxLines=20;
+      var minLines=5; var maxLines=10;
       var finalLines=maxLines<numLines?maxLines:minLines>numLines?minLines:numLines;
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
-      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyDown=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<div style=\"clear: both;\"><div style=\"float: left;\">";
       html__MODULE_ID__+="<input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
       html__MODULE_ID__+="</div><div style=\"float: left;\">";
@@ -363,7 +366,7 @@
   <div id="error__MODULE_ID__"></div>
   <div id="debug__MODULE_ID__"></div>
   <div id="note__MODULE_ID__"></div>
-  <div id="table__MODULE_ID__"></div>
+  <div id="table__MODULE_ID__"><image src="/loading.gif" alt="Loading..." /></div>
 
 ]]></Content>
 </Module>
