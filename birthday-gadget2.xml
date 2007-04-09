@@ -215,8 +215,9 @@
       return month[parseInt(date.substr(0,2), 10)-1]+ " " + parseInt(date.substr(3,2), 10);}
       
     function confirm__MODULE_ID__(){
-      if(saved__MODULE_ID__) setup__MODULE_ID__();
-      else if(confirm("All changes will be lost.")) setup__MODULE_ID__();}
+      if(saved__MODULE_ID__) {setup__MODULE_ID__(); return;}
+      if(confirm("Save changes first?")) if(!save__MODULE_ID__()) return;
+      setup__MODULE_ID__();}
 
     function toggle__MODULE_ID__(direction){
       var field=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__;
@@ -259,7 +260,7 @@
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select>";
-      html__MODULE_ID__+="<span style=\"text-align: right; width: 100%;\"><span id=\"length__MODULE_ID__\">0000</span></span></form>";
+      html__MODULE_ID__+="<span style=\"text-align: right; width: 100%;\"><span id=\"length__MODULE_ID__\">0000/2000</span></span></form>";
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
