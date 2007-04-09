@@ -100,6 +100,7 @@
     var displayArray__MODULE_ID__=new Array();
     var saved__MODULE_ID__=true;
     var staticMsg__MODULE_ID__=true;
+    var mainString__MODULE_ID__="";
      
     String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
     String.leftPad = function (val, size, ch) {
@@ -262,17 +263,17 @@
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
-      var mainString=prefs__MODULE_ID__.getString("birthdays");
-      mainString+=prefs__MODULE_ID__.getString("data1");
-      mainString+=prefs__MODULE_ID__.getString("data2");
-      mainString+=prefs__MODULE_ID__.getString("data3");
-      mainString=mainString.replace(/\./g, "/");
-      var numLines=mainString.split("|").length+1;
-      mainString=mainString.replace(/\|/g, "\n");
+//      mainString__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
+//      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data1");
+//      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data2");
+//      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data3");
+      mainString__MODULE_ID__=mainString__MODULE_ID__.replace(/\./g, "/");
+      var numLines=mainString__MODULE_ID__.split("|").length+1;
+      mainString__MODULE_ID__=mainString__MODULE_ID__.replace(/\|/g, "\n");
       var minLines=5; var maxLines=10;
       var finalLines=maxLines<numLines?maxLines:minLines>numLines?minLines:numLines;
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
-      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyDown=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
+      html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyDown=\"toggle__MODULE_ID__('Off')\">"+mainString__MODULE_ID__+"\n</textarea>";
       html__MODULE_ID__+="<div style=\"clear: both;\"><div style=\"float: left;\">";
       html__MODULE_ID__+="<input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
       html__MODULE_ID__+="</div><div style=\"float: left;\">";
@@ -300,16 +301,16 @@
         staticMsg__MODULE_ID__.style.cursor = "pointer";
         staticMsg__MODULE_ID__.onclick = function() { editMode__MODULE_ID__();};}
     
-      var tempStr=prefs__MODULE_ID__.getString("birthdays");
-      tempStr+=prefs__MODULE_ID__.getString("data1");
-      tempStr+=prefs__MODULE_ID__.getString("data2");
-      tempStr+=prefs__MODULE_ID__.getString("data3");
-      tempStr=tempStr.replace(/\./g, "/");
+      mainString__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
+      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data1");
+      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data2");
+      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data3");
+      mainString__MODULE_ID__=mainString__MODULE_ID__.replace(/\./g, "/");
      
       
-      if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
+      if(mainString__MODULE_ID__.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
-      tempArray=tempStr.split("|");
+      tempArray=mainString__MODULE_ID__.split("|");
       tempArray=tempArray.sort(sortName__MODULE_ID__);
       for(var i=0; i<tempArray.length; i++){
         displayArray__MODULE_ID__.push(tempArray[i].split(";"));}
