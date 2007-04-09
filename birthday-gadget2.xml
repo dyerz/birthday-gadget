@@ -103,7 +103,8 @@
       return result;}
 
 /* NEW CODE ********************************************************* */
-    function errorStr__MODULE_ID__(message){ error__MODULE_ID__=message+sError__MODULE_ID__; return false;}
+    function errorStr__MODULE_ID__(message){
+      error__MODULE_ID__=message+sError__MODULE_ID__; _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__; return false;}
     
     function testDate__MODULE_ID__(inputDate){
       if(inputDate.length<=5){
