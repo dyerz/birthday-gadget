@@ -107,7 +107,7 @@
 
 
     function errorStr__MODULE_ID__(line, message){
-      error__MODULE_ID__="ERROR Line "+line+":" message+sError__MODULE_ID__;
+      error__MODULE_ID__="ERROR Line "+line+": "+message+sError__MODULE_ID__;
       show__MODULE_ID__("error");
       return false;}
     
