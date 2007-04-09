@@ -250,6 +250,7 @@
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
       show__MODULE_ID__();
+      document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.focus();
     }
         
     function setup__MODULE_ID__() {
@@ -259,7 +260,7 @@
       var visited=prefs__MODULE_ID__.getString("qE");
       var msg = new _IG_MiniMessage(__MODULE_ID__);
       if(nowTime<expireTime && visited=="0"){
-        var staticMsg = msg.createStaticMessage("Static message.  Manually dismiss by clicking.");
+        var staticMsg = msg.createStaticMessage("New Feature: Quick Edit");
         staticMsg.style.cursor = "pointer";
         staticMsg.onclick = function() { msg.dismissMessage(staticMsg); editMode__MODULE_ID__();};}
     
