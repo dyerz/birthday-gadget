@@ -41,6 +41,7 @@
   <EnumValue value="14" />
   <EnumValue value="21" />
 </UserPref>
+<UserPref name="qE" datatype="hidden" default_value="0" /> 
 <Content type="html"><![CDATA[
   <style type="text/css">
     #quick__MODULE_ID__{
@@ -226,6 +227,7 @@
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
     function editMode__MODULE_ID__(passError){
+      prefs__MODULE_ID__.set("qE", "1");
       clear__MODULE_ID__();
       displayArray__MODULE_ID__=new Array();
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
@@ -251,9 +253,15 @@
     }
         
     function setup__MODULE_ID__() {
-      //message expire 
+      var d=new Date;
+      var nowTime=d.getTime();
+      var expireTime=Date.parse("May 30, 2007");
+      var visited=prefs__MODULE_ID__.getString("qE");
       var msg = new _IG_MiniMessage(__MODULE_ID__);
-      msg.createDismissibleMessage("2007-04-09 >> New feature: Quick Edit");
+      if(nowTime<expireTime && visited=="0"){
+        var staticMsg = msg.createStaticMessage("Static message.  Manually dismiss by clicking.");
+        staticMsg.style.cursor = "pointer";
+        staticMsg.onclick = function() { msg.dismissMessage(staticMsg); editMode__MODULE_ID__();};}
     
       var tempStr=prefs__MODULE_ID__.getString("birthdays");
       if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
