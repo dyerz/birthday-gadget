@@ -196,7 +196,15 @@
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
       if(special=="") sortArray__MODULE_ID__();
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");
-      prefs__MODULE_ID__.set("birthdays", myarray);
+      var myarraylength=myarray.length;
+      var part0=myarray.substring(0,1199);
+      var part1=(myarraylength>=1200)?myarray.substring(1200,2399):"";
+      var part2=(myarraylength>=2400)?myarray.substring(2400,3599):"";
+      var part3=(myarraylength>=3600)?myarray.substring(3600):"";
+      prefs__MODULE_ID__.set("birthdays", part0);
+      prefs__MODULE_ID__.set("data1", part1);
+      prefs__MODULE_ID__.set("data2", part2);
+      prefs__MODULE_ID__.set("data3", part3);
       toggle__MODULE_ID__('On');
       clear__MODULE_ID__("error"); show__MODULE_ID__("error");
       return true;}
@@ -227,7 +235,7 @@
     function toggle__MODULE_ID__(direction){
       var field=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__;
       var countfield=_gel("length__MODULE_ID__");
-      var max=1300;
+      var max=4*1200;
       if (field.value.length > max) field.value = field.value.substring(0, max);
       else countfield.innerHTML = String.leftPad(field.value.length, 4, "0")+"/"+max;
       switch(direction){
@@ -288,6 +296,11 @@
         staticMsg__MODULE_ID__.onclick = function() { editMode__MODULE_ID__();};}
     
       var tempStr=prefs__MODULE_ID__.getString("birthdays");
+      tempStr+=prefs__MODULE_ID__.getString("data1");
+      tempStr+=prefs__MODULE_ID__.getString("data2");
+      tempStr+=prefs__MODULE_ID__.getString("data3");
+      
+      
       if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
       tempArray=tempStr.split("|");
