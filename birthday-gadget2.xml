@@ -18,6 +18,7 @@
     <Require feature="analytics" /> 
     <Require feature="dynamic-height" />
     <Require feature="setprefs"/>
+    <Require feature="minimessage"/>
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
 <UserPref name="birthdays" datatype="hidden" default_value="" /> 
@@ -102,7 +103,7 @@
       while (result.length < size) {result = ch + result;}
       return result;}
 
-/* NEW CODE ********************************************************* */
+
     function errorStr__MODULE_ID__(message){
       error__MODULE_ID__=message+sError__MODULE_ID__;
       show__MODULE_ID__("error");
@@ -250,6 +251,10 @@
     }
         
     function setup__MODULE_ID__() {
+      //message expire 
+      var msg = new _IG_MiniMessage(__MODULE_ID__);
+      msg.createDismissibleMessage("2007-04-09 >> New feature: Quick Edit");
+    
       var tempStr=prefs__MODULE_ID__.getString("birthdays");
       if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
