@@ -250,8 +250,8 @@
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("\n").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
-      var minLines=5; var maxLines=15;
-      var finalLines=numLines>maxLines?maxLines:minLines>numLines?minLines:numLines;
+      var minLines=5;
+      var finalLines=minLines>numLines?minLines:numLines;
     
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
