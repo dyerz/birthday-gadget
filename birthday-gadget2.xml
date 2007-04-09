@@ -196,6 +196,7 @@
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
       if(special=="") sortArray__MODULE_ID__();
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");
+      myarray=myarray.replace(/\//, ".");
       var myarraylength=myarray.length;
       var part0=myarray.substring(0,1199);
       var part1=(myarraylength>=1200)?myarray.substring(1200,2399):"";
@@ -265,8 +266,9 @@
       mainString+=prefs__MODULE_ID__.getString("data1");
       mainString+=prefs__MODULE_ID__.getString("data2");
       mainString+=prefs__MODULE_ID__.getString("data3");
+      mainString=mainString.replace(/\./g, "/");
       var numLines=mainString.split("|").length+1;
-      var mainString=mainString.replace(/\|/g, "\n");
+      mainString=mainString.replace(/\|/g, "\n");
       var minLines=5; var maxLines=10;
       var finalLines=maxLines<numLines?maxLines:minLines>numLines?minLines:numLines;
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
@@ -278,7 +280,7 @@
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select></div>";
-      html__MODULE_ID__+="<div style=\"float: right\" id=\"length__MODULE_ID__\">0000/2000</div></div></form>";
+      html__MODULE_ID__+="<div style=\"float: right\" id=\"length__MODULE_ID__\"></div></div></form>";
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
@@ -302,7 +304,8 @@
       tempStr+=prefs__MODULE_ID__.getString("data1");
       tempStr+=prefs__MODULE_ID__.getString("data2");
       tempStr+=prefs__MODULE_ID__.getString("data3");
-      
+      tempStr=tempStr.replace(/\./g, "/");
+     
       
       if(tempStr.length==0) {editMode__MODULE_ID__("__MSG_none__"); return;}
 
