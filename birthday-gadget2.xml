@@ -248,7 +248,7 @@
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
-      var numLines=mainString.split("\n").length+1;
+      var numLines=mainString.split("\n").length+3;
       var mainString=mainString.replace(/\|/g, "\n");
       var minLines=5;
       var finalLines=minLines>numLines?minLines:numLines;
