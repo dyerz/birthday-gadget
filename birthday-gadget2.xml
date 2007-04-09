@@ -260,7 +260,7 @@
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select>";
-      html__MODULE_ID__+="<span style=\"text-align: right; width: 100%;\"><span id=\"length__MODULE_ID__\">0000/2000</span></span></form>";
+      html__MODULE_ID__+="<span style=\"float: right\"><span id=\"length__MODULE_ID__\">0000/2000</span></span></form>";
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
