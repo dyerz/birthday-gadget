@@ -227,7 +227,7 @@
     function toggle__MODULE_ID__(direction){
       var field=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__;
       var countfield=_gel("length__MODULE_ID__");
-      var max=1400;
+      var max=1300;
       if (field.value.length > max) field.value = field.value.substring(0, max);
       else countfield.innerHTML = String.leftPad(field.value.length, 4, "0")+"/"+max;
       switch(direction){
