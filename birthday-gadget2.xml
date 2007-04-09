@@ -219,7 +219,7 @@
       else if(confirm("All changes will be lost.")) setup__MODULE_ID__();}
 
     function toggle__MODULE_ID__(direction){
-      var field=_gel("updateTextarea__MODULE_ID__");
+      var field=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__;
       var countfield=length__MODULE_ID__
       var max=2000;
       if (field.value.length > max) field.value = field.value.substring(0, max);
@@ -259,7 +259,7 @@
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select>";
-      html__MODULE_ID__+="<span style=\"text-align: right;\"><span id=\"length__MODULE_ID__\">0000</span>/2000</span></form>";
+      html__MODULE_ID__+="<span style=\"text-align: right; width: 100%;\"><span id=\"length__MODULE_ID__\">0000</span>/2000</span></form>";
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
