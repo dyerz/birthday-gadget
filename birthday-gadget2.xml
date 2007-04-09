@@ -86,7 +86,6 @@
     var prefs__MODULE_ID__=new _IG_Prefs(__MODULE_ID__);
     var quick__MODULE_ID__="";
     var error__MODULE_ID__="";
-    var specificError__MODULE_ID__="";
     var debug__MODULE_ID__="";
     var html__MODULE_ID__="";
     var note__MODULE_ID__="";
@@ -110,10 +109,10 @@
       if(inputDate.length<=5){
         var mDays=new Array(31,29,31,30,31,30,31,31,30,31,30,31);
         tempSmall=inputDate.split("/");
-        if(tempSmall.length!=2) { specificError__MODULE_ID__+="Date format not supported"; return false;}
+        if(tempSmall.length!=2) { sError__MODULE_ID__+="Date format not supported"; return false;}
         intSmallM=parseInt(tempSmall[0], 10); intSmallD=parseInt(tempSmall[1], 10);
-        if(!(intSmallM>=1 && intSmallM<=12)) { specificError__MODULE_ID__+="Incorrect month, date format is MM/DD"; return false;}
-        if(!(intSmallD>=1 && intSmallD<=mDays[intSmallM-1])) { specificError__MODULE_ID__+="Incorrect day, date format is MM/DD"; return false;}
+        if(!(intSmallM>=1 && intSmallM<=12)) { sError__MODULE_ID__+="Incorrect month, date format is MM/DD"; return false;}
+        if(!(intSmallD>=1 && intSmallD<=mDays[intSmallM-1])) { sError__MODULE_ID__+="Incorrect day, date format is MM/DD"; return false;}
         dateString=String.leftPad(intSmallM, 2, "0")+"/"+String.leftPad(intSmallD, 2, "0");
         modArray__MODULE_ID__+=dateString+";";
         return true;}
