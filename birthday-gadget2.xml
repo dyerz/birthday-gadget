@@ -255,15 +255,16 @@
       var finalLines=maxLines<numLines?maxLines:minLines>numLines?minLines:numLines;
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
-      html__MODULE_ID__+="<input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
+      html__MODULE_ID__+="<div><input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
       html__MODULE_ID__+=" Sort By: <select name=\"sort__MODULE_ID__\" onChange=\"sortArray__MODULE_ID__()\">";
       html__MODULE_ID__+="<option selected value=\"Date\">Date</option>";
       html__MODULE_ID__+="<option value=\"Name\">Name</option>";
       html__MODULE_ID__+="<option value=\"Year\">Year</option></select>";
-      html__MODULE_ID__+="<span style=\"float: right\"><span id=\"length__MODULE_ID__\">0000/2000</span></span></form>";
+      html__MODULE_ID__+="<span style=\"float: right\" id=\"length__MODULE_ID__\">0000/2000</span></div></form>";
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
+      toggle("On");
       show__MODULE_ID__();
       setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
     }
