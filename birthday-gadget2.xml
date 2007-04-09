@@ -223,7 +223,7 @@
       var countfield=length__MODULE_ID__
       var max=2000;
       if (field.value.length > max) field.value = field.value.substring(0, max);
-      else countfield.value = String.leftPad(max - field.value.length, 4, "0");
+      else countfield.innerHTML = String.leftPad(max - field.value.length, 4, "0");
       switch(direction){
         case "Off":
           document.updateForm__MODULE_ID__.saveButton__MODULE_ID__.disabled=false; 
