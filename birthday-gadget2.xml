@@ -189,11 +189,11 @@
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");}
  
     function save__MODULE_ID__(special){
-      setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
       if(typeof special == "undefined") special="";
       modArray__MODULE_ID__="";
       var newstr=document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value.trim();
-      if(!testArray__MODULE_ID__(newstr)) return false;
+      if(!testArray__MODULE_ID__(newstr)){
+        setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);  return false;}
       myarray=modArray__MODULE_ID__.substring(0, modArray__MODULE_ID__.length-1);
       if(special=="") sortArray__MODULE_ID__();
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");
@@ -209,6 +209,7 @@
       prefs__MODULE_ID__.set("data3", part3);
       toggle__MODULE_ID__('On');
       clear__MODULE_ID__("error"); show__MODULE_ID__("error");
+      setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
       return true;}
 
     function formatDate__MODULE_ID__(date){
