@@ -200,8 +200,8 @@
       myarray=myarray.replace(/\//, ".");
       var myarraylength=myarray.length;
       var part0=myarray.substring(0,1199);
-      var part1=(myarraylength>=1200)?myarray.substring(1200,2399):"";
-      var part2=(myarraylength>=2400)?myarray.substring(2400,3599):"";
+      var part1=(myarraylength>=1200)?myarray.substring(1200,1199):"";
+      var part2=(myarraylength>=2400)?myarray.substring(2400,1199):"";
       var part3=(myarraylength>=3600)?myarray.substring(3600):"";
       prefs__MODULE_ID__.set("birthdays", part0);
       prefs__MODULE_ID__.set("data1", part1);
@@ -263,10 +263,6 @@
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
-//      mainString__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
-//      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data1");
-//      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data2");
-//      mainString__MODULE_ID__+=prefs__MODULE_ID__.getString("data3");
       mainString__MODULE_ID__=mainString__MODULE_ID__.replace(/\./g, "/");
       var numLines=mainString__MODULE_ID__.split("|").length+1;
       mainString__MODULE_ID__=mainString__MODULE_ID__.replace(/\|/g, "\n");
