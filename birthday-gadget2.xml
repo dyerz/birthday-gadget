@@ -264,8 +264,8 @@
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
-      toggle__MODULE_ID__("On");
       show__MODULE_ID__();
+      toggle__MODULE_ID__("On");
       setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
     }
         
