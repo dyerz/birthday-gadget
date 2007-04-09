@@ -104,7 +104,9 @@
 
 /* NEW CODE ********************************************************* */
     function errorStr__MODULE_ID__(message){
-      error__MODULE_ID__=message+sError__MODULE_ID__; _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__; return false;}
+      error__MODULE_ID__=message+sError__MODULE_ID__;
+      show__MODULE_ID__("error");
+      return false;}
     
     function testDate__MODULE_ID__(inputDate){
       if(inputDate.length<=5){
@@ -128,7 +130,7 @@
       return true;}
     
     function testName__MODULE_ID__(inputName){
-      if(typeof inputName == "undefined") { sError__MODULE_ID__+="no name found"; return false;}
+      if(typeof inputName == "undefined") { sError__MODULE_ID__+="Name not found"; return false;}
       if(inputName.indexOf("|")!=-1){ sError__MODULE_ID__+="'|' not allowed in name"; return false;}
       modArray__MODULE_ID__+=inputName+"|"; return true;}
     
@@ -187,7 +189,8 @@
       if(special=="") sortArray__MODULE_ID__();
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");
       prefs__MODULE_ID__.set("birthdays", myarray);
-      toggle__MODULE_ID__('On')
+      toggle__MODULE_ID__('On');
+      clear__MODULE_ID__("error"); show__MODULE_ID__("error");
       return true;}
 
     function formatDate__MODULE_ID__(date){
@@ -222,7 +225,7 @@
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
     function editMode__MODULE_ID__(passError){
-      clearAll__MODULE_ID__();
+      clear__MODULE_ID__();
       displayArray__MODULE_ID__=new Array();
       if(typeof passError != "undefined") error__MODULE_ID__=passError;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
@@ -243,7 +246,7 @@
 
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
-      showAll__MODULE_ID__();
+      show__MODULE_ID__();
     }
         
     function setup__MODULE_ID__() {
@@ -258,7 +261,7 @@
       displayMode__MODULE_ID__();}
 
     function displayMode__MODULE_ID__(){
-      clearAll__MODULE_ID__();
+      clear__MODULE_ID__();
       var year=1000*60*60*24*365;
       quick__MODULE_ID__="<a href=\"#\" onClick=\"editMode__MODULE_ID__();\">Quick Edit</a>";
 
@@ -291,21 +294,25 @@
       if(birthdaysVisible==0) html__MODULE_ID__="__MSG_nobd1__ "+warning+" __MSG_nobd2__";
       
       _IG_Analytics("UA-310375-4", "/birthday-gadget/display");
-      showAll__MODULE_ID__();}
+      show__MODULE_ID__();}
 
-    function clearAll__MODULE_ID__(){
-      quick__MODULE_ID__="";
-      error__MODULE_ID__="";
-      //debug__MODULE_ID__=""; //debug only
-      note__MODULE_ID__="";
-      html__MODULE_ID__="";}
+    function clear__MODULE_ID__(sc){
+      if(typeof sc == "undefined") sc="all";    
+    
+      if(sc=="quick" || sc=="all") quick__MODULE_ID__="";
+      if(sc=="error" || sc=="all") error__MODULE_ID__="";
+      //if(sc=="debug" || sc=="all") debug__MODULE_ID__=""; //debug only
+      if(sc=="note" || sc=="all") note__MODULE_ID__="";
+      if(sc=="html" || sc=="all") html__MODULE_ID__="";}
 
-    function showAll__MODULE_ID__(){
-      _gel("quick__MODULE_ID__").innerHTML=quick__MODULE_ID__;
-      _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
-      //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
-      _gel("note__MODULE_ID__").innerHTML=note__MODULE_ID__;
-      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
+    function show__MODULE_ID__(sc){
+      if(typeof sc == "undefined") sc="all";    
+    
+      if(sc=="quick" || sc=="all") _gel("quick__MODULE_ID__").innerHTML=quick__MODULE_ID__;
+      if(sc=="error" || sc=="all") _gel("error__MODULE_ID__").innerHTML=error__MODULE_ID__;
+      //if(sc=="debug" || sc=="all") _gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
+      if(sc=="note" || sc=="all") _gel("note__MODULE_ID__").innerHTML=note__MODULE_ID__;
+      if(sc=="html" || sc=="all") _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
       _IG_AdjustIFrameHeight();}
 
 
