@@ -226,6 +226,20 @@
           document.updateForm__MODULE_ID__.saveButton__MODULE_ID__.disabled=true; 
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
+    function setSelectionRange(input, selectionStart, selectionEnd) {
+      if (input.setSelectionRange) {
+        input.focus();
+        input.setSelectionRange(selectionStart, selectionEnd);}
+      else if (input.createTextRange) {
+        var range = input.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', selectionEnd);
+        range.moveStart('character', selectionStart);
+        range.select();}}
+
+    function setCaretToEnd (input) { setSelectionRange(input, input.value.length, input.value.length);}
+
+
     function editMode__MODULE_ID__(passError){
       prefs__MODULE_ID__.set("qE", "1");
       clear__MODULE_ID__();
@@ -250,6 +264,7 @@
 
       _IG_Analytics("UA-310375-4", "/birthday-gadget/edit");
       show__MODULE_ID__();
+      setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.focus();
     }
         
