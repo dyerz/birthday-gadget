@@ -248,11 +248,10 @@
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
-      var numLines=mainString.split("\n").length+3;
+      var numLines=mainString.split("|").length+2;
       var mainString=mainString.replace(/\|/g, "\n");
       var minLines=5;
       var finalLines=minLines>numLines?minLines:numLines;
-    alert(numLines+">"+minLines+">"+finalLines)
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
