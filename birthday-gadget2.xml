@@ -188,6 +188,9 @@
       document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__.value=myarray.replace(/\|/g, "\n");}
  
     function save__MODULE_ID__(special){
+      var msg = new _IG_MiniMessage(__MODULE_ID__);
+      saveMsg = msg.createStaticMessage("Saving...");
+
       setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
       if(typeof special == "undefined") special="";
       modArray__MODULE_ID__="";
@@ -207,6 +210,7 @@
       prefs__MODULE_ID__.set("data3", part3);
       toggle__MODULE_ID__('On');
       clear__MODULE_ID__("error"); show__MODULE_ID__("error");
+      msg.dismissMessage(saveMsg); 
       return true;}
 
     function formatDate__MODULE_ID__(date){
@@ -262,6 +266,9 @@
       quick__MODULE_ID__="<a href=\"#\" onClick=\"confirm__MODULE_ID__();\">Back</a>";
       note__MODULE_ID__="Format: YYYY/MM/DD;Name or MM/DD;Name";
       var mainString=prefs__MODULE_ID__.getString("birthdays");
+      mainString+=prefs__MODULE_ID__.getString("data1");
+      mainString+=prefs__MODULE_ID__.getString("data2");
+      mainString+=prefs__MODULE_ID__.getString("data3");
       var numLines=mainString.split("|").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
       var minLines=5; var maxLines=10;
