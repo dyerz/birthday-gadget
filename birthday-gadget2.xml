@@ -106,8 +106,8 @@
       return result;}
 
 
-    function errorStr__MODULE_ID__(message){
-      error__MODULE_ID__=message+sError__MODULE_ID__;
+    function errorStr__MODULE_ID__(line, message){
+      error__MODULE_ID__="ERROR Line "+line+":" message+sError__MODULE_ID__;
       show__MODULE_ID__("error");
       return false;}
     
@@ -143,12 +143,12 @@
       for(var i=0; i<arr.length; i++){
         if(arr[i].length==0) continue;
         if(arr[i].indexOf(";")==-1) {
-          sError__MODULE_ID__+="Only one ';' per line"; return(errorStr__MODULE_ID__("Incorrect format: "+arr[i]));}
+          sError__MODULE_ID__+="Only one ';' per line"; return(errorStr__MODULE_ID__(i+1, "Incorrect format: "+arr[i]));}
         if(arr[i].indexOf(";")!=arr[i].lastIndexOf(";")){
-          sError__MODULE_ID__+="Only one ';' per line"; return(errorStr__MODULE_ID__("Incorrect format: "+arr[i]));}
+          sError__MODULE_ID__+="Only one ';' per line"; return(errorStr__MODULE_ID__(i+1, "Incorrect format: "+arr[i]));}
         combo=arr[i].split(";");
-        if(!testDate__MODULE_ID__(combo[0])) return(errorStr__MODULE_ID__("Error in line "+(i+1)+": Incorrect Date "+combo[0]));
-        if(!testName__MODULE_ID__(combo[1])) return(errorStr__MODULE_ID__("Error in line "+(i+1)+": Incorrect Name "+combo[1]));}
+        if(!testDate__MODULE_ID__(combo[0])) return(errorStr__MODULE_ID__(i+1, "Incorrect Date "+combo[0]));
+        if(!testName__MODULE_ID__(combo[1])) return(errorStr__MODULE_ID__(i+1, "Incorrect Name "+combo[1]));}
       return true;}
     
     function sortDate__MODULE_ID__(a, b){
