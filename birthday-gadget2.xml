@@ -226,19 +226,15 @@
           document.updateForm__MODULE_ID__.saveButton__MODULE_ID__.disabled=true; 
           document.updateForm__MODULE_ID__.sort__MODULE_ID__.disabled=false; saved__MODULE_ID__=true; break;}}
     
-    function setSelectionRange(input, selectionStart, selectionEnd) {
+    function setCaretToEnd(input) {
       if (input.setSelectionRange) {
         input.focus();
+        input.scrollTop=input.value.length;
         input.setSelectionRange(selectionStart, selectionEnd);}
       else if (input.createTextRange) {
         var range = input.createTextRange();
-        range.collapse(true);
-        range.moveEnd('character', selectionEnd);
-        range.moveStart('character', selectionStart);
+        range.collapse(false);
         range.select();}}
-
-    function setCaretToEnd (input) { setSelectionRange(input, input.value.length, input.value.length);}
-
 
     function editMode__MODULE_ID__(passError){
       prefs__MODULE_ID__.set("qE", "1");
@@ -250,8 +246,8 @@
       var mainString=prefs__MODULE_ID__.getString("birthdays");
       var numLines=mainString.split("|").length+1;
       var mainString=mainString.replace(/\|/g, "\n");
-      var minLines=5;
-      var finalLines=minLines>numLines?minLines:numLines;
+      var minLines=5; var maxLines=20;
+      var finalLines=maxLines>numLines?maxLines:minLines>numLines?minLines:numLines;
       html__MODULE_ID__="<form name=\"updateForm__MODULE_ID__\">";
       html__MODULE_ID__+="<textarea style=\"width: 100%;\" rows=\""+finalLines+"\" name=\"updateTextarea__MODULE_ID__\" onKeyUp=\"toggle__MODULE_ID__('Off')\">"+mainString+"\n</textarea>";
       html__MODULE_ID__+="<input name=\"saveButton__MODULE_ID__\" type=\"button\" value=\"Save\" onClick=\"save__MODULE_ID__();\" onKeyPress=\"save__MODULE_ID__();\" />";
