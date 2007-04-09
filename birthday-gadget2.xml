@@ -194,6 +194,7 @@
       prefs__MODULE_ID__.set("birthdays", myarray);
       toggle__MODULE_ID__('On');
       clear__MODULE_ID__("error"); show__MODULE_ID__("error");
+      setCaretToEnd(document.updateForm__MODULE_ID__.updateTextarea__MODULE_ID__);
       return true;}
 
     function formatDate__MODULE_ID__(date){
