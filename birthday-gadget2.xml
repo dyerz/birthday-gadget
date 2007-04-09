@@ -128,6 +128,7 @@
       return true;}
     
     function testName__MODULE_ID__(inputName){
+      if(typeof inputName == "undefined") { sError__MODULE_ID__+="no name found"; return false;}
       if(inputName.indexOf("|")!=-1){ sError__MODULE_ID__+="'|' not allowed in name"; return false;}
       modArray__MODULE_ID__+=inputName+"|"; return true;}
     
