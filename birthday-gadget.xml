@@ -51,7 +51,9 @@
     
     }
     
-    trans__MODULE_ID__{
+    #trans__MODULE_ID__{
+      margin-top: 5px;
+      text-align: center;
       font-size: 8px;
     }
   
@@ -187,7 +189,7 @@
       _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
       
       
-    var trans="__MSG_tableDate__";
+    var trans="__MSG_trans__";
     if(trans!="") {transObj=_gel("trans__MODULE_ID__"); transObj.innerHTML=trans; transObj.style.display=""; }
       }
 
