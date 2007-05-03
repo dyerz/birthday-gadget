@@ -54,7 +54,7 @@
     #trans__MODULE_ID__{
       margin-top: 5px;
       text-align: center;
-      font-size: 8px;
+      font-size: 10px;
     }
   
     #table__MODULE_ID__{
