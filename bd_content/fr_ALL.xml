@@ -4,8 +4,8 @@
   <msg name="description">Ne manquez plus jamais les anniversaires de vos amis !</msg>
   <msg name="titleName">Titre du module</msg>
   <msg name="birthdayName">Anniversaires</msg>
- <msg name="showName">Anniversaires affichés</msg>
-  <msg name="noticeName">Alerte (X) jours avant</msg>
+  <msg name="showName">Anniversaires affichés</msg>
+  <msg name="noticeName">Alerte          jours avant</msg>
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Nom</msg>
   <msg name="tableAge">Âge</msg>
