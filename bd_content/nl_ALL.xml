@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">De Herinneringen van de verjaardag</msg>
+  <msg name="description">Mis opnieuw de verjaardagen nooit van uw vrienden!</msg>
+  <msg name="titleName">Titel</msg>
+  <msg name="birthdayName">Verjaardagen</msg>
+  <msg name="showName">Zichtbare Verjaardagen</msg>
+  <msg name="noticeName">Het Bericht van dagen</msg>
+  <msg name="tableDate">Datum</msg>
+  <msg name="tableName">Naam</msg>
+  <msg name="tableAge">Leeftijd</msg>
+  <msg name="none">Geen verjaardagen aan vertoning, te voegen gelieve de verjaardagen toe u zich wilt herinneren.</msg>
+  <msg name="nobd1">Geen verjaardagen die omhoog in de volgende </msg>
+  <msg name="nobd2"> dagen komen.</msg>
+  <msg name="ajan">jan.</msg>
+  <msg name="afeb">feb.</msg>
+  <msg name="amar">maart</msg>
+  <msg name="aapr">apr.</msg>
+  <msg name="amay">mei</msg>
+  <msg name="ajun">juni</msg>
+  <msg name="ajul">juli</msg>
+  <msg name="aaug">aug.</msg>
+  <msg name="asep">sept.</msg>
+  <msg name="aoct">oct.</msg>
+  <msg name="anov">nov.</msg>
+  <msg name="adec">dec.</msg>
+  <msg name="trans">*Onjuiste vertaling?*</msg>
+</messagebundle>
