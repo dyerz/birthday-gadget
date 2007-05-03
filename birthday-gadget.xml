@@ -190,8 +190,12 @@
       
       
     var trans="__MSG_trans__";
-    if(trans!="") {transObj=_gel("trans__MODULE_ID__"); transObj.innerHTML=trans; transObj.style.display=""; }
-      }
+    if(trans!="") {
+      if(trans.indexOf("*")!=-1){
+        trans=trans.replace(/\*/, "<a href=\"mailto:birthdaygadget@gmail.com\">");
+        trans=trans.replace(/\*/, "</a>");}
+      transObj=_gel("trans__MODULE_ID__"); transObj.innerHTML=trans; transObj.style.display=""; }
+    }
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
     _IG_AdjustIFrameHeight();
