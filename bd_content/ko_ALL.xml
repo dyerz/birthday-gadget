@@ -24,4 +24,5 @@
   <msg name="aoct">10월</msg>
   <msg name="anov">11월</msg>
   <msg name="adec">12월</msg>
+  <msg name="trans"></msg>
 </messagebundle>

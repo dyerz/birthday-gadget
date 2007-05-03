@@ -24,4 +24,5 @@
   <msg name="aoct">Okt.</msg>
   <msg name="anov">Nov.</msg>
   <msg name="adec">Dez.</msg>
+  <msg name="trans"></msg>
 </messagebundle>

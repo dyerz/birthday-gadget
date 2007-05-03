@@ -9,7 +9,7 @@
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Name</msg>
   <msg name="tableAge">Age</msg>
-  <msg name="none">No birthdays to display, please Edit Settings above to add the birthdays you want to remember.</msg>
+  <msg name="none">No birthdays to display, please add the birthdays you want to remember.</msg>
   <msg name="nobd1">No birthdays coming up in the next </msg>
   <msg name="nobd2"> days.</msg>
   <msg name="ajan">Jan.</msg>
@@ -24,4 +24,5 @@
   <msg name="aoct">Oct.</msg>
   <msg name="anov">Nov.</msg>
   <msg name="adec">Dec.</msg>
+  <msg name="trans"></msg>
 </messagebundle>

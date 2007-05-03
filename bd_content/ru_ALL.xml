@@ -24,4 +24,5 @@
   <msg name="aoct">okt.</msg>
   <msg name="anov">noiabr</msg>
   <msg name="adec">dek.</msg>
+  <msg name="trans"></msg>
 </messagebundle>

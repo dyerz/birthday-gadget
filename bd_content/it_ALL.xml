@@ -24,4 +24,5 @@
   <msg name="aoct">ott.</msg>
   <msg name="anov">nov.</msg>
   <msg name="adec">dic.</msg>
+  <msg name="trans"></msg>
 </messagebundle>

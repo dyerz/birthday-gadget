@@ -38,6 +38,9 @@
   <EnumValue value="10" />
   <EnumValue value="14" />
   <EnumValue value="21" />
+  <EnumValue value="30" />
+  <EnumValue value="60" />
+  <EnumValue value="90" />
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
@@ -46,6 +49,10 @@
       color: red;
       padding: 8px;
     
+    }
+    
+    trans__MODULE_ID__{
+      font-size: 8px;
     }
   
     #table__MODULE_ID__{
@@ -177,15 +184,22 @@
       _IG_Analytics("UA-310375-4", "/birthday-gadget/reloaded");
       _gel("error__MODULE_ID__").innerHTML=errorStr__MODULE_ID__;
       //_gel("debug__MODULE_ID__").innerHTML=debug__MODULE_ID__; //debug only
-      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;}
+      _gel("table__MODULE_ID__").innerHTML=html__MODULE_ID__;
+      
+      
+    var trans="__MSG_tableDate__";
+    if(trans!="") {transObj=_gel("trans__MODULE_ID__"); transObj.innerHTML=trans; transObj.style.display=""; }
+      }
 
     _IG_RegisterOnloadHandler(setup__MODULE_ID__);
     _IG_AdjustIFrameHeight();
+    
 
   </script>
   <div id="error__MODULE_ID__"></div>
   <div id="debug__MODULE_ID__"></div>
   <div id="table__MODULE_ID__"></div>
+  <div id="trans__MODULE_ID__" style="display: none;"></div>
 
 ]]></Content>
 </Module>

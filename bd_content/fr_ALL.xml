@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Rappels D'Anniversaire</msg>
-  <msg name="description">Ne manquez encore jamais les anniversaires de vos amis !</msg>
-  <msg name="titleName">Titre</msg>
+  <msg name="title">Rappels d'anniversaires</msg>
+  <msg name="description">Ne manquez plus jamais les anniversaires de vos amis !</msg>
+  <msg name="titleName">Titre du module</msg>
   <msg name="birthdayName">Anniversaires</msg>
-  <msg name="showName">Anniversaires Évidents</msg>
-  <msg name="noticeName">Jours de préavis</msg>
+ <msg name="showName">Anniversaires affichés</msg>
+  <msg name="noticeName">Alerte (X) jours avant</msg>
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Nom</msg>
   <msg name="tableAge">Âge</msg>
-  <msg name="none">Anniversaire à montrer, satisfaire n'édite pas des arrangements ci-dessus pour ajouter les anniversaires que vous voulez vous rappeler.</msg>
-  <msg name="nobd1">Aucuns anniversaires étant soulevés en </msg>
-  <msg name="nobd2"> jours suivants.</msg>
+  <msg name="none">Aucune date d'anniversaire à afficher. Veuillez modifier les paramètres ci-dessus pour ajouter les dates d'anniversaires dont vous voulez vous souvenir.</msg>
+  <msg name="nobd1">Aucun anniversaire n'est prévu dans les </msg>
+  <msg name="nobd2"> prochains jours.</msg>
   <msg name="ajan">janv.</msg>
   <msg name="afeb">fevr.</msg>
   <msg name="amar">mars</msg>
@@ -24,4 +24,5 @@
   <msg name="aoct">oct.</msg>
   <msg name="anov">nov.</msg>
   <msg name="adec">déc.</msg>
+  <msg name="trans">Aide pour la traduction : François D.</msg>
 </messagebundle>
