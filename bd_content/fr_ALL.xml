@@ -5,7 +5,7 @@
   <msg name="titleName">Titre du module</msg>
   <msg name="birthdayName">Anniversaires</msg>
   <msg name="showName">Anniversaires affichés</msg>
-  <msg name="noticeName">Alerte          jours avant</msg>
+  <msg name="noticeName">Alerte &lt;br /&gt; jours avant</msg>
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Nom</msg>
   <msg name="tableAge">Âge</msg>
