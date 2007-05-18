@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title></title>
+  <script type="text/javascript">
+  String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
+  String.leftPad = function (val, size, ch) {
+    var result = new String(val);
+    if (ch == null) {ch = " ";}
+    while (result.length < size) {result = ch + result;}
+    return result;}
+  function isArray(obj) { return(obj.constructor.toString().indexOf("Array") != -1);}
+
+
+
+  var mainStr="";
+  var navText="";
+  var contentsText="";
+  var errorText="";
+  var errorDef="";
+  var viewArr=new Array();
+  var viewNum=10;
+  var viewDistance=10;
+
+  
+
+  
+  function setup(){
+    //---- get array
+    //check array
+    var mode=(mainStr.length==0)?"edit":"display";
+    clear(); nav(mode); main(mode); show(mode);}
+  
+  function change(mode){
+    if(mode=="display" && !document.getElementById("saveButton").disabled &&!confirm("Continue without saving?")) return;
+    if(mainStr.length==0) return;
+    clear(); nav(mode); main(mode); show(mode);
+    if(mode=="edit") document.getElementById("editor").focus();}
+  
+  function nav(mode){
+    if(mode=="edit"){
+      if(mainStr.length==0){ noticeObj=document.getElementById("notice").style.display="";}
+      navText="<span class=\"link\" onClick=\"change('display')\">Display</span>";
+      return;}
+    navText="<span class=\"link\" onClick=\"change('edit')\">Edit</span>";
+    return;}
+  
+  function show(mode){
+    document.getElementById("nav").innerHTML=navText;
+    document.getElementById("contents").innerHTML=contentsText;}
+  
+  function main(mode){
+    if(mode=="edit"){
+      contentsText="<div id=\"editBox\">"
+      contentsText+="<textarea id=\"editor\" rows=\"10\" onKeyUp=\"check(this);\" onClick=\"check(this);\"";
+      contentsText+=" onFocus=\"setCaretToEnd(this);\" >"+mainStr.replace(/\|/g, "\n");
+      contentsText+="</textarea><br /><input id=\"saveButton\" type=\"button\"";
+      contentsText+="onClick=\"save(this.previousSibling.previousSibling)\" value=\"Save\" disabled />";
+      contentsText+="</div>"; return; }
+    var mainArr=mainStr.split("|");
+    if(!setVisible(mainArr)) {contentsText="No birthdays in the next "+viewNum+" days"; return;}
+    if(viewArr.length==0) {contentsText="Error"; return;}
+    contentsText="<table><tr><th class=\"date\">Date</th><th class=\"name\">Name</th><th class=\"age\">Age</th></tr>";
+    for(var i=0; i<viewArr.length; i++){if(viewArr[i].length>1) contentsText+=writeLine(viewArr[i]);}
+    contentsText+="</table>";
+    return;}
+  
+  function setVisible(arr){
+    viewArr=new Array(); var keyArr=new Array(); var visNow=0;
+    for(var i=0; i<arr.length; i++){
+      temp=arr[i].split(";"); aDate=temp[0].split("/"); 
+      var offset=aDate.length==2?0:1; var aMonth=aDate[offset]; var aDay=aDate[offset+1];
+      var newKey=aMonth+aDay+"";
+      if(typeof keyArr[newKey] == "undefined") {keyArr[newKey]=new Array(arr[i]);}
+      else keyArr[newKey].push(arr[i]);}
+    
+    var refDate=new Date(); var today=new Date(); var oneDay=1000*60*60*24;
+    var keySearch=""; 
+    for(var j=0; j<viewDistance; j++){
+      today.setTime(refDate.getTime()+(j*oneDay));
+      var tMonth=today.getMonth()+1; var tDay=String.leftPad(today.getDate(), 2, "0");
+      keySearch=String.leftPad((tMonth+tDay+""), 4, "0");
+      if(typeof keyArr[keySearch] == "undefined") continue;
+      
+      for(var k=0; k<keyArr[keySearch].length; k++){
+        viewArr.push(keyArr[keySearch][k]);
+        visNow++; if(visNow>viewNum) return true;}}
+    return(visNow!=0);}
+
+
+  function getCaretPosition (ctrl) {
+    var CaretPos = 0; ctrl.focus();
+    if (document.selection) {
+      var range = document.selection.createRange();
+      var stored_range = range.duplicate();
+      stored_range.moveToElementText( ctrl );
+      stored_range.setEndPoint( 'EndToEnd', range );
+      ctrl.selectionStart = stored_range.text.length - range.text.length;
+      ctrl.selectionEnd = ctrl.selectionStart + range.text.length;}
+    if (ctrl.selectionStart || ctrl.selectionStart == '0') CaretPos = ctrl.selectionStart;
+    return (CaretPos);}
+    
+  function setCaretToEnd(input) {
+    if (input.setSelectionRange) { input.scrollTop=input.value.length;}
+    else if (input.createTextRange) { var range = input.createTextRange();   range.collapse(false);  range.select();}}
+
+  function testDate(inputDate){
+    tempSmall=inputDate.split("/");
+    if(tempSmall.length==2){
+      var mDays=new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+      intSmallM=parseInt(tempSmall[0], 10); intSmallD=parseInt(tempSmall[1], 10);
+      if(!(intSmallM>=1 && intSmallM<=12)) { errorDef="Invalid month"; return false;}
+      if(!(intSmallD>=1 && intSmallD<=mDays[intSmallM-1])) { errorDef="Invalid day"; return false;}
+      return true;}
+    var convertedDate=Date.parse(inputDate);
+    var d=new Date();
+    var todayDate=d.getTime();
+    if(isNaN(convertedDate)){ errorDef="Format not supported ("+inputDate+")"; return false;}
+    d.setTime(convertedDate);
+    return true;}
+
+  function testName(inputName){
+    if(typeof inputName == "undefined") { errorDef="Name not found"; return false;}
+    if(inputName.indexOf("|")!=-1){ errorDef="'|' not allowed in Name"; return false;}
+    return true;}
+    
+  function padDate(str){
+    var strSplit=str.split(";");
+    var date=strSplit[0];
+    var dateSplit=date.split("/");
+    if(dateSplit.length==2){
+      return(String.leftPad(dateSplit[0], 2, "0")+"/"+String.leftPad(dateSplit[1], 2, "0")+";"+strSplit[1]);}
+    var t=Date.parse(date); var p=new Date(); p.setTime(t);
+    var temp=String.leftPad(p.getFullYear(), 4, "0")+"/"+String.leftPad(p.getMonth()+1, 2, "0")+"/";
+    temp+=String.leftPad(p.getDate(), 2, "0")+";"+strSplit[1];
+    return(temp);}
+  
+  function save(textObj){
+    var prevObj=document.getElementById("preview"); if(prevObj.style.display=="") prevObj.style.display="none";
+    var arr=textObj.value.trim().split("\n"); textObj.focus();
+    for(var i=0; i<arr.length; i++){ if(!testLine(arr[i])) return; arr[i]=padDate(arr[i]);}
+    arr=arr.sort(sortDate);
+    document.getElementById("saveButton").disabled=true;
+    mainStr=arr.join("|"); textObj.value=mainStr.replace(/\|/g, "\n")+"\n";}
+
+  function sortDate(a, b){
+    var aA=a.split(";"); var bA=b.split(";");
+    var aM=aA[0].split("/"); var bM=bA[0].split("/");
+    var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+    return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+  
+  function check(textObj){
+    var saveObj=document.getElementById("saveButton"); if(saveObj.disabled) saveObj.disabled=false;
+    var prevObj=document.getElementById("preview"); if(prevObj.style.display=="") prevObj.style.display="none";
+    var noticeObj=document.getElementById("notice"); var errTxtObj=document.getElementById("errorTxt");
+    var errObj=document.getElementById("error"); if(errObj.style.display=="") errObj.style.display="none";
+    var pos=getCaretPosition(textObj); var text=textObj.value;
+    var mySplit=text.indexOf("\n\r")!=-1?"\n\r":"\n";
+    var lineStart=text.lastIndexOf(mySplit, pos); lineStart=(lineStart==-1)?0:lineStart;
+    var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
+    var lineText=text.substr(lineStart, lineLength).trim();
+    if(lineText.length<=1){ noticeObj.style.display=""; return;}
+    if(!testLine(lineText)) return;
+    errTxtObj.innerHTML=""; errObj.style.display="none"; noticeObj.style.display="none";
+    preview(lineText);}
+  
+  function testLine(lineText){
+    var errTxtObj=document.getElementById("errorTxt");
+    var errObj=document.getElementById("error");
+    if(lineText.length<=1) return true;
+    var combo=lineText.split(";");
+    if(combo.length>2){ errTxtObj.innerHTML="Only one ';' per line"; errObj.style.display=""; return false;}
+    if(!testDate(combo[0])) {errTxtObj.innerHTML="Incorrect Date: "+errorDef; errObj.style.display=""; return false;}
+    if(!testName(combo[1])) {errTxtObj.innerHTML=errorDef; errObj.style.display=""; return false;}
+    return true;}
+  
+  function makeDate(inDate){
+    var month=new Array(12);
+      month[0]="Jan";
+      month[1]="Feb";
+      month[2]="Mar";
+      month[3]="Apr";
+      month[4]="May";
+      month[5]="June";
+      month[6]="Jul";
+      month[7]="Aug";
+      month[8]="Sep";
+      month[9]="Oct";
+      month[10]="Nov";
+      month[11]="Dec";
+    tempArr=inDate.split("/");
+    if(tempArr.length==2) {m=tempArr[0]-1; d=parseInt(tempArr[1]);}
+    else {var t=Date.parse(inDate); var b=new Date(); b.setTime(t); m=b.getMonth(); d=b.getDate();}
+    var n=new Date(); if(n.getMonth()==m && n.getDate()==d ) return("Today");
+    return (month[m]+" "+d);}
+  
+  function makeAge(inDate){
+    if(inDate.split("/").length==2) return ("");
+    var d=new Date(); var b=Date.parse(inDate);
+    if(b>d) return("");
+    var year=1000*60*60*24*365;
+    age=Math.floor((d-b)/year);
+    if(age>0) return(b==d?age:age+1);
+    age=Math.floor(((d-b)/year)*12);
+    return(age==0?"<1M":age+"M");}
+  
+  function writeLine(arr){
+    if(!isArray(arr)) arr=arr.split(";");
+    return("<tr><td>"+makeDate(arr[0])+"</td><td>"+arr[1]+"</td><td>"+makeAge(arr[0])+"</td></tr>");}
+  
+  function preview(arr){
+    prevObj=document.getElementById("preview");
+    prevText="Preview:<br />";
+    prevText+="<table><tr><th class=\"date\">Date</th><th class=\"name\">Name</th><th class=\"age\">Age</th></tr>";
+    prevText+=writeLine(arr);
+    prevText+="</table>";
+    prevObj.innerHTML=prevText;
+    prevObj.style.display="";}
+  
+  function clear(){
+    navText=""; contentsText=""; errorText="";
+    document.getElementById("nav").innerHTML="";
+    document.getElementById("errorTxt").innerHTML="";
+    document.getElementById("error").style.display="none";
+    document.getElementById("preview").style.display="none";
+    document.getElementById("notice").style.display="none";
+    document.getElementById("contents").innerHTML="";}
+  
+  
+
+  </script>
+  <style type="text/css">
+    body{font-family: verdana; }
+    #container{text-align: center;}
+    #nav{text-align: right; }
+    #error, #preview{font-size: 10px; width: 80%; margin: 0 auto; padding: 2px; text-align: left; }
+    #error{color: #F00; border: 1px solid #F00; }
+    #notice{font-size: 10px; width: 100%;}
+    #preview{color: #10bd10; border: 1px solid #10bd10;}
+    #contents{ }
+    .link{ cursor: pointer; color: blue;}
+    
+    #editBox{width: 100%; text-align: center;}
+    #editor{width: 90%;}
+
+    #error div{text-align: center;}
+
+    table {width: 100%; margin: 0; padding: 0;}
+    table .date, table .age{width: 25%;}
+    table .name {width: 75%;}
+    table th{ border-bottom: 1px solid #000;}
+    table td{ text-align: center;}
+    #bdTable th{ font-size: 18px;}
+    #bdTable td{ font-size: 16px;}
+    #preview table{ font-size: xx-small;}
+
+
+    /*del*/
+    #container{width: 30%; border: 1px solid #000;}
+    /*del*/
+  
+  </style>
+  
+  </head>
+  <body onLoad="setup()">
+  <div id="container">
+    <div id="nav"></div>
+    <div id="preview" style="display: none;"></div>
+    <div id="notice" style="display: none;">Format: YYYY/MM/DD;Name or MM/DD;Name</div>
+    <div id="error" style="display: none;">Error:<div id="errorTxt"></div></div>
+    <div id="contents"></div>
+  </div>
+
+  </body>
+</html>
