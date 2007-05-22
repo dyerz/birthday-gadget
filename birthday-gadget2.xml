@@ -270,7 +270,7 @@
   function writeLine__MODULE_ID__(arr){
     if(!isArray(arr)) arr=arr.split(";");
     var returnStr="<tr><td>"+makeDate__MODULE_ID__(arr[0])+"</td>";
-    retrunStr+="<td>"+escapeName__MODULE_ID__(arr[1])+"</td>";
+    returnStr+="<td>"+escapeName__MODULE_ID__(arr[1])+"</td>";
     returnStr+="<td>"+makeAge__MODULE_ID__(arr[0])+"</td></tr>";
     return(returnStr);}
 

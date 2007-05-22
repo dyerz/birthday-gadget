@@ -10,8 +10,8 @@
   <msg name="tableName">Name</msg>
   <msg name="tableAge">Alter</msg>
   <msg name="none">Keine anzuzeigen Geburtstage, zu gefallen redigieren Einstellungen oben, um an die Geburtstage zu addieren, die Sie sich erinnern möchten.</msg>
-  <msg name="nobd1">Keine Geburtstage, die oben an den folgenden </msg>
-  <msg name="nobd2"> Tagen kommen.</msg>
+  <msg name="nobd1">In den folgenden </msg>
+  <msg name="nobd2"> Tagen sind keine Geburtstage verzeichnet.</msg>
   <msg name="ajan">Jan.</msg>
   <msg name="afeb">Feb.</msg>
   <msg name="amar">März</msg>
