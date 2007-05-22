@@ -198,7 +198,8 @@
   function save__MODULE_ID__(textObj){
     var prevObj=_gel("preview__MODULE_ID__"); if(prevObj.style.display=="") prevObj.style.display="none";
     var arr=textObj.value.trim().split("\n"); textObj.focus();
-    for(var i=0; i<arr.length; i++){ if(arr[i].length<=1) continue; if(!testLine(arr[i])) return; arr[i]=padDate(arr[i]);}
+    for(var i=0; i<arr.length; i++){
+      if(arr[i].length<=1) continue; if(!testLine__MODULE_ID__(arr[i])) return; arr[i]=padDate(arr[i]);}
     arr=arr.sort(sortDate__MODULE_ID__);
     _gel("saveButton").disabled=true;
     mainStr__MODULE_ID__=arr.join("|"); textObj.value=mainStr__MODULE_ID__.replace(/\|/g, "\n")+"\n";
@@ -221,7 +222,7 @@
     var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
     var lineText=text.substr(lineStart, lineLength).trim();
     if(lineText.length<=1){ noticeObj.style.display=""; return;}
-    if(!testLine(lineText)) return;
+    if(!testLine__MODULE_ID__(lineText)) return;
     errTxtObj.innerHTML=""; errObj.style.display="none"; noticeObj.style.display="none";
     preview__MODULE_ID__(lineText);}
   
