@@ -134,7 +134,8 @@
       contentsText+="onClick=\"save__MODULE_ID__(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled />";
       contentsText+="</div>"; return; }
     var mainArr=mainStr__MODULE_ID__.split("|");
-    if(!setVisible__MODULE_ID__(mainArr)) {contentsText="__MSG_noBDpart1__ "+viewNum__MODULE_ID__+" __MSG_noBDpart2__"; return;}
+    if(!setVisible__MODULE_ID__(mainArr))
+      {contentsText="__MSG_noBDpart1__ "+viewDistance__MODULE_ID__+" __MSG_noBDpart2__"; return;}
     if(viewArr__MODULE_ID__.length==0) {contentsText="__MSG_boxTitleError__"; return;}
     contentsText="<table><tr><th class=\"date\">__MSG_tableDate__</th>";
     contentsText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
