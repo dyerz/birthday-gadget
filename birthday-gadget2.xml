@@ -79,7 +79,7 @@
     #bdTable__MODULE_ID__ td{ font-size: 16px;}
     #preview__MODULE_ID__ table{ font-size: xx-small;}
 
-    #container__MODULE_ID__{}
+    #container__MODULE_ID__{ width: 100%;}
   </style>
   <script>_IG_Analytics("UA-310375-4", "/birthday-gadget");</script>  
   <script type="text/javascript">
@@ -201,7 +201,7 @@
     for(var i=0; i<arr.length; i++){
       if(arr[i].length<=1) continue; if(!testLine__MODULE_ID__(arr[i])) return; arr[i]=padDate__MODULE_ID__(arr[i]);}
     arr=arr.sort(sortDate__MODULE_ID__);
-    _gel("saveButton").disabled=true;
+    _gel("saveButton__MODULE_ID__").disabled=true;
     mainStr__MODULE_ID__=arr.join("|"); textObj.value=mainStr__MODULE_ID__.replace(/\|/g, "\n")+"\n";
     prefs__MODULE_ID__.set("birthdays", mainStr__MODULE_ID__);
     _IG_Analytics("UA-310375-4", "/birthday-gadget/save");}
@@ -275,8 +275,7 @@
     prevText="__MSG_boxTitlePreview__:<br /><table><tr><th class=\"date\">__MSG_tableDate__</th>";
     prevText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
     prevText+=writeLine__MODULE_ID__(arr)+"</table>";
-    prevObj.innerHTML=prevText; prevObj.style.display="";
-    _IG_AdjustIFrameHeight();}
+    prevObj.innerHTML=prevText; prevObj.style.display="";}
   
   function clear__MODULE_ID__(){
     navText__MODULE_ID__=""; contentsText__MODULE_ID__=""; errorText__MODULE_ID__="";

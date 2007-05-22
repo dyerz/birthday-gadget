@@ -4,7 +4,7 @@
   <msg name="description">Never miss your friends' birthdays again!</msg>
   <msg name="titleName">Title</msg>
   <msg name="birthdayName">Birthdays</msg>
-  <msg name="dateFormat">Date Format</msg>
+  <msg name="formatName">Date Format</msg>
   <msg name="showName">Visible Birthdays</msg>
   <msg name="noticeName">Days Notice</msg>
   <msg name="confirmSave">Continue without saving?</msg>
