@@ -115,7 +115,7 @@
   
   function nav__MODULE_ID__(mode){
     if(mode=="edit"){
-      if(mainStr__MODULE_ID__.length==0){ noticeObj=_gel("notice").style.display="";}
+      if(mainStr__MODULE_ID__.length==0){ noticeObj=_gel("notice__MODULE_ID__").style.display="";}
       navText="<span class=\"link\" onClick=\"change__MODULE_ID__('display')\">__MSG_modeTitleDisplay__</span>"; return;}
     navText="<span class=\"link\" onClick=\"change__MODULE_ID__('edit')\">__MSG_modeTitleEdit__</span>"; return;}
   
