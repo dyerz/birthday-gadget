@@ -102,7 +102,7 @@
     dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
     mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
   
-    var mode=(mainStr.length==0)?"edit":"display";
+    var mode=(mainStr__MODULE_ID__.length==0)?"edit":"display";
     clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);}
   
   function change__MODULE_ID__(mode){
@@ -125,7 +125,7 @@
   function main__MODULE_ID__(mode){
     if(mode=="edit"){
       contentsText="<div id=\"editBox\"><textarea id=\"editor\" rows=\"10\" onKeyUp=\"check(this);\" onClick=\"check(this);\"";
-      contentsText+=" onFocus=\"setCaretToEnd(this);\" >"+mainStr.replace(/\|/g, "\n");
+      contentsText+=" onFocus=\"setCaretToEnd(this);\" >"+mainStr__MODULE_ID__.replace(/\|/g, "\n");
       contentsText+="\n</textarea><br /><input id=\"saveButton\" type=\"button\"";
       contentsText+="onClick=\"save__MODULE_ID__(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled />";
       contentsText+="</div>"; return; }
