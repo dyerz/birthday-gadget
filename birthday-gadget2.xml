@@ -106,8 +106,9 @@
     clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);}
   
   function change__MODULE_ID__(mode){
-    if(mode=="display" && !_gel("saveButton__MODULE_ID__").disabled &&!confirm("__MSG_confirmSave__")) return;
-    if(mainStr__MODULE_ID__.length==0) return;
+    if(mode=="display" && !_gel("saveButton__MODULE_ID__").disabled &&!confirm("__MSG_confirmSave__")){
+      _gel("editor__MODULE_ID__").focus(); return;}
+    if(mainStr__MODULE_ID__.length==0){ _gel("editor__MODULE_ID__").focus(); return;}
     clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);
     if(mode=="edit") _gel("editor__MODULE_ID__").focus();}
   
