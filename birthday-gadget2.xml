@@ -204,7 +204,7 @@
     arr=arr.sort(sortDate__MODULE_ID__);
     _gel("saveButton__MODULE_ID__").disabled=true;
     mainStr__MODULE_ID__=arr.join("|"); textObj.value=mainStr__MODULE_ID__.replace(/\|/g, "\n")+"\n";
-    prefs__MODULE_ID__.set("birthdays", mainStr__MODULE_ID__);
+    prefs__MODULE_ID__.set("birthdays", escapeName__MODULE_ID__(mainStr__MODULE_ID__));
     _IG_Analytics("UA-310375-4", "/birthday-gadget/save");}
 
   function sortDate__MODULE_ID__(a, b){
@@ -269,8 +269,19 @@
   
   function writeLine__MODULE_ID__(arr){
     if(!isArray(arr)) arr=arr.split(";");
-    return("<tr><td>"+makeDate__MODULE_ID__(arr[0])+"</td><td>"+arr[1]+"</td><td>"+makeAge__MODULE_ID__(arr[0])+"</td></tr>");}
-  
+    var returnStr="<tr><td>"+makeDate__MODULE_ID__(arr[0])+"</td>";
+    retrunStr+="<td>"+escapeName__MODULE_ID__arr[1])+"</td>";
+    returnStr+="<td>"+makeAge__MODULE_ID__(arr[0])+"</td></tr>"
+    return(returnStr);}
+
+  function escapeName__MODULE_ID__(name) {
+    name = name.replace(/&/g,"&#38;")
+    name = name.replace(/</g,"&#60;")
+    name = name.replace(/>/g,"&#62;")
+    name = name.replace(/"/g,"&#34;")
+    name = name.replace(/'/g,"&#39;")
+    return name;}
+
   function preview__MODULE_ID__(arr){
     prevObj=_gel("preview__MODULE_ID__");
     prevText="__MSG_boxTitlePreview__:<br /><table><tr><th class=\"date\">__MSG_tableDate__</th>";
