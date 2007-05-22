@@ -97,8 +97,8 @@
   var viewNum__MODULE_ID__; var viewDistance__MODULE_ID__; var dateStyle__MODULE_ID__;
   
   function setup__MODULE_ID__(){
-    viewNum__MODULE_ID__=prefs__MODULE_ID__.getString("showBDay");
-    viewDistance__MODULE_ID__=prefs__MODULE_ID__.getString("warning");
+    viewNum__MODULE_ID__=prefs__MODULE_ID__.getInt("showBDay");
+    viewDistance__MODULE_ID__=prefs__MODULE_ID__.getInt("warning");
     dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
     mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
   
@@ -130,7 +130,7 @@
       contentsText+="onClick=\"save__MODULE_ID__(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled />";
       contentsText+="</div>"; return; }
     var mainArr=mainStr__MODULE_ID__.split("|");
-    if(!setVisible__MODULE_ID__(mainArr)) {contentsText="__MSG_noBDpart1__"+viewNum+"__MSG_noBDpart1__"; return;}
+    if(!setVisible__MODULE_ID__(mainArr)) {contentsText="__MSG_noBDpart1__"+viewNum__MODULE_ID__+"__MSG_noBDpart1__"; return;}
     if(viewArr__MODULE_ID__.length==0) {contentsText="__MSG_boxTitleError__"; return;}
     contentsText="<table><tr><th class=\"date\">__MSG_tableDate__</th>";
     contentsText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
