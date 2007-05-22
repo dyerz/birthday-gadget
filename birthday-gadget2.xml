@@ -222,10 +222,10 @@
     var lineStart=text.lastIndexOf(mySplit, pos); lineStart=(lineStart==-1)?0:lineStart;
     var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
     var lineText=text.substr(lineStart, lineLength).trim();
-    if(lineText.length<=1){ noticeObj.style.display=""; return;}
-    if(!testLine__MODULE_ID__(lineText)) return;
+    if(lineText.length<=1){ noticeObj.style.display=""; _IG_AdjustIFrameHeight(); return;}
+    if(!testLine__MODULE_ID__(lineText)) {_IG_AdjustIFrameHeight(); return;}
     errTxtObj.innerHTML=""; errObj.style.display="none"; noticeObj.style.display="none";
-    preview__MODULE_ID__(lineText);}
+    preview__MODULE_ID__(lineText); _IG_AdjustIFrameHeight();}
   
   function testLine__MODULE_ID__(lineText){
     var errTxtObj=_gel("errorTxt__MODULE_ID__"); var errObj=_gel("error__MODULE_ID__");
