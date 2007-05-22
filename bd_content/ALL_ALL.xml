@@ -11,6 +11,8 @@
   <msg name="modeTitleDisplay">Display</msg>
   <msg name="modeTitleEdit">Edit</msg>
   <msg name="buttonSave">Save</msg>
+  <msg name="nobd1">No birthdays in the next </msg>
+  <msg name="nobd2"> days.</msg>
   <msg name="noBDpart1">No birthdays in the next </msg>
   <msg name="noBDpart2"> days.</msg>
   <msg name="boxTitleError">Error</msg>
