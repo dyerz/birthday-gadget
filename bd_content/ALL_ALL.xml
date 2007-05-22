@@ -41,5 +41,6 @@
   <msg name="today">Today</msg>
   <msg name="boxTitlePreview">Preview</msg>
   <msg name="format">Format: YYYY/MM/DD;Name or MM/DD;Name</msg>
+  <msg name="">Warning! Maximum Characters Reached, Please Delete Some.</msg>
   <msg name="trans"></msg>
 </messagebundle>
