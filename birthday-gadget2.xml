@@ -124,13 +124,15 @@
   
   function main__MODULE_ID__(mode){
     if(mode=="edit"){
-      contentsText="<div id=\"editBox\"><textarea id=\"editor\" rows=\"10\" onKeyUp=\"check(this);\" onClick=\"check(this);\"";
-      contentsText+=" onFocus=\"setCaretToEnd(this);\" >"+mainStr__MODULE_ID__.replace(/\|/g, "\n");
+      contentsText="<div id=\"editBox\">";"
+      contentsText+="<textarea id=\"editor__MODULE_ID__\" rows=\"10\" onKeyUp=\"check__MODULE_ID__(this);\"";
+      contentsText+=" onClick=\"check__MODULE_ID__(this);\"";
+      contentsText+=" onFocus=\"setCaretToEnd__MODULE_ID__(this);\" >"+mainStr__MODULE_ID__.replace(/\|/g, "\n");
       contentsText+="\n</textarea><br /><input id=\"saveButton\" type=\"button\"";
       contentsText+="onClick=\"save__MODULE_ID__(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled />";
       contentsText+="</div>"; return; }
     var mainArr=mainStr__MODULE_ID__.split("|");
-    if(!setVisible__MODULE_ID__(mainArr)) {contentsText="__MSG_noBDpart1__"+viewNum__MODULE_ID__+"__MSG_noBDpart1__"; return;}
+    if(!setVisible__MODULE_ID__(mainArr)) {contentsText="__MSG_noBDpart1__ "+viewNum__MODULE_ID__+" __MSG_noBDpart2__"; return;}
     if(viewArr__MODULE_ID__.length==0) {contentsText="__MSG_boxTitleError__"; return;}
     contentsText="<table><tr><th class=\"date\">__MSG_tableDate__</th>";
     contentsText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
@@ -213,7 +215,7 @@
     var prevObj=_gel("preview__MODULE_ID__"); if(prevObj.style.display=="") prevObj.style.display="none";
     var noticeObj=_gel("notice__MODULE_ID__"); var errTxtObj=_gel("errorTxt__MODULE_ID__");
     var errObj=_gel("error__MODULE_ID__"); if(errObj.style.display=="") errObj.style.display="none";
-    var pos=getCaretPosition(textObj); var text=textObj.value;
+    var pos=getCaretPosition__MODULE_ID__(textObj); var text=textObj.value;
     var mySplit=text.indexOf("\n\r")!=-1?"\n\r":"\n";
     var lineStart=text.lastIndexOf(mySplit, pos); lineStart=(lineStart==-1)?0:lineStart;
     var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
