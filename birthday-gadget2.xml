@@ -222,7 +222,7 @@
     var pos=getCaretPosition__MODULE_ID__(textObj); var text=textObj.value;
     if(text.length>1200){ textObj.value=text.substr(0, 1200);
       if(overDelay__MODULE_ID__==0) alert(__MSG_warnOver__);
-      else overDelay__MODULE_ID__=(overDelay__MODULE_ID__==3?0:overDelay__MODULE_ID__+1; }
+      else overDelay__MODULE_ID__=(overDelay__MODULE_ID__==3?0:overDelay__MODULE_ID__+1); }
     var mySplit=text.indexOf("\n\r")!=-1?"\n\r":"\n";
     var lineStart=text.lastIndexOf(mySplit, pos); lineStart=(lineStart==-1)?0:lineStart;
     var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
