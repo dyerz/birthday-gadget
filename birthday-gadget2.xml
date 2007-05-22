@@ -128,7 +128,7 @@
       contentsText+="<textarea id=\"editor__MODULE_ID__\" rows=\"10\" onKeyUp=\"check__MODULE_ID__(this);\"";
       contentsText+=" onClick=\"check__MODULE_ID__(this);\"";
       contentsText+=" onFocus=\"setCaretToEnd__MODULE_ID__(this);\" >"+mainStr__MODULE_ID__.replace(/\|/g, "\n");
-      contentsText+="\n</textarea><br /><input id=\"saveButton\" type=\"button\"";
+      contentsText+="\n</textarea><br /><input id=\"saveButton__MODULE_ID__\" type=\"button\"";
       contentsText+="onClick=\"save__MODULE_ID__(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled />";
       contentsText+="</div>"; return; }
     var mainArr=mainStr__MODULE_ID__.split("|");
