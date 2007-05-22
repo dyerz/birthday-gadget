@@ -273,7 +273,7 @@
     prevText+=writeLine__MODULE_ID__(arr)+"</table>";
     prevObj.innerHTML=prevText; prevObj.style.display="";}
   
-  function clear(){
+  function clear__MODULE_ID__(){
     navText__MODULE_ID__=""; contentsText__MODULE_ID__=""; errorText__MODULE_ID__="";
     _gel("nav__MODULE_ID__").innerHTML="";
     _gel("errorTxt__MODULE_ID__").innerHTML="";
