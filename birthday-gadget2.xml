@@ -62,6 +62,8 @@
     #notice__MODULE_ID__{font-size: 10px; width: 100%;}
     #preview__MODULE_ID__{color: #10bd10; border: 1px solid #10bd10;}
     #contents__MODULE_ID__{ }
+    #trans__MODULE_ID__{ margin-top: 5px; text-align: center; font-size: 10px;}
+
     .link{ cursor: pointer; color: blue;}
     
     #editBox__MODULE_ID__{width: 100%; text-align: center;}
@@ -123,6 +125,15 @@
   function show__MODULE_ID__(mode){
     _IG_Analytics("UA-310375-4", "/birthday-gadget/display");
     _gel("nav__MODULE_ID__").innerHTML=navText; _gel("contents__MODULE_ID__").innerHTML=contentsText;
+    
+    var trans="__MSG_trans__";
+    if(trans!="") {
+      if(trans.indexOf("*")!=-1){
+        trans=trans.replace(/\*/, "<a href=\"mailto:birthdaygadget@gmail.com\">");
+        trans=trans.replace(/\*/, "</a>");}
+      transObj=_gel("trans__MODULE_ID__"); transObj.innerHTML=trans; transObj.style.display=""; }
+
+    
     _IG_AdjustIFrameHeight();}
   
   function main__MODULE_ID__(mode){
@@ -316,6 +327,7 @@
     <div id="notice__MODULE_ID__" style="display: none;">__MSG_format__</div>
     <div id="error__MODULE_ID__" style="display: none;">__MSG_boxTitleError__:<div id="errorTxt__MODULE_ID__"></div></div>
     <div id="contents__MODULE_ID__"></div>
+    <div id="trans__MODULE_ID__" style="display: none;"></div>
   </div>
 
 ]]></Content>
