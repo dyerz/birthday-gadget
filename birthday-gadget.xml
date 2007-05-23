@@ -104,6 +104,10 @@
     viewDistance__MODULE_ID__=prefs__MODULE_ID__.getInt("warning");
     dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
     mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
+    
+    //cover update!
+    mainStr__MODULE_ID__=mainStr__MODULE_ID__.replace(/YYYY\/MM\/DD;Name/g, "");
+    mainStr__MODULE_ID__=mainStr__MODULE_ID__.replace(/MM\/DD;Name/g, "");
 
     var mode=(mainStr__MODULE_ID__.length==0)?"edit":"display";
     clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);}
