@@ -25,4 +25,21 @@
   <msg name="anov">11월</msg>
   <msg name="adec">12월</msg>
   <msg name="trans">*부정확한가 번역?*</msg>
+  <msg name="today">오늘</msg>
+  <msg name="formatName">날짜 표시 형식</msg>
+  <msg name="confirmSave">저축없이 계속하십시요?</msg>
+  <msg name="modeTitleDisplay">전시</msg>
+  <msg name="modeTitleEdit">편집하십시요</msg>
+  <msg name="buttonSave">를 제외하고</msg>
+  <msg name="boxTitleError">과실</msg>
+  <msg name="errMonth">부당한 달</msg>
+  <msg name="errDay">부당한 일</msg>
+  <msg name="errFormat">지원하지 않는 체재</msg>
+  <msg name="errName">발견하지 않는 이름</msg>
+  <msg name="errNameChar">'|' 이름안에 허용하지 않아</msg>
+  <msg name="errLine">단 1개은';' 선당</msg>
+  <msg name="errDate">부정확한 날짜</msg>
+  <msg name="boxTitlePreview">시사</msg>
+  <msg name="format">체재: YYYY/MM/DD;이름 또는MM/DD;이름</msg>
+  <msg name="warnOver">경고! 감소가 최대 특성에 의하여 어떤 도달하고, 만족시킨다.</msg>
 </messagebundle>

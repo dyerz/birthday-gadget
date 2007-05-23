@@ -25,4 +25,21 @@
   <msg name="anov">nov.</msg>
   <msg name="adec">dec.</msg>
   <msg name="trans">*Onjuiste vertaling?*</msg>
+  <msg name="today">Vandaag</msg>
+  <msg name="formatName">Het Formaat van de datum</msg>
+  <msg name="confirmSave">Ga verder zonder besparing?</msg>
+  <msg name="modeTitleDisplay">Vertoning</msg>
+  <msg name="modeTitleEdit">Geef uit</msg>
+  <msg name="buttonSave">Sparen</msg>
+  <msg name="boxTitleError">Fout</msg>
+  <msg name="errMonth">Ongeldige maand</msg>
+  <msg name="errDay">Ongeldige dag</msg>
+  <msg name="errFormat">Ondersteund niet formaat</msg>
+  <msg name="errName">Gevonden niet naam</msg>
+  <msg name="errNameChar">'|' toegestaan niet in Naam</msg>
+  <msg name="errLine">Slechts één ';' per lijn</msg>
+  <msg name="errDate">Onjuiste Datum</msg>
+  <msg name="boxTitlePreview">Voorproef</msg>
+  <msg name="format">Formaat: YYYY/MM/DD;Naam of MM/DD;Naam</msg>
+  <msg name="warnOver">Waarschuwing! De maximum Bereikte Karakters, te schrappen gelieve wat./msg>
 </messagebundle>

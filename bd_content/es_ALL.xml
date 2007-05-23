@@ -25,4 +25,21 @@
   <msg name="anov">nov.</msg>
   <msg name="adec">dic.</msg>
   <msg name="trans">*¿Traducción incorrecta?*</msg>
+  <msg name="today">Hoy</msg>
+  <msg name="formatName">Formato De Fecha</msg>
+  <msg name="confirmSave">¿Continúe sin el ahorro?</msg>
+  <msg name="modeTitleDisplay">Exhibición</msg>
+  <msg name="modeTitleEdit">Corrija</msg>
+  <msg name="buttonSave">Excepto</msg>
+  <msg name="boxTitleError">Error</msg>
+  <msg name="errMonth">Mes inválido</msg>
+  <msg name="errDay">Día inválido</msg>
+  <msg name="errFormat">Formato no apoyado</msg>
+  <msg name="errName">Nombre no encontrado</msg>
+  <msg name="errNameChar">'|' no permitido en nombre</msg>
+  <msg name="errLine">Solamente uno ';' por línea</msg>
+  <msg name="errDate">Fecha Incorrecta</msg>
+  <msg name="boxTitlePreview">Inspección previo</msg>
+  <msg name="format">Formato: YYYY/MM/DD;Nombre o MM/DD;Nombre</msg>
+  <msg name="warnOver">¡Advertencia! Los Caracteres Máximos Alcanzaron, Satisfacen Quitan Alguno.</msg>
 </messagebundle>

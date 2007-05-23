@@ -25,4 +25,21 @@
   <msg name="anov">nov.</msg>
   <msg name="adec">dic.</msg>
   <msg name="trans">*Traduzione errata?*</msg>
+  <msg name="today">Oggi</msg>
+  <msg name="formatName">Disposizione Di Data</msg>
+  <msg name="confirmSave">Continui senza saving?</msg>
+  <msg name="modeTitleDisplay">Esposizione</msg>
+  <msg name="modeTitleEdit">Pubblichi</msg>
+  <msg name="buttonSave">Risparmi</msg>
+  <msg name="boxTitleError">Errore</msg>
+  <msg name="errMonth">Mese non valido</msg>
+  <msg name="errDay">Giorno non valido</msg>
+  <msg name="errFormat">Disposizione non sostenuta</msg>
+  <msg name="errName">Nome non trovato</msg>
+  <msg name="errNameChar">'|' non consentito a nel nome</msg>
+  <msg name="errLine">Soltanto uno ';' per la linea</msg>
+  <msg name="errDate">Data Errata</msg>
+  <msg name="boxTitlePreview">Previsione</msg>
+  <msg name="format">Disposizione: YYYY/MM/DD;Nome o MM/DD;Nome</msg>
+  <msg name="warnOver">Avvertimento! I Caratteri Massimi Hanno raggiunto, Soddisfano La Cancellazione Alcuni.</msg>
 </messagebundle>
