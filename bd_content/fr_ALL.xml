@@ -30,7 +30,7 @@
   <msg name="confirmSave">Continuez sans économie ?</msg>
   <msg name="modeTitleDisplay">Affichage</msg>
   <msg name="modeTitleEdit">Éditez</msg>
-  <msg name="buttonSave">Économiser</msg>
+  <msg name="buttonSave">Enregistrer</msg>
   <msg name="boxTitleError">Erreur</msg>
   <msg name="errMonth">Mois inadmissible</msg>
   <msg name="errDay">Jour inadmissible</msg>

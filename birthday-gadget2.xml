@@ -222,9 +222,7 @@
     var noticeObj=_gel("notice__MODULE_ID__"); var errTxtObj=_gel("errorTxt__MODULE_ID__");
     var errObj=_gel("error__MODULE_ID__"); if(errObj.style.display=="") errObj.style.display="none";
     var pos=getCaretPosition__MODULE_ID__(textObj); var text=textObj.value;
-    if(text.length>maxChar__MODULE_ID__){ textObj.value=text.substr(0, maxChar__MODULE_ID__-1);
-      if(overDelay__MODULE_ID__==0){ overDelay__MODULE_ID__++; alert("__MSG_warnOver__");}
-      else overDelay__MODULE_ID__=(overDelay__MODULE_ID__==3?0:overDelay__MODULE_ID__+1); }
+    if(text.length>maxChar__MODULE_ID__){ textObj.value=text.substr(0, maxChar__MODULE_ID__-1); alert("__MSG_warnOver__");}
     var mySplit=text.indexOf("\n\r")!=-1?"\n\r":"\n";
     var lineStart=text.lastIndexOf(mySplit, pos); lineStart=(lineStart==-1)?0:lineStart;
     var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
