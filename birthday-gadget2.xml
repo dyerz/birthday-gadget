@@ -103,7 +103,7 @@
     dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
     mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
     
-    navObj=_gel("nav__MODULE_ID__");
+    navObj=_gel("navSpan__MODULE_ID__");
     navObj.onMouseOver="highlight__MODULE_ID__(this);";
     navObj.onMouseOut="highlight__MODULE_ID__(this);";
   
@@ -118,10 +118,11 @@
     if(mode=="edit") _gel("editor__MODULE_ID__").focus();}
   
   function nav__MODULE_ID__(mode){
+    navText="<span class=\"link\" id=\"navSpan__MODULE_ID__\" onClick=\"change__MODULE_ID__(";
     if(mode=="edit"){
       if(mainStr__MODULE_ID__.length==0){ noticeObj=_gel("notice__MODULE_ID__").style.display="";}
-      navText="<span class=\"link\" onClick=\"change__MODULE_ID__('display')\">__MSG_modeTitleDisplay__</span>"; return;}
-    navText="<span class=\"link\" onClick=\"change__MODULE_ID__('edit')\">__MSG_modeTitleEdit__</span>"; return;}
+      navText+="'display')\">__MSG_modeTitleDisplay__</span>"; return;}
+    navText="'edit')\">__MSG_modeTitleEdit__</span>"; return;}
   
   function show__MODULE_ID__(mode){
     _IG_Analytics("UA-310375-4", "/birthday-gadget/display");
