@@ -63,6 +63,7 @@
     #preview__MODULE_ID__{color: #10bd10; border: 1px solid #10bd10;}
     #contents__MODULE_ID__{ }
     #trans__MODULE_ID__{ margin-top: 5px; text-align: center; font-size: 10px;}
+    #faq{position: absolute; top: 1px; left: 1px;}
 
     .link{ cursor: pointer; color: blue;}
     
@@ -328,6 +329,7 @@
     <div id="error__MODULE_ID__" style="display: none;">__MSG_boxTitleError__:<div id="errorTxt__MODULE_ID__"></div></div>
     <div id="contents__MODULE_ID__"></div>
     <div id="trans__MODULE_ID__" style="display: none;"></div>
+    <div id="faq"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="FAQ">FAQ</a></div>
   </div>
 
 ]]></Content>
