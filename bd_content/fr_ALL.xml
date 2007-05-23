@@ -25,4 +25,21 @@
   <msg name="anov">nov.</msg>
   <msg name="adec">déc.</msg>
   <msg name="trans">Aide pour la traduction : François D.</msg>
+  <msg name="today">Aujourd'hui</msg>
+  <msg name="formatName">Format De Date</msg>
+  <msg name="confirmSave">Continuez sans économie ?</msg>
+  <msg name="modeTitleDisplay">Affichage</msg>
+  <msg name="modeTitleEdit">Éditez</msg>
+  <msg name="buttonSave">Économiser</msg>
+  <msg name="boxTitleError">Erreur</msg>
+  <msg name="errMonth">Mois inadmissible</msg>
+  <msg name="errDay">Jour inadmissible</msg>
+  <msg name="errFormat">Format non soutenu</msg>
+  <msg name="errName">Nom non trouvé</msg>
+  <msg name="errNameChar">'|' non permis dans le nom</msg>
+  <msg name="errLine">Seulement un ';' par la ligne</msg>
+  <msg name="errDate">Date Incorrecte</msg>
+  <msg name="boxTitlePreview">Prévision</msg>
+  <msg name="format">Format: YYYY/MM/DD;Nom ou MM/DD;Nom</msg>
+  <msg name="warnOver">Avertissement! Les Caractères Maximum Ont atteint, Satisfont L'Effacement Certains.</msg>
 </messagebundle>

@@ -136,7 +136,7 @@
       contentsText+="</div>"; return; }
     var mainArr=mainStr__MODULE_ID__.split("|");
     if(!setVisible__MODULE_ID__(mainArr))
-      {contentsText="__MSG_noBDpart1__ "+viewDistance__MODULE_ID__+" __MSG_noBDpart2__"; return;}
+      {contentsText="__MSG_nobd1__ "+viewDistance__MODULE_ID__+" __MSG_nobd2__"; return;}
     if(viewArr__MODULE_ID__.length==0) {contentsText="__MSG_boxTitleError__"; return;}
     contentsText="<table><tr><th class=\"date\">__MSG_tableDate__</th>";
     contentsText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
@@ -222,7 +222,7 @@
     var noticeObj=_gel("notice__MODULE_ID__"); var errTxtObj=_gel("errorTxt__MODULE_ID__");
     var errObj=_gel("error__MODULE_ID__"); if(errObj.style.display=="") errObj.style.display="none";
     var pos=getCaretPosition__MODULE_ID__(textObj); var text=textObj.value;
-    if(text.length>maxChar__MODULE_ID__){ textObj.value=text.substr(0, maxChar__MODULE_ID__);
+    if(text.length>maxChar__MODULE_ID__){ textObj.value=text.substr(0, maxChar__MODULE_ID__-1);
       if(overDelay__MODULE_ID__==0){ overDelay__MODULE_ID__++; alert("__MSG_warnOver__");}
       else overDelay__MODULE_ID__=(overDelay__MODULE_ID__==3?0:overDelay__MODULE_ID__+1); }
     var mySplit=text.indexOf("\n\r")!=-1?"\n\r":"\n";
