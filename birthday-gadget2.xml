@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
 <ModulePrefs title="__UP_title__"
-  directory_title="__MSG_title__"
+  directory_title="**UPDATED** __MSG_title__"
   description="__MSG_description__"
   screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
   thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
