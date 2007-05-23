@@ -104,8 +104,8 @@
     mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
     
     navObj=_gel("nav__MODULE_ID__");
-    navObj.onMouseOver="highlight(this);";
-    navObj.onMouseOut="highlight(this);";
+    navObj.onMouseOver="highlight__MODULE_ID__(this);";
+    navObj.onMouseOut="highlight__MODULE_ID__(this);";
   
     var mode=(mainStr__MODULE_ID__.length==0)?"edit":"display";
     clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);}
