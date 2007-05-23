@@ -55,9 +55,8 @@
 </UserPref>
 <Content type="html"><![CDATA[
   <style type="text/css">
-    body{font-family: verdana; }
     #container__MODULE_ID__{text-align: center;}
-    #nav__MODULE_ID__{text-align: right; }
+    #nav__MODULE_ID__{font-size: 12px; text-align: right; }
     #error__MODULE_ID__, #preview__MODULE_ID__{font-size: 10px; width: 80%; margin: 0 auto; padding: 2px; text-align: left; }
     #error__MODULE_ID__{color: #F00; border: 1px solid #F00; }
     #notice__MODULE_ID__{font-size: 10px; width: 100%;}
@@ -79,7 +78,7 @@
     #bdTable__MODULE_ID__ td{ font-size: 16px;}
     #preview__MODULE_ID__ table{ font-size: xx-small;}
 
-    #container__MODULE_ID__{ width: 100%;}
+    #container__MODULE_ID__{font-family: verdana,arial,sans-serif; width: 100%;}
   </style>
   <script>_IG_Analytics("UA-310375-4", "/birthday-gadget");</script>  
   <script type="text/javascript">
@@ -297,7 +296,7 @@
     prevObj.innerHTML=prevText; prevObj.style.display="";}
   
   function highlight__MODULE_ID__(navObj){
-    navObj.style.backgroundColor=navObj.style.backgroundColor==""?"#fc0":"";
+    navObj.style.backgroundColor=navObj.style.backgroundColor==""?"#ff0":"";
   }
   
   function clear__MODULE_ID__(){
