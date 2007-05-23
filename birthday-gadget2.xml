@@ -102,11 +102,7 @@
     viewDistance__MODULE_ID__=prefs__MODULE_ID__.getInt("warning");
     dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
     mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
-    
-    navObj=_gel("navSpan__MODULE_ID__");
-    navObj.onMouseOver="highlight__MODULE_ID__(this);";
-    navObj.onMouseOut="highlight__MODULE_ID__(this);";
-  
+
     var mode=(mainStr__MODULE_ID__.length==0)?"edit":"display";
     clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);}
   
@@ -118,11 +114,12 @@
     if(mode=="edit") _gel("editor__MODULE_ID__").focus();}
   
   function nav__MODULE_ID__(mode){
-    navText="<span class=\"link\" id=\"navSpan__MODULE_ID__\" onClick=\"change__MODULE_ID__(";
+    navText="<span class=\"link\" id=\"navSpan__MODULE_ID__\" onMouseOver=\"highlight__MODULE_ID__(this);\"";
+    navText+=" onMouseOut=\"highlight__MODULE_ID__(this);\" onClick=\"change__MODULE_ID__(";
     if(mode=="edit"){
       if(mainStr__MODULE_ID__.length==0){ noticeObj=_gel("notice__MODULE_ID__").style.display="";}
       navText+="'display')\">__MSG_modeTitleDisplay__</span>"; return;}
-    navText="'edit')\">__MSG_modeTitleEdit__</span>"; return;}
+    navText+="'edit')\">__MSG_modeTitleEdit__</span>"; return;}
   
   function show__MODULE_ID__(mode){
     _IG_Analytics("UA-310375-4", "/birthday-gadget/display");
