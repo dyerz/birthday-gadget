@@ -329,7 +329,7 @@
     <div id="error__MODULE_ID__" style="display: none;">__MSG_boxTitleError__:<div id="errorTxt__MODULE_ID__"></div></div>
     <div id="contents__MODULE_ID__"></div>
     <div id="trans__MODULE_ID__" style="display: none;"></div>
-    <div id="faq"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="FAQ">FAQ</a></div>
+    <div id="faq"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="FAQ" target="_blank">FAQ</a></div>
   </div>
 
 ]]></Content>
