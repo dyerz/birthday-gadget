@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Birthday Reminders</msg>
-  <msg name="description">Never miss your friends' birthdays again!</msg>
+  <msg name="description">Never miss a birthday again!</msg>
   <msg name="titleName">Title</msg>
   <msg name="birthdayName">Birthdays</msg>
   <msg name="formatName">Date Format</msg>

@@ -10,8 +10,8 @@
   <msg name="tableName">Nome</msg>
   <msg name="tableAge">Età</msg>
   <msg name="none">Nessun compleanno da visualizzare, soddisfare pubblica le regolazioni qui sopra per aggiungere i compleanni che desiderate ricordarsi di.</msg>
-  <msg name="nobd1">Nessun compleanni che vengono in su nei </msg>
-  <msg name="nobd2"> giorni prossimi.</msg>
+  <msg name="nobd1">Nessun compleanno nei prossimi </msg>
+  <msg name="nobd2"> giorni.</msg>
   <msg name="ajan">genn.</msg>
   <msg name="afeb">febbr.</msg>
   <msg name="amar">mar.</msg>
