@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Lembretes Do Aniversário</msg>
+  <msg name="description">Nunca falte um aniversário outra vez!</msg>
+  <msg name="titleName">Título</msg>
+  <msg name="birthdayName">Birthdays</msg>
+  <msg name="showName">Aniversários visíveis</msg>
+  <msg name="noticeName">Visualizar dias</msg>
+  <msg name="tableDate">Data</msg>
+  <msg name="tableName">Nome</msg>
+  <msg name="tableAge">Idade</msg>
+  <msg name="none">Nenhum aniversário conservou. Edite por favor ajustes acima para adicionar as datas dos aniversários que você quer recordar.</msg>
+  <msg name="nobd1">Nenhuns aniversários nos </msg>
+  <msg name="nobd2"> dias seguintes.</msg>
+  <msg name="ajan">jan.</msg>
+  <msg name="afeb">fev.</msg>
+  <msg name="amar">marco</msg>
+  <msg name="aapr">abril</msg>
+  <msg name="amay">maio</msg>
+  <msg name="ajun">junho</msg>
+  <msg name="ajul">julho</msg>
+  <msg name="aaug">agosto</msg>
+  <msg name="asep">set.</msg>
+  <msg name="aoct">out.</msg>
+  <msg name="anov">nov.</msg>
+  <msg name="adec">dez.</msg>
+  <msg name="trans">Ajuda da tradução do Guilherme N.</msg>
+  <msg name="today">Hoje</msg>
+  <msg name="formatName">Formato de data</msg>
+  <msg name="confirmSave">Prosiga sem gravação?</msg>
+  <msg name="modeTitleDisplay">Exposição</msg>
+  <msg name="modeTitleEdit">Editar</msg>
+  <msg name="buttonSave">Registro</msg>
+  <msg name="boxTitleError">Erro</msg>
+  <msg name="errMonth">Mês inválido</msg>
+  <msg name="errDay">Dia inválido</msg>
+  <msg name="errFormat">Formato não suportado</msg>
+  <msg name="errName">Nome não encontrado</msg>
+  <msg name="errNameChar">'|' não permitido no nome</msg>
+  <msg name="errLine">Somente um ';' por a linha</msg>
+  <msg name="errDate">Data Incorreta</msg>
+  <msg name="boxTitlePreview">Inspecção prévia</msg>
+  <msg name="format">Formato: YYYY/MM/DD;Nome ou MM/DD;Nome</msg>
+  <msg name="warnOver">Aviso! Os Caráteres Máximos Alcançaram, Satisfazem A Supressão Alguns.</msg>
+</messagebundle>
