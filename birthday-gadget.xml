@@ -285,10 +285,14 @@
       case 3: return (d+"/"+(m+1));}}
   
   function makeAge__MODULE_ID__(inDate){
-    if(inDate.split("/").length==2) return (""); var d=new Date(); var b=Date.parse(inDate);
-    if(b>d) return("");
-    var year=1000*60*60*24*365; age=Math.floor((d-b)/year);
-    if(age==0) return(1); return(b==d?age:age+1);}
+    var inSplit=inDate.split("/"); if(inSplit.length==2) return ("");
+    var nowDate=new Date();
+    var yearDiff=nowDate.getFullYear()-parseInt(inSplit[0], 10); if(yearDiff<0) return ("");
+    var monDiff=nowDate.getMonth()-parseInt(inSplit[1], 10)+1; if(yearDiff==0 && monDiff<0) return ("");
+    var dayDiff=nowDate.getDate()-parseInt(inSplit[2], 10); if(yearDiff==0 && monDiff==0 && dayDiff<0) return ("");
+    if(yearDiff==0 && monDiff==0 && dayDiff==0) return (0); if(yearDiff==0) return(1);
+    if(monDiff!=0) return(monDiff<0?yearDiff+1:yearDiff);
+    return(dayDiff<0?yearDiff:yearDiff+1);}
   
   function writeLine__MODULE_ID__(arr){
     if(!isArray(arr)) arr=arr.split(";");
