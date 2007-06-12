@@ -71,13 +71,15 @@
     if(mode=="edit"){
       contentsText="<div id=\"editBox\"><textarea id=\"editor\" rows=\"10\" onKeyUp=\"check(this);\" onClick=\"check(this);\"";
       contentsText+=" onFocus=\"setCaretToEnd(this);\" >"+mainStr.replace(/\|/g, "\n");
-      contentsText+="\n</textarea><br /><input id=\"saveButton\" type=\"button\"";
+      contentsText+="\n</textarea><br />";
+      //contentsText+="__MSG_visCol__: <input type=\"checkbox\" id=\"viewAge\" checked> Age";
+      //contentsText+=" <input type=\"checkbox\" id=\"viewCount\"> Countdown";
+      contentsText+="<input id=\"saveButton\" type=\"button\"";
       contentsText+="onClick=\"save(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled /></div>"; return; }
     var mainArr=mainStr.split("|");
     if(!setVisible(mainArr)) {contentsText="__MSG_noBDpart1__"+viewNum+"__MSG_noBDpart1__"; return;}
     if(viewArr.length==0) {contentsText="__MSG_boxTitleError__"; return;}
-    contentsText="<table><tr><th class=\"date\">__MSG_tableDate__</th>";
-    contentsText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
+    contentsText="<table>"+writeTitle(); //new!!!!!!!!!!!!!!!!!!!!!!!!!!
     for(var i=0; i<viewArr.length; i++){if(viewArr[i].length>1) contentsText+=writeLine(viewArr[i]);}
     contentsText+="</table>"; return;}
   
@@ -202,22 +204,37 @@
   
   function makeAge(inDate){
     var inSplit=inDate.split("/"); if(inSplit.length==2) return ("");
+    var inDay=parseInt(inSplit[2], 10); var inMon=parseInt(inSplit[1], 10); var inYear=inSplit[0];
     var nowDate=new Date();
-    var yearDiff=nowDate.getFullYear()-parseInt(inSplit[0], 10); if(yearDiff<0) return ("");
-    var monDiff=nowDate.getMonth()-parseInt(inSplit[1], 10)+1; if(yearDiff==0 && monDiff<0) return ("");
-    var dayDiff=nowDate.getDate()-parseInt(inSplit[2], 10); if(yearDiff==0 && monDiff==0 && dayDiff<0) return ("");
-    if(yearDiff==0 && monDiff==0 && dayDiff==0) return (0); if(yearDiff==0) return(1);
-    if(monDiff!=0) return(monDiff<0?yearDiff+1:yearDiff);
-    return(dayDiff<0?yearDiff:yearDiff+1);}
+    var nowDay=parseInt(nowDate.getDate()); var nowMon=parseInt(nowDate.getMonth())+1; var nowYear=nowDate.getFullYear();
+    var age=nowYear-inYear;
+    if((inMon==nowMon && inDay>=nowDay) || inMon>nowMon) age--;
+    if(age<0) return((inMon==nowMon && inDay==nowDay)?0:"");
+    return(age+1);}
   
   function writeLine(arr){
     if(!isArray(arr)) arr=arr.split(";");
     return("<tr><td>"+makeDate(arr[0])+"</td><td>"+arr[1]+"</td><td>"+makeAge(arr[0])+"</td></tr>");}
+
+//new!!!!!!!!!!!!!
+  function writeTitle(){
+    var outStr="<tr><th class=\"date\">__MSG_tableDate__</th>";
+    outStr+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
+    return(outStr);
+  
+  
+  
+  }
+
+
+
+//new!!!!!!!!!!!!
+  
   
   function preview(arr){
     prevObj=document.getElementById("preview");
-    prevText="Preview:<br /><table><tr><th class=\"date\">__MSG_tableDate__</th>";
-    prevText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
+    prevText="Preview:<br /><table>";
+    prevText+=writeTitle(); //new!!!!!!!!!!!!!!!!!!!
     prevText+=writeLine(arr)+"</table>";
     prevObj.innerHTML=prevText; prevObj.style.display="";}
   

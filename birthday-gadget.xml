@@ -286,13 +286,13 @@
   
   function makeAge__MODULE_ID__(inDate){
     var inSplit=inDate.split("/"); if(inSplit.length==2) return ("");
+    var inDay=parseInt(inSplit[2], 10); var inMon=parseInt(inSplit[1], 10); var inYear=inSplit[0];
     var nowDate=new Date();
-    var yearDiff=nowDate.getFullYear()-parseInt(inSplit[0], 10); if(yearDiff<0) return ("");
-    var monDiff=nowDate.getMonth()-parseInt(inSplit[1], 10)+1; if(yearDiff==0 && monDiff<0) return ("");
-    var dayDiff=nowDate.getDate()-parseInt(inSplit[2], 10); if(yearDiff==0 && monDiff==0 && dayDiff<0) return ("");
-    if(yearDiff==0 && monDiff==0 && dayDiff==0) return (0); if(yearDiff==0) return(1);
-    if(monDiff!=0) return(monDiff<0?yearDiff+1:yearDiff);
-    return(dayDiff<0?yearDiff:yearDiff+1);}
+    var nowDay=parseInt(nowDate.getDate()); var nowMon=parseInt(nowDate.getMonth())+1; var nowYear=nowDate.getFullYear();
+    var age=nowYear-inYear;
+    if((inMon==nowMon && inDay>=nowDay) || inMon>nowMon) age--;
+    if(age<0) return((inMon==nowMon && inDay==nowDay)?0:"");
+    return(age+1);}
   
   function writeLine__MODULE_ID__(arr){
     if(!isArray(arr)) arr=arr.split(";");
