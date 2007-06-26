@@ -30,7 +30,7 @@
   <msg name="confirmSave">Fahren Sie ohne Einsparung fort?</msg>
   <msg name="modeTitleDisplay">Anzeige</msg>
   <msg name="modeTitleEdit">Redigieren Sie</msg>
-  <msg name="buttonSave">Außer</msg>
+  <msg name="buttonSave">Speichern</msg>
   <msg name="boxTitleError">Störung</msg>
   <msg name="errMonth">Unzulässiger Monat</msg>
   <msg name="errDay">Unzulässiger Tag</msg>
