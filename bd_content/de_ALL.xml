@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Geburtstag-Anzeigen</msg>
-  <msg name="description">Vermissen Sie nie Geburtstage Ihrer Freunde wieder!</msg>
+  <msg name="title">Geburtstagserinnerungen</msg>
+  <msg name="description">Verpasse nie wieder einen Geburtstag!</msg>
   <msg name="titleName">Titel</msg>
   <msg name="birthdayName">Geburtstage</msg>
   <msg name="showName">Sichtbare Geburtstage</msg>
@@ -9,9 +9,9 @@
   <msg name="tableDate">Datum</msg>
   <msg name="tableName">Name</msg>
   <msg name="tableAge">Alter</msg>
-  <msg name="none">Keine anzuzeigen Geburtstage, zu gefallen redigieren Einstellungen oben, um an die Geburtstage zu addieren, die Sie sich erinnern möchten.</msg>
+  <msg name="none">Keine gespeicherten Geburtstage. Bitte ändere oben die Einstellungen um Geburtstage, an die Du erinnert werden möchtest, hinzuzufügen.</msg>
   <msg name="nobd1">In den folgenden </msg>
-  <msg name="nobd2"> Tagen sind keine Geburtstage verzeichnet.</msg>
+  <msg name="nobd2"> Tagen stehen keine Geburtstage an.</msg>
   <msg name="ajan">Jan.</msg>
   <msg name="afeb">Feb.</msg>
   <msg name="amar">März</msg>
@@ -24,22 +24,22 @@
   <msg name="aoct">Okt.</msg>
   <msg name="anov">Nov.</msg>
   <msg name="adec">Dez.</msg>
-  <msg name="trans">*Falsche Übersetzung?*</msg>
+  <msg name="trans">*Falsch übersetzt?*</msg>
   <msg name="today">Heute</msg>
   <msg name="formatName">Datum-Format</msg>
-  <msg name="confirmSave">Fahren Sie ohne Einsparung fort?</msg>
-  <msg name="modeTitleDisplay">Anzeige</msg>
-  <msg name="modeTitleEdit">Redigieren Sie</msg>
+  <msg name="confirmSave">Fortfahren ohne zu speichern?</msg>
+  <msg name="modeTitleDisplay">Anzeigen</msg>
+  <msg name="modeTitleEdit">Editieren</msg>
   <msg name="buttonSave">Speichern</msg>
   <msg name="boxTitleError">Störung</msg>
   <msg name="errMonth">Unzulässiger Monat</msg>
   <msg name="errDay">Unzulässiger Tag</msg>
-  <msg name="errFormat">Format nicht gestützt</msg>
+  <msg name="errFormat">Format nicht unterstützt</msg>
   <msg name="errName">Name nicht gefunden</msg>
-  <msg name="errNameChar">'|' gelassen nicht im Namen</msg>
+  <msg name="errNameChar">'|' nicht erlaubt im Namen</msg>
   <msg name="errLine">Nur ein ';' pro Linie</msg>
   <msg name="errDate">Falsches Datum</msg>
-  <msg name="boxTitlePreview">Vorbetrachtung</msg>
-  <msg name="format">Format: YYYY/MM/DD;Name oder MM/DD;Name</msg>
-  <msg name="warnOver">Warnung! Maximale Buchstaben Erreichten, Gefallen Löschung Einige.</msg>
+  <msg name="boxTitlePreview">Vorschau</msg>
+  <msg name="format">Format: JJJJ/MM/TT;Name oder MM/TT;Name</msg>
+  <msg name="warnOver">Achtung! Maximale Zeichenanzahl erreicht. Bitte einige löschen!</msg>
 </messagebundle>
