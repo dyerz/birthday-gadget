@@ -30,7 +30,7 @@
   <msg name="confirmSave">Continui senza saving?</msg>
   <msg name="modeTitleDisplay">Esposizione</msg>
   <msg name="modeTitleEdit">Pubblichi</msg>
-  <msg name="buttonSave">Risparmi</msg>
+  <msg name="buttonSave">Salva</msg>
   <msg name="boxTitleError">Errore</msg>
   <msg name="errMonth">Mese non valido</msg>
   <msg name="errDay">Giorno non valido</msg>
