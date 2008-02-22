@@ -28,7 +28,7 @@
   <msg name="today">Hoy</msg>
   <msg name="formatName">Formato De Fecha</msg>
   <msg name="confirmSave">¿Continuar sin guardar?</msg>
-  <msg name="modeTitleDisplay">Monstrar</msg>
+  <msg name="modeTitleDisplay">Mostrar</msg>
   <msg name="modeTitleEdit">Editar</msg>
   <msg name="buttonSave">Guardar</msg>
   <msg name="boxTitleError">Error</msg>
