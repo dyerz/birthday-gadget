@@ -237,7 +237,9 @@
 
 	
     function makeAge(rowDate){
-      var d=new Date(); var p=new Date(); p.setTime(rowDate); 
+      var d=new Date(), p=new Date();
+	  d.setTime(d.getTime()-pastNotice__MODULE_ID__*24*60*60*1000);
+	  p.setTime(rowDate); 
       var age=d.getFullYear()-p.getFullYear();
       if(d.getMonth()>p.getMonth()) age--;
       else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
