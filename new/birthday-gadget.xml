@@ -148,6 +148,8 @@
       gadgetHelper = new google.visualization.GadgetHelper();
       //var query = gadgetHelper.createQueryFromPrefs(prefs);
 	  var query=new google.visualization.Query(prefs.getString("_table_query_url"));
+	  query.setQuery('format A 'yyyy/MM/dd');
+      query.send(handleQueryResponse);
 	  query.setQuery('select * order by A');
       query.send(handleQueryResponse);
     }
