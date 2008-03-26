@@ -62,6 +62,7 @@
   table {
     border:2px solid black;
     border-collapse: collapse; 
+    width: 100%;
   }
 
   td {
@@ -131,8 +132,8 @@
       // Take the data table from the response, and format it. 
       var data = response.getDataTable();
       var html = [];
-
-  
+      var rowDate, age=0;
+      
       html.push('<table cellpaddind="0" cellspacing="0">');
 
       // Header row for column Ids
@@ -148,12 +149,15 @@
         for (var col = 0; col < 2; col++) {
           html.push('<td>');
           var formattedValue = data.getFormattedValue(row, col);
-          alert(data.getColumnType(col));
           formattedValue = escapeHtml(formattedValue);
           html.push(formattedValue);
           html.push('</td>');
         }
-        html.push('<td/>');
+        rowDate=Date.parse(data.getFormattedValue(row, 0));
+        if(isNaN(rowDate)) alert("Date Error");
+        age=makeAge(rowDate.getFullYear(), rowDate.getMonth(), rowDate.getDate());
+        
+        html.push('<td>'+age+</td>);
         html.push('</tr>');
       }
       html.push('</table>');
@@ -174,6 +178,16 @@
           replace(/</g, '&lt;').
           replace(/>/g, '&gt;').
           replace(/"/g, '&quot;');
+    }
+
+    function makeAge(year, month, day){
+      var d=new Date();
+      var age=d.getFullYear()-year;
+      if(d.getMonth()>month) age--;
+      else if(d.getMonth()==month && d.getDate()>=day) age--;
+      return(age++);
+    
+    
     }
 
     // Set the table size.
