@@ -86,16 +86,13 @@
     text-align: center;
   }
 
-  .checkmark {
-    font-family: Arial Unicode MS, Arial, Verdana, Helvetica;
-  }
-
+  
   </style>
 
   <!-- Load the Google common loader, that is later used to load the Visualization API. -->
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
-  <div id="tablediv" style="overflow: auto;">Loading...</div>
+  <div id="tablediv" >Loading...</div>
 
   <script>
     // Load the Google Visualization API
