@@ -257,7 +257,7 @@
 	function makeDays(rowDate){
 		var d=new Date(), p=new Date();
 		p.setTime(rowDate); p.setFullYear(d.getFullYear());
-		return ((p.getTime()-g.getTime())/(24*60*60*1000)).toFixed(0);
+		return ((p.getTime()-d.getTime())/(24*60*60*1000)).toFixed(0);
 	}
 	
     function makeAge(rowDate){
