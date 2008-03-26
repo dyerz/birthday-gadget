@@ -88,7 +88,7 @@
   }
   
   #toolbar table{
-	padding: 0 0 0 12px;
+	padding: 0 0 0 32px;
   }
   
   #toolbar img{
@@ -125,7 +125,7 @@
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
   <div id="toolbar">
-	<img id="expand" src="/bd_content/minus.png" height="10" width="10" />
+	<img id="expand" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/minus.png" height="10" width="10" />
 	<table><tr><td id="tbEdit"></td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
   <div id="tablediv" >Loading...</div>
 
