@@ -97,9 +97,9 @@
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
   <div id="toolbar"><table><tr>
-    <td id="tbEdit">Edit</td>
+    <td id="tbEdit"></td>
     <td>Help</td>
-    <td>Refresh</td>
+    <td id="tbRefresh">Refresh</td>
   </tr></table></div>
   <div id="tablediv" >Loading...</div>
 
@@ -109,25 +109,28 @@
     var gadgetHelper = null;
     var dateStyle__MODULE_ID__;
     var urlPref;
-
-    /**
-     * Create a query from the user prefs, and then send it to the data source.
-     * This method is called once the visualization API is fully loaded.
-     * Note that in the last line, a callback function is specified to be
-     * called once the response is received from the data source.
-     */
-    function sendQuery() {
-      var prefs = new _IG_Prefs(); // User preferences
+    var prefs;
+    
+    function init(){
+      prefs = new _IG_Prefs();
       dateStyle__MODULE_ID__=prefs.getInt("dateFormat");
       urlPref=prefs.getString("_table_query_url");
       if(urlPref.search(/tq\?/)==-1 && urlPref.search(/ccc\?/)!=-1 ){
         urlPref=urlPref.replace(/ccc\?/, "tq?");
+        if(urlPref.search(/\&/)==-1) urlPref=urlPref.substring(0, urlPref.indexOf("&"));
         prefs.set("_table_query_url", escapeHtml(urlPref));
         prefs = new _IG_Prefs();
       }
       urlPref=urlPref.replace(/tq\?/, "ccc?");
       urlPref=urlPref.substring(0, urlPref.indexOf("&"));
+      
       _gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref+'">Edit</a>';
+      _gel("tbRefresh").onClick()=function(){location.reload(true);}
+          
+    }
+
+    function sendQuery() {
+      init();
       gadgetHelper = new google.visualization.GadgetHelper();
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(handleQueryResponse);
