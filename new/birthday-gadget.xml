@@ -155,7 +155,7 @@
         }
         rowDate=Date.parse(data.getFormattedValue(row, 0));
         if(isNaN(rowDate)) alert("Date Error");
-        age=makeAge(rowDate.getFullYear(), rowDate.getMonth(), rowDate.getDate());
+        age=makeAge(rowDate);
         
         html.push('<td>'+age+'</td>');
         html.push('</tr>');
@@ -180,11 +180,11 @@
           replace(/"/g, '&quot;');
     }
 
-    function makeAge(year, month, day){
-      var d=new Date();
-      var age=d.getFullYear()-year;
-      if(d.getMonth()>month) age--;
-      else if(d.getMonth()==month && d.getDate()>=day) age--;
+    function makeAge(p){
+      var d=new Date(); var p=new Date(); p.setTime(rowDate); 
+      var age=d.getFullYear()-p.getFullYear();
+      if(d.getMonth()>p.getMonth()) age--;
+      else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
       return(age++);
     
     
