@@ -220,7 +220,7 @@
 				if(isNaN(rowDate)) alert("Date Error");
 				dispDate=makeDate__MODULE_ID__(rowData[0]);
 				dispAge=makeAge(rowDate);
-				dispDays=makeDays(rowDate);
+				dispDays=makeDays(rowDate, rowData[2]);
 
 				html.push('<td>'+dispDate+'</td>');
 				html.push('<td>'+escapeHtml(rowData[1])+'</td>');
@@ -293,10 +293,9 @@
 	}
  
 
-	function makeDays(rowDate){
-		var d=new Date(), p=new Date();
-		p.setTime(rowDate); p.setFullYear(d.getFullYear());
-		return ((p.getTime()-d.getTime())/(24*60*60*1000)).toFixed(0);
+	function makeDays(rowDate, formatDate){
+		var d=new Date();
+		return ((Date.parse(formatDate)-d.getTime())/(24*60*60*1000)).toFixed(0);
 	}
 	
     function makeAge(rowDate){
