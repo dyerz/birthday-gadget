@@ -124,7 +124,7 @@
     // Load the Google Visualization API
     google.load("visualization", "1");
     var gadgetHelper = null;
-    var dateStyle__MODULE_ID__, futureNotice__MODULE_ID__, pastNotice__MODULE_ID__;
+    var dateStyle__MODULE_ID__, futureNotice__MODULE_ID__, pastNotice__MODULE_ID__, numVis__MODULE_ID__;
     var urlPref, prefs;
     
     function init(){
@@ -132,6 +132,7 @@
 
 		//get prefs
 		dateStyle__MODULE_ID__=prefs.getInt("dateFormat");
+		numVis__MODULE_ID__=prefs.getInt("showBDay");
 		futureNotice__MODULE_ID__=prefs.getInt("warn_forward");
 		pastNotice__MODULE_ID__=prefs.getInt("warn_past");
 		
@@ -176,7 +177,7 @@
 		// Header row for column Ids
 		html.push('<tr><td class="colid">Date</td><td class="colid">Name</td><td class="colid">Age</td></tr>');
 
-		dispLength=futureNotice__MODULE_ID__==0?dataArray.length:futureNotice__MODULE_ID__;
+		dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
 		var countDisp=0;
 
 		// Add the data rows
@@ -231,10 +232,6 @@
 	function sortDate__MODULE_ID__(a, b){
 		var aA=a.split("~;~"), bA=b.split("~;~");
 		return Date.parse(aA[2])-Date.parse(bA[2]);
-
-		//var aM=aA[0].split("/"); var bM=bA[0].split("/");
-	    //var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
-	    //return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;
 	}
  
 
