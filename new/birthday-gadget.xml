@@ -56,7 +56,7 @@
 </UserPref>
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
-<UserPref name="_table_query_url" display_name="Data source url" required="true" /> 
+<UserPref name="_table_query_url" display_name="Data source url" default_value="" /> 
 <Content type="html">
 <![CDATA[ 
 
@@ -139,9 +139,8 @@
 		pastNotice__MODULE_ID__=prefs.getInt("warnPast");
 		showAge__MODULE_ID__=prefs.getBool("showAge");
 		showDays__MODULE_ID__=prefs.getBool("showDays");
-		
 		urlPref=prefs.getString("_table_query_url");
-
+		
 		if(urlPref.search(/tq\?/)==-1 && urlPref.search(/ccc\?/)!=-1 ){
 			urlPref=urlPref.replace(/ccc\?/, "tq?");
 			if(urlPref.search(/\&/)==-1) urlPref=urlPref.substring(0, urlPref.indexOf("&"));
@@ -160,7 +159,9 @@
       init();
       gadgetHelper = new google.visualization.GadgetHelper();
       //var query = gadgetHelper.createQueryFromPrefs(prefs);
-	  var query=new google.visualization.Query(prefs.getString("_table_query_url"));
+	  var qCheck=prefs.getString("_table_query_url");
+	  if(qCheck=="") {showHelp(); return;}
+	  var query=new google.visualization.Query(qCheck);
 	  query.setQuery("select A, B format A 'yyyy/MM/dd'");
       query.send(handleQueryResponse);
     }
@@ -227,6 +228,14 @@
 			replace(/"/g, '&quot;');
     }
 	
+	function showHelp(){
+		html.push('<h1>Gadget Setup</h1>');
+	
+	
+		_gel('tablediv').innerHTML = html.join('');
+		_IG_AdjustIFrameHeight();
+	
+	}
 	
 	function buildArray(data){
 		var dataArray=new Array();
