@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Birthday Reminders</msg>
+  <msg name="description">Never miss a birthday again!</msg>
+  <msg name="titleName">Title</msg>
+  <msg name="birthdayName">Birthdays</msg>
+  <msg name="showName">Visible Birthdays</msg>
+  <msg name="pastNoticeName">Days After</msg>
+  <msg name="futureNoticeName">Days Before</msg>
+  <msg name="tableDate">Date</msg>
+  <msg name="tableName">Name</msg>
+  <msg name="tableAge">Age</msg>
+  <msg name="none">No birthdays saved. Please edit settings above to add the dates of the birthdays you want to remember.</msg>
+  <msg name="nobd1">No birthdays in the next </msg>
+  <msg name="nobd2"> days.</msg>
+  <msg name="ajan">Jan.</msg>
+  <msg name="afeb">Feb.</msg>
+  <msg name="amar">Mar.</msg>
+  <msg name="aapr">Apr.</msg>
+  <msg name="amay">May</msg>
+  <msg name="ajun">June</msg>
+  <msg name="ajul">July</msg>
+  <msg name="aaug">Aug.</msg>
+  <msg name="asep">Sept.</msg>
+  <msg name="aoct">Oct.</msg>
+  <msg name="anov">Nov.</msg>
+  <msg name="adec">Dec.</msg>
+  <msg name="trans"></msg>
+  <msg name="today">Today</msg>
+  <msg name="formatName">Date Format</msg>
+  <msg name="confirmSave">Continue without saving?</msg>
+  <msg name="modeTitleDisplay">Display</msg>
+  <msg name="modeTitleEdit">Edit</msg>
+  <msg name="buttonSave">Save</msg>
+  <msg name="boxTitleError">Error</msg>
+  <msg name="errMonth">Invalid month</msg>
+  <msg name="errDay">Invalid day</msg>
+  <msg name="errFormat">Format not supported</msg>
+  <msg name="errName">Name not found</msg>
+  <msg name="errNameChar">'|' not allowed in Name</msg>
+  <msg name="errLine">Only one ';' per line</msg>
+  <msg name="errDate">Incorrect Date</msg>
+  <msg name="boxTitlePreview">Preview</msg>
+  <msg name="format">Format: YYYY/MM/DD;Name or MM/DD;Name</msg>
+  <msg name="warnOver">Warning! Maximum Characters Reached, Please Delete Some.</msg>
+</messagebundle>
