@@ -61,12 +61,12 @@
 <![CDATA[ 
 
   <style>
-  table {
+ #tablediv table {
     border-collapse: collapse; 
     width: 100%;
   }
 
-  td {
+  #tablediv td {
     padding: 2px;
     font-size: 11px;
     text-align: center;
