@@ -132,28 +132,12 @@
       var data = response.getDataTable();
       var html = [];
 
-  alert(data.getNumberOfColumns());
   
       html.push('<table cellpaddind="0" cellspacing="0">');
 
       // Header row for column Ids
-      html.push('<tr class="colid"><td />');
-      var colTag = [];
-      for (var col = 0; col < data.getNumberOfColumns(); col++) {
-        if (data.getColumnType(col) == 'number') {
-          colTag[col] = '<td align="right">';
-        } else {
-          colTag[col] = '<td>';
-        }
-        html.push('<td>' + escapeHtml(data.getColumnId(col)) + '</td>');
-      }
-      html.push('</tr>');
-
-      // Header row for column labels
-      html.push('<tr class="label"><td />');
-      for (var col = 0; col < data.getNumberOfColumns(); col++) {
-         html.push('<td>' + escapeHtml(data.getColumnLabel(col)) + '</td>');
-      }
+      html.push('<tr class="colid">');
+      html.push('<td>Date</td><td>Name</td><td>Age</td>');
       html.push('</tr>');
 
 
@@ -161,9 +145,7 @@
       for (var row = 0; row < data.getNumberOfRows(); row++) {
         html.push('<tr><td class="rowind">');
         html.push(String(row + 1));
-        html.push('</td>');
         for (var col = 0; col < data.getNumberOfColumns(); col++) {
-          html.push(colTag[col]);
           var formattedValue = data.getFormattedValue(row, col);
           // Special formatting for booleans
           if (data.getColumnType(col) == 'boolean') {
