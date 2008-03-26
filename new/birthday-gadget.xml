@@ -239,7 +239,9 @@
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
 			prefs.set("_table_query_url", escapeHtml(_gel('newurl').value));
-			self.parent.location.reload(true);}
+			//self.parent.location.reload(true);
+			_reload();
+			}
 
 		
 		
