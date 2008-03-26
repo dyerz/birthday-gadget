@@ -157,7 +157,7 @@
         if(isNaN(rowDate)) alert("Date Error");
         age=makeAge(rowDate.getFullYear(), rowDate.getMonth(), rowDate.getDate());
         
-        html.push('<td>'+age+</td>);
+        html.push('<td>'+age+'</td>');
         html.push('</tr>');
       }
       html.push('</table>');
