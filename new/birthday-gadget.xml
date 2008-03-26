@@ -124,7 +124,7 @@
     // Load the Google Visualization API
     google.load("visualization", "1");
     var gadgetHelper = null;
-    var dateStyle__MODULE_ID__, futureNotice__MODULE_ID__;
+    var dateStyle__MODULE_ID__, futureNotice__MODULE_ID__, pastNotice__MODULE_ID__;
     var urlPref, prefs;
     
     function init(){
@@ -133,6 +133,8 @@
 		//get prefs
 		dateStyle__MODULE_ID__=prefs.getInt("dateFormat");
 		futureNotice__MODULE_ID__=prefs.getInt("warn_forward");
+		pastNotice__MODULE_ID__=prefs.getInt("warn_past");
+		
 		urlPref=prefs.getString("_table_query_url");
 
 		if(urlPref.search(/tq\?/)==-1 && urlPref.search(/ccc\?/)!=-1 ){
@@ -180,6 +182,7 @@
 		// Add the data rows
 		for (var row = 0; row < dataArray.length; row++) {
 			var rowData=dataArray[row].split("~;~");
+			if(!checkDate(rowData[0])) continue;
 			html.push('<tr>');
 			rowDate=Date.parse(rowData[0]);
 			if(isNaN(rowDate)) alert("Date Error");
@@ -208,10 +211,26 @@
 			replace(/"/g, '&quot;');
     }
 
+	function checkDate(rowDate){
+		var d=new Date(); var modTime=d.getTime()-pastNotice__MODULE_ID__*24*60*60*1000;
+		d.setTime(modTime);
+		
+		
+	
+	
+	
+	
 	function buildArray(data){
 		var dataArray=new Array();
+		var tempDate=new Date(), nowDate=new Date(), formatDate="";
 		for(var row=0; row<data.getNumberOfRows(); row++){
-			dataArray.push(data.getFormattedValue(row,0)+"~;~"+data.getFormattedValue(row,1));
+			tempDate=setTime(Date.parse(data.getFormattedValue(row,0))-pastNotice__MODULE_ID__*24*60*60*1000);
+			if(tempDate.getMonth()<nowDate.getMonth ||
+				tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate())
+				tempDate.setFullYear(nowDate.getFullYear+1);
+			else tempDate.setFullYear(nowDate.getFullYear);
+			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
+			dataArray.push(data.getFormattedValue(row,0)+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
 		return(dataArray);
@@ -219,9 +238,12 @@
 
 	function sortDate__MODULE_ID__(a, b){
 		var aA=a.split("~;~"), bA=b.split("~;~");
-	    var aM=aA[0].split("/"); var bM=bA[0].split("/");
-	    var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
-	    return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+		return Date.parse(aA[2])-Date.parse(bA[2]);
+
+		//var aM=aA[0].split("/"); var bM=bA[0].split("/");
+	    //var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+	    //return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;
+	}
  
 
 	
