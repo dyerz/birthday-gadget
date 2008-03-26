@@ -85,8 +85,16 @@
     height: 12px;
     text-align: center;
     margin: 0; padding: 0; 
-    
+  }
   
+  #toolbar table{
+	margin: 0 0 0 12px;
+  }
+  
+  #toolbar img{
+	position: absolute; 
+	top: 0; left: 0; 
+	border: 0;
   }
   
   #tablediv{
@@ -116,11 +124,9 @@
 
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
-  <div id="toolbar"><table><tr>
-    <td id="tbEdit"></td>
-    <td>Help</td>
-    <td id="tbRefresh">Refresh</td>
-  </tr></table></div>
+  <div id="toolbar">
+	<img id="expand" src="bd_content/minus.png" height="10" width="10" />
+	<table><tr><td id="tbEdit"></td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
   <div id="tablediv" >Loading...</div>
 
   <script>
