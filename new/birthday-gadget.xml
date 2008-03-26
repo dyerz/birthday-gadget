@@ -171,9 +171,10 @@
 
 		var dataArray=buildArray(data);
 		
-		if(dataArray.length==0) 
+		if(dataArray.length==0){
 			html.push('__MSG_nobd1__ '+futureNotice__MODULE_ID__+' __MSG_nobd2__');
 			_gel('tablediv').style.textAlign="center";
+		}
 		else{
 
 			html.push('<table cellpaddind="0" cellspacing="0">');
