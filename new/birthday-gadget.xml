@@ -142,6 +142,7 @@
 		urlPref=prefs.getString("_table_query_url");
 		
 		if(urlPref.search(/tq\?/)==-1 && urlPref.search(/ccc\?/)!=-1 ){
+		var check=urlPref;
 			urlPref=urlPref.replace(/ccc\?/, "tq?");
 			if(urlPref.search(/\&/)==-1) urlPref=urlPref.substring(0, urlPref.indexOf("&"));
 			prefs.set("_table_query_url", escapeHtml(urlPref));
