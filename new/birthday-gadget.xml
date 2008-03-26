@@ -148,19 +148,9 @@
       gadgetHelper = new google.visualization.GadgetHelper();
       //var query = gadgetHelper.createQueryFromPrefs(prefs);
 	  var query=new google.visualization.Query(prefs.getString("_table_query_url"));
-	  query.setQuery("format A 'yyyy/MM/dd'");
-      query.send(handleQuickQueryResponse);
-	  query.setQuery('select * order by A');
+	  query.setQuery('select MONTH(A) AS month, DAY(A) AS day, B order by month, day');
       query.send(handleQueryResponse);
     }
-
-    function handleQuickQueryResponse(response) {
-      if (!gadgetHelper.validateResponse(response)) {
-        return;
-      };
-	}
-	
-	
 
     function handleQueryResponse(response) {
       if (!gadgetHelper.validateResponse(response)) {
