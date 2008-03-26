@@ -209,12 +209,11 @@
 	}
 
 	function sortDate__MODULE_ID__(a, b){
-		var tempA=a.split("~;~"), tempB=b.split("~;~");
-		var dateA=tempA[0].split("/"), dateB=tempB[0].split("/");
-	    var aM=dateA[0].split("/"), bM=dateB[0].split("/");
-	    var ma=aM.length==2?0:1, mb=bM.length==2?0:1, da=ma+1, db=mb+1;
+		var aA=a.split("~;~"), bA=b.split("~;~");
+	    var aM=aA[0].split("/"); var bM=bA[0].split("/");
+	    var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
 	    return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
-  
+ 
 
 	
     function makeAge(rowDate){
