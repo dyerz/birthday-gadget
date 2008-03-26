@@ -201,7 +201,7 @@
 				if(isNaN(rowDate)) alert("Date Error");
 				dispDate=makeDate__MODULE_ID__(rowData[0]);
 				dispAge=makeAge(rowDate);
-				dispDays=makeDats(rowDate);
+				dispDays=makeDays(rowDate);
 
 				html.push('<td>'+dispDate+'</td>');
 				html.push('<td>'+escapeHtml(rowData[1])+'</td>');
