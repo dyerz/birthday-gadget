@@ -170,32 +170,37 @@
 		var rowDate, dispAge=0, dispDate="";
 
 		var dataArray=buildArray(data);
+		
+		if(dataArray.length==0) 
+			html.push('__MSG_nobd1__ '+futureNotice__MODULE_ID__+' __MSG_nobd2__');
+		else{
 
-		html.push('<table cellpaddind="0" cellspacing="0">');
+			html.push('<table cellpaddind="0" cellspacing="0">');
 
-		// Header row for column Ids
-		html.push('<tr><td class="colid">Date</td><td class="colid">Name</td><td class="colid">Age</td></tr>');
+			// Header row for column Ids
+			html.push('<tr><td class="colid">Date</td><td class="colid">Name</td><td class="colid">Age</td></tr>');
 
-		dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
-		var countDisp=0;
+			dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
+			var countDisp=0;
 
-		// Add the data rows
-		for (var row = 0; row < dataArray.length; row++) {
-			var rowData=dataArray[row].split("~;~");
-			html.push('<tr>');
-			rowDate=Date.parse(rowData[0]);
-			if(isNaN(rowDate)) alert("Date Error");
-			dispDate=makeDate__MODULE_ID__(rowData[0]);
-			dispAge=makeAge(rowDate);
+			// Add the data rows
+			for (var row = 0; row < dataArray.length; row++) {
+				var rowData=dataArray[row].split("~;~");
+				html.push('<tr>');
+				rowDate=Date.parse(rowData[0]);
+				if(isNaN(rowDate)) alert("Date Error");
+				dispDate=makeDate__MODULE_ID__(rowData[0]);
+				dispAge=makeAge(rowDate);
 
-			html.push('<td>'+dispDate+'</td>');
-			html.push('<td>'+escapeHtml(rowData[1])+'</td>');
-			html.push('<td>'+dispAge+'</td>');
-			html.push('</tr>');
-			countDisp++;
-			if(countDisp>=dispLength) break;
+				html.push('<td>'+dispDate+'</td>');
+				html.push('<td>'+escapeHtml(rowData[1])+'</td>');
+				html.push('<td>'+dispAge+'</td>');
+				html.push('</tr>');
+				countDisp++;
+				if(countDisp>=dispLength) break;
+			}
+			html.push('</table>');
 		}
-		html.push('</table>');
 
 		// Set the generated html into the container div.
 		_gel('tablediv').innerHTML = html.join('');
