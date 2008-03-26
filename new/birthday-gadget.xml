@@ -231,7 +231,8 @@
 	function showHelp(){
 		var html = [];
 		html.push('<h1>Gadget Setup</h1>');
-	
+		html.push('<a href="http://spreadsheets.google.com/">Go here!</a>');
+		html.push('<p>1) Create a new spreadsheet<br />2) Dates in Column "A"<br />3) Names in Column "B"4) Copy address from the address bar below</p>');
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_IG_AdjustIFrameHeight();
