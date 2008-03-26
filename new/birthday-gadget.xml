@@ -145,23 +145,15 @@
       // Add the data rows
       for (var row = 0; row < data.getNumberOfRows(); row++) {
         html.push('<tr>');
-        for (var col = 0; col < data.getNumberOfColumns(); col++) {
+        for (var col = 0; col < 2; col++) {
           html.push('<td>');
           var formattedValue = data.getFormattedValue(row, col);
-          // Special formatting for booleans
-          if (data.getColumnType(col) == 'boolean') {
-            var value = data.getValue(row, col);
-            formattedValue = (value == null) ? '-' :
-                value ? '&#10004;' : '&#10007;';
-            formattedValue = '<span class="checkmark">' + formattedValue +
-                 '</span>'
-          } else {
-            formattedValue = escapeHtml(formattedValue);
-          }
+          alert(data.getColumnType(col));
+          formattedValue = escapeHtml(formattedValue);
           html.push(formattedValue);
           html.push('</td>');
-          html.push('<td/>');
         }
+        html.push('<td/>');
         html.push('</tr>');
       }
       html.push('</table>');
