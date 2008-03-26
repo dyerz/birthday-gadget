@@ -125,7 +125,7 @@
       urlPref=urlPref.substring(0, urlPref.indexOf("&"));
       
       _gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref+'">Edit</a>';
-      _gel("tbRefresh").onClick()=function(){location.reload(true);}
+      _gel("tbRefresh").onclick=function(){location.reload(true);}
           
     }
 
