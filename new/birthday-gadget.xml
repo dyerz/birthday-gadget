@@ -97,7 +97,7 @@
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
   <div id="toolbar"><table><tr>
-    <td>Edit</td>
+    <td id="tbEdit">Edit</td>
     <td>Help</td>
     <td>Refresh</td>
   </tr></table></div>
@@ -108,6 +108,7 @@
     google.load("visualization", "1");
     var gadgetHelper = null;
     var dateStyle__MODULE_ID__;
+    var urlPref;
 
     /**
      * Create a query from the user prefs, and then send it to the data source.
@@ -118,6 +119,8 @@
     function sendQuery() {
       var prefs = new _IG_Prefs(); // User preferences
       dateStyle__MODULE_ID__=prefs.getInt("dateFormat");
+      urlPref=prefs.getString("_table_query_url");
+      _gel("tbEdit").innerHTML='<a href="'+urlPref+'">Edit</a>';
       gadgetHelper = new google.visualization.GadgetHelper();
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(handleQueryResponse);
