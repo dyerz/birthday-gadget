@@ -148,7 +148,7 @@
       gadgetHelper = new google.visualization.GadgetHelper();
       //var query = gadgetHelper.createQueryFromPrefs(prefs);
 	  var query=new google.visualization.Query(prefs.getString("_table_query_url"));
-	  query.setQuery("select A, B order by A format A 'yyyy/MM/dd'");
+	  query.setQuery("select A, B");
       query.send(handleQueryResponse);
     }
 
@@ -209,10 +209,15 @@
 	}
 
 	function sortDate__MODULE_ID__(a, b){
-	    var aA=a.split("~;~"); var bA=b.split("~;~");
-	    var aM=aA[0].split("/"); var bM=bA[0].split("/");
-	    var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
-	    return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
+		var tempA=a.split("~;~"), tempB=b.split("~;~");
+		var dateA=Date.parse(tempA[0]), dateB=Date.parse(tempB[0]);
+		var compA=new Date(), compB=new Date();
+		compA.setTime(dateA); compA.setFullYear(2008); compB.setTime(dateB); compB.setFullYear(2008);
+		return compA.getTime()>compB.getTime?1:compA.getTime()<compB.getTime?-1:0;
+		//var yearA=date
+	    //var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
+	    //return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;
+	}
   
 
 	
@@ -224,6 +229,7 @@
       return(age++);}
     
     function makeDate__MODULE_ID__(inDate){
+	return(inDate);
     var month=new Array(12);
       month[0]="__MSG_ajan__";
       month[1]="__MSG_afeb__";
