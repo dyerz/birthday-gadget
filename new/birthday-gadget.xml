@@ -191,7 +191,7 @@
 
     // Set the table size.
     _gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
-    
+
     // Set a callback function to be called by the loader once the visualization API is loaded.
     google.setOnLoadCallback(sendQuery);
 
