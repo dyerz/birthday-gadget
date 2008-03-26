@@ -56,7 +56,7 @@
 </UserPref>
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
-<UserPref name="_table_query_url" display_name="Data source url" /> 
+<UserPref name="_table_query_url" display_name="Data source url" default_value="" /> 
 <Content type="html">
 <![CDATA[ 
 
@@ -238,9 +238,7 @@
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
-			var prefs=new _IG_Prefs();
 			prefs.set("_table_query_url", escapeHtml(_gel('newurl').value));
-			_gel('tablediv').innerHTML="Loading...";
 			sendQuery();}
 
 		
