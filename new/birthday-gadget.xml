@@ -79,7 +79,15 @@
   #toolbar{
     width: 100%;
     height: 12px;
+    text-align: center;
+    margin: 0; padding: 0; 
     
+  
+  }
+  
+  #tablediv{
+    width: 100%; 
+    margin: 0; padding: 0;
   
   }
   
@@ -136,10 +144,7 @@
       html.push('<table cellpaddind="0" cellspacing="0">');
 
       // Header row for column Ids
-      html.push('<tr class="colid">');
-      html.push('<td>Date</td><td>Name</td><td>Age</td>');
-      html.push('</tr>');
-
+      html.push('<tr><td class="colid">Date</td><td class="colid">Name</td><td class="colid">Age</td></tr>');
 
 
       // Add the data rows
