@@ -106,7 +106,7 @@
   }
   
   #toolbar td{
-	width: 33%;
+	width: 25%;
     padding: 0; margin: 0;
     font-size: 10px;
   }
@@ -129,8 +129,8 @@
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
   <div id="toolbar">
-	<img id="expand" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/minus.png" height="12" width="12" />
 	<table><tr><td id="tbEdit"></td><td>Convert</td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
+  <img id="showtb" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/minus.png" height="12" width="12" />
   <div id="tablediv" >Loading...</div>
 
   <script>
