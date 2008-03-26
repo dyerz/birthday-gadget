@@ -120,6 +120,7 @@
       var prefs = new _IG_Prefs(); // User preferences
       dateStyle__MODULE_ID__=prefs.getInt("dateFormat");
       urlPref=prefs.getString("_table_query_url");
+      urlPref=urlPref.replace(/tq\?/, "ccc?");
       urlPref=urlPref.substring(0, urlPref.indexOf("&"));
       _gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref+'">Edit</a>';
       gadgetHelper = new google.visualization.GadgetHelper();
