@@ -169,7 +169,7 @@
 
 
       // Add the data rows
-      for (var row = 0; row < dataArray.length(); row++) {
+      for (var row = 0; row < dataArray.length; row++) {
 		var rowData=dataArray[row].split("~;~");
         html.push('<tr>');
         rowDate=Date.parse(rowData[0]);
