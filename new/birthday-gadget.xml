@@ -14,7 +14,6 @@
     <Require feature="analytics" /> 
     <Require feature="dynamic-height" />
     <Require feature="setprefs"/>
-    <Require feature="minimessage"/>
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" default_value="__MSG_title__" />
 <UserPref name="dateFormat" display_name="__MSG_formatName__" default_value="0" datatype="enum" >
@@ -37,13 +36,6 @@
   <EnumValue value="20" />
   <EnumValue value="0" display_value="All" />
 </UserPref>
-<UserPref name="warn_past" display_name="__MSG_pastNoticeName__" default_value="0" datatype="enum" >
-  <EnumValue value="0" display_value="None"/>
-  <EnumValue value="3" display_value="3 Days"/>
-  <EnumValue value="7" display_value="1 Week" />
-  <EnumValue value="10" display_value="10 Days" />
-  <EnumValue value="14" display_value="2 Weeks" />
-</UserPref>
 <UserPref name="warn_forward" display_name="__MSG_futureNoticeName__" default_value="7" datatype="enum" >
   <EnumValue value="3" display_value="3 Days"/>
   <EnumValue value="7" display_value="1 Week" />
@@ -54,6 +46,13 @@
   <EnumValue value="60" display_value="2 Months" />
   <EnumValue value="90" display_value="3 Months" /> 
   <EnumValue value="0" display_value="All" /> 
+</UserPref>
+<UserPref name="warn_past" display_name="__MSG_pastNoticeName__" default_value="0" datatype="enum" >
+  <EnumValue value="0" display_value="None"/>
+  <EnumValue value="3" display_value="3 Days"/>
+  <EnumValue value="7" display_value="1 Week" />
+  <EnumValue value="10" display_value="10 Days" />
+  <EnumValue value="14" display_value="2 Weeks" />
 </UserPref>
 <UserPref name="_table_query_url" display_name="Data source url" required="true" /> 
 <Content type="html">
@@ -215,8 +214,9 @@
 	function buildArray(data){
 		var dataArray=new Array();
 		var tempDate=new Date(), nowDate=new Date(), formatDate="", tempData;
+		nowDate.setTime(nowDate.getTime()-pastNotice__MODULE_ID__*24*60*60*1000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
-			tempData=Date.parse(data.getFormattedValue(row,0))-pastNotice__MODULE_ID__*24*60*60*1000;
+			tempData=Date.parse(data.getFormattedValue(row,0));
 			tempDate.setTime(tempData);
 			if(tempDate.getMonth()<nowDate.getMonth() ||
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))

@@ -2,7 +2,11 @@
 <messagebundle>
   <msg name="title">Birthday Reminder 2.0</msg>
   <msg name="description">Never miss a birthday again!</msg>
-  <msg name="titleName">Title</msg>
+  <msg name="titleName">Gadget Title</msg>
+  <msg name="formatName">Date Format</msg>
+
+
+
   <msg name="birthdayName">Birthdays</msg>
   <msg name="showName">Visible Birthdays</msg>
   <msg name="pastNoticeName">Days After</msg>
@@ -27,7 +31,6 @@
   <msg name="adec">Dec.</msg>
   <msg name="trans"></msg>
   <msg name="today">Today</msg>
-  <msg name="formatName">Date Format</msg>
   <msg name="confirmSave">Continue without saving?</msg>
   <msg name="modeTitleDisplay">Display</msg>
   <msg name="modeTitleEdit">Edit</msg>
