@@ -142,9 +142,8 @@
 		urlPref=prefs.getString("_table_query_url");
 		
 		if(urlPref.search(/tq\?/)==-1 && urlPref.search(/ccc\?/)!=-1 ){
-		var check=urlPref;
 			urlPref=urlPref.replace(/ccc\?/, "tq?");
-			if(urlPref.search(/\&/)==-1) urlPref=urlPref.substring(0, urlPref.indexOf("&"));
+			if(urlPref.search(/\&/)!=-1) urlPref=urlPref.substring(0, urlPref.indexOf("&"));
 			prefs.set("_table_query_url", escapeHtml(urlPref));
 			prefs = new _IG_Prefs();
 		}
@@ -159,7 +158,6 @@
     function sendQuery() {
       init();
       gadgetHelper = new google.visualization.GadgetHelper();
-      //var query = gadgetHelper.createQueryFromPrefs(prefs);
 	  var qCheck=prefs.getString("_table_query_url");
 	  if(qCheck=="") {showHelp(); return;}
 	  var query=new google.visualization.Query(qCheck);
