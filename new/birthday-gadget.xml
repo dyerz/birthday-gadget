@@ -182,7 +182,6 @@
 		// Add the data rows
 		for (var row = 0; row < dataArray.length; row++) {
 			var rowData=dataArray[row].split("~;~");
-			if(!checkDate(rowData[0])) continue;
 			html.push('<tr>');
 			rowDate=Date.parse(rowData[0]);
 			if(isNaN(rowDate)) alert("Date Error");
@@ -210,14 +209,6 @@
 			replace(/>/g, '&gt;').
 			replace(/"/g, '&quot;');
     }
-
-	function checkDate(rowDate){
-		var d=new Date(); var modTime=d.getTime()-pastNotice__MODULE_ID__*24*60*60*1000;
-		d.setTime(modTime);
-		
-		
-	
-	
 	
 	
 	function buildArray(data){
