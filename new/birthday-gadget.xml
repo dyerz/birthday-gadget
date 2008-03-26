@@ -7,7 +7,7 @@
   thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
   author="Adam"
   author_email="birthdaygadget@gmail.com"
-  height="100">
+  height="200">
     <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/ALL_ALL.xml" />
     <Require feature="idi" /> 
     <Require feature="locked-domain" /> 
@@ -163,6 +163,7 @@
 
       // Set the generated html into the container div.
       _gel('tablediv').innerHTML = html.join('');
+      _IG_AdjustIFrameHeight();
     };
 
     /**
@@ -190,7 +191,7 @@
     }
 
     // Set the table size.
-    _gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
+    //_gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
 
     // Set a callback function to be called by the loader once the visualization API is loaded.
     google.setOnLoadCallback(sendQuery);
