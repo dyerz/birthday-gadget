@@ -148,7 +148,7 @@
       gadgetHelper = new google.visualization.GadgetHelper();
       //var query = gadgetHelper.createQueryFromPrefs(prefs);
 	  var query=new google.visualization.Query(prefs.getString("_table_query_url"));
-	  query.setQuery('select * order by 0');
+	  query.setQuery('select * order by a');
       query.send(handleQueryResponse);
     }
 
