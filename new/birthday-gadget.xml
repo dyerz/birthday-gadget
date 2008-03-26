@@ -61,7 +61,12 @@
 <![CDATA[ 
 
   <style>
- #tablediv table {
+  #tablediv{
+    width: 100%; 
+    margin: 20px 0 0 0; padding: 0;
+  
+  }
+  #tablediv table {
     border-collapse: collapse; 
     width: 100%;
   }
@@ -78,29 +83,26 @@
     text-align: center;
   }
 
+ 
   #toolbar{
 	position: absolute;
 	top: 2px; left: 0;
     width: 100%;
     height: 12px;
     text-align: center;
-    margin: 0; padding: 0; 
+    margin: 0 0 0 32px; padding: 0; 
   }
   
   #toolbar table{
-	padding: 0 0 0 32px;
+	padding: 0;
+	text-align: center;
+	width: 100%;
   }
   
   #toolbar img{
 	position: absolute; 
 	top: 2px; left: 0; 
 	border: 0;
-  }
-  
-  #tablediv{
-    width: 100%; 
-    margin: 20px 0 0 0; padding: 0;
-  
   }
   
   #toolbar td{
