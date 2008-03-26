@@ -62,7 +62,6 @@
   table {
     border:2px solid black;
     border-collapse: collapse; 
-    width: 100%;
   }
 
   td {
@@ -164,7 +163,6 @@
 
       // Set the generated html into the container div.
       _gel('tablediv').innerHTML = html.join('');
-      _IG_AdjustIFrameHeight(); 
     };
 
     /**
@@ -193,6 +191,7 @@
 
     // Set the table size.
     _gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
+    _gel('tablediv').style.width = '100%';
     
     // Set a callback function to be called by the loader once the visualization API is loaded.
     google.setOnLoadCallback(sendQuery);
