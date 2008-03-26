@@ -89,6 +89,7 @@
     // Load the Google Visualization API
     google.load("visualization", "1");
     var gadgetHelper = null;
+    var dateStyle__MODULE_ID__;
 
     /**
      * Create a query from the user prefs, and then send it to the data source.
@@ -98,6 +99,7 @@
      */
     function sendQuery() {
       var prefs = new _IG_Prefs(); // User preferences
+      dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
       gadgetHelper = new google.visualization.GadgetHelper();
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(handleQueryResponse);
