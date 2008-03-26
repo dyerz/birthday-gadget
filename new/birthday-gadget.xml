@@ -229,6 +229,7 @@
     }
 	
 	function showHelp(){
+		var html = [];
 		html.push('<h1>Gadget Setup</h1>');
 	
 	
