@@ -204,7 +204,7 @@
 		for(var row=0; row<data.getNumberOfRows(); row++){
 			dataArray.push(data.getFormattedValue(row,0)+"~;~"+data.getFormattedValue(row,1));
 		}
-		//dataArray=dataArray.sort(sortDate__MODULE_ID__);
+		dataArray=dataArray.sort(sortDate__MODULE_ID__);
 		return(dataArray);
 	}
 
