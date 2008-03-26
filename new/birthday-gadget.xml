@@ -89,10 +89,11 @@
 	top: 2px; left: 0;
     height: 12px;
     text-align: center;
-    margin: 0; padding: 0 0 0 32px; 
+    margin: 0; padding: 0 0 0 22px; 
   }
   
   #toolbar table{
+    border-collapse: collapse; 
 	padding: 0; margin: 0;
 	text-align: center;
 	width: 100%;
@@ -106,7 +107,7 @@
   
   #toolbar td{
 	width: 33%;
-    padding: 2px;
+    padding: 0; margin: 0;
     font-size: 10px;
   }
   
