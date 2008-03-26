@@ -160,6 +160,7 @@
           }
           html.push(formattedValue);
           html.push('</td>');
+          html.push('<td/>');
         }
         html.push('</tr>');
       }
