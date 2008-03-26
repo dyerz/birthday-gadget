@@ -164,6 +164,7 @@
 
       // Set the generated html into the container div.
       _gel('tablediv').innerHTML = html.join('');
+      _IG_AdjustIFrameHeight(); 
     };
 
     /**
@@ -195,7 +196,6 @@
     
     // Set a callback function to be called by the loader once the visualization API is loaded.
     google.setOnLoadCallback(sendQuery);
-    _IG_AdjustIFrameHeight(); 
 
   </script>
 
