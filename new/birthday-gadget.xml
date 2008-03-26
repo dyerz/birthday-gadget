@@ -125,7 +125,7 @@
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
   <div id="toolbar">
-	<img id="expand" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/minus.png" height="10" width="10" />
+	<img id="expand" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/minus.png" height="12" width="12" />
 	<table><tr><td id="tbEdit"></td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
   <div id="tablediv" >Loading...</div>
 
