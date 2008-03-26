@@ -36,7 +36,8 @@
   <EnumValue value="10" />
   <EnumValue value="0" display_value="All" />
 </UserPref>
-<UserPref name="warn_past" display_name="__MSG_pastNoticeName__" default_value="7" datatype="enum" >
+<UserPref name="warn_past" display_name="__MSG_pastNoticeName__" default_value="0" datatype="enum" >
+  <EnumValue value="0" />
   <EnumValue value="3" />
   <EnumValue value="7" />
   <EnumValue value="10" />
@@ -54,292 +55,158 @@
   <EnumValue value="0" display_value="All" /> 
 </UserPref>
 <UserPref name="_table_query_url" display_name="Data source url" required="true" /> 
-<Content type="html"><![CDATA[
-  <style type="text/css">
-    #container__MODULE_ID__{text-align: center;}
-    #nav__MODULE_ID__{font-size: 12px; text-align: right; }
-    #error__MODULE_ID__, #preview__MODULE_ID__{font-size: 10px; width: 80%; margin: 0 auto; padding: 2px; text-align: left; }
-    #error__MODULE_ID__{color: #F00; border: 1px solid #F00; }
-    #notice__MODULE_ID__{font-size: 10px; width: 100%;}
-    #preview__MODULE_ID__{color: #10bd10; border: 1px solid #10bd10;}
-    #contents__MODULE_ID__{ }
-    #trans__MODULE_ID__{ margin-top: 5px; text-align: center; font-size: 10px;}
-    #faq{position: absolute; top: 0; left: 0; font-size: 10px;}
+<Content type="html">
+<![CDATA[ 
 
-    .link{ cursor: pointer; color: blue;}
-    
-    #editBox__MODULE_ID__{width: 100%; text-align: center;}
-    #editor__MODULE_ID__{width: 90%;}
-
-    #error__MODULE_ID__ div{text-align: center;}
-
-    table {width: 100%; margin: 0; padding: 0; border-collapse: collapse;}
-    table .date, table .age{width: 25%;}
-    table .name {width: 75%;}
-    table th{ border-bottom: 1px solid #000;}
-    table td{ text-align: center;}
-    #bdTable__MODULE_ID__ th{ font-size: 18px;}
-    #bdTable__MODULE_ID__ td{ font-size: 16px;}
-    #preview__MODULE_ID__ table{ font-size: xx-small;}
-
-    #container__MODULE_ID__{font-family: verdana,arial,sans-serif; width: 100%;}
-  </style>
-  <script>_IG_Analytics("UA-310375-4", "/birthday-gadget");</script>  
-  <script type="text/javascript">
-  String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g,"");}
-  String.leftPad = function (val, size, ch) {
-    var result = new String(val);
-    if (ch == null) {ch = " ";}
-    while (result.length < size) {result = ch + result;}
-    return result;}
-  function isArray(obj) { return(obj.constructor.toString().indexOf("Array") != -1);}
-
-  var prefs__MODULE_ID__ = new _IG_Prefs(__MODULE_ID__);
-  var mainStr__MODULE_ID__=""; var navText__MODULE_ID__=""; var contentsText__MODULE_ID__="";
-  var errorText__MODULE_ID__=""; var errorDef__MODULE_ID__=""; var viewArr__MODULE_ID__=new Array();
-  var viewNum__MODULE_ID__; var viewDistance__MODULE_ID__; var dateStyle__MODULE_ID__;
-  var overDelay__MODULE_ID__=0; var maxChar__MODULE_ID__=1000;
-  
-  function setup__MODULE_ID__(){
-    viewNum__MODULE_ID__=prefs__MODULE_ID__.getInt("showBDay");
-    viewDistance__MODULE_ID__=prefs__MODULE_ID__.getInt("warning");
-    dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
-    mainStr__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
-    
-    //cover update!
-    mainStr__MODULE_ID__=mainStr__MODULE_ID__.replace(/YYYY\/MM\/DD;Name/g, "");
-    mainStr__MODULE_ID__=mainStr__MODULE_ID__.replace(/MM\/DD;Name/g, "");
-
-    var mode=(mainStr__MODULE_ID__.length==0)?"edit":"display";
-    clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);}
-  
-  function change__MODULE_ID__(mode){
-    if(mode=="display" && !_gel("saveButton__MODULE_ID__").disabled &&!confirm("__MSG_confirmSave__")){
-      _gel("editor__MODULE_ID__").focus(); return;}
-    if(mainStr__MODULE_ID__.length==0){ _gel("editor__MODULE_ID__").focus(); return;}
-    clear__MODULE_ID__(); nav__MODULE_ID__(mode); main__MODULE_ID__(mode); show__MODULE_ID__(mode);
-    if(mode=="edit") _gel("editor__MODULE_ID__").focus();}
-  
-  function nav__MODULE_ID__(mode){
-    navText="<span class=\"link\" id=\"navSpan__MODULE_ID__\" onMouseOver=\"highlight__MODULE_ID__(this);\"";
-    navText+=" onMouseOut=\"highlight__MODULE_ID__(this);\" onClick=\"change__MODULE_ID__(";
-    if(mode=="edit"){
-      if(mainStr__MODULE_ID__.length==0){ noticeObj=_gel("notice__MODULE_ID__").style.display="";}
-      navText+="'display')\">__MSG_modeTitleDisplay__</span>"; return;}
-    navText+="'edit')\">__MSG_modeTitleEdit__</span>"; return;}
-  
-  function show__MODULE_ID__(mode){
-    _IG_Analytics("UA-310375-4", "/birthday-gadget/display");
-    _gel("nav__MODULE_ID__").innerHTML=navText; _gel("contents__MODULE_ID__").innerHTML=contentsText;
-    
-    var trans="__MSG_trans__";
-    if(trans!="") {
-      if(trans.indexOf("*")!=-1){
-        trans=trans.replace(/\*/, "<a href=\"mailto:birthdaygadget@gmail.com\">");
-        trans=trans.replace(/\*/, "</a>");}
-      transObj=_gel("trans__MODULE_ID__"); transObj.innerHTML=trans; transObj.style.display=""; }
-
-    
-    _IG_AdjustIFrameHeight();}
-  
-  function main__MODULE_ID__(mode){
-    if(mode=="edit"){
-      contentsText="<div id=\"editBox\">";
-      contentsText+="<textarea id=\"editor__MODULE_ID__\" rows=\"10\" onKeyUp=\"check__MODULE_ID__(this);\"";
-      contentsText+=" onClick=\"check__MODULE_ID__(this);\"";
-      contentsText+=" onFocus=\"setCaretToEnd__MODULE_ID__(this);\" >"+mainStr__MODULE_ID__.replace(/\|/g, "\n");
-      contentsText+="\n</textarea><br /><input id=\"saveButton__MODULE_ID__\" type=\"button\"";
-      contentsText+="onClick=\"save__MODULE_ID__(this.previousSibling.previousSibling)\" value=\"__MSG_buttonSave__\" disabled />";
-      contentsText+="</div>"; return; }
-    var mainArr=mainStr__MODULE_ID__.split("|");
-    if(!setVisible__MODULE_ID__(mainArr))
-      {contentsText="__MSG_nobd1__ "+viewDistance__MODULE_ID__+" __MSG_nobd2__"; return;}
-    if(viewArr__MODULE_ID__.length==0) {contentsText="__MSG_boxTitleError__"; return;}
-    contentsText="<table><tr><th class=\"date\">__MSG_tableDate__</th>";
-    contentsText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
-    for(var i=0; i<viewArr__MODULE_ID__.length; i++){
-      if(viewArr__MODULE_ID__[i].length>1) contentsText+=writeLine__MODULE_ID__(viewArr__MODULE_ID__[i]);}
-    contentsText+="</table>"; return;}
-  
-  function setVisible__MODULE_ID__(arr){
-    viewArr__MODULE_ID__=new Array(); var keyArr=new Array(); var visNow=0;
-    for(var i=0; i<arr.length; i++){
-      temp=arr[i].split(";"); aDate=temp[0].split("/"); 
-      var offset=aDate.length==2?0:1; var aMonth=aDate[offset]; var aDay=aDate[offset+1]; var newKey=aMonth+aDay+"";
-      if(typeof keyArr[newKey] == "undefined") {keyArr[newKey]=new Array(arr[i]);} else keyArr[newKey].push(arr[i]);}
-    var refDate=new Date(); var today=new Date(); var oneDay=1000*60*60*24; var keySearch=""; 
-    for(var j=0; j<viewDistance__MODULE_ID__; j++){
-      today.setTime(refDate.getTime()+(j*oneDay));
-      var tMonth=today.getMonth()+1; var tDay=String.leftPad(today.getDate(), 2, "0");
-      keySearch=String.leftPad((tMonth+tDay+""), 4, "0");
-      if(typeof keyArr[keySearch] == "undefined") continue;
-      for(var k=0; k<keyArr[keySearch].length; k++){
-        viewArr__MODULE_ID__.push(keyArr[keySearch][k]); visNow++; if(visNow>viewNum__MODULE_ID__) return true;}}
-    return(visNow!=0);}
-
-  function getCaretPosition__MODULE_ID__(ctrl) {
-    var CaretPos = 0; ctrl.focus();
-    if (document.selection) {
-      var range = document.selection.createRange(); var stored_range = range.duplicate();
-      stored_range.moveToElementText( ctrl ); stored_range.setEndPoint( 'EndToEnd', range );
-      ctrl.selectionStart = stored_range.text.length - range.text.length;
-      ctrl.selectionEnd = ctrl.selectionStart + range.text.length;}
-    if (ctrl.selectionStart || ctrl.selectionStart == '0') CaretPos = ctrl.selectionStart;
-    return (CaretPos);}
-    
-  function setCaretToEnd__MODULE_ID__(input) {
-    if (input.setSelectionRange) { input.scrollTop=input.value.length;}
-    else if (input.createTextRange) { var range = input.createTextRange();   range.collapse(false);  range.select();}}
-
-  function testDate__MODULE_ID__(inputDate){
-    tempSmall=inputDate.split("/");
-    if(tempSmall.length==2){
-      var mDays=new Array(31,29,31,30,31,30,31,31,30,31,30,31);
-      intSmallM=parseInt(tempSmall[0], 10); intSmallD=parseInt(tempSmall[1], 10);
-      if(!(intSmallM>=1 && intSmallM<=12)) { errorDef="__MSG_errMonth__"; return false;}
-      if(!(intSmallD>=1 && intSmallD<=mDays[intSmallM-1])) { errorDef="__MSG_errDay__"; return false;}
-      return true;}
-    var convertedDate=Date.parse(inputDate); var d=new Date(); var todayDate=d.getTime();
-    if(isNaN(convertedDate)){ errorDef="__MSG_errFormat__ ("+inputDate+")"; return false;}
-    d.setTime(convertedDate); return true;}
-
-  function testName__MODULE_ID__(inputName){
-    if(typeof inputName == "undefined") { errorDef="__MSG_errName__"; return false;}
-    if(inputName.indexOf("|")!=-1){ errorDef="__MSG_errNameChar__"; return false;}
-    return true;}
-    
-  function padDate__MODULE_ID__(str){
-    var strSplit=str.split(";"); var date=strSplit[0]; var dateSplit=date.split("/");
-    if(dateSplit.length==2){
-      return(String.leftPad(dateSplit[0], 2, "0")+"/"+String.leftPad(dateSplit[1], 2, "0")+";"+strSplit[1]);}
-    var t=Date.parse(date); var p=new Date(); p.setTime(t);
-    var temp=String.leftPad(p.getFullYear(), 4, "0")+"/"+String.leftPad(p.getMonth()+1, 2, "0")+"/";
-    temp+=String.leftPad(p.getDate(), 2, "0")+";"+strSplit[1]; return(temp);}
-  
-  function save__MODULE_ID__(textObj){
-    var prevObj=_gel("preview__MODULE_ID__"); if(prevObj.style.display=="") prevObj.style.display="none";
-    var arr=textObj.value.trim().split("\n"); textObj.focus();
-    for(var i=0; i<arr.length; i++){
-      if(arr[i].length<=1) continue; if(!testLine__MODULE_ID__(arr[i])) return; arr[i]=padDate__MODULE_ID__(arr[i]);}
-    arr=arr.sort(sortDate__MODULE_ID__);
-    _gel("saveButton__MODULE_ID__").disabled=true;
-    mainStr__MODULE_ID__=arr.join("|"); textObj.value=mainStr__MODULE_ID__.replace(/\|/g, "\n")+"\n";
-    prefs__MODULE_ID__.set("birthdays", escapeName__MODULE_ID__(mainStr__MODULE_ID__));
-    _IG_Analytics("UA-310375-4", "/birthday-gadget/save");}
-
-  function sortDate__MODULE_ID__(a, b){
-    var aA=a.split(";"); var bA=b.split(";");
-    var aM=aA[0].split("/"); var bM=bA[0].split("/");
-    var ma=aM.length==2?0:1; var mb=bM.length==2?0:1; var da=ma+1; var db=mb+1;
-    return aM[ma]>bM[mb]?1:aM[ma]<bM[mb]?-1:aM[da]>bM[db]?1:aM[da]<bM[db]?-1:aA[1]>bA[1]?1:aA[1]<bA[1]?-1:0;}
-  
-  function check__MODULE_ID__(textObj){
-    var saveObj=_gel("saveButton__MODULE_ID__"); if(saveObj.disabled) saveObj.disabled=false;
-    var prevObj=_gel("preview__MODULE_ID__"); if(prevObj.style.display=="") prevObj.style.display="none";
-    var noticeObj=_gel("notice__MODULE_ID__"); var errTxtObj=_gel("errorTxt__MODULE_ID__");
-    var errObj=_gel("error__MODULE_ID__"); if(errObj.style.display=="") errObj.style.display="none";
-    var pos=getCaretPosition__MODULE_ID__(textObj); var text=textObj.value;
-    if(text.length>maxChar__MODULE_ID__){ textObj.value=text.substr(0, maxChar__MODULE_ID__-1); alert("__MSG_warnOver__");}
-    var mySplit=text.indexOf("\n\r")!=-1?"\n\r":"\n";
-    var lineStart=text.lastIndexOf(mySplit, pos); lineStart=(lineStart==-1)?0:lineStart;
-    var lineLength=text.indexOf(mySplit, lineStart+1); lineLength=(lineLength==-1)?text.length:lineLength-lineStart;
-    var lineText=text.substr(lineStart, lineLength).trim();
-    if(lineText.length<=1){ noticeObj.style.display=""; _IG_AdjustIFrameHeight(); return;}
-    if(!testLine__MODULE_ID__(lineText)) {_IG_AdjustIFrameHeight(); return;}
-    errTxtObj.innerHTML=""; errObj.style.display="none"; noticeObj.style.display="none";
-    preview__MODULE_ID__(lineText); _IG_AdjustIFrameHeight();}
-  
-  function testLine__MODULE_ID__(lineText){
-    var errTxtObj=_gel("errorTxt__MODULE_ID__"); var errObj=_gel("error__MODULE_ID__");
-    if(lineText.length<=1) return true;
-    var combo=lineText.split(";");
-    if(combo.length>2){ errTxtObj.innerHTML="__MSG_errLine__"; errObj.style.display=""; return false;}
-    if(!testDate__MODULE_ID__(combo[0])) {errTxtObj.innerHTML="__MSG_errDate__: "+errorDef; errObj.style.display=""; return false;}
-    if(!testName__MODULE_ID__(combo[1])) {errTxtObj.innerHTML=errorDef; errObj.style.display=""; return false;}
-    return true;}
-  
-  function makeDate__MODULE_ID__(inDate){
-    var month=new Array(12);
-      month[0]="__MSG_ajan__";
-      month[1]="__MSG_afeb__";
-      month[2]="__MSG_amar__";
-      month[3]="__MSG_aapr__";
-      month[4]="__MSG_amay__";
-      month[5]="__MSG_ajun__";
-      month[6]="__MSG_ajul__";
-      month[7]="__MSG_aaug__";
-      month[8]="__MSG_asep__";
-      month[9]="__MSG_aoct__";
-      month[10]="__MSG_anov__";
-      month[11]="__MSG_adec__";
-    tempArr=inDate.split("/");
-    if(tempArr.length==2) {m=tempArr[0]-1; d=parseInt(tempArr[1]);}
-    else {var t=Date.parse(inDate); var b=new Date(); b.setTime(t); m=b.getMonth(); d=b.getDate();}
-    var n=new Date(); if(n.getMonth()==m && n.getDate()==d ) return("__MSG_today__");
-    switch(dateStyle__MODULE_ID__){
-      case 0: return (month[m]+" "+d);
-      case 1: return (d+" "+month[m]);
-      case 2: return ((m+1)+"/"+d);
-      case 3: return (d+"/"+(m+1));}}
-  
-  function makeAge__MODULE_ID__(inDate){
-    var inSplit=inDate.split("/"); if(inSplit.length==2) return ("");
-    var inDay=parseInt(inSplit[2], 10); var inMon=parseInt(inSplit[1], 10); var inYear=inSplit[0];
-    var nowDate=new Date();
-    var nowDay=parseInt(nowDate.getDate()); var nowMon=parseInt(nowDate.getMonth())+1; var nowYear=nowDate.getFullYear();
-    var age=nowYear-inYear;
-    if((inMon==nowMon && inDay>=nowDay) || inMon>nowMon) age--;
-    if(age<0) return((inMon==nowMon && inDay==nowDay)?0:"");
-    return(age+1);}
-  
-  function writeLine__MODULE_ID__(arr){
-    if(!isArray(arr)) arr=arr.split(";");
-    var returnStr="<tr><td>"+makeDate__MODULE_ID__(arr[0])+"</td>";
-    returnStr+="<td>"+escapeName__MODULE_ID__(arr[1])+"</td>";
-    returnStr+="<td>"+makeAge__MODULE_ID__(arr[0])+"</td></tr>";
-    return(returnStr);}
-
-  function escapeName__MODULE_ID__(name) {
-    name = name.replace(/&/g,"&#38;")
-    name = name.replace(/</g,"&#60;")
-    name = name.replace(/>/g,"&#62;")
-    name = name.replace(/"/g,"&#34;")
-    name = name.replace(/'/g,"&#39;")
-    return name;}
-
-  function preview__MODULE_ID__(arr){
-    prevObj=_gel("preview__MODULE_ID__");
-    prevText="__MSG_boxTitlePreview__:<br /><table><tr><th class=\"date\">__MSG_tableDate__</th>";
-    prevText+="<th class=\"name\">__MSG_tableName__</th><th class=\"age\">__MSG_tableAge__</th></tr>";
-    prevText+=writeLine__MODULE_ID__(arr)+"</table>";
-    prevObj.innerHTML=prevText; prevObj.style.display="";}
-  
-  function highlight__MODULE_ID__(navObj){
-    navObj.style.backgroundColor=navObj.style.backgroundColor==""?"#ff0":"";
+  <style>
+  table {
+    border:2px solid black;
+    border-collapse: collapse; 
   }
-  
-  function clear__MODULE_ID__(){
-    navText__MODULE_ID__=""; contentsText__MODULE_ID__=""; errorText__MODULE_ID__="";
-    _gel("nav__MODULE_ID__").innerHTML="";
-    _gel("errorTxt__MODULE_ID__").innerHTML="";
-    _gel("error__MODULE_ID__").style.display="none";
-    _gel("preview__MODULE_ID__").style.display="none";
-    _gel("notice__MODULE_ID__").style.display="none";
-    _gel("contents__MODULE_ID__").innerHTML="";}
-  
-  _IG_RegisterOnloadHandler(setup__MODULE_ID__);
+
+  td {
+    border: 1px solid silver;
+    padding: 2px;
+    font-size: 11px;
+  }
+
+  .rowind {
+    color: #808080;
+    text-align: right;
+  }
+
+  .colid {
+    background-color: #cccccc;
+    text-align: center;
+  }
+
+  .label {
+    font-weight: bold;
+    background-color: #eff3fc;
+    text-align: center;
+  }
+
+  .checkmark {
+    font-family: Arial Unicode MS, Arial, Verdana, Helvetica;
+  }
+
+  </style>
+
+  <!-- Load the Google common loader, that is later used to load the Visualization API. -->
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+  <div id="tablediv" style="overflow: auto;">Loading...</div>
+
+  <script>
+    // Load the Google Visualization API
+    google.load("visualization", "1");
+    var gadgetHelper = null;
+
+    /**
+     * Create a query from the user prefs, and then send it to the data source.
+     * This method is called once the visualization API is fully loaded.
+     * Note that in the last line, a callback function is specified to be
+     * called once the response is received from the data source.
+     */
+    function sendQuery() {
+      var prefs = new _IG_Prefs(); // User preferences
+      gadgetHelper = new google.visualization.GadgetHelper();
+      var query = gadgetHelper.createQueryFromPrefs(prefs);
+      query.send(handleQueryResponse);
+    }
+
+    /**
+     * Query response handler function.
+     * Called by the Google Visualization API once the response is received.
+     * Takes the query response and formats it as a table.
+     */
+    function handleQueryResponse(response) {
+      // Use the visualization GadgetHelper class to validate the data, and
+      // for error handling.
+      if (!gadgetHelper.validateResponse(response)) {
+        // Default error handling was done, just leave.
+        return;
+      };
+
+      // Take the data table from the response, and format it. 
+      var data = response.getDataTable();
+      var html = [];
+      html.push('<table cellpaddind="0" cellspacing="0">');
+
+      // Header row for column Ids
+      html.push('<tr class="colid"><td />');
+      var colTag = [];
+      for (var col = 0; col < data.getNumberOfColumns(); col++) {
+        if (data.getColumnType(col) == 'number') {
+          colTag[col] = '<td align="right">';
+        } else {
+          colTag[col] = '<td>';
+        }
+        html.push('<td>' + escapeHtml(data.getColumnId(col)) + '</td>');
+      }
+      html.push('</tr>');
+
+      // Header row for column labels
+      html.push('<tr class="label"><td />');
+      for (var col = 0; col < data.getNumberOfColumns(); col++) {
+         html.push('<td>' + escapeHtml(data.getColumnLabel(col)) + '</td>');
+      }
+      html.push('</tr>');
+
+
+      // Add the data rows
+      for (var row = 0; row < data.getNumberOfRows(); row++) {
+        html.push('<tr><td class="rowind">');
+        html.push(String(row + 1));
+        html.push('</td>');
+        for (var col = 0; col < data.getNumberOfColumns(); col++) {
+          html.push(colTag[col]);
+          var formattedValue = data.getFormattedValue(row, col);
+          // Special formatting for booleans
+          if (data.getColumnType(col) == 'boolean') {
+            var value = data.getValue(row, col);
+            formattedValue = (value == null) ? '-' :
+                value ? '&#10004;' : '&#10007;';
+            formattedValue = '<span class="checkmark">' + formattedValue +
+                 '</span>'
+          } else {
+            formattedValue = escapeHtml(formattedValue);
+          }
+          html.push(formattedValue);
+          html.push('</td>');
+        }
+        html.push('</tr>');
+      }
+      html.push('</table>');
+
+      // Set the generated html into the container div.
+      _gel('tablediv').innerHTML = html.join('');
+    };
+
+    /**
+     * Escape special html characters to prevent data that contains characters
+     * like '<' or '>' to mess up the generated html.
+     */
+    function escapeHtml(text) {
+      if (text == null) {
+        return '';
+      }
+      return text.replace(/&/g, '&amp;').
+          replace(/</g, '&lt;').
+          replace(/>/g, '&gt;').
+          replace(/"/g, '&quot;');
+    }
+
+    // Set the table size.
+    _gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
+
+    // Set a callback function to be called by the loader once the visualization API is loaded.
+    google.setOnLoadCallback(sendQuery);
 
   </script>
-  
-  <div id="container__MODULE_ID__">
-    <div id="nav__MODULE_ID__"></div>
-    <div id="preview__MODULE_ID__" style="display: none;"></div>
-    <div id="notice__MODULE_ID__" style="display: none;">__MSG_format__</div>
-    <div id="error__MODULE_ID__" style="display: none;">__MSG_boxTitleError__:<div id="errorTxt__MODULE_ID__"></div></div>
-    <div id="contents__MODULE_ID__"></div>
-    <div id="trans__MODULE_ID__" style="display: none;"></div>
-    <div id="faq"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="FAQ" target="_blank">FAQ</a></div>
-  </div>
 
-]]></Content>
+  
+
+  ]]> 
+</Content>
 </Module>
