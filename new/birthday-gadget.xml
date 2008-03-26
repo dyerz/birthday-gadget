@@ -91,6 +91,13 @@
   
   }
   
+  #tbRefresh{
+    cursor: pointer;
+    color: #0000FF;
+    text-decoration: underline;
+  
+  }
+  
   </style>
 
   <!-- Load the Google common loader, that is later used to load the Visualization API. -->
