@@ -223,7 +223,7 @@
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
 				tempDate.setFullYear(nowDate.getFullYear()+1);
 			else tempDate.setFullYear(nowDate.getFullYear());
-			if(tempDate.getTime()>maxDate.getTime()) continue;
+			if(tempDate.getTime()>maxDate.getTime() && futureNotice__MODULE_ID__!=0) continue;
 			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
 			dataArray.push(data.getFormattedValue(row,0)+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
 		}
