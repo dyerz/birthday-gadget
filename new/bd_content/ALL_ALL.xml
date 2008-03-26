@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Birthday Reminders</msg>
+  <msg name="title">Birthday Reminder 2.0</msg>
   <msg name="description">Never miss a birthday again!</msg>
   <msg name="titleName">Title</msg>
   <msg name="birthdayName">Birthdays</msg>

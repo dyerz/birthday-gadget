@@ -8,15 +8,10 @@
   author="Adam"
   author_email="birthdaygadget@gmail.com"
   height="100">
-    <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ALL_ALL.xml" />
-    <Locale lang="de" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/de_ALL.xml" />
-    <Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
-    <Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
-    <Locale lang="it" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/it_ALL.xml" />
-    <Locale lang="ko" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ko_ALL.xml" />
-    <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
+    <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content2/ALL_ALL.xml" />
     <Require feature="analytics" /> 
     <Require feature="dynamic-height" /> 
+	<Require feature="tabs" />
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" required="false" default_value="__MSG_title__" />
 <UserPref name="birthdays" display_name="__MSG_birthdayName__" datatype="list" default_value="YYYY/MM/DD;Name|MM/DD;Name" /> 
