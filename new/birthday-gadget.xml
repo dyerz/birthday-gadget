@@ -249,7 +249,7 @@
 	function showHelp(){
 		var html = [];
 		html.push('<h1>Gadget Setup</h1>');
-		html.push('<a href="http://spreadsheets.google.com/" target="_blank">Go here!</a>');
+		html.push('<a href="http://docs.google.com/" target="_blank">Go here!</a>');
 		html.push('<p>1) Create a new spreadsheet<br />2) Dates in Column "A"<br />3) Names in Column "B"<br />4) Copy address from the address bar<br />5) Paste the address below</p>');
 		html.push('<p>For more complete instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a></p>');
 		html.push('<br /><input type="text" style="width: 100%" id="newurl" />');
