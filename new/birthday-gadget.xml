@@ -141,11 +141,12 @@
       html.push('</tr>');
 
 
+
       // Add the data rows
       for (var row = 0; row < data.getNumberOfRows(); row++) {
-        html.push('<tr><td class="rowind">');
-        html.push(String(row + 1));
+        html.push('<tr>');
         for (var col = 0; col < data.getNumberOfColumns(); col++) {
+          html.push('<td>');
           var formattedValue = data.getFormattedValue(row, col);
           // Special formatting for booleans
           if (data.getColumnType(col) == 'boolean') {
