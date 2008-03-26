@@ -146,8 +146,10 @@
 
     function sendQuery() {
       init();
-      gadgetHelper = new google.visualization.GadgetHelper();
-      var query = gadgetHelper.createQueryFromPrefs(prefs);
+      //gadgetHelper = new google.visualization.GadgetHelper();
+      //var query = gadgetHelper.createQueryFromPrefs(prefs);
+	  var query=new google.visualization.Query(_table_query_url);
+	  query.setQuery('select * order by 0');
       query.send(handleQueryResponse);
     }
 
@@ -203,7 +205,7 @@
 		for(var row=0; row<data.getNumberOfRows(); row++){
 			dataArray.push(data.getFormattedValue(row,0)+"~;~"+data.getFormattedValue(row,1));
 		}
-		dataArray=dataArray.sort(sortDate__MODULE_ID__);
+		//dataArray=dataArray.sort(sortDate__MODULE_ID__);
 		return(dataArray);
 	}
 
