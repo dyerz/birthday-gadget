@@ -131,6 +131,9 @@
       // Take the data table from the response, and format it. 
       var data = response.getDataTable();
       var html = [];
+
+  alert(data.getNumberOfColumns());
+  
       html.push('<table cellpaddind="0" cellspacing="0">');
 
       // Header row for column Ids
