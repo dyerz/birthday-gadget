@@ -131,7 +131,7 @@
   <div id="toolbar">
 	<table><tr><td id="tbEdit"></td><td>Convert</td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
   <div id="tablediv" >Loading...</div>
-http://birthday-gadget.googlecode.com/svn/trunk/new/birthday-gadget.xml&nocache=2147483647&up_title=Birthday+Reminders+2.0&up_dateFormat=0&upt_dateFormat=enum&up_showBDay=0&upt_showBDay=enum&up_warnForward=60&upt_warnForward=enum&up_warnPast=0&upt_warnPast=enum&up_showAge=1&upt_showAge=bool&up_showDays=1&upt_showDays=bool&up__table_query_url=&lang=en&country=us&.lang=en&.country=us&synd=ig&mid=104&ifpctok=3871707412846652154&parent=http://www.google.com&extern_js=/extern_js/f/CgJlbhICdXMrMAY4ACwrMAo4ACwrMBA4ACwrMBI4ACwrMBM4ACw/wTfOmVIl1ak.js
+
   <script>
     // Load the Google Visualization API
     google.load("visualization", "1");
