@@ -209,7 +209,7 @@
 	}
 
 	function sortDate__MODULE_ID__(a, b){
-		var tempA=a.split("~;~"), dateB=b.split("~;~");
+		var tempA=a.split("~;~"), tempB=b.split("~;~");
 		var dateA=tempA[0].split("/"), dateB=tempB[0].split("/");
 	    var aM=dateA[0].split("/"), bM=dateB[0].split("/");
 	    var ma=aM.length==2?0:1, mb=bM.length==2?0:1, da=ma+1, db=mb+1;
