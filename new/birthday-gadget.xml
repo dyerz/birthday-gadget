@@ -60,29 +60,20 @@
 
   <style>
   table {
-    border:2px solid black;
     border-collapse: collapse; 
+    width: 100%;
   }
 
   td {
     border: 1px solid silver;
     padding: 2px;
     font-size: 11px;
-  }
-
-  .rowind {
-    color: #808080;
-    text-align: right;
-  }
-
-  .colid {
-    background-color: #cccccc;
     text-align: center;
   }
 
-  .label {
+  .colid {
     font-weight: bold;
-    background-color: #eff3fc;
+    border-bottom: 1px solid #000000;
     text-align: center;
   }
 
@@ -128,7 +119,7 @@
       // Take the data table from the response, and format it. 
       var data = response.getDataTable();
       var html = [];
-      var rowDate, age=0;
+      var rowDate, dispAge=0, dispDate="";
       
       html.push('<table cellpaddind="0" cellspacing="0">');
 
@@ -142,18 +133,15 @@
       // Add the data rows
       for (var row = 0; row < data.getNumberOfRows(); row++) {
         html.push('<tr>');
-        for (var col = 0; col < 2; col++) {
-          html.push('<td>');
-          var formattedValue = data.getFormattedValue(row, col);
-          formattedValue = escapeHtml(formattedValue);
-          html.push(formattedValue);
-          html.push('</td>');
-        }
         rowDate=Date.parse(data.getFormattedValue(row, 0));
         if(isNaN(rowDate)) alert("Date Error");
-        age=makeAge(rowDate);
+        dispDate=makeDate__MODULE_ID__(data.getFormattedValue(row, 0));
+        dispAge=makeAge(rowDate);
+
         
-        html.push('<td>'+age+'</td>');
+        html.push('<td>'+dispDate+'</td>');
+        html.push('<td>'+escapeHtml(data.getFormattedValue(row, 1))+'</td>');
+        html.push('<td>'+dispAge+'</td>');
         html.push('</tr>');
       }
       html.push('</table>');
@@ -182,10 +170,32 @@
       var age=d.getFullYear()-p.getFullYear();
       if(d.getMonth()>p.getMonth()) age--;
       else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
-      return(age++);
+      return(age++);}
     
-    
-    }
+    function makeDate__MODULE_ID__(inDate){
+    var month=new Array(12);
+      month[0]="__MSG_ajan__";
+      month[1]="__MSG_afeb__";
+      month[2]="__MSG_amar__";
+      month[3]="__MSG_aapr__";
+      month[4]="__MSG_amay__";
+      month[5]="__MSG_ajun__";
+      month[6]="__MSG_ajul__";
+      month[7]="__MSG_aaug__";
+      month[8]="__MSG_asep__";
+      month[9]="__MSG_aoct__";
+      month[10]="__MSG_anov__";
+      month[11]="__MSG_adec__";
+    tempArr=inDate.split("/");
+    if(tempArr.length==2) {m=tempArr[0]-1; d=parseInt(tempArr[1]);}
+    else {var t=Date.parse(inDate); var b=new Date(); b.setTime(t); m=b.getMonth(); d=b.getDate();}
+    var n=new Date(); if(n.getMonth()==m && n.getDate()==d ) return("__MSG_today__");
+    switch(dateStyle__MODULE_ID__){
+      case 0: return (month[m]+" "+d);
+      case 1: return (d+" "+month[m]);
+      case 2: return ((m+1)+"/"+d);
+      case 3: return (d+"/"+(m+1));}}
+
 
     // Set the table size.
     //_gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
