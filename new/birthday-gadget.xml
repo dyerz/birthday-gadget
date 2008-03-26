@@ -124,12 +124,20 @@
   
   }
   
+  h1{
+	font-size: 22px;
+	text-align: center;
+  }
+  
   </style>
 
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
   <div id="toolbar">
-	<table><tr><td id="tbEdit"></td><td>Convert</td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
+	<table><tr>
+		<td id="tbEdit"></td><td>Convert</td>
+		<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>
+		<td id="tbRefresh">Refresh</td></tr></table></div>
   <div id="tablediv" >Loading...</div>
 
   <script>
@@ -242,7 +250,8 @@
 		var html = [];
 		html.push('<h1>Gadget Setup</h1>');
 		html.push('<a href="http://spreadsheets.google.com/" target="_blank">Go here!</a>');
-		html.push('<p>1) Create a new spreadsheet<br />2) Dates in Column "A"<br />3) Names in Column "B"<br />4) Copy address from the address bar below</p>');
+		html.push('<p>1) Create a new spreadsheet<br />2) Dates in Column "A"<br />3) Names in Column "B"<br />4) Copy address from the address bar<br />5) Paste the address below</p>');
+		html.push('<p>For more complete instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a></p>');
 		html.push('<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="Save" id="saveurl" />');
 	
