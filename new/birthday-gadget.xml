@@ -216,7 +216,7 @@
 		var tempDate=new Date(), nowDate=new Date(), formatDate="", tempData;
 		for(var row=0; row<data.getNumberOfRows(); row++){
 			tempData=Date.parse(data.getFormattedValue(row,0))-pastNotice__MODULE_ID__*24*60*60*1000;
-			tempDate=tempDate.setTime(tempData);
+			tempDate.setTime(tempData);
 			if(tempDate.getMonth()<nowDate.getMonth() ||
 				tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate())
 				tempDate.setFullYear(nowDate.getFullYear+1);
