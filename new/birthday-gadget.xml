@@ -89,7 +89,7 @@
 	top: 0; left: 0;
     height: 12px;
     text-align: center;
-    margin: 0; padding: 0 0 0 22px; 
+    margin: 0; padding: 0; 
   }
   
   #toolbar table{
@@ -130,7 +130,6 @@
 
   <div id="toolbar">
 	<table><tr><td id="tbEdit"></td><td>Convert</td><td>Help</td><td id="tbRefresh">Refresh</td></tr></table></div>
-  <img id="showtb" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/minus.png" height="12" width="12" />
   <div id="tablediv" >Loading...</div>
 
   <script>
