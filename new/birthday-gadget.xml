@@ -240,7 +240,7 @@
 		_gel('saveurl').onclick=function(){
 			prefs.set("_table_query_url", escapeHtml(_gel('newurl').value));
 			//self.parent.location.reload(true);
-			_reload();
+			_reload(self.parent);
 			}
 
 		
