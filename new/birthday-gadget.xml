@@ -148,7 +148,7 @@
       gadgetHelper = new google.visualization.GadgetHelper();
       //var query = gadgetHelper.createQueryFromPrefs(prefs);
 	  var query=new google.visualization.Query(prefs.getString("_table_query_url"));
-	  query.setQuery('select MONTH(A) AS month, DAY(A) AS day, B order by month, day');
+	  query.setQuery('select A, B order by month(A)');
       query.send(handleQueryResponse);
     }
 
