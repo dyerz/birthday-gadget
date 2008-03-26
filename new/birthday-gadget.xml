@@ -238,7 +238,7 @@
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
-			prefs = new _IG_Prefs();
+			var prefs = new _IG_Prefs();
 			prefs.set("_table_query_url", escapeHtml(_gel('newurl').value));
 			location.reload(true);}
 
