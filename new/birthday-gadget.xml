@@ -91,6 +91,7 @@
 	}
 
 	#tbEdit{
+		width: 20%;
 		text-align: left;
 	}
 	
@@ -101,6 +102,7 @@
 	}
 
 	#tbRefresh{
+		width: 20%;
 		cursor: pointer;
 		color: #0000FF;
 		text-decoration: underline;
