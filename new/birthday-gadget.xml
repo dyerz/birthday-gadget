@@ -176,7 +176,9 @@
 		showDays__MODULE_ID__,
 		showZodiac__MODULE_ID__,
 		urlPref__MODULE_ID__,
-		toolbarVis__MODULE_ID__=true;
+		toolbarVis__MODULE_ID__="dnImg", 
+		upVis__MODULE_ID__=false, 
+		dnVis__MODULE_ID__=false;
     
     function init(){
 		prefs__MODULE_ID__ = new _IG_Prefs();
@@ -205,10 +207,16 @@
 		tbvObj=_gel("toolbarVis");
 		tbvObj.onclick=function(){
 			_toggle(_gel("toolbar"));
-			_toggle(_gel(toolbarVis__MODULE_ID__?"upImg":"dnImg"));
-			toolbarVis__MODULE_ID__=toolbarVis__MODULE_ID__?false:true;};
-		tbvObj.onmouseover=function(){_toggle(_gel(toolbarVis__MODULE_ID__?"upImg":"dnImg"));};
-		tbvObj.onmouseout=function(){_toggle(_gel(toolbarVis__MODULE_ID__?"upImg":"dnImg"));};
+			if(upVis__MODULE_ID__) _toggle(_gel("upImg")); if(dnVis__MODULE_ID__) _toggle(_gel("dnImg"));
+			toolbarVis__MODULE_ID__=toolbarVis__MODULE_ID__=="dnImg"?"upImg":"dnImg";};
+		tbvObj.onmouseover=function(){
+			if(toolbarVis__MODULE_ID__=="upImg") upVis__MODULE_ID__=true;
+			else dnVis__MODULE_ID__=true;
+			_toggle(_gel(toolbarVis__MODULE_ID__));};
+		tbvObj.onmouseout=function(){
+			if(toolbarVis__MODULE_ID__=="upImg") upVis__MODULE_ID__=false;
+			else dnVis__MODULE_ID__=false;
+			_toggle(_gel(toolbarVis__MODULE_ID__));};
 		  
     }
 
