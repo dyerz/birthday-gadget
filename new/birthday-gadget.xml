@@ -117,7 +117,7 @@
 	}
 	
 	#upImg{
-		position: relative; top: -7px;
+		position: relative; top: -6px;
 	}
 
 	#dnImg{
@@ -154,14 +154,14 @@
 	}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<div id="toolbar">
+<div id="toolbar" style="display: none;">
 	<table><tr>
 		<td id="tbEdit">Edit</td>
 		<td >Convert</td>
 		<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>
 		<td id="tbRefresh">Refresh</td></tr></table></div>
 <div id="toolbarVis" title="Hide the Toolbar">
-<img id="upImg" style="" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
+<img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
 </div>
 <div id="tablediv" >Loading...</div>
@@ -192,7 +192,7 @@
 		showDays__MODULE_ID__=prefs__MODULE_ID__.getBool("showDays");
 		showZodiac__MODULE_ID__=prefs__MODULE_ID__.getBool("showZodiac");
 		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
-		tbVis__MODULE_ID__=prefs__MODULE_ID__.getBool("tbVis");
+		tbVis__MODULE_ID__=prefs__MODULE_ID__.getString("tbVis");
 		
 		//queryurl check
 		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
@@ -209,16 +209,17 @@
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		if(!tbVis__MODULE_ID__) flipTB();
+		if(tbVis__MODULE_ID__=="true") flipTB();
+		else _toggle(_gel("dnImg")); 
 		_gel("toolbarVis").onclick=function(){
-			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__?"false":"true"); flipTB();};
+			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__=="true"?"false":"true"); flipTB();};
 		
 		//init done.. show stuff
 		sendQuery(urlPref__MODULE_ID__)
     }
 
 	function flipTB(){
-		_gel("toolbarVis").title=tbVis__MODULE_ID__?"Show the Toolbar":"Hide the Toolbar"
+		_gel("toolbarVis").title=tbVis__MODULE_ID__=="true"?"Hide the Toolbar":"Show the Toolbar"
 		_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg")); _IG_AdjustIFrameHeight();
 	}
 	
