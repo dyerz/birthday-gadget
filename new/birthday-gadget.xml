@@ -92,6 +92,12 @@
 	#tbEdit{
 		text-align: left;
 	}
+	
+	tbConvert{
+		color: red;
+		text-decoration: underline;
+		cursor: pointer;
+	}
 
 	#tbRefresh{
 		cursor: pointer;
@@ -159,12 +165,7 @@
 	}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<div id="toolbar" style="display: none;">
-	<table><tr>
-		<td id="tbEdit">Edit</td>
-		<td >Convert</td>
-		<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>
-		<td id="tbRefresh">Refresh</td></tr></table></div>
+<div id="toolbar" style="display: none;"></div>
 <div id="toolbarVis">
 <img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
@@ -183,10 +184,10 @@
 		showDays__MODULE_ID__,
 		showZodiac__MODULE_ID__,
 		urlPref__MODULE_ID__,
+		oldbd__MODULE_ID__,
 		tbVis__MODULE_ID__;
     
     function init(){
-		var linkUrl=""
 		prefs__MODULE_ID__ = new _IG_Prefs();
 
 		//get prefs
@@ -199,6 +200,7 @@
 		showZodiac__MODULE_ID__=prefs__MODULE_ID__.getBool("showZodiac");
 		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
 		tbVis__MODULE_ID__=prefs__MODULE_ID__.getString("tbVis");
+		oldbd__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
 		
 		//queryurl check
 		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
@@ -211,8 +213,7 @@
 		}
 
 		//toolbar creation
-		linkUrl=urlPref__MODULE_ID__.replace(/tq\?/, "ccc?");
-		_gel("tbEdit").innerHTML='<a target="_blank" href="'+linkUrl+'">Edit</a>';
+		buildToolbar(urlPref__MODULE_ID__.replace(/tq\?/, "ccc?"));
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
@@ -337,6 +338,17 @@
 		moreErr.push('<br />Click "Refresh" above after you have made the changes');
 		_gel('tablediv').innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
+	}
+	
+	function buildToolbar(linkUrl){
+		var html = [];
+		html.push('<table><tr>');
+		html.push('<td id="tbEdit"><a target="_blank" href="'+linkUrl+'">Edit</a></td>');
+		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
+		html.push('<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
+		html.push('<td id="tbRefresh">Refresh</td>');
+		html.push('</tr></table>');	
+		_gel('toolbar').innerHTML = html.join('');
 	}
 	
 	function buildArray(data){
