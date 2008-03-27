@@ -256,6 +256,10 @@
 			goError('Please set the "Format" of colum A to "date"');
 			return;
 		}
+		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){
+			goError('No data was found in your spreadsheet');
+			return;
+		}
 		
 		var dataArray=buildArray(data);
 		if(dataArray.length==0){
@@ -279,7 +283,6 @@
 		for (var row = 0; row < dataArray.length; row++) {
 			var rowData=dataArray[row].split("~;~");
 			rowDate=Date.parse(rowData[0]);
-			if(isNaN(rowDate)) { alert("Date Error: Row Number "+row); continue;}
 			dispDate=makeDate__MODULE_ID__(rowData[0]);
 			dispAge=makeAge(rowDate);
 			dispDays=makeDays(rowDate, rowData[2]);
@@ -328,21 +331,24 @@
 	
 	function goError(errText){
 		var moreErr=[];
+		moreErr.push('<h1>Error</h1>');
 		moreErr.push('<span class="error">'+errText+'</span>');
 		moreErr.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
-		moreErr.push('<br />Click "Refresh" above when you have made the changes');
+		moreErr.push('<br />Click "Refresh" above after you have made the changes');
 		_gel('tablediv').innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
 	}
 	
 	function buildArray(data){
 		var dataArray=new Array();
-		var tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		var dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-pastNotice__MODULE_ID__*24*60*60*1000);
 		maxDate.setTime(maxDate.getTime()+futureNotice__MODULE_ID__*24*60*60*1000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
-			if(data.getFormattedValue(row,0)=="") continue;
-			tempData=Date.parse(data.getFormattedValue(row,0));
+			dataDate=data.getFormattedValue(row,0);
+			if(dataDate=="") continue;
+			tempData=Date.parse(dataDate);
+			if(isNaN(tempData)) { alert("Date Error: Row Number "+row); continue;}
 			tempDate.setTime(tempData);
 			if(tempDate.getMonth()<nowDate.getMonth() ||
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
@@ -350,7 +356,7 @@
 			else tempDate.setFullYear(nowDate.getFullYear());
 			if(tempDate.getTime()>maxDate.getTime() && futureNotice__MODULE_ID__!=0) continue;
 			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
-			dataArray.push(data.getFormattedValue(row,0)+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
+			dataArray.push(dataDate+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
 		return(dataArray);
