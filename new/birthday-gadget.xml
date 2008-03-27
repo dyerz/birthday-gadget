@@ -60,7 +60,7 @@
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
-<UserPref name="debugMe" default_value="true" datatype="hidden" /> 
+<UserPref name="debugMe" default_value="true" datatype="bool" /> 
 
 <Content type="html">
 <![CDATA[ 
