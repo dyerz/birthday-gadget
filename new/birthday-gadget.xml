@@ -348,10 +348,10 @@
 	function goConvert(){
 		var html=[];
 		html.push('<h1>Convert</h1>');
-		html.push('Open your Google spreadsheet, paste all the text from the box below into the spreadsheet.');
+		html.push('Open your Google spreadsheet<br />Copy the text below<br />Paste the text into the spreadsheet.');
 		html.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
+		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__.replace(/;/g, "\t")+'</textarea>');
 		html.push('<br />Clear the old data when you are done.');
-		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__+'</textarea>');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" />');
 		_gel('tablediv').innerHTML = html.join('');		
 		_IG_AdjustIFrameHeight();
