@@ -215,8 +215,7 @@
 		//temp data check!!!
 		//******************************************************************************
 		if(prefs__MODULE_ID__.getString("debugMe")=="true"){
-			oldbd__MODULE_ID__='1953/01/25; Name\n2006/02/26;Madi\n1985/04/26;Test\n1989/04/27;broken?\n2001/05/25; Safe\n2007/05/25; Some Date\n1950/06/01; Test\n1954/06/05; Test\n1980/06/11; Test1\n1980/06/12; Test1\n1980/06/13; Test1\n1980/07/01; Test4\n1975/10/15;Test\n1987/11/13;Weston';
-			prefs__MODULE_ID__.set("birthdays", oldbd__MODULE_ID__);
+			prefs__MODULE_ID__.set("birthdays", '1953/01/25; Name\n2006/02/26;Madi\n1985/04/26;Test\n1989/04/27;broken?\n2001/05/25; Safe\n2007/05/25; Some Date\n1950/06/01; Test\n1954/06/05; Test\n1980/06/11; Test1\n1980/06/12; Test1\n1980/06/13; Test1\n1980/07/01; Test4\n1975/10/15;Test\n1987/11/13;Weston');
 			prefs__MODULE_ID__.set("debugMe", "false");
 		}
 		//******************************************************************************
