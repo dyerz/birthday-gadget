@@ -233,7 +233,7 @@
     function sendQuery(qCheck) {
 		gadgetHelper = new google.visualization.GadgetHelper();
 		var query=new google.visualization.Query(qCheck);
-		query.setQuery("select A, B where A != '' format A 'yyyy/MM/dd'");
+		query.setQuery("select A, B format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse);
     }
 
