@@ -209,8 +209,8 @@
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		if(tbVis__MODULE_ID__=="false") flipTB();
-		//else _toggle(_gel("upImg")); 
+		if(tbVis__MODULE_ID__=="false"){ flipTB(); _toggle(_gel("dnImg"));}
+		else _toggle(_gel("upImg")); 
 		_gel("toolbarVis").onclick=function(){
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__=="true"?"false":"true"); flipTB();};
 		
