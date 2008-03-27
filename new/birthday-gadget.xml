@@ -69,6 +69,7 @@
 		height: 12px;
 		text-align: center;
 		margin: 0; padding: 0; 
+		width: 100%;
 	}
 
 	#toolbar table{
@@ -345,7 +346,7 @@
 		html.push('<table><tr>');
 		html.push('<td id="tbEdit"><a target="_blank" href="'+linkUrl+'">Edit</a></td>');
 		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
-		html.push('<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
+		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
