@@ -58,7 +58,9 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
-<UserPref name="_table_query_url" display_name="Data source url" datatype="hidden" /> 
+<UserPref name="_table_query_url" datatype="hidden" /> 
+<UserPref name="tbVis" default_value="true" datatype="hidden" /> 
+
 <Content type="html">
 <![CDATA[ 
 <style>
@@ -175,7 +177,8 @@
 		showAge__MODULE_ID__,
 		showDays__MODULE_ID__,
 		showZodiac__MODULE_ID__,
-		urlPref__MODULE_ID__;
+		urlPref__MODULE_ID__,
+		tbVis__MODULE_ID__;
     
     function init(){
 		prefs__MODULE_ID__ = new _IG_Prefs();
@@ -189,6 +192,7 @@
 		showDays__MODULE_ID__=prefs__MODULE_ID__.getBool("showDays");
 		showZodiac__MODULE_ID__=prefs__MODULE_ID__.getBool("showZodiac");
 		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
+		tbVis__MODULE_ID__=prefs__MODULE_ID__.getBool("tbVis");
 		
 		if(urlPref__MODULE_ID__.search(/tq\?/)==-1 && urlPref__MODULE_ID__.search(/ccc\?/)!=-1 ){
 			urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/ccc\?/, "tq?");
@@ -201,11 +205,15 @@
 
 		_gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref__MODULE_ID__+'">Edit</a>';
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		tbvObj=_gel("toolbarVis");
-		tbvObj.onclick=function(){_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg")); };
-		  
+		if(!tbVis__MODULE_ID__) flipTB();
+		_gel("toolbarVis").onclick=function(){
+			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__?false:true); flipTB();};
     }
 
+	function flipTB(){
+		_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg"));
+	}
+	
     function sendQuery() {
       init();
       gadgetHelper = new google.visualization.GadgetHelper();
