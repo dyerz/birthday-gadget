@@ -167,6 +167,11 @@
 	.error{
 		color: #FF0000;
 	}
+	
+	#oldtxt{
+		width: 100%;
+		height: 100px;
+	}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <div id="toolbar" style="display: none;"></div>
@@ -222,12 +227,13 @@
 		}
 
 		//toolbar creation
-		buildToolbar(urlPref__MODULE_ID__.replace(/tq\?/, "ccc?"));
+		buildToolbar();
+		if(tbVis__MODULE_ID__=="false"){ flipTB(Array(true, true, false, false));}
+		else {flipTB(Array(false, false, true, false));}
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		if(tbVis__MODULE_ID__=="false"){ flipTB(Array(true, true, false, false));}
-		else {flipTB(Array(false, false, true, false));}
+		_gel("tbConvert").onclick=function(){goConvert();}
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -339,6 +345,17 @@
 		_IG_AdjustIFrameHeight();
 	}
 	
+	function goConvert(){
+		var html=[];
+		html.push('<h1>Convert</h1>');
+		html.push('Open your Google spreadsheet, paste all the text from the box below into the spreadsheet.');
+		html.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
+		html.push('<br />Clear the old data when you are done.');
+		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__+'</textarea>');
+		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" />');
+		_IG_AdjustIFrameHeight();
+	}
+	
 	function goError(errText){
 		var moreErr=[];
 		moreErr.push('<h1>Error</h1>');
@@ -349,10 +366,10 @@
 		_IG_AdjustIFrameHeight();
 	}
 	
-	function buildToolbar(linkUrl){
+	function buildToolbar(){
 		var html = [];
 		html.push('<table><tr>');
-		html.push('<td id="tbEdit"><a target="_blank" href="'+linkUrl+'">Edit</a></td>');
+		html.push('<td id="tbEdit"><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit</a></td>');
 		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
