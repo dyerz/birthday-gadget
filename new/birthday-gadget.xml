@@ -57,6 +57,7 @@
 </UserPref>
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
+<UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
 <UserPref name="_table_query_url" display_name="Data source url" /> 
 <Content type="html">
 <![CDATA[ 
@@ -144,7 +145,7 @@
     google.load("visualization", "1");
     var gadgetHelper = null;
     var dateStyle__MODULE_ID__, futureNotice__MODULE_ID__, pastNotice__MODULE_ID__, numVis__MODULE_ID__;
-	var showAge__MODULE_ID__, showDays__MODULE_ID__;
+	var showAge__MODULE_ID__, showDays__MODULE_ID__, showZodiac__MODULE_ID__;
     var urlPref, prefs;
     
     function init(){
@@ -157,6 +158,7 @@
 		pastNotice__MODULE_ID__=prefs.getInt("warnPast");
 		showAge__MODULE_ID__=prefs.getBool("showAge");
 		showDays__MODULE_ID__=prefs.getBool("showDays");
+		showZodiac__MODULE_ID__=prefs.getBool("showZodiac");
 		urlPref=prefs.getString("_table_query_url");
 		
 		if(urlPref.search(/tq\?/)==-1 && urlPref.search(/ccc\?/)!=-1 ){
@@ -206,6 +208,7 @@
 			html.push('<tr><td class="colid">Date</td><td class="colid">Name</td>');
 			if(showAge__MODULE_ID__) html.push('<td class="colid">Age</td>');
 			if(showDays__MODULE_ID__) html.push('<td class="colid">Days Away</td>');
+			if(showZodiac__MODULE_ID__) html.push('<td class="colid">Zodiac</td>');
 			html.push('</tr>');
 
 			dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
@@ -220,11 +223,13 @@
 				dispDate=makeDate__MODULE_ID__(rowData[0]);
 				dispAge=makeAge(rowDate);
 				dispDays=makeDays(rowDate, rowData[2]);
+				dispZodiac=makeZodiac(rowData[2]);
 
 				html.push('<td>'+dispDate+'</td>');
 				html.push('<td>'+escapeHtml(rowData[1])+'</td>');
 				if(showAge__MODULE_ID__) html.push('<td>'+dispAge+'</td>');
 				if(showDays__MODULE_ID__) html.push('<td>'+dispDays+'</td>');
+				if(showZodiac__MODULE_ID__) html.push('<td>'+dispZodiac+'</td>');
 				html.push('</tr>');
 				countDisp++;
 				if(countDisp>=dispLength) break;
@@ -292,6 +297,25 @@
 	}
  
 
+	function makeZodiac(formatDate){
+		var s=formatDate.split("/");
+		s[1]=parseInt(s[1],10); s[2]=parseInt(s[2],10);
+		switch(s[1]){
+			case 1: return(s[2]<21?"Capricorn":"Aquarius");
+			case 2: return(s[2]<19?"Aquarius":"Pisces");
+			case 3: return(s[2]<21?"Pisces":"Aries");
+			case 4: return(s[2]<21?"Aries":"Taurus");
+			case 5: return(s[2]<22?"Taurus":"Gemini");
+			case 6: return(s[2]<22?"Gemini":"Cancer");
+			case 7: return(s[2]<23?"Cancer":"Leo");
+			case 8: return(s[2]<22?"Leo":"Virgo");
+			case 9: return(s[2]<24?"Virgo":"Libra");
+			case 10: return(s[2]<24?"Libra":"Scorpio");
+			case 11: return(s[2]<23?"Scorpio":"Sagittarius");
+			case 12: return(s[2]<23?"Sagittarius":"Capricorn");
+		}
+	}
+ 
 	function makeDays(rowDate, formatDate){
 		var d=new Date();
 		return ((Date.parse(formatDate)-d.getTime())/(24*60*60*1000)).toFixed(0);
