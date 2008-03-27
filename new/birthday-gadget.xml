@@ -245,7 +245,7 @@
 			flipTB(Array(true, true, true, true));};
 		
 		//init done.. show stuff
-		sendQuery(urlPref__MODULE_ID__);
+		sendQuery();
     }
 
 	function flipTB(sh){
@@ -258,7 +258,7 @@
 	
     function sendQuery(qCheck) {
 		gadgetHelper = new google.visualization.GadgetHelper();
-		var query=new google.visualization.Query(qCheck);
+		var query=new google.visualization.Query(urlPref__MODULE_ID__);
 		query.setQuery("select A, B format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse);
     }
@@ -343,7 +343,8 @@
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
-			prefs__MODULE_ID__.set("_table_query_url", escapeHtml(_gel('newurl').value));
+			urlPref__MODULE_ID__=escapeHtml(_gel('newurl').value)
+			prefs__MODULE_ID__.set("_table_query_url", urlPref__MODULE_ID__);
 			_gel('tablediv').innerHTML ="Loading...";
 			sendQuery();}
 
@@ -361,7 +362,7 @@
 		_gel('tablediv').innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
-			init();
+			sendQuery();
 		}
 		_IG_AdjustIFrameHeight();
 	}
