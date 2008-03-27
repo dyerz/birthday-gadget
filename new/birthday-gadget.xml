@@ -353,7 +353,7 @@
 		html.push('<br />Clear the old data when you are done.');
 		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__+'</textarea>');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" />');
-		_gel('toolbar').innerHTML = html.join('');		
+		_gel('tablediv').innerHTML = html.join('');		
 		_IG_AdjustIFrameHeight();
 	}
 	
