@@ -176,7 +176,7 @@
 		showDays__MODULE_ID__,
 		showZodiac__MODULE_ID__,
 		urlPref__MODULE_ID__,
-		toolbarVis__MODULE_ID__="dnImg", 
+		toolbarVis__MODULE_ID__="upImg", 
 		upVis__MODULE_ID__=false, 
 		dnVis__MODULE_ID__=false;
     
