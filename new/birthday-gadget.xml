@@ -205,6 +205,7 @@
 		if(prefs__MODULE_ID__.getString("debugMe")=="true"){
 			prefs__MODULE_ID__.set("birthdays", '1953/01/25; Name\n2006/02/26;Madi\n1985/04/26;Test\n1989/04/27;broken?\n2001/05/25; Safe\n2007/05/25; Some Date\n1950/06/01; Test\n1954/06/05; Test\n1980/06/11; Test1\n1980/06/12; Test1\n1980/06/13; Test1\n1980/07/01; Test4\n1975/10/15;Test\n1987/11/13;Weston');
 			prefs__MODULE_ID__.set("debugMe", "false");
+			prefs__MODULE_ID__ = new _IG_Prefs();
 		}
 		//******************************************************************************
 
@@ -237,6 +238,7 @@
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
+		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){goConvert();}
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -378,10 +380,7 @@
 		var html = [];
 		html.push('<table><tr>');
 		html.push('<td id="tbEdit"><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit</a></td>');
-		if(oldbd__MODULE_ID__!=""){
-			html.push('<td id="tbConvert">Convert</td>');
-			_gel("tbConvert").onclick=function(){goConvert();}
-		}
+		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
