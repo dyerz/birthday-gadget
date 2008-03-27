@@ -209,7 +209,7 @@
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		if(tbVis__MODULE_ID__=="true") flipTB();
+		if(tbVis__MODULE_ID__=="false") flipTB();
 		else _toggle(_gel("dnImg")); 
 		_gel("toolbarVis").onclick=function(){
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__=="true"?"false":"true"); flipTB();};
@@ -323,6 +323,7 @@
 		maxDate.setTime(maxDate.getTime()+futureNotice__MODULE_ID__*24*60*60*1000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
 			tempData=Date.parse(data.getFormattedValue(row,0));
+			if(tempData=="") continue;
 			tempDate.setTime(tempData);
 			if(tempDate.getMonth()<nowDate.getMonth() ||
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
