@@ -117,7 +117,7 @@
 	}
 	
 	#upImg{
-		position: relative; top: -6px;
+		position: relative; top: -5px;
 	}
 
 	#dnImg{
@@ -160,7 +160,7 @@
 		<td >Convert</td>
 		<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>
 		<td id="tbRefresh">Refresh</td></tr></table></div>
-<div id="toolbarVis" title="Hide the Toolbar">
+<div id="toolbarVis" title="Show the Toolbar">
 <img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
 </div>
