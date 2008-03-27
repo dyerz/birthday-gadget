@@ -362,6 +362,7 @@
 		_gel('tablediv').innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
+			oldbd__MODULE_ID__="";
 			buildToolbar();
 			sendQuery();
 		}
