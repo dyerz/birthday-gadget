@@ -194,34 +194,39 @@
 		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
 		tbVis__MODULE_ID__=prefs__MODULE_ID__.getBool("tbVis");
 		
+		//queryurl check
+		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
 		if(urlPref__MODULE_ID__.search(/tq\?/)==-1 && urlPref__MODULE_ID__.search(/ccc\?/)!=-1 ){
 			urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/ccc\?/, "tq?");
-			if(urlPref__MODULE_ID__.search(/\&/)!=-1) urlPref__MODULE_ID__=urlPref__MODULE_ID__.substring(0, urlPref__MODULE_ID__.indexOf("&"));
-			prefs__MODULE_ID__.set("_table_query_url", escapeHtml(urlPref__MODULE_ID__));
-			prefs__MODULE_ID__ = new _IG_Prefs();
+			if(urlPref__MODULE_ID__.search(/\&/)!=-1)
+				urlPref__MODULE_ID__=urlPref__MODULE_ID__.substring(0, urlPref__MODULE_ID__.indexOf("&"));
+			urlPref__MODULE_ID__=escapeHtml(urlPref__MODULE_ID__)
+			prefs__MODULE_ID__.set("_table_query_url", urlPref__MODULE_ID__);
 		}
-		urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/tq\?/, "ccc?");
-		if(urlPref__MODULE_ID__.search(/\&/)!=-1) urlPref__MODULE_ID__=urlPref__MODULE_ID__.substring(0, urlPref__MODULE_ID__.indexOf("&"));
 
+		//toolbar creation
 		_gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref__MODULE_ID__+'">Edit</a>';
+
+		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
 		if(!tbVis__MODULE_ID__) flipTB();
 		_gel("toolbarVis").onclick=function(){
-			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__?false:true); flipTB();};
+			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__?"false":"true"); flipTB();};
+		
+		//init done.. show stuff
+		sendQuery(urlPref__MODULE_ID__)
     }
 
 	function flipTB(){
+		_gel("toolbarVis").title=tbVis__MODULE_ID__?"Show the Toolbar":"Hide the Toolbar"
 		_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg")); _IG_AdjustIFrameHeight();
 	}
 	
-    function sendQuery() {
-      init();
-      gadgetHelper = new google.visualization.GadgetHelper();
-	  var qCheck=prefs__MODULE_ID__.getString("_table_query_url");
-	  if(qCheck=="") {showHelp(); return;}
-	  var query=new google.visualization.Query(qCheck);
-	  query.setQuery("select A, B format A 'yyyy/MM/dd'");
-      query.send(handleQueryResponse);
+    function sendQuery(qCheck) {
+		gadgetHelper = new google.visualization.GadgetHelper();
+		var query=new google.visualization.Query(qCheck);
+		query.setQuery("select A, B format A 'yyyy/MM/dd'");
+		query.send(handleQueryResponse);
     }
 
     function handleQueryResponse(response) {
@@ -398,7 +403,7 @@
     //_gel('tablediv').style.height = (document.body.clientHeight - 2) + 'px';
 
     // Set a callback function to be called by the loader once the visualization API is loaded.
-    google.setOnLoadCallback(sendQuery);
+    google.setOnLoadCallback(init);
 
   </script>
 
