@@ -269,7 +269,6 @@
 			// Add the data rows
 			for (var row = 0; row < dataArray.length; row++) {
 				var rowData=dataArray[row].split("~;~");
-				html.push('<tr>');
 				rowDate=Date.parse(rowData[0]);
 				if(isNaN(rowDate)) { alert("Date Error: Row Number "+row); continue;}
 				dispDate=makeDate__MODULE_ID__(rowData[0]);
@@ -277,8 +276,7 @@
 				dispDays=makeDays(rowDate, rowData[2]);
 				dispZodiac=makeZodiac(rowData[2]);
 
-				html.push('<td>'+dispDate+'</td>');
-				html.push('<td>'+escapeHtml(rowData[1])+'</td>');
+				html.push('<tr><td>'+dispDate+'</td><td>'+escapeHtml(rowData[1])+'</td>');
 				if(showAge__MODULE_ID__) html.push('<td>'+dispAge+'</td>');
 				if(showDays__MODULE_ID__) html.push('<td>'+dispDays+'</td>');
 				if(showZodiac__MODULE_ID__) html.push('<td>'+dispZodiac+'</td>');
