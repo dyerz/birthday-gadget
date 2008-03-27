@@ -206,7 +206,7 @@
 		}
 
 		//toolbar creation
-		linkUrl=urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/tq\?/, "ccc?");
+		linkUrl=urlPref__MODULE_ID__.replace(/tq\?/, "ccc?");
 		_gel("tbEdit").innerHTML='<a target="_blank" href="'+linkUrl+'">Edit</a>';
 
 		//js event config
