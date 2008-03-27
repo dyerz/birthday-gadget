@@ -387,7 +387,8 @@
 	}
  
 	function makeDays(rowDate, formatDate){
-		var d=new Date();
+		var t=new Date(), d=new Date();
+		d.setTime(Date.parse(t.getFullYear()+"/"+(t.getMonth()+1)+"/"+t.getDate()));
 		return Math.round((Date.parse(formatDate)-d.getTime())/(24*60*60*1000));
 	}
 	
