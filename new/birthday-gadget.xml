@@ -244,11 +244,11 @@
 
 		//check for dates
 		if(data.getColumnType(1)=="date"){
-			goError('Please move the dates from column "B" to column "A"<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help">the help website</a> for additional assistance.');
+			goError('Please move the dates from column "B" to column "A"');
 			return;
 		}
 		if(data.getColumnType(0)!="date"){
-			goError('Please set the "Format" of colum A to "date"<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help">the help website</a> for additional assistance.');
+			goError('Please set the "Format" of colum A to "date"');
 			return;
 		}
 		
@@ -322,7 +322,11 @@
 	}
 	
 	function goError(errText){
-		_gel('tablediv').innerHTML = errText;
+		var moreErr=[];
+		moreErr.push(errText);
+		moreErr.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
+		moreErr.push('<br />Click "Refresh" above when you have made the changes');
+		_gel('tablediv').innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
 	}
 	
