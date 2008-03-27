@@ -60,6 +60,7 @@
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
+<UserPref name="debugMe" default_value="true" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
@@ -213,7 +214,11 @@
 
 		//temp data check!!!
 		//******************************************************************************
-		oldbd__MODULE_ID__='1953/01/25; Name\n2006/02/26;Madi\n1985/04/26;Test\n1989/04/27;broken?\n2001/05/25; Safe\n2007/05/25; Some Date\n1950/06/01; Test\n1954/06/05; Test\n1980/06/11; Test1\n1980/06/12; Test1\n1980/06/13; Test1\n1980/07/01; Test4\n1975/10/15;Test\n1987/11/13;Weston';
+		if(prefs__MODULE_ID__.getString("debugMe")=="true"){
+			oldbd__MODULE_ID__='1953/01/25; Name\n2006/02/26;Madi\n1985/04/26;Test\n1989/04/27;broken?\n2001/05/25; Safe\n2007/05/25; Some Date\n1950/06/01; Test\n1954/06/05; Test\n1980/06/11; Test1\n1980/06/12; Test1\n1980/06/13; Test1\n1980/07/01; Test4\n1975/10/15;Test\n1987/11/13;Weston';
+			prefs__MODULE_ID__.set("birthdays", oldbd__MODULE_ID__);
+			prefs__MODULE_ID__.set("debugMe", "false");
+		}
 		//******************************************************************************
 		
 		//queryurl check
@@ -354,6 +359,10 @@
 		html.push('<br />Clear the old data when you are done.');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" />');
 		_gel('tablediv').innerHTML = html.join('');		
+		_gel('clearOld').onclick=function(){
+			prefs__MODULE_ID__.set("birthdays","");
+			init();
+		}
 		_IG_AdjustIFrameHeight();
 	}
 	
