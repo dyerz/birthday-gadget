@@ -171,9 +171,9 @@
     var gadgetHelper = null;
 	var prefs__MODULE_ID__,
 		dateStyle__MODULE_ID__,
-		futureNotice__MODULE_ID__,
-		astNotice__MODULE_ID__,
 		numVis__MODULE_ID__,
+		futureNotice__MODULE_ID__,
+		pastNotice__MODULE_ID__,
 		showAge__MODULE_ID__,
 		showDays__MODULE_ID__,
 		showZodiac__MODULE_ID__,
@@ -181,6 +181,7 @@
 		tbVis__MODULE_ID__;
     
     function init(){
+		var linkUrl=""
 		prefs__MODULE_ID__ = new _IG_Prefs();
 
 		//get prefs
@@ -205,19 +206,20 @@
 		}
 
 		//toolbar creation
-		_gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref__MODULE_ID__+'">Edit</a>';
+		linkUrl=urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/tq\?/, "ccc?");
+		_gel("tbEdit").innerHTML='<a target="_blank" href="'+linkUrl+'">Edit</a>';
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
 		if(tbVis__MODULE_ID__=="false"){ flipTB(Array(true, true, false, false));}
-		else {flipTB(Array(false, true, false, false));}
+		else {flipTB(Array(false, false, true, false));}
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
 			flipTB(Array(true, true, true, true));};
 		
 		//init done.. show stuff
-		sendQuery(urlPref__MODULE_ID__)
+		sendQuery(urlPref__MODULE_ID__);
     }
 
 	function flipTB(sh){
