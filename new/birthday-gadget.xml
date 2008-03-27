@@ -219,7 +219,7 @@
     }
 
 	function flipTB(){
-		var debug=_gel("toolbarVis").title;
+		var debug=_gel("toolbarVis").title; var debug2=tbVis__MODULE_ID__;
 		_gel("toolbarVis").title=tbVis__MODULE_ID__=="false"?"Hide the Toolbar":"Show the Toolbar"
 		_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg")); _IG_AdjustIFrameHeight();
 	}
