@@ -159,7 +159,7 @@
 		<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>
 		<td id="tbRefresh">Refresh</td></tr></table></div>
 <div id="toolbarVis">
-<img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
+<img id="upImg" style="" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
 </div>
 <div id="tablediv" >Loading...</div>
@@ -175,8 +175,7 @@
 		showAge__MODULE_ID__,
 		showDays__MODULE_ID__,
 		showZodiac__MODULE_ID__,
-		urlPref__MODULE_ID__,
-		toolbarVis__MODULE_ID__="upImg";
+		urlPref__MODULE_ID__;
     
     function init(){
 		prefs__MODULE_ID__ = new _IG_Prefs();
@@ -203,12 +202,7 @@
 		_gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref__MODULE_ID__+'">Edit</a>';
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
 		tbvObj=_gel("toolbarVis");
-		tbvObj.onclick=function(){
-			_toggle(_gel("toolbar"));
-			_gel("upImg").style.display="none"; _gel("dnImg").style.display="none";
-			toolbarVis__MODULE_ID__=toolbarVis__MODULE_ID__=="dnImg"?"upImg":"dnImg";};
-		tbvObj.onmouseover=function(){ _toggle(_gel(toolbarVis__MODULE_ID__));};
-		tbvObj.onmouseout=function(){ _toggle(_gel(toolbarVis__MODULE_ID__));};
+		tbvObj.onclick=function(){_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg")); };
 		  
     }
 
