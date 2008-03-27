@@ -6,8 +6,7 @@
   <msg name="formatName">Date Format</msg>
   <msg name="showAge">Show Age</msg>
   <msg name="showDays">Show Days</msg>
-  <msg name="showDays">Show Zodiac</msg>
-
+  <msg name="showZodiac">Show Zodiac</msg>
   <msg name="birthdayName">Birthdays</msg>
   <msg name="showName">Visible Birthdays</msg>
   <msg name="pastNoticeName">Days After</msg>
