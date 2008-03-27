@@ -95,7 +95,7 @@
 		text-align: left;
 	}
 	
-	tbConvert{
+	#tbConvert{
 		color: #FF0000;
 		text-decoration: underline;
 		cursor: pointer;
