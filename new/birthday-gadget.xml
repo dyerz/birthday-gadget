@@ -96,6 +96,7 @@
 	}
 	
 	#tbConvert{
+		width: 25%;
 		color: #FF0000;
 		text-decoration: underline;
 		cursor: pointer;
