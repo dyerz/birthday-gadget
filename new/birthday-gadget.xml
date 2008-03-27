@@ -207,7 +207,7 @@
 		tbvObj=_gel("toolbarVis");
 		tbvObj.onclick=function(){
 			_toggle(_gel("toolbar"));
-			if(upVis__MODULE_ID__) _toggle(_gel("upImg")); if(dnVis__MODULE_ID__) _toggle(_gel("dnImg"));
+			_gel("upImg").style.display="none"; _gel("dnImg").style.display="none";
 			toolbarVis__MODULE_ID__=toolbarVis__MODULE_ID__=="dnImg"?"upImg":"dnImg";};
 		tbvObj.onmouseover=function(){
 			if(toolbarVis__MODULE_ID__=="upImg") upVis__MODULE_ID__=true;
