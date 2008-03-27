@@ -271,7 +271,7 @@
 				var rowData=dataArray[row].split("~;~");
 				html.push('<tr>');
 				rowDate=Date.parse(rowData[0]);
-				if(isNaN(rowDate)) alert("Date Error");
+				if(isNaN(rowDate)) { alert("Date Error: Row Number "+row); continue;}
 				dispDate=makeDate__MODULE_ID__(rowData[0]);
 				dispAge=makeAge(rowDate);
 				dispDays=makeDays(rowDate, rowData[2]);
@@ -329,8 +329,8 @@
 		nowDate.setTime(nowDate.getTime()-pastNotice__MODULE_ID__*24*60*60*1000);
 		maxDate.setTime(maxDate.getTime()+futureNotice__MODULE_ID__*24*60*60*1000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
+			if(data.getFormattedValue(row,0)) continue;
 			tempData=Date.parse(data.getFormattedValue(row,0));
-			if(tempData=="") continue;
 			tempDate.setTime(tempData);
 			if(tempDate.getMonth()<nowDate.getMonth() ||
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
