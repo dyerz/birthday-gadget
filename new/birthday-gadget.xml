@@ -237,7 +237,6 @@
 
 		//js event config
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		_gel("tbConvert").onclick=function(){goConvert();}
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -379,7 +378,10 @@
 		var html = [];
 		html.push('<table><tr>');
 		html.push('<td id="tbEdit"><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit</a></td>');
-		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
+		if(oldbd__MODULE_ID__!=""){
+			html.push('<td id="tbConvert">Convert</td>');
+			_gel("tbConvert").onclick=function(){goConvert();}
+		}
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
