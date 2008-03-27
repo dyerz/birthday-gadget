@@ -97,12 +97,32 @@
 		text-decoration: underline;
 		text-align: right;
 	}
+	
 	/* Toolbar Vis CSS */
 	#toolbarVis{
+		margin: 2px 0 0 0; padding: 0;
+		width: 100%;
 		height: 3px;
-		background-color: #333333;
+		background-color: #666666;
 		cursor: n-resize;
+		text-align: center;
 	}
+	
+	#toolbarVis img{
+		border: none;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	#upImg{
+		position: relative;
+		top: -2px;
+	}
+
+	#dnImg{
+		position: relative;
+		top: 4px;
+	}	
 
 	/* Table Div CSS */
 	#tablediv{
@@ -127,6 +147,7 @@
 		text-align: center;
 	}
 	
+	/* Misc CSS */
 	h1{
 		font-size: 22px;
 		text-align: center;
@@ -139,48 +160,61 @@
 		<td >Convert</td>
 		<td><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>
 		<td id="tbRefresh">Refresh</td></tr></table></div>
-<div id="toolbarVis"></div>
+<div id="toolbarVis">
+<img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
+<img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
+</div>
 <div id="tablediv" >Loading...</div>
 
 <script>
     google.load("visualization", "1"); // Load the Google Visualization API
     var gadgetHelper = null;
-    var dateStyle__MODULE_ID__, futureNotice__MODULE_ID__, pastNotice__MODULE_ID__, numVis__MODULE_ID__;
-	var showAge__MODULE_ID__, showDays__MODULE_ID__, showZodiac__MODULE_ID__;
-    var urlPref__MODULE_ID__, prefs;
+	var prefs__MODULE_ID__,
+		dateStyle__MODULE_ID__,
+		futureNotice__MODULE_ID__,
+		astNotice__MODULE_ID__,
+		numVis__MODULE_ID__,
+		showAge__MODULE_ID__,
+		showDays__MODULE_ID__,
+		showZodiac__MODULE_ID__,
+		urlPref__MODULE_ID__,
+		toolbarVis__MODULE_ID__=true;
     
     function init(){
-		prefs = new _IG_Prefs();
+		prefs__MODULE_ID__ = new _IG_Prefs();
 
 		//get prefs
-		dateStyle__MODULE_ID__=prefs.getInt("dateFormat");
-		numVis__MODULE_ID__=prefs.getInt("showBDay");
-		futureNotice__MODULE_ID__=prefs.getInt("warnForward");
-		pastNotice__MODULE_ID__=prefs.getInt("warnPast");
-		showAge__MODULE_ID__=prefs.getBool("showAge");
-		showDays__MODULE_ID__=prefs.getBool("showDays");
-		showZodiac__MODULE_ID__=prefs.getBool("showZodiac");
-		urlPref__MODULE_ID__=prefs.getString("_table_query_url");
+		dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
+		numVis__MODULE_ID__=prefs__MODULE_ID__.getInt("showBDay");
+		futureNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnForward");
+		pastNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnPast");
+		showAge__MODULE_ID__=prefs__MODULE_ID__.getBool("showAge");
+		showDays__MODULE_ID__=prefs__MODULE_ID__.getBool("showDays");
+		showZodiac__MODULE_ID__=prefs__MODULE_ID__.getBool("showZodiac");
+		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
 		
 		if(urlPref__MODULE_ID__.search(/tq\?/)==-1 && urlPref__MODULE_ID__.search(/ccc\?/)!=-1 ){
 			urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/ccc\?/, "tq?");
 			if(urlPref__MODULE_ID__.search(/\&/)!=-1) urlPref__MODULE_ID__=urlPref__MODULE_ID__.substring(0, urlPref__MODULE_ID__.indexOf("&"));
-			prefs.set("_table_query_url", escapeHtml(urlPref__MODULE_ID__));
-			prefs = new _IG_Prefs();
+			prefs__MODULE_ID__.set("_table_query_url", escapeHtml(urlPref__MODULE_ID__));
+			prefs__MODULE_ID__ = new _IG_Prefs();
 		}
 		urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/tq\?/, "ccc?");
 		if(urlPref__MODULE_ID__.search(/\&/)!=-1) urlPref__MODULE_ID__=urlPref__MODULE_ID__.substring(0, urlPref__MODULE_ID__.indexOf("&"));
 
 		_gel("tbEdit").innerHTML='<a target="_blank" href="'+urlPref__MODULE_ID__+'">Edit</a>';
 		_gel("tbRefresh").onclick=function(){location.reload(true);};
-		_gel("toolbarVis").onclick=function(){_toggle(_gel("toolbar"));};
+		tbvObj=_gel("toolbarVis");
+		tbvObj.onclick=function(){_toggle(_gel("toolbar")); toolbarVis__MODULE_ID__=toolbarVis__MODULE_ID__?false:true;};
+		tbvObj.onmouseover=function(){_toggle(_gel(toolbarVis__MODULE_ID__?"upImg":"dnImg"));};
+		tbvObj.onmouseout=function(){_toggle(_gel(toolbarVis__MODULE_ID__?"upImg":"dnImg"));};
 		  
     }
 
     function sendQuery() {
       init();
       gadgetHelper = new google.visualization.GadgetHelper();
-	  var qCheck=prefs.getString("_table_query_url");
+	  var qCheck=prefs__MODULE_ID__.getString("_table_query_url");
 	  if(qCheck=="") {showHelp(); return;}
 	  var query=new google.visualization.Query(qCheck);
 	  query.setQuery("select A, B format A 'yyyy/MM/dd'");
@@ -263,7 +297,7 @@
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
-			prefs.set("_table_query_url", escapeHtml(_gel('newurl').value));
+			prefs__MODULE_ID__.set("_table_query_url", escapeHtml(_gel('newurl').value));
 			_gel('tablediv').innerHTML ="Loading...";
 			sendQuery();}
 
