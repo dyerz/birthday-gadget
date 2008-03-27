@@ -243,7 +243,7 @@
 		var html = [], rowDate, dispAge=0, dispDate="", dispDays=0;
 
 		//check for dates
-		if(data.getColumnType(col)!="date"){
+		if(data.getColumnType(0)!="date"){
 			goError('Please set the "Format" of colum A to "date"<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help">the help website</a> for additional assistance.');
 		}
 		
