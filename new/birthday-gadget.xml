@@ -102,7 +102,7 @@
 	
 	/* Toolbar Vis CSS */
 	#toolbarVis{
-		margin: 2px 0 0 0; padding: 0;
+		margin: 4px 0 0 0; padding: 0;
 		width: 100%;
 		height: 2px;
 		background-color: #666666;
@@ -211,7 +211,7 @@
     }
 
 	function flipTB(){
-		_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg"));
+		_toggle(_gel("toolbar")); _toggle(_gel("upImg")); _toggle(_gel("dnImg")); _IG_AdjustIFrameHeight();
 	}
 	
     function sendQuery() {
