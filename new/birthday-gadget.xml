@@ -184,7 +184,7 @@
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
 </div>
 <div id="tablediv" >Loading...</div>
-<div id="COLORPICKER201" class="COLORPICKER201"></div>
+<div id="colorpicker201" class="colorpicker201"></div>
 
 <script>
     google.load("visualization", "1"); // Load the Google Visualization API
