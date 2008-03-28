@@ -126,14 +126,7 @@
 		margin: 0 auto;
 		padding: 0;
 	}
-	
-	#toolbarVis div{
-		height: 4px;
-		width: 12px;
-		padding: 0;
-		margin: 0 auto;
-	}
-	
+
 	#upImg{
 		position: relative; top: -5px;
 	}
@@ -183,7 +176,7 @@
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <div id="toolbar" style="display: none;"></div>
-<div id="toolbarVis"><div id="upImg" style="display: none;"></div><div id="dnImg" style="display: none;"></div></div>
+<div id="toolbarVis"></div>
 <div id="tablediv" >Loading...</div>
 
 <script>
@@ -406,8 +399,11 @@
 
 		var upImg=_IG_GetImage("http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png");
 		var dnImg=_IG_GetImage("http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png");
-		_gel("upImg").appendChild(upImg);
-		_gel("dnImg").appendChild(upImg);
+		upImg.id="upImg"; upImg.style.display="none";
+		upImg.id="dnImg"; dnImg.style.display="none";
+		
+		_gel("toolbarVis").appendChild(upImg);
+		_gel("toolbarVis").appendChild(dnImg);
 	}
 	
 	function buildArray(data){
