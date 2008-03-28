@@ -157,6 +157,10 @@
 		padding: 2px;
 		text-align: center;
 	}
+	
+	#tablediv tr{
+		background-color: inherit;
+	}
 
 	.colid {
 		font-weight: bold;
