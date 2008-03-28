@@ -58,6 +58,9 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
+<UserPref name="textColor" default_value="#000000" datatype="hidden" />
+<UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
+<UserPref name="fontSize" default_value="11" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
 <UserPref name="debugMe" default_value="true" datatype="bool" /> 
@@ -152,7 +155,6 @@
 
 	#tablediv td {
 		padding: 2px;
-		font-size: 11px;
 		text-align: center;
 	}
 
@@ -352,12 +354,13 @@
 	
 	function showHelp(){
 		var html = [];
-		html.push('<h1>Gadget Setup</h1>');
-		html.push('<a href="http://docs.google.com/" target="_blank">Go here!</a>');
-		html.push('<p>1) Create a new spreadsheet<br />2) Dates in Column "A" - Names in Column "B"<br />3)Save the spreadsheet<br />4) Copy address from the address bar<br />5) Paste the address below</p>');
-		html.push('<p>For more complete instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a></p>');
-		html.push('<br /><input type="text" style="width: 100%" id="newurl" />');
-		html.push('<br /><input type="button" value="Save" id="saveurl" />');
+		html.push('<h1>Gadget Setup</h1><ol>');
+		html.push('<li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
+		html.push('<li>Put Dates in Column "A" and Names in Column "B"</li>');
+		html.push('<li>Save the spreadsheet<li></li>Copy address from the address bar</li>');
+		html.push('<li>Paste the address below<br /><input type="text" style="width: 100%" id="newurl" />');
+		html.push('<br /><input type="button" value="Save" id="saveurl" /></li></ol>');
+		html.push('For more complete instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
@@ -374,18 +377,27 @@
 		html.push('<h1>Config</h1>');
 		html.push('<table>');
 		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
-		html.push('<tr><td>Text Color <input id="textSet" type="button" value="Set" /></td>');
-		html.push('<td><input id="textDiv" type="text" value="" /> <span id="textSpan" style="width: 40px;">&nbsp</span></td></tr>'); 
-		html.push('<tr><td>Background Color <input id="bgcSet" type="button" value="Set" /></td>');
-		html.push('<td><input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="width: 40px;">&nbsp</span></td></tr>'); 
-		html.push('<tr><td>Font Size</td><td><input type="text" value="" /></td></tr>'); 
-		html.push('<tr><td>Spreadsheet Url</td><td><input type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
-		html.push('<tr><td><input type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
+		html.push('<tr><td>Text Color</td><td><input id="textSet" type="button" value="Set" />');
+		html.push('<input id="textDiv" type="text" value="" /> <span id="textSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
+		html.push('<tr><td>Background Color</td><td><input id="bgcSet" type="button" value="Set" />');
+		html.push('<input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
+		html.push('<tr><td>Font Size</td><td><input id="fontSize" type="text" value="" /></td></tr>'); 
+		html.push('<tr><td>Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
+		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		_gel('tablediv').innerHTML = html.join('');	
 		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
+		_gel('configBack').onclick=function(){ if(configChanged() && confirm("Continue without saving?")) sendQuery();}
 		_IG_AdjustIFrameHeight();
+	}
+	
+	function configChanged(){
+		if(_gel("textDiv").value!=prefs__MODULE_ID__.getString("textColor")) return true;
+		if(_gel("bgcDiv").value!=prefs__MODULE_ID__.getString("bgColor")) return true;
+		if(_gel("fontSize").value!=prefs__MODULE_ID__.getString("fontSize")) return true;
+		if(_gel("shUrl").value!=urlPref__MODULE_ID__) return true;
+		return false;
 	}
 	
 	function goConvert(){
