@@ -279,6 +279,8 @@
 				default:
 					goError('Unexpected Error');
 			}
+			_gel('toolbar').style.display="none";
+			_gel('toolbarVis').style.display="none";
 			return;
 		}
 		var data = response.getDataTable();
@@ -377,12 +379,12 @@
 		html.push('<tr><td>Background Color <input id="bgcSet" type="button" value="Set" /></td>');
 		html.push('<td><input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="width: 40px;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Font Size</td><td><input type="text" value="" /></td></tr>'); 
-		html.push('<tr><td>Spreadsheet Url</td><td><input type="text" value="" /></td></tr>'); 
+		html.push('<tr><td>Spreadsheet Url</td><td><input type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
 		html.push('<tr><td><input type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		_gel('tablediv').innerHTML = html.join('');	
-		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");}
-		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");}
+		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
+		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_IG_AdjustIFrameHeight();
 	}
 	
