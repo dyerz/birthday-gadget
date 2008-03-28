@@ -165,10 +165,10 @@
 	
 	/* Font Size CSS */
 	.xsmall{ font-size: 10px;}
-	.small{ font-size: 12px;}
-	.medium{ font-size: 14px;}
-	.large{ font-size: 16px;}
-	.xlarge{ font-size: 18px;}
+	.small{ font-size: 11px;}
+	.medium{ font-size: 12px;}
+	.large{ font-size: 14px;}
+	.xlarge{ font-size: 16px;}
 	
 	/* Misc CSS */
 	h1{
@@ -330,7 +330,7 @@
 		html.push('<tr><td class="colid '+fontSize__MODULE_ID__+'">Date</td>');
 		html.push('<td class="colid '+fontSize__MODULE_ID__+'">Name</td>');
 		if(showAge__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Age</td>');
-		if(showDays__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Days Away</td>');
+		if(showDays__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Days</td>');
 		if(showZodiac__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Zodiac</td>');
 		html.push('</tr>');
 
