@@ -58,9 +58,9 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
-<UserPref name="textColor" default_value="#000000" datatype="hidden" />
+<UserPref name="fontColor" default_value="#000000" datatype="hidden" />
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
-<UserPref name="fontSize" default_value="11" datatype="hidden" />
+<UserPref name="fontSize" default_value="medium" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
 <UserPref name="debugMe" default_value="true" datatype="bool" /> 
@@ -145,7 +145,6 @@
 	#tablediv{
 		width: 100%; 
 		margin: 10px 0 0 0; padding: 0;
-		font-size: 11px;
 	}
 	
 	#tablediv table {
@@ -164,6 +163,13 @@
 		text-align: center;
 	}
 	
+	/* Font Size CSS */
+	.xsmall{ font-size: 8px;}
+	.small{ font-size: 10px;}
+	.medium{ font-size: 11px;}
+	.large{ font-size: 12px;}
+	.xlarge{ font-size: 14px;}
+	
 	/* Misc CSS */
 	h1{
 		font-size: 22px;
@@ -178,8 +184,13 @@
 		width: 100%;
 		height: 100px;
 	}
+	
+	#configTable td{
+		font-size: 11px;
+	}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
 <div id="toolbar" style="display: none;"></div>
 <div id="toolbarVis">
 <img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
@@ -201,7 +212,8 @@
 		showZodiac__MODULE_ID__,
 		urlPref__MODULE_ID__,
 		oldbd__MODULE_ID__,
-		tbVis__MODULE_ID__;
+		tbVis__MODULE_ID__,
+		fontSize__MODULE_ID__;
     
     function init(){
 		prefs__MODULE_ID__ = new _IG_Prefs();
@@ -226,6 +238,7 @@
 		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
 		tbVis__MODULE_ID__=prefs__MODULE_ID__.getString("tbVis");
 		oldbd__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
+		fontSize__MODULE_ID__=prefs__MODULE_ID__.getString("fontSize");
 		
 		//queryurl check
 		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
@@ -264,14 +277,17 @@
 	}
 	
     function sendQuery(qCheck) {
-		gadgetHelper = new google.visualization.GadgetHelper();
+		//set colors & font size
+		_gel("tablediv").style.color=prefs_MODULE_ID__.getString("fontColor");
+		_gel("tablediv").style.backgroundColor=prefs_MODULE_ID__.getString("bgColor");
+		_gel("tablediv").className=_gel("tablediv").className+" "+fontSize__MODULE_ID__;
+		
 		var query=new google.visualization.Query(urlPref__MODULE_ID__);
 		query.setQuery("select A, B format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse);
     }
 
     function handleQueryResponse(response) {
-		//if (!gadgetHelper.validateResponse(response)) { return; };
 		if(response.isError()) {
 			switch(response.getReasons()){
 				case "access_denied":
@@ -311,10 +327,11 @@
 		html.push('<table cellpaddind="0" cellspacing="0">');
 
 		// Header row for column Ids
-		html.push('<tr><td class="colid">Date</td><td class="colid">Name</td>');
-		if(showAge__MODULE_ID__) html.push('<td class="colid">Age</td>');
-		if(showDays__MODULE_ID__) html.push('<td class="colid">Days Away</td>');
-		if(showZodiac__MODULE_ID__) html.push('<td class="colid">Zodiac</td>');
+		html.push('<tr><td class="colid '+fontSize__MODULE_ID__+'">Date</td>');
+		html.push('<td class="colid '+fontSize__MODULE_ID__+'">Name</td>');
+		if(showAge__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Age</td>');
+		if(showDays__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Days Away</td>');
+		if(showZodiac__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Zodiac</td>');
 		html.push('</tr>');
 
 		dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
@@ -329,10 +346,12 @@
 			dispDays=makeDays(rowDate, rowData[2]);
 			dispZodiac=makeZodiac(rowData[2]);
 
-			html.push('<tr><td>'+dispDate+'</td><td>'+escapeHtml(rowData[1])+'</td>');
-			if(showAge__MODULE_ID__) html.push('<td>'+dispAge+'</td>');
-			if(showDays__MODULE_ID__) html.push('<td>'+dispDays+'</td>');
-			if(showZodiac__MODULE_ID__) html.push('<td>'+dispZodiac+'</td>');
+			
+			html.push('<tr><td class="'+fontSize__MODULE_ID__+'">'+dispDate+'</td>');
+			html.push('<td class="'+fontSize__MODULE_ID__+'">'+escapeHtml(rowData[1])+'</td>');
+			if(showAge__MODULE_ID__) html.push('<td class="'+fontSize__MODULE_ID__+'">'+dispAge+'</td>');
+			if(showDays__MODULE_ID__) html.push('<td class="'+fontSize__MODULE_ID__+'">'+dispDays+'</td>');
+			if(showZodiac__MODULE_ID__) html.push('<td class="'+fontSize__MODULE_ID__+'">'+dispZodiac+'</td>');
 			html.push('</tr>');
 			countDisp++;
 			if(countDisp>=dispLength) break;
@@ -375,13 +394,13 @@
 	function goConfig(){
 		var html=[];
 		html.push('<h1>Config</h1>');
-		html.push('<table>');
+		html.push('<table id="configTable">');
 		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
-		html.push('<tr><td>Text Color</td><td><input id="textSet" type="button" value="Set" />');
+		html.push('<tr><td>Font Color</td><td><input id="textSet" type="button" value="Set" />');
 		html.push('<input id="textDiv" type="text" value="" /> <span id="textSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Background Color</td><td><input id="bgcSet" type="button" value="Set" />');
 		html.push('<input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
-		html.push('<tr><td>Font Size</td><td><input id="fontSize" type="text" value="" /></td></tr>'); 
+		html.push('<tr><td>Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
 		html.push('<tr><td>Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
@@ -392,12 +411,50 @@
 		_IG_AdjustIFrameHeight();
 	}
 	
+	function makeFontSize(){
+		var retStr=[], sizeStr=["xsmall", "small", "medium", "large", "xlarge"], selStr="";
+		retStr.push('<select id="fontSize">');
+		for(var i=0; i<sizeStr.length; i++){
+			selStr=sizeStr[i]==fontSize__MODULE_ID__?" selected":"";
+			retStr.push('<option value="'+sizeStr[i]+'"'+selStr+'>'+sizeStr[i]+'</option>');
+		}
+		retStr.push('</select>');
+		return retStr;
+	}
+	
 	function configChanged(){
-		if(_gel("textDiv").value!=prefs__MODULE_ID__.getString("textColor")) return true;
+		if(_gel("textDiv").value!=prefs__MODULE_ID__.getString("fontColor")) return true;
 		if(_gel("bgcDiv").value!=prefs__MODULE_ID__.getString("bgColor")) return true;
 		if(_gel("fontSize").value!=prefs__MODULE_ID__.getString("fontSize")) return true;
 		if(_gel("shUrl").value!=urlPref__MODULE_ID__) return true;
 		return false;
+	}
+	
+	function configSave(){
+		var fC, bC, fS, sU;
+		var tempStr=_trim(_gel("textDiv").value);
+		if(!colorCheck(tempStr, "Font Color")) return false;
+		fC=tempStr;
+		tempStr=_trim(_gel("bgcDiv").value);
+		if(!colorCheck(tempStr, "Background Color")) return false;
+		bC=tempStr;
+		fS=_gel("fontSize").value;
+		tempStr=_trim(_gel("shUrl").value);
+		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
+		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1) {alert("Invalid url"); return false;}
+		
+		urlPref__MODULE_ID__.set("fontColor", fC);
+		urlPref__MODULE_ID__.set("bgcDiv", bC);
+		urlPref__MODULE_ID__.set("fontSize", fS);
+		urlPref__MODULE_ID__.set("shUrl", tempStr);
+		return true;
+	}
+	
+	function colorCheck(color, title){
+		var hexTest=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
+		if(color.length==0) return true;
+		if(hexTest.test(color)) {alert(title+" is in an invalid format"); return false;}
+		return true;
 	}
 	
 	function goConvert(){
