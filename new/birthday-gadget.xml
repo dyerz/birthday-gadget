@@ -240,9 +240,9 @@
 		else {flipTB(Array(false, false, true, false));}
 
 		//js event config
-		_gel("tbConfig").onclick=function(){goConfig();};
-		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){goConvert();}
-		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading...";	sendQuery();};
+		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
+		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
+		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -386,9 +386,9 @@
 		var html=[];
 		html.push('<h1>Convert</h1><ol>');
 		html.push('<li><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Open your Google spreadsheet</a></li>');
-		html.push('li>Copy the text below</li><li>Paste the text into the spreadsheet.');
+		html.push('<li>Copy the text below.');
 		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__.replace(/;/g, "\t")+'</textarea></li>');
-		html.push('<li>Clear the old data when you are done.');
+		html.push('<li>Paste the text into the spreadsheet.</li><li>Clear the old data when you are done.');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" /></li></ol>');
 		html.push('See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
 		_gel('tablediv').innerHTML = html.join('');		
