@@ -60,7 +60,7 @@
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
 <UserPref name="fontColor" default_value="#000000" datatype="hidden" />
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
-<UserPref name="fontSize" default_value="medium" datatype="hidden" />
+<UserPref name="fontSize" default_value="small" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
 <UserPref name="debugMe" default_value="true" datatype="bool" /> 
@@ -165,10 +165,10 @@
 	
 	/* Font Size CSS */
 	.xsmall{ font-size: 10px;}
-	.small{ font-size: 10px;}
-	.medium{ font-size: 11px;}
-	.large{ font-size: 12px;}
-	.xlarge{ font-size: 14px;}
+	.small{ font-size: 12px;}
+	.medium{ font-size: 14px;}
+	.large{ font-size: 16px;}
+	.xlarge{ font-size: 18px;}
 	
 	/* Misc CSS */
 	h1{
