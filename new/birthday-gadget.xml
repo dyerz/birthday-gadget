@@ -278,8 +278,8 @@
 	
     function sendQuery(qCheck) {
 		//set colors & font size
-		_gel("tablediv").style.color=prefs_MODULE_ID__.getString("fontColor");
-		_gel("tablediv").style.backgroundColor=prefs_MODULE_ID__.getString("bgColor");
+		_gel("tablediv").style.color=prefs__MODULE_ID__.getString("fontColor");
+		_gel("tablediv").style.backgroundColor=prefs__MODULE_ID__.getString("bgColor");
 		_gel("tablediv").className=_gel("tablediv").className+" "+fontSize__MODULE_ID__;
 		
 		var query=new google.visualization.Query(urlPref__MODULE_ID__);
