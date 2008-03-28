@@ -381,8 +381,8 @@
 		html.push('<tr><td><input type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		_gel('tablediv').innerHTML = html.join('');	
-		_gel('textSet').onclick()=function(){ showColorGrid2("textDiv","textSpan");}
-		_gel('bgcSet').onclick()=function(){ showColorGrid2("bgcDiv","bgcSpan");}
+		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");}
+		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");}
 		_IG_AdjustIFrameHeight();
 	}
 	
