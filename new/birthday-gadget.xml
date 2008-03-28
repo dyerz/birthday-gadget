@@ -457,7 +457,7 @@
 		prefs__MODULE_ID__.set("shUrl", tempStr);
 		fontSize__MODULE_ID__=fS;
 		fontColor__MODULE_ID__=fC;
-		bgColor__MODULE_ID__=b;
+		bgColor__MODULE_ID__=bC;
 		urlPref__MODULE_ID__=shUrl;
 		return true;
 	}
