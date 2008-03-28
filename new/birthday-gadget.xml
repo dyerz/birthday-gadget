@@ -408,6 +408,7 @@
 		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ if(configChanged() && confirm("Continue without saving?")) sendQuery();}
+		_gel('configSave').onclick=function(){if(configSave()) sendQuery();}
 		_IG_AdjustIFrameHeight();
 	}
 	
