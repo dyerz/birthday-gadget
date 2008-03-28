@@ -213,6 +213,8 @@
 		urlPref__MODULE_ID__,
 		oldbd__MODULE_ID__,
 		tbVis__MODULE_ID__,
+		fontColor__MODULE_ID__,
+		bgColor__MODULE_ID__,
 		fontSize__MODULE_ID__;
     
     function init(){
@@ -239,6 +241,8 @@
 		tbVis__MODULE_ID__=prefs__MODULE_ID__.getString("tbVis");
 		oldbd__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
 		fontSize__MODULE_ID__=prefs__MODULE_ID__.getString("fontSize");
+		fontColor__MODULE_ID__=prefs__MODULE_ID__.getString("fontColor");
+		bgColor__MODULE_ID__=prefs__MODULE_ID__.getString("bgColor");
 		
 		//queryurl check
 		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
@@ -278,8 +282,8 @@
 	
     function sendQuery(qCheck) {
 		//set colors & font size
-		_gel("tablediv").style.color=prefs__MODULE_ID__.getString("fontColor");
-		_gel("tablediv").style.backgroundColor=prefs__MODULE_ID__.getString("bgColor");
+		_gel("tablediv").style.color=fontColor__MODULE_ID__;
+		_gel("tablediv").style.backgroundColor=bgColor__MODULE_ID__;
 		_gel("tablediv").className=_gel("tablediv").className+" "+fontSize__MODULE_ID__;
 		
 		var query=new google.visualization.Query(urlPref__MODULE_ID__);
@@ -360,8 +364,8 @@
 
 		// Set the generated html into the container div.
 		_gel('tablediv').innerHTML = html.join('');
-		_gel('dataTable').style.color=prefs__MODULE_ID__.getString("fontColor");
-		_gel('dataTable').style.backgoundColor=prefs__MODULE_ID__.getString("bgColor");
+		_gel('dataTable').style.color=fontColor__MODULE_ID__;
+		_gel('dataTable').style.bgColor=bgColor__MODULE_ID__;
 		_IG_AdjustIFrameHeight();
     };
 
@@ -399,9 +403,9 @@
 		html.push('<table id="configTable">');
 		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
 		html.push('<tr><td>Font Color</td><td><input id="textSet" type="button" value="Set" />');
-		html.push('<input id="textDiv" type="text" value="'+prefs__MODULE_ID__.getString("fontColor")+'" /> <span id="textSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
+		html.push('<input id="textDiv" type="text" value="'+fontColor__MODULE_ID__+'" /> <span id="textSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Background Color</td><td><input id="bgcSet" type="button" value="Set" />');
-		html.push('<input id="bgcDiv" type="text" value="'+prefs__MODULE_ID__.getString("bgColor")+'" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
+		html.push('<input id="bgcDiv" type="text" value="'+bgColor__MODULE_ID__+'" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
 		html.push('<tr><td>Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
@@ -427,8 +431,8 @@
 	}
 	
 	function configChanged(){
-		if(_gel("textDiv").value!=prefs__MODULE_ID__.getString("fontColor")) return true;
-		if(_gel("bgcDiv").value!=prefs__MODULE_ID__.getString("bgColor")) return true;
+		if(_gel("textDiv").value!=fontColor__MODULE_ID__) return true;
+		if(_gel("bgcDiv").value!=bgColor__MODULE_ID__) return true;
 		if(_gel("fontSize").value!=prefs__MODULE_ID__.getString("fontSize")) return true;
 		if(_gel("shUrl").value!=urlPref__MODULE_ID__) return true;
 		return false;
@@ -452,6 +456,9 @@
 		prefs__MODULE_ID__.set("fontSize", fS);
 		prefs__MODULE_ID__.set("shUrl", tempStr);
 		fontSize__MODULE_ID__=fS;
+		fontColor__MODULE_ID__=fC;
+		bgColor__MODULE_ID__=b;
+		urlPref__MODULE_ID__=shUrl;
 		return true;
 	}
 	
