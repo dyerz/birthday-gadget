@@ -164,7 +164,7 @@
 	}
 	
 	/* Font Size CSS */
-	.xsmall{ font-size: 8px;}
+	.xsmall{ font-size: 10px;}
 	.small{ font-size: 10px;}
 	.medium{ font-size: 11px;}
 	.large{ font-size: 12px;}
@@ -449,7 +449,7 @@
 		prefs__MODULE_ID__.set("bgcDiv", bC);
 		prefs__MODULE_ID__.set("fontSize", fS);
 		prefs__MODULE_ID__.set("shUrl", tempStr);
-		prefs__MODULE_ID__ = new _IG_Prefs();
+		fontSize__MODULE_ID__=fS;
 		return true;
 	}
 	
