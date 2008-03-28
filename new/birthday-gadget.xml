@@ -127,6 +127,13 @@
 		padding: 0;
 	}
 	
+	#toolbarVis div{
+		height: 4px;
+		width: 12px;
+		padding: 0;
+		margin: 0 auto;
+	}
+	
 	#upImg{
 		position: relative; top: -5px;
 	}
@@ -176,10 +183,7 @@
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <div id="toolbar" style="display: none;"></div>
-<div id="toolbarVis">
-<img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
-<img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
-</div>
+<div id="toolbarVis"><div id="upImg" style="display: none;"></div><div id="dnImg" style="display: none;"></div></div>
 <div id="tablediv" >Loading...</div>
 
 <script>
@@ -264,7 +268,18 @@
     }
 
     function handleQueryResponse(response) {
-		if (!gadgetHelper.validateResponse(response)) { return; };
+		//if (!gadgetHelper.validateResponse(response)) { return; };
+		if(response.isError()) {
+			switch(response.getReasons()){
+				case "access_denied":
+					goError('Spreadsheet Access Denied.<br />Please log in to your Google account.'); break;
+				case "timeout":
+					goError('Server Timeout.<br />Please refresh the window to try again.'); break;
+				default:
+					goError('Unexpected Error');
+			}
+			return;
+		}
 		var data = response.getDataTable();
 		var html = [], rowDate, dispAge=0, dispDate="", dispDays=0;
 
@@ -388,6 +403,11 @@
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
+
+		var upImg=_IG_GetImage("http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png");
+		var dnImg=_IG_GetImage("http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png");
+		_gel("upImg").appendChild(upImg);
+		_gel("dnImg").appendChild(upImg);
 	}
 	
 	function buildArray(data){
