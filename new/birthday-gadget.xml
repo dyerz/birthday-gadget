@@ -324,7 +324,7 @@
 			_gel('tablediv').style.textAlign="center"; return;
 		}
 
-		html.push('<table cellpaddind="0" cellspacing="0">');
+		html.push('<table cellpaddind="0" cellspacing="0" id="dataTable">');
 
 		// Header row for column Ids
 		html.push('<tr><td class="colid '+fontSize__MODULE_ID__+'">Date</td>');
@@ -360,6 +360,8 @@
 
 		// Set the generated html into the container div.
 		_gel('tablediv').innerHTML = html.join('');
+		_gel('dataTable').style.color=prefs__MODULE_ID__.getString("fontColor");
+		_gel('dataTable').style.backgoundColor=prefs__MODULE_ID__.getString("bgColor");
 		_IG_AdjustIFrameHeight();
     };
 
