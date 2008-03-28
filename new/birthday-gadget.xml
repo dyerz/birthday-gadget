@@ -372,7 +372,7 @@
 		html.push('<h1>Config</h1>');
 		html.push('<table>');
 		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
-		html.push('<tr><td>Text Color <input id="bgcSet" type="button" value="Set" /></td>');
+		html.push('<tr><td>Text Color <input id="textSet" type="button" value="Set" /></td>');
 		html.push('<td><input id="textDiv" type="text" value="" /> <span id="textSpan" style="width: 40px;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Background Color <input id="bgcSet" type="button" value="Set" /></td>');
 		html.push('<td><input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="width: 40px;">&nbsp</span></td></tr>'); 
