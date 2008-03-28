@@ -457,7 +457,7 @@
 		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1) {alert("Invalid url"); return false;}
 		
 		prefs__MODULE_ID__.set("fontColor", fC);
-		prefs__MODULE_ID__.set("bgcDiv", bC);
+		prefs__MODULE_ID__.set("bcColor", bC);
 		prefs__MODULE_ID__.set("fontSize", fS);
 		prefs__MODULE_ID__.set("shUrl", tempStr);
 		fontSize__MODULE_ID__=fS;
