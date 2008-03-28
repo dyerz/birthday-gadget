@@ -91,7 +91,7 @@
 		font-size: 10px;
 	}
 
-	#tbEdit{
+	#tbEdit, #tbConfig{
 		width: 20%;
 		text-align: left;
 	}
@@ -126,7 +126,7 @@
 		margin: 0 auto;
 		padding: 0;
 	}
-
+	
 	#upImg{
 		position: relative; top: -5px;
 	}
@@ -176,7 +176,10 @@
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <div id="toolbar" style="display: none;"></div>
-<div id="toolbarVis"></div>
+<div id="toolbarVis">
+<img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
+<img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
+</div>
 <div id="tablediv" >Loading...</div>
 
 <script>
@@ -234,8 +237,11 @@
 		else {flipTB(Array(false, false, true, false));}
 
 		//js event config
-		_gel("tbRefresh").onclick=function(){location.reload(true);};
+		_gel("tbConfig").onclick=function(){goConfig();};
 		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){goConvert();}
+		_gel("tbRefresh").onclick=function(){
+			//location.reload(true);
+			sendQuery();};
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -359,6 +365,21 @@
 		_IG_AdjustIFrameHeight();
 	}
 	
+	function goConfig(){
+		var html=[];
+		html.push('<h1>Config</h1>');
+		html.push('<table>');
+		html.push('<tr><td colspan=2>Color Picker</td></tr>'); 
+		html.push('<tr><td>Text Color</td><td><input type="text" value="" /></td></tr>'); 
+		html.push('<tr><td colspan=2>Color Picker</td></tr>'); 
+		html.push('<tr><td>Background Color</td><td><input type="text" value="" /></td></tr>'); 
+		html.push('<tr><td>Spreadsheet Url</td><td><input type="text" value="" /></td></tr>'); 
+		html.push('<tr><td colspan=2><input type="button" value="Save" /></td></tr>'); 
+		html.push('</table>');
+		_gel('tablediv').innerHTML = html.join('');		
+		_IG_AdjustIFrameHeight();
+	}
+	
 	function goConvert(){
 		var html=[];
 		html.push('<h1>Convert</h1>');
@@ -390,20 +411,13 @@
 	function buildToolbar(){
 		var html = [];
 		html.push('<table><tr>');
-		html.push('<td id="tbEdit"><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit</a></td>');
+		//html.push('<td id="tbEdit"><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit</a></td>');
+		html.push('<td id="tbConfig">Config</td>');
 		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
-
-		var upImg=_IG_GetImage("http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png");
-		var dnImg=_IG_GetImage("http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png");
-		upImg.id="upImg"; upImg.style.display="none";
-		upImg.id="dnImg"; dnImg.style.display="none";
-		
-		_gel("toolbarVis").appendChild(upImg);
-		_gel("toolbarVis").appendChild(dnImg);
 	}
 	
 	function buildArray(data){
