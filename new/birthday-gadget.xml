@@ -91,9 +91,12 @@
 		font-size: 10px;
 	}
 
-	#tbEdit, #tbConfig{
+	#tbConfig{
 		width: 20%;
 		text-align: left;
+		color: #FF0000;
+		text-decoration: underline;
+		cursor: pointer;
 	}
 	
 	#tbConvert{
@@ -239,9 +242,7 @@
 		//js event config
 		_gel("tbConfig").onclick=function(){goConfig();};
 		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){goConvert();}
-		_gel("tbRefresh").onclick=function(){
-			//location.reload(true);
-			sendQuery();};
+		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading...";	sendQuery();};
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -369,12 +370,13 @@
 		var html=[];
 		html.push('<h1>Config</h1>');
 		html.push('<table>');
+		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
 		html.push('<tr><td colspan=2>Color Picker</td></tr>'); 
 		html.push('<tr><td>Text Color</td><td><input type="text" value="" /></td></tr>'); 
 		html.push('<tr><td colspan=2>Color Picker</td></tr>'); 
 		html.push('<tr><td>Background Color</td><td><input type="text" value="" /></td></tr>'); 
 		html.push('<tr><td>Spreadsheet Url</td><td><input type="text" value="" /></td></tr>'); 
-		html.push('<tr><td colspan=2><input type="button" value="Save" /></td></tr>'); 
+		html.push('<tr><td><input type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		_gel('tablediv').innerHTML = html.join('');		
 		_IG_AdjustIFrameHeight();
