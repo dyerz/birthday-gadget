@@ -153,6 +153,7 @@
 	}
 
 	#tablediv td {
+		background-color: inherit;
 		padding: 2px;
 		text-align: center;
 	}
