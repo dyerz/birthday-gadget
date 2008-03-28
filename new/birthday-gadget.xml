@@ -94,7 +94,7 @@
 	#tbConfig{
 		width: 20%;
 		text-align: left;
-		color: #FF0000;
+		color: #0000FF;
 		text-decoration: underline;
 		cursor: pointer;
 	}
@@ -384,12 +384,13 @@
 	
 	function goConvert(){
 		var html=[];
-		html.push('<h1>Convert</h1>');
-		html.push('Open your Google spreadsheet<br />Copy the text below<br />Paste the text into the spreadsheet.');
-		html.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
-		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__.replace(/;/g, "\t")+'</textarea>');
-		html.push('<br />Clear the old data when you are done.');
-		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" />');
+		html.push('<h1>Convert</h1><ol>');
+		html.push('<li><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Open your Google spreadsheet</a></li>');
+		html.push('li>Copy the text below</li><li>Paste the text into the spreadsheet.');
+		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__.replace(/;/g, "\t")+'</textarea></li>');
+		html.push('<li>Clear the old data when you are done.');
+		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" /></li></ol>');
+		html.push('See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
 		_gel('tablediv').innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
