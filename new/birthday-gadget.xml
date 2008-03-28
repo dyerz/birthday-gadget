@@ -402,7 +402,8 @@
 		html.push('<input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
 		html.push('<tr><td>Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
-		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td><td><input type="button" value="Save" /></td></tr>'); 
+		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
+		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		_gel('tablediv').innerHTML = html.join('');	
 		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
