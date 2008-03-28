@@ -397,9 +397,9 @@
 		html.push('<table id="configTable">');
 		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
 		html.push('<tr><td>Font Color</td><td><input id="textSet" type="button" value="Set" />');
-		html.push('<input id="textDiv" type="text" value="" /> <span id="textSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
+		html.push('<input id="textDiv" type="text" value="'+prefs__MODULE_ID__.getString("fontColor")+'" /> <span id="textSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Background Color</td><td><input id="bgcSet" type="button" value="Set" />');
-		html.push('<input id="bgcDiv" type="text" value="" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
+		html.push('<input id="bgcDiv" type="text" value="'+prefs__MODULE_ID__.getString("bgColor")+'" /> <span id="bgcSpan" style="padding-right: 15px; border: 1px solid #DDDDDD;">&nbsp</span></td></tr>'); 
 		html.push('<tr><td>Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
 		html.push('<tr><td>Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
@@ -445,10 +445,10 @@
 		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
 		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1) {alert("Invalid url"); return false;}
 		
-		urlPref__MODULE_ID__.set("fontColor", fC);
-		urlPref__MODULE_ID__.set("bgcDiv", bC);
-		urlPref__MODULE_ID__.set("fontSize", fS);
-		urlPref__MODULE_ID__.set("shUrl", tempStr);
+		prefs__MODULE_ID__.set("fontColor", fC);
+		prefs__MODULE_ID__.set("bgcDiv", bC);
+		prefs__MODULE_ID__.set("fontSize", fS);
+		prefs__MODULE_ID__.set("shUrl", tempStr);
 		return true;
 	}
 	
