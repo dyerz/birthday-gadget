@@ -404,10 +404,10 @@
 		var tempArr=inDate.split("/"), m=parseInt(tempArr[1]), d=tempArr[2], n=new Date();
 		if(n.getMonth()==m && n.getDate()==d ) return("__MSG_today__");
 		switch(prefArr__MODULE_ID__["dateFormat"]){
-			case 0: return (month[m]+" "+d);
-			case 1: return (d+" "+month[m]);
-			case 2: return ((m+1)+"/"+d);
-			case 3: return (d+"/"+(m+1));
+			case 0: return (month[m-1]+" "+d);
+			case 1: return (d+" "+month[m-1]);
+			case 2: return (m+"/"+d);
+			case 3: return (d+"/"+m);
 		}
 	}
 
