@@ -349,7 +349,7 @@
 		html.push('<table id="dataTable" style="color: '+fontColor__MODULE_ID__+'; background-color: '+bgColor__MODULE_ID__+'>');
 
 		// Header row for column Ids
-		var tdStr=' class="colid '+fontSize__MODULE_ID__+'" style="border-color: fontColor__MODULE_ID__;"';
+		var tdStr=' class="colid '+fontSize__MODULE_ID__+'" style="border-color: '+fontColor__MODULE_ID__';"';
 		html.push('<tr><td'+tdStr+'>Date</td>');
 		html.push('<td'+tdStr+'>Name</td>');
 		if(showAge__MODULE_ID__) html.push('<td'+tdStr+'>Age</td>');
