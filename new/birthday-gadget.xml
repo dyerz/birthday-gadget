@@ -261,6 +261,9 @@
 
 		//toolbar creation
 		buildToolbar();
+		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
+		else {flipTB(Array(false, false, true, false));}
+
 		//init done.. show stuff
 		sendQuery();
     }
@@ -280,9 +283,6 @@
 		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
 		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
 		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
-
-		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
-		else {flipTB(Array(false, false, true, false));}
 
 		//js event config
 		_gel("toolbarVis").onclick=function(){
