@@ -262,9 +262,6 @@
 		fontColor__MODULE_ID__=prefs__MODULE_ID__.getString("fontColor");
 		bgColor__MODULE_ID__=prefs__MODULE_ID__.getString("bgColor");
 		
-		//test delete
-		alert(bgColor__MODULE_ID__);
-		
 		//queryurl check
 		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
 		if(urlPref__MODULE_ID__.search(/tq\?/)==-1 && urlPref__MODULE_ID__.search(/ccc\?/)!=-1 ){
@@ -302,11 +299,9 @@
 	}
 	
     function sendQuery(qCheck) {
-		//test delete
-		alert(bgColor__MODULE_ID__);
 		//set font size
 		//_gel("tablediv").style.color=fontColor__MODULE_ID__;
-		_gel("tablediv").parentNode.style.bgColor=bgColor__MODULE_ID__;
+		_gel("tablediv").offsetParent.style.bgColor=bgColor__MODULE_ID__;
 		_gel("tablediv").className=_gel("tablediv").className+" "+fontSize__MODULE_ID__;
 		
 		var query=new google.visualization.Query(urlPref__MODULE_ID__);
@@ -351,9 +346,6 @@
 			_gel('tablediv').style.textAlign="center"; return;
 		}
 
-		//test delete
-		alert(bgColor__MODULE_ID__);
-
 		html.push('<table cellpaddind="0" cellspacing="0" id="dataTable">');
 
 		// Header row for column Ids
@@ -397,10 +389,7 @@
 
     function escapeHtml(text) {
 		if (text == null) { return ''; }
-		return text.replace(/&/g, '&amp;').
-			replace(/</g, '&lt;').
-			replace(/>/g, '&gt;').
-			replace(/"/g, '&quot;');
+		return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 	
 	function showHelp(){
@@ -495,7 +484,7 @@
 	}
 	
 	function colorCheck(color, title){
-		var hexTest=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
+		var hex=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
 		if(color.length==0) return true;
 		if(!hexTest.test(color)) {alert(title+" is in an invalid format"); return false;}
 		return true;
