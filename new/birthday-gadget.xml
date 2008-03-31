@@ -413,15 +413,7 @@
 		}
 	}
 
-    function makeAge(rowDate, formatDate){
-		//var d=new Date(), p=new Date();
-		//d.setTime(d.getTime()-prefArr__MODULE_ID__["warnPast"]*24*60*60*1000);
-		//p.setTime(rowDate); 
-		//var age=d.getFullYear()-p.getFullYear();
-		//if(d.getMonth()>p.getMonth()) age--;
-		//else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
-		//return(age++);
-		var n=new Date(), b=new Date();
+    function makeAge(rowDate, formatDate){var n=new Date(), b=new Date();
 		n.setTime(Date.parse(formatDate)); b.setTime(rowDate);
 		return n.getFullYear()-b.getFullYear();
 	}
