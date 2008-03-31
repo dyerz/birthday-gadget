@@ -238,7 +238,7 @@
     
 	//get started
     function init(){
-		var myPrefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
+		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 
@@ -252,21 +252,21 @@
 		//******************************************************************************
 
 		//get prefs
-		for(var i=0; i<myPrefs.length; i++){
+		for(var i=0; i<prefNames.length; i++){
 			switch(myPrefNames[i]){
 				case "dateFormat":
 				case "showBDay":
 				case "warnForward":
 				case "warnPast":
-					myPrefArr__MODULE_ID__[myPrefNames[i]]=prefs__MODULE_ID__.getInt(myPrefNames[i]);
+					myPrefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getInt(prefNames[i]);
 				break;
 				case "showAge":
 				case "showDays":
 				case "showZodiac":
-					myPrefArr__MODULE_ID__[myPrefNames[i]]=prefs__MODULE_ID__.getBool(myPrefNames[i]);
+					myPrefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getBool(prefNames[i]);
 				break;
 				default:
-					myPrefArr__MODULE_ID__[myPrefNames[i]]=prefs__MODULE_ID__.getString(myPrefNames[i]);
+					myPrefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
 			}
 		}
 			
