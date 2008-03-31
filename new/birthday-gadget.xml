@@ -349,11 +349,12 @@
 		html.push('<table cellpaddind="0" cellspacing="0" id="dataTable">');
 
 		// Header row for column Ids
-		html.push('<tr><td class="colid '+fontSize__MODULE_ID__+'">Date</td>');
-		html.push('<td class="colid '+fontSize__MODULE_ID__+'">Name</td>');
-		if(showAge__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Age</td>');
-		if(showDays__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Days</td>');
-		if(showZodiac__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Zodiac</td>');
+		var headerStr=' class="colid '+fontSize__MODULE_ID__+'" style="border-color: '+fontColor__MODULE_ID__+';"';
+		html.push('<tr><td'+headerStr+'>Date</td>');
+		html.push('<td'+headerStr+'>Name</td>');
+		if(showAge__MODULE_ID__) html.push('<td'+headerStr+'>Age</td>');
+		if(showDays__MODULE_ID__) html.push('<td'+headerStr+'>Days</td>');
+		if(showZodiac__MODULE_ID__) html.push('<td'+headerStr+'>Zodiac</td>');
 		html.push('</tr>');
 
 		dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
