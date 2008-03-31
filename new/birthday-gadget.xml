@@ -559,10 +559,7 @@
 			alert("Invalid Spreadsheet url"); return false;
 		}
 		
-		prefs__MODULE_ID__.set("fontColor", fC);
-		prefs__MODULE_ID__.set("bgColor", bC);
-		prefs__MODULE_ID__.set("fontSize", fS);
-		prefs__MODULE_ID__.set("shUrl", tempStr);
+		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "shUrl", tempStr);
 		prefArr__MODULE_ID__["fontSize"]=fS;
 		prefArr__MODULE_ID__["fontColor"]=fC;
 		prefArr__MODULE_ID__["bgColor"]=bC;
