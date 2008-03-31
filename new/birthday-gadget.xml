@@ -423,7 +423,7 @@
 		//return(age++);
 		var n=new Date(), b=new Date();
 		n.setTime(Date.parse(formatDate)); b.setTime(rowDate);
-		return b.getFullYear()-n.getFullYear();
+		return n.getFullYear()-b.getFullYear();
 	}
     
 	function makeDays(formatDate){
