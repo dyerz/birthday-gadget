@@ -258,15 +258,15 @@
 				case "showBDay":
 				case "warnForward":
 				case "warnPast":
-					myPrefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getInt(prefNames[i]);
+					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getInt(prefNames[i]);
 				break;
 				case "showAge":
 				case "showDays":
 				case "showZodiac":
-					myPrefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getBool(prefNames[i]);
+					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getBool(prefNames[i]);
 				break;
 				default:
-					myPrefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
+					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
 			}
 		}
 			
@@ -276,7 +276,7 @@
 		
 		dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
 		alert(dateStyle__MODULE_ID__);
-		dateStyle__MODULE_ID__=myPrefArr__MODULE_ID__["dateFormat"];
+		dateStyle__MODULE_ID__=prefArr__MODULE_ID__["dateFormat"];
 		alert(dateStyle__MODULE_ID__);
 		numVis__MODULE_ID__=prefs__MODULE_ID__.getInt("showBDay");
 		futureNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnForward");
