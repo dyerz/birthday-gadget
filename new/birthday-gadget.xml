@@ -258,13 +258,6 @@
 		
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
-		if(prefArr__MODULE_ID__["_table_query_url"].search(/tq\?/)==-1 && prefArr__MODULE_ID__["_table_query_url"].search(/ccc\?/)!=-1 ){
-			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?");
-			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
-				prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].substring(0, prefArr__MODULE_ID__["_table_query_url"].indexOf("&"));
-			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(prefArr__MODULE_ID__["_table_query_url"])
-			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
-		}
 
 		//toolbar creation
 		buildToolbar();
@@ -308,6 +301,14 @@
 
 /* Data Functions ********************************************************************************/	
     function sendQuery(qCheck) {
+		if(prefArr__MODULE_ID__["_table_query_url"].search(/ccc\?/)!=-1 ){
+			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?");
+			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
+				prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].substring(0, prefArr__MODULE_ID__["_table_query_url"].indexOf("&"));
+			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(prefArr__MODULE_ID__["_table_query_url"])
+			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
+		}
+
 		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
 		query.setQuery("select A, B format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse);
@@ -462,11 +463,13 @@
 			html.push('<br />Don\'t worry, you\'re old birthday list is safe!');
 		}
 		html.push('<ol><li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
-		html.push('<li>Put Dates in Column "A" and Names in Column "B"</li>');
-		html.push('<li>Save the spreadsheet</li><li>Copy address from the address bar</li>');
+		html.push('<li>Enter Dates in Column "A" and Names in Column "B"');
+		if(prefArr__MODULE_ID__["birthdays"]!="")
+			html.push('<br />Instructions for converting your old birthday list is available on the next page.');
+		html.push('</li><li>Save the spreadsheet</li><li>Copy address from the address bar</li>');
 		html.push('<li>Paste the address below<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="Save" id="saveurl" /></li></ol>');
-		html.push('For more complete instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
+		html.push('For more detailed instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
