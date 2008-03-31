@@ -459,7 +459,7 @@
 		if(prefArr__MODULE_ID__["birthdays"]!=""){
 			html.push('Welcome to the new Birthday Reminders 2.0!');
 			html.push('<br />You are just a few clicks away from enjoying some new features!');
-			html.push('<br />Don't worry, you're old birthday list is safe!');
+			html.push('<br />Don\'t worry, you\'re old birthday list is safe!');
 		}
 		html.push('<ol><li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
 		html.push('<li>Put Dates in Column "A" and Names in Column "B"</li>');
