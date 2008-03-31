@@ -346,14 +346,15 @@
 			_gel('tablediv').style.textAlign="center"; return;
 		}
 
-		html.push('<table cellpaddind="0" cellspacing="0" id="dataTable">');
+		html.push('<table id="dataTable" style="color: '+fontColor__MODULE_ID__+'; background-color: '+bgColor__MODULE_ID__+'>');
 
 		// Header row for column Ids
-		html.push('<tr><td class="colid '+fontSize__MODULE_ID__+'">Date</td>');
-		html.push('<td class="colid '+fontSize__MODULE_ID__+'">Name</td>');
-		if(showAge__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Age</td>');
-		if(showDays__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Days</td>');
-		if(showZodiac__MODULE_ID__) html.push('<td class="colid '+fontSize__MODULE_ID__+'">Zodiac</td>');
+		var tdStr=' class="colid '+fontSize__MODULE_ID__+'" style="border-color: fontColor__MODULE_ID__;"';
+		html.push('<tr><td'+tdStr+'>Date</td>');
+		html.push('<td'+tdStr+'>Name</td>');
+		if(showAge__MODULE_ID__) html.push('<td'+tdStr+'>Age</td>');
+		if(showDays__MODULE_ID__) html.push('<td'+tdStr+'>Days</td>');
+		if(showZodiac__MODULE_ID__) html.push('<td'+tdStr+'>Zodiac</td>');
 		html.push('</tr>');
 
 		dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
@@ -382,8 +383,6 @@
 
 		// Set the generated html into the container div.
 		_gel('tablediv').innerHTML = html.join('');
-		_gel('dataTable').style.color=fontColor__MODULE_ID__;
-		_gel('dataTable').style.bgColor=bgColor__MODULE_ID__;
 		_IG_AdjustIFrameHeight();
     };
 
