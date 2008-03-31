@@ -484,7 +484,7 @@
 	}
 	
 	function colorCheck(color, title){
-		var hex=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
+		var hexTest=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
 		if(color.length==0) return true;
 		if(!hexTest.test(color)) {alert(title+" is in an invalid format"); return false;}
 		return true;
