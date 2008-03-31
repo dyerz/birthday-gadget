@@ -220,20 +220,7 @@
 <script>
     google.load("visualization", "1"); // Load the Google Visualization API
 	var prefs__MODULE_ID__,
-		prefArr__MODULE_ID__=new Object(),
-		dateStyle__MODULE_ID__,
-		numVis__MODULE_ID__,
-		futureNotice__MODULE_ID__,
-		pastNotice__MODULE_ID__,
-		showAge__MODULE_ID__,
-		showDays__MODULE_ID__,
-		showZodiac__MODULE_ID__,
-		urlPref__MODULE_ID__,
-		oldbd__MODULE_ID__,
-		tbVis__MODULE_ID__,
-		fontColor__MODULE_ID__,
-		bgColor__MODULE_ID__,
-		fontSize__MODULE_ID__;
+		prefArr__MODULE_ID__=new Object();
 	var tableDivObj;
     
 	//get started
@@ -258,58 +245,35 @@
 				case "showBDay":
 				case "warnForward":
 				case "warnPast":
-					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getInt(prefNames[i]);
-				break;
+					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getInt(prefNames[i]); break;
 				case "showAge":
 				case "showDays":
 				case "showZodiac":
-					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getBool(prefNames[i]);
-				break;
+					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getBool(prefNames[i]); break;
 				default:
 					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
 			}
 		}
-			
-			
-			
-		
-		
-		dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
-		alert(dateStyle__MODULE_ID__);
-		dateStyle__MODULE_ID__=prefArr__MODULE_ID__["dateFormat"];
-		alert(dateStyle__MODULE_ID__);
-		numVis__MODULE_ID__=prefs__MODULE_ID__.getInt("showBDay");
-		futureNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnForward");
-		pastNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnPast");
-		showAge__MODULE_ID__=prefs__MODULE_ID__.getBool("showAge");
-		showDays__MODULE_ID__=prefs__MODULE_ID__.getBool("showDays");
-		showZodiac__MODULE_ID__=prefs__MODULE_ID__.getBool("showZodiac");
-		urlPref__MODULE_ID__=prefs__MODULE_ID__.getString("_table_query_url");
-		tbVis__MODULE_ID__=prefs__MODULE_ID__.getString("tbVis");
-		oldbd__MODULE_ID__=prefs__MODULE_ID__.getString("birthdays");
-		fontSize__MODULE_ID__=prefs__MODULE_ID__.getString("fontSize");
-		fontColor__MODULE_ID__=prefs__MODULE_ID__.getString("fontColor");
-		bgColor__MODULE_ID__=prefs__MODULE_ID__.getString("bgColor");
 		
 		//queryurl check
-		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
-		if(urlPref__MODULE_ID__.search(/tq\?/)==-1 && urlPref__MODULE_ID__.search(/ccc\?/)!=-1 ){
-			urlPref__MODULE_ID__=urlPref__MODULE_ID__.replace(/ccc\?/, "tq?");
-			if(urlPref__MODULE_ID__.search(/\&/)!=-1)
-				urlPref__MODULE_ID__=urlPref__MODULE_ID__.substring(0, urlPref__MODULE_ID__.indexOf("&"));
-			urlPref__MODULE_ID__=escapeHtml(urlPref__MODULE_ID__)
-			prefs__MODULE_ID__.set("_table_query_url", urlPref__MODULE_ID__);
+		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
+		if(prefArr__MODULE_ID__["_table_query_url"].search(/tq\?/)==-1 && prefArr__MODULE_ID__["_table_query_url"].search(/ccc\?/)!=-1 ){
+			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?");
+			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
+				prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].substring(0, prefArr__MODULE_ID__["_table_query_url"].indexOf("&"));
+			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(prefArr__MODULE_ID__["_table_query_url"])
+			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 		}
 
 		//toolbar creation
 		buildToolbar();
-		if(tbVis__MODULE_ID__=="false"){ flipTB(Array(true, true, false, false));}
+		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
 		else {flipTB(Array(false, false, true, false));}
 
 		//js event config
 		_gel("toolbarVis").onclick=function(){
-			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
-			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
+			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
+			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
 			flipTB(Array(true, true, true, true));};
 		
 		//init done.. show stuff
@@ -317,7 +281,7 @@
     }
 
 	function flipTB(sh){
-		_gel("toolbarVis").title=tbVis__MODULE_ID__=="false"?"Hide the Toolbar":"Show the Toolbar"
+		_gel("toolbarVis").title=prefArr__MODULE_ID__["tbVis"]=="false"?"Hide the Toolbar":"Show the Toolbar"
 		if(sh[0]) _toggle(_gel("toolbar"));
 		if(sh[1]) _toggle(_gel("upImg")); 
 		if(sh[2]) _toggle(_gel("dnImg"));
@@ -325,7 +289,7 @@
 	}
 	
     function sendQuery(qCheck) {
-		var query=new google.visualization.Query(urlPref__MODULE_ID__);
+		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
 		query.setQuery("select A, B format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse);
     }
@@ -363,22 +327,22 @@
 		
 		var dataArray=buildArray(data);
 		if(dataArray.length==0){
-			html.push('__MSG_nobd1__ '+futureNotice__MODULE_ID__+' __MSG_nobd2__');
+			html.push('__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__');
 			_gel('tablediv').style.textAlign="center"; return;
 		}
 
-		html.push('<table id="dataTable" style="color: '+fontColor__MODULE_ID__+'; background-color: '+bgColor__MODULE_ID__+';">');
+		html.push('<table id="dataTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 
 		// Header row for column Ids
-		var headerStr=' class="colid '+fontSize__MODULE_ID__+'" style="border-color: '+fontColor__MODULE_ID__+';"';
+		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"';
 		html.push('<tr><td'+headerStr+'>Date</td>');
 		html.push('<td'+headerStr+'>Name</td>');
-		if(showAge__MODULE_ID__) html.push('<td'+headerStr+'>Age</td>');
-		if(showDays__MODULE_ID__) html.push('<td'+headerStr+'>Days</td>');
-		if(showZodiac__MODULE_ID__) html.push('<td'+headerStr+'>Zodiac</td>');
+		if(prefArr__MODULE_ID__["showAge"]) html.push('<td'+headerStr+'>Age</td>');
+		if(prefArr__MODULE_ID__["showDays"]) html.push('<td'+headerStr+'>Days</td>');
+		if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td'+headerStr+'>Zodiac</td>');
 		html.push('</tr>');
 
-		dispLength=numVis__MODULE_ID__==0?dataArray.length:numVis__MODULE_ID__;
+		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray.length:prefArr__MODULE_ID__["showBDay"];
 		var countDisp=0;
 
 		// Add the data rows
@@ -391,11 +355,11 @@
 			dispZodiac=makeZodiac(rowData[2]);
 
 			
-			html.push('<tr><td class="'+fontSize__MODULE_ID__+'">'+dispDate+'</td>');
-			html.push('<td class="'+fontSize__MODULE_ID__+'">'+escapeHtml(rowData[1])+'</td>');
-			if(showAge__MODULE_ID__) html.push('<td class="'+fontSize__MODULE_ID__+'">'+dispAge+'</td>');
-			if(showDays__MODULE_ID__) html.push('<td class="'+fontSize__MODULE_ID__+'">'+dispDays+'</td>');
-			if(showZodiac__MODULE_ID__) html.push('<td class="'+fontSize__MODULE_ID__+'">'+dispZodiac+'</td>');
+			html.push('<tr><td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+dispDate+'</td>');
+			html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml(rowData[1])+'</td>');
+			if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+dispAge+'</td>');
+			if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+dispDays+'</td>');
+			if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+dispZodiac+'</td>');
 			html.push('</tr>');
 			countDisp++;
 			if(countDisp>=dispLength) break;
@@ -425,8 +389,8 @@
 	
 		_gel('tablediv').innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
-			urlPref__MODULE_ID__=escapeHtml(_gel('newurl').value)
-			prefs__MODULE_ID__.set("_table_query_url", urlPref__MODULE_ID__);
+			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(_gel('newurl').value)
+			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 			_gel('tablediv').innerHTML ="Loading...";
 			sendQuery();}
 
@@ -437,15 +401,15 @@
 		var html=[];
 		html.push('<h1>Configure</h1>');
 		html.push('<table id="configTable">');
-		html.push('<tr><td class="left" colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
+		html.push('<tr><td class="left" colspan=2><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
 		html.push('<tr><td class="left">Font Color</td><td><input id="textSet" type="button" value="Pick" />');
-		html.push('<input id="textDiv" type="text" value="'+fontColor__MODULE_ID__+'" /> ');
-		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+fontColor__MODULE_ID__+'">&nbsp</span></td></tr>'); 
+		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
+		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["fontColor"]+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="left">Background Color</td><td><input id="bgcSet" type="button" value="Pick" />');
-		html.push('<input id="bgcDiv" type="text" value="'+bgColor__MODULE_ID__+'" /> ');
-		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+bgColor__MODULE_ID__+'">&nbsp</span></td></tr>'); 
+		html.push('<input id="bgcDiv" type="text" value="'+prefArr__MODULE_ID__["bgColor"]+'" /> ');
+		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="right">Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
-		html.push('<tr><td class="right">Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+urlPref__MODULE_ID__+'" /></td></tr>'); 
+		html.push('<tr><td class="right">Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+prefArr__MODULE_ID__["_table_query_url"]+'" /></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0;">');
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
 		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
@@ -463,7 +427,7 @@
 		var retStr=[], sizeStr=["xsmall", "small", "medium", "large", "xlarge"], selStr="";
 		retStr.push('<select id="fontSize">');
 		for(var i=0; i<sizeStr.length; i++){
-			selStr=sizeStr[i]==fontSize__MODULE_ID__?" selected":"";
+			selStr=sizeStr[i]==prefArr__MODULE_ID__["fontSize"]?" selected":"";
 			retStr.push('<option value="'+sizeStr[i]+'"'+selStr+'>'+sizeStr[i]+'</option>');
 		}
 		retStr.push('</select>');
@@ -471,10 +435,10 @@
 	}
 	
 	function configChanged(){
-		if(_gel("textDiv").value!=fontColor__MODULE_ID__) return true;
-		if(_gel("bgcDiv").value!=bgColor__MODULE_ID__) return true;
+		if(_gel("textDiv").value!=prefArr__MODULE_ID__["fontColor"]) return true;
+		if(_gel("bgcDiv").value!=prefArr__MODULE_ID__["bgColor"]) return true;
 		if(_gel("fontSize").value!=prefs__MODULE_ID__.getString("fontSize")) return true;
-		if(_gel("shUrl").value!=urlPref__MODULE_ID__) return true;
+		if(_gel("shUrl").value!=prefArr__MODULE_ID__["_table_query_url"]) return true;
 		return false;
 	}
 	
@@ -497,10 +461,10 @@
 		prefs__MODULE_ID__.set("bgColor", bC);
 		prefs__MODULE_ID__.set("fontSize", fS);
 		prefs__MODULE_ID__.set("shUrl", tempStr);
-		fontSize__MODULE_ID__=fS;
-		fontColor__MODULE_ID__=fC;
-		bgColor__MODULE_ID__=bC;
-		urlPref__MODULE_ID__=tempStr;
+		prefArr__MODULE_ID__["fontSize"]=fS;
+		prefArr__MODULE_ID__["fontColor"]=fC;
+		prefArr__MODULE_ID__["bgColor"]=bC;
+		prefArr__MODULE_ID__["_table_query_url"]=tempStr;
 		return true;
 	}
 	
@@ -514,16 +478,16 @@
 	function goConvert(){
 		var html=[];
 		html.push('<h1>Convert</h1><ol>');
-		html.push('<li><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Open your Google spreadsheet</a></li>');
+		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Open your Google spreadsheet</a></li>');
 		html.push('<li>Copy the text below.');
-		html.push('<br /><textarea id="oldtxt">'+oldbd__MODULE_ID__.replace(/;/g, "\t")+'</textarea></li>');
+		html.push('<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t")+'</textarea></li>');
 		html.push('<li>Paste the text into the spreadsheet.</li><li>Clear the old data when you are done.');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" /></li></ol>');
 		html.push('See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
 		_gel('tablediv').innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
-			oldbd__MODULE_ID__="";
+			prefArr__MODULE_ID__["birthdays"]="";
 			buildToolbar();
 			sendQuery();
 		}
@@ -544,7 +508,7 @@
 		var html = [];
 		html.push('<table><tr>');
 		html.push('<td id="tbConfig">Configure</td>');
-		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
+		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<td id="tbConvert">Convert</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
@@ -552,15 +516,15 @@
 		
 		//toolbar actions
 		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
-		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
+		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
 		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
 	}
 	
 	function buildArray(data){
 		var dataArray=new Array();
 		var dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
-		nowDate.setTime(nowDate.getTime()-pastNotice__MODULE_ID__*24*60*60*1000);
-		maxDate.setTime(maxDate.getTime()+futureNotice__MODULE_ID__*24*60*60*1000);
+		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*24*60*60*1000);
+		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*24*60*60*1000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
 			dataDate=data.getFormattedValue(row,0);
 			if(dataDate=="") continue;
@@ -571,7 +535,7 @@
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
 				tempDate.setFullYear(nowDate.getFullYear()+1);
 			else tempDate.setFullYear(nowDate.getFullYear());
-			if(tempDate.getTime()>maxDate.getTime() && futureNotice__MODULE_ID__!=0) continue;
+			if(tempDate.getTime()>maxDate.getTime() && prefArr__MODULE_ID__["warnForward"]!=0) continue;
 			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
 			dataArray.push(dataDate+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
 		}
@@ -611,7 +575,7 @@
 	
     function makeAge(rowDate){
 		var d=new Date(), p=new Date();
-		d.setTime(d.getTime()-pastNotice__MODULE_ID__*24*60*60*1000);
+		d.setTime(d.getTime()-prefArr__MODULE_ID__["warnPast"]*24*60*60*1000);
 		p.setTime(rowDate); 
 		var age=d.getFullYear()-p.getFullYear();
 		if(d.getMonth()>p.getMonth()) age--;
@@ -637,7 +601,7 @@
 		if(tempArr.length==2) {m=tempArr[0]-1; d=parseInt(tempArr[1]);}
 		else {var t=Date.parse(inDate); var b=new Date(); b.setTime(t); m=b.getMonth(); d=b.getDate();}
 		var n=new Date(); if(n.getMonth()==m && n.getDate()==d ) return("__MSG_today__");
-		switch(dateStyle__MODULE_ID__){
+		switch(prefArr__MODULE_ID__["dateFormat"]){
 			case 0: return (month[m]+" "+d);
 			case 1: return (d+" "+month[m]);
 			case 2: return ((m+1)+"/"+d);
