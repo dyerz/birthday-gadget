@@ -253,7 +253,7 @@
 
 		//get prefs
 		for(var i=0; i<prefNames.length; i++){
-			switch(myPrefNames[i]){
+			switch(prefNames[i]){
 				case "dateFormat":
 				case "showBDay":
 				case "warnForward":
