@@ -8,7 +8,7 @@
   <msg name="showDays">Show Days</msg>
   <msg name="showZodiac">Show Zodiac</msg>
   <msg name="birthdayName">Birthdays</msg>
-  <msg name="showName">Visible Birthdays</msg>
+  <msg name="showName">Max Visible Birthdays</msg>
   <msg name="pastNoticeName">Days After</msg>
   <msg name="futureNoticeName">Days Before</msg>
   <msg name="tableDate">Date</msg>

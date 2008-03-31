@@ -219,8 +219,8 @@
 
 <script>
     google.load("visualization", "1"); // Load the Google Visualization API
-    var gadgetHelper = null;
 	var prefs__MODULE_ID__,
+		prefArr__MODULE_ID__=new Object(),
 		dateStyle__MODULE_ID__,
 		numVis__MODULE_ID__,
 		futureNotice__MODULE_ID__,
@@ -234,8 +234,12 @@
 		fontColor__MODULE_ID__,
 		bgColor__MODULE_ID__,
 		fontSize__MODULE_ID__;
+	var tableDivObj;
     
+	//get started
     function init(){
+		var myPrefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
+			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 
 		//temp data check!!!
@@ -248,7 +252,32 @@
 		//******************************************************************************
 
 		//get prefs
+		for(var i=0; i<myPrefs.length; i++){
+			switch(myPrefNames[i]){
+				case "dateFormat":
+				case "showBDay":
+				case "warnForward":
+				case "warnPast":
+					myPrefArr__MODULE_ID__[myPrefNames[i]]=prefs__MODULE_ID__.getInt(myPrefNames[i]);
+				break;
+				case "showAge":
+				case "showDays":
+				case "showZodiac":
+					myPrefArr__MODULE_ID__[myPrefNames[i]]=prefs__MODULE_ID__.getBool(myPrefNames[i]);
+				break;
+				default:
+					myPrefArr__MODULE_ID__[myPrefNames[i]]=prefs__MODULE_ID__.getString(myPrefNames[i]);
+			}
+		}
+			
+			
+			
+		
+		
 		dateStyle__MODULE_ID__=prefs__MODULE_ID__.getInt("dateFormat");
+		alert(dateStyle__MODULE_ID__);
+		dateStyle__MODULE_ID__=myPrefArr__MODULE_ID__["dateFormat"];
+		alert(dateStyle__MODULE_ID__);
 		numVis__MODULE_ID__=prefs__MODULE_ID__.getInt("showBDay");
 		futureNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnForward");
 		pastNotice__MODULE_ID__=prefs__MODULE_ID__.getInt("warnPast");
@@ -278,9 +307,6 @@
 		else {flipTB(Array(false, false, true, false));}
 
 		//js event config
-		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
-		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
-		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
 		_gel("toolbarVis").onclick=function(){
 			tbVis__MODULE_ID__=tbVis__MODULE_ID__=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", tbVis__MODULE_ID__);
@@ -299,11 +325,6 @@
 	}
 	
     function sendQuery(qCheck) {
-		//set font size
-		//_gel("tablediv").style.color=fontColor__MODULE_ID__;
-		_gel("tablediv").offsetParent.style.bgColor=bgColor__MODULE_ID__;
-		_gel("tablediv").className=_gel("tablediv").className+" "+fontSize__MODULE_ID__;
-		
 		var query=new google.visualization.Query(urlPref__MODULE_ID__);
 		query.setQuery("select A, B format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse);
@@ -414,7 +435,7 @@
 	
 	function goConfig(){
 		var html=[];
-		html.push('<h1>Config</h1>');
+		html.push('<h1>Configure</h1>');
 		html.push('<table id="configTable">');
 		html.push('<tr><td class="left" colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
 		html.push('<tr><td class="left">Font Color</td><td><input id="textSet" type="button" value="Pick" />');
@@ -522,13 +543,17 @@
 	function buildToolbar(){
 		var html = [];
 		html.push('<table><tr>');
-		//html.push('<td id="tbEdit"><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit</a></td>');
-		html.push('<td id="tbConfig">Config</td>');
+		html.push('<td id="tbConfig">Configure</td>');
 		if(oldbd__MODULE_ID__!="") html.push('<td id="tbConvert">Convert</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
 		html.push('<td id="tbRefresh">Refresh</td>');
 		html.push('</tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
+		
+		//toolbar actions
+		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
+		if(oldbd__MODULE_ID__!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
+		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
 	}
 	
 	function buildArray(data){
