@@ -455,10 +455,15 @@
 /* Help / Error Functions ************************************************************************/
 	function showHelp(){
 		var html = [];
-		html.push('<h1>Gadget Setup</h1><ol>');
-		html.push('<li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
+		html.push('<h1>Gadget Setup</h1>');
+		if(prefArr__MODULE_ID__["birthdays"]!=""){
+			html.push('Welcome to the new Birthday Reminders 2.0!');
+			html.push('<br />You are just a few clicks away from enjoying some new features!');
+			html.push('<br />Don't worry, you're old birthday list is safe!');
+		}
+		html.push('<ol><li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
 		html.push('<li>Put Dates in Column "A" and Names in Column "B"</li>');
-		html.push('<li>Save the spreadsheet<li></li>Copy address from the address bar</li>');
+		html.push('<li>Save the spreadsheet</li><li>Copy address from the address bar</li>');
 		html.push('<li>Paste the address below<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="Save" id="saveurl" /></li></ol>');
 		html.push('For more complete instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
@@ -473,6 +478,7 @@
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 			_gel('tablediv').innerHTML ="Loading...";
+			buildToolbar();
 			sendQuery();
 		}
 
