@@ -261,15 +261,6 @@
 
 		//toolbar creation
 		buildToolbar();
-		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
-		else {flipTB(Array(false, false, true, false));}
-
-		//js event config
-		_gel("toolbarVis").onclick=function(){
-			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
-			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
-			flipTB(Array(true, true, true, true));};
-		
 		//init done.. show stuff
 		sendQuery();
     }
@@ -289,8 +280,17 @@
 		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
 		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
 		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
-	}
 
+		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
+		else {flipTB(Array(false, false, true, false));}
+
+		//js event config
+		_gel("toolbarVis").onclick=function(){
+		prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
+		prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
+		flipTB(Array(true, true, true, true));};
+	}
+	
 	function flipTB(sh){
 		_gel("toolbarVis").title=prefArr__MODULE_ID__["tbVis"]=="false"?"Hide the Toolbar":"Show the Toolbar"
 		if(sh[0]) _toggle(_gel("toolbar"));
