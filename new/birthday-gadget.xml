@@ -359,9 +359,9 @@
 			html.push('<tr><td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>');
 			html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml(rowData[1])+'</td>');
 			if(prefArr__MODULE_ID__["showAge"])
-				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge(rowDate)+'</td>');
+				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge(rowDate, rowData[2])+'</td>');
 			if(prefArr__MODULE_ID__["showDays"])
-				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays(rowDate, rowData[2])+'</td>');
+				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays(rowData[2])+'</td>');
 			if(prefArr__MODULE_ID__["showZodiac"])
 				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac(rowData[2])+'</td>');
 			html.push('</tr>');
@@ -413,17 +413,20 @@
 		}
 	}
 
-    function makeAge(rowDate){
-		var d=new Date(), p=new Date();
-		d.setTime(d.getTime()-prefArr__MODULE_ID__["warnPast"]*24*60*60*1000);
-		p.setTime(rowDate); 
-		var age=d.getFullYear()-p.getFullYear();
-		if(d.getMonth()>p.getMonth()) age--;
-		else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
-		return(age++);
+    function makeAge(rowDate, formatDate){
+		//var d=new Date(), p=new Date();
+		//d.setTime(d.getTime()-prefArr__MODULE_ID__["warnPast"]*24*60*60*1000);
+		//p.setTime(rowDate); 
+		//var age=d.getFullYear()-p.getFullYear();
+		//if(d.getMonth()>p.getMonth()) age--;
+		//else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
+		//return(age++);
+		var n=new Date(), b=new Date();
+		n=setTime(Date.parse(formatDate)); b=setTime(rowDate);
+		return b.getFullYear()-n.getFullYear();
 	}
     
-	function makeDays(rowDate, formatDate){
+	function makeDays(formatDate){
 		var t=new Date();
 		return Math.round((Date.parse(formatDate)-Date.parse(t.getFullYear()+"/"+(t.getMonth()+1)+"/"+t.getDate()))/(24*60*60*1000));
 	}
