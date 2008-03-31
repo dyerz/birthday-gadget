@@ -484,7 +484,7 @@
 		}
 		
 		prefs__MODULE_ID__.set("fontColor", fC);
-		prefs__MODULE_ID__.set("bcColor", bC);
+		prefs__MODULE_ID__.set("bgColor", bC);
 		prefs__MODULE_ID__.set("fontSize", fS);
 		prefs__MODULE_ID__.set("shUrl", tempStr);
 		fontSize__MODULE_ID__=fS;
