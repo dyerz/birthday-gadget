@@ -297,7 +297,7 @@
     function sendQuery(qCheck) {
 		//set font size
 		//_gel("tablediv").style.color=fontColor__MODULE_ID__;
-		_gel("tablediv").parent.style.bgColor=bgColor__MODULE_ID__;
+		_gel("tablediv").parentNode.style.bgColor=bgColor__MODULE_ID__;
 		_gel("tablediv").className=_gel("tablediv").className+" "+fontSize__MODULE_ID__;
 		
 		var query=new google.visualization.Query(urlPref__MODULE_ID__);
