@@ -422,7 +422,7 @@
 		//else if(d.getMonth()==p.getMonth() && d.getDate()>=p.getDate()) age--;
 		//return(age++);
 		var n=new Date(), b=new Date();
-		n=setTime(Date.parse(formatDate)); b=setTime(rowDate);
+		n.setTime(Date.parse(formatDate)); b=setTime(rowDate);
 		return b.getFullYear()-n.getFullYear();
 	}
     
