@@ -194,8 +194,12 @@
 		font-size: 11px;
 	}
 	
+	.left{
+		text-align: left;
+	}
+	
 	.exampleSpan{
-		padding-right: 15px;
+		padding-right: 25px;
 		border: 1px solid #DDDDDD;
 	}
 	
@@ -258,6 +262,9 @@
 		fontColor__MODULE_ID__=prefs__MODULE_ID__.getString("fontColor");
 		bgColor__MODULE_ID__=prefs__MODULE_ID__.getString("bgColor");
 		
+		//test delete
+		alert(bgColor__MODULE_ID__);
+		
 		//queryurl check
 		if(urlPref__MODULE_ID__=="") {showHelp(); return;}
 		if(urlPref__MODULE_ID__.search(/tq\?/)==-1 && urlPref__MODULE_ID__.search(/ccc\?/)!=-1 ){
@@ -295,6 +302,8 @@
 	}
 	
     function sendQuery(qCheck) {
+		//test delete
+		alert(bgColor__MODULE_ID__);
 		//set font size
 		//_gel("tablediv").style.color=fontColor__MODULE_ID__;
 		_gel("tablediv").parentNode.style.bgColor=bgColor__MODULE_ID__;
@@ -341,6 +350,9 @@
 			html.push('__MSG_nobd1__ '+futureNotice__MODULE_ID__+' __MSG_nobd2__');
 			_gel('tablediv').style.textAlign="center"; return;
 		}
+
+		//test delete
+		alert(bgColor__MODULE_ID__);
 
 		html.push('<table cellpaddind="0" cellspacing="0" id="dataTable">');
 
@@ -415,11 +427,11 @@
 		var html=[];
 		html.push('<h1>Config</h1>');
 		html.push('<table id="configTable">');
-		html.push('<tr><td colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
-		html.push('<tr><td class="right">Font Color</td><td><input id="textSet" type="button" value="Pick" />');
+		html.push('<tr><td class="left" colspan=2><a target="_blank" href="'+urlPref__MODULE_ID__.replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
+		html.push('<tr><td class="left">Font Color</td><td><input id="textSet" type="button" value="Pick" />');
 		html.push('<input id="textDiv" type="text" value="'+fontColor__MODULE_ID__+'" /> ');
 		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+fontColor__MODULE_ID__+'">&nbsp</span></td></tr>'); 
-		html.push('<tr><td class="right">Background Color</td><td><input id="bgcSet" type="button" value="Pick" />');
+		html.push('<tr><td class="left">Background Color</td><td><input id="bgcSet" type="button" value="Pick" />');
 		html.push('<input id="bgcDiv" type="text" value="'+bgColor__MODULE_ID__+'" /> ');
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+bgColor__MODULE_ID__+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="right">Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
