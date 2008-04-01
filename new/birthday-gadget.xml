@@ -163,8 +163,7 @@
 		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
 		//toolbar creation
 		buildToolbar();
-		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
-		else {flipTB(Array(false, false, true, false));}
+		flipTB(false);
 		//init done.. show stuff
 		sendQuery();
     }
@@ -187,16 +186,19 @@
 		_gel("toolbarVis").onclick=function(){
 			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
-			flipTB(Array(true, true, true, true));
+			flipTB(true);
 		};
 	}
 	
 	function flipTB(sh){
-		_gel("toolbarVis").title=prefArr__MODULE_ID__["tbVis"]=="false"?"Hide the Toolbar":"Show the Toolbar"
-		if(sh[0]) _toggle(_gel("toolbar"));
-		if(sh[1]) _toggle(_gel("upImg")); 
-		if(sh[2]) _toggle(_gel("dnImg"));
-		if(sh[3]) _IG_AdjustIFrameHeight();
+		if(prefArr__MODULE_ID__["tbVis"]=="false"){
+			_gel("toolbarVis").title="__MSG_tbHide__";
+			_gel("toolbar").style.show=""; _gel("upImg").style.show=""; _gel("dnImg").style.show="none";
+		} else {
+			_gel("toolbarVis").title="__MSG_tbShow__";
+			_gel("toolbar").style.show="none"; _gel("upImg").style.show="none"; _gel("dnImg").style.show="";
+		}
+		if(sh) _IG_AdjustIFrameHeight();
 	}
 
 /* Data Functions ******************************/	
@@ -345,15 +347,15 @@
 /* Help / Error Functions **********************/
 	function showHelp(){
 		var html = [];
-		html.push('<h1>Gadget Setup</h1>');
-		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('Welcome to the new Birthday Reminders 2.0!<br />You are just a few clicks away from enjoying some new features!<br />Don\'t worry, you\'re old birthday list is safe!');
-		html.push('<ol><li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
-		html.push('<li>Enter Dates in Column "A" and Names in Column "B"');
-		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<br />Instructions for converting your old birthday list is available on the next page.');
-		html.push('</li><li>Save the spreadsheet</li><li>Copy address from the address bar</li>');
-		html.push('<li>Paste the address below<br /><input type="text" style="width: 100%" id="newurl" />');
-		html.push('<br /><input type="button" value="Save" id="saveurl" /></li></ol>');
-		html.push('For more detailed instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
+		html.push('<h1>__MSG_setupH1__</h1>');
+		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('__MSG_setupGreet1__<br />__MSG_setupGreet2__<br />__MSG_setupGreet3__');
+		html.push('<ol><li><a href="http://docs.google.com/" target="_blank">__MSG_setupStep1__</a></li>');
+		html.push('<li>__MSG_setupStep2__');
+		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<br />__MSG_setupStep2P__');
+		html.push('</li><li>__MSG_setupStep3__</li><li>__MSG_setupStep4__</li>');
+		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
+		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
+		html.push('__MSG_setupMore__ <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">__MSG_setupClick__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
@@ -457,7 +459,7 @@
 		return true;
 	}
 
-/* Reverse Compatibility Functions *************/
+/* Convert - Reverse Compatibility Functions ***/
 	function goConvert(){
 		var html=[];
 		html.push('<h1>Convert</h1><ol>');

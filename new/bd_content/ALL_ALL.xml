@@ -43,6 +43,9 @@
   <msg name="tbConvert">Convert</msg>
   <msg name="tbHelp">Help</msg>
   <msg name="tbRefresh">Refresh</msg>
+  <msg name="tbShow">Show the Toolbar</msg>
+  <msg name="tbHide">Hide the Toolbar</msg>
+  
   
   <msg name="configEdit">Edit Google Spreadsheet</msg>
   <msg name="configFontColor">Font Color</msg>
@@ -60,6 +63,28 @@
   <msg name="fSizeM">Medium</msg>
   <msg name="fSizeL">Large</msg>
   <msg name="fSizeXL">X-Large</msg>
+  
+  <msg name="setupH1">Gadget Setup</msg>
+  <msg name="setupGreet1">Welcome to the new Birthday Reminders 2.0!</msg>
+  <msg name="setupGreet2">You are just a few clicks away from enjoying some new features!</msg>
+  <msg name="setupGreet3">Do not worry, your old birthday list is safe!</msg>
+  <msg name="setupStep1">Create a new Google spreadsheet.</msg>
+  <msg name="setupStep2">Enter Dates in Column "A" and Names in Column "B".</msg>
+  <msg name="setupStep2P">Instructions for converting your old birthday list is available on the next page.</msg>
+  <msg name="setupStep3">Save the Google spreadsheet.</msg>
+  <msg name="setupStep4">Copy the Google spreadsheet address from the address bar.</msg>
+  <msg name="setupStep5">Paste the spreadsheet address below.</msg>
+  <msg name="setupMore">For more detailed instructions</msg>
+  <msg name="setupClick">Click Here</msg>
+  
+  <msg name="convertH1">Convert</msg>
+  <msg name="convertStep1">Open your Google spreadsheet</msg>
+  <msg name="convertStep2">Copy the text below.</msg>
+  <msg name="convertStep3">Paste the text into the spreadsheet.</msg>
+  <msg name="convertStep4">Clear the old data when you are done.</msg>
+  <msg name="convertClear">Clear Old Data</msg>
+  <msg name="convertMore">See the help website for additional assistance.</msg>
+  
   
   
   <msg name="modeTitleDisplay">Display</msg>
