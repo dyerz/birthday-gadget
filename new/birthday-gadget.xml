@@ -364,8 +364,9 @@
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 			tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__...";
-			buildToolbar();
-			sendQuery();
+			//buildToolbar();
+			//sendQuery();
+			init();
 		}
 
 		_IG_AdjustIFrameHeight();
