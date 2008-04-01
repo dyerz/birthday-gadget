@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Birthday Reminder 2.0</msg>
+  <msg name="description">Never miss a birthday again!</msg>
+  
+  <msg name="titleName">Gadget Title</msg>
+  <msg name="formatName">Date Format</msg>
+  <msg name="showName">Max Visible Birthdays</msg>
+  <msg name="futureNoticeName">Days Before</msg>
+  <msg name="pastNoticeName">Days After</msg>
+  <msg name="noticeAll">All</msg>
+  <msg name="noticeNone">None</msg>
+  <msg name="showAge">Show Age Column</msg>
+  <msg name="showDays">Show Days Column</msg>
+  <msg name="showZodiac">Show Zodiac Column</msg>
+  
+  <msg name="Loading">Loading</msg>
+  
+  <msg name="tableDate">Date</msg>
+  <msg name="tableName">Name</msg>
+  <msg name="tableAge">Age</msg>
+  <msg name="tableDays">Days</msg>
+  <msg name="tableZodiac">Zodiac</msg>
+  
+  <msg name="noBirthdays1">No birthdays in the next </msg>
+  <msg name="noBirthdays2"> days.</msg>
+  
+  <msg name="ajan">Jan.</msg>
+  <msg name="afeb">Feb.</msg>
+  <msg name="amar">Mar.</msg>
+  <msg name="aapr">Apr.</msg>
+  <msg name="amay">May</msg>
+  <msg name="ajun">June</msg>
+  <msg name="ajul">July</msg>
+  <msg name="aaug">Aug.</msg>
+  <msg name="asep">Sept.</msg>
+  <msg name="aoct">Oct.</msg>
+  <msg name="anov">Nov.</msg>
+  <msg name="adec">Dec.</msg>
+  <msg name="today">Today</msg>
+  
+  <msg name="tbConfig">Configure</msg>
+  <msg name="tbConvert">Convert</msg>
+  <msg name="tbHelp">Help</msg>
+  <msg name="tbRefresh">Refresh</msg>
+  <msg name="tbShow">Show the Toolbar</msg>
+  <msg name="tbHide">Hide the Toolbar</msg>
+  
+  <msg name="configEdit">Edit Google Spreadsheet</msg>
+  <msg name="configFontColor">Font Color</msg>
+  <msg name="configBGColor">Background Color</msg>
+  <msg name="configFontSize">Font Size</msg>
+  <msg name="configURL">Spreadsheet URL</msg>
+  <msg name="configBack">Back</msg>
+  <msg name="configSave">Save</msg>
+  <msg name="configPick">Pick</msg>
+  <msg name="configConfirm">Continue without saving?</msg>
+  <msg name="configErr">Invalid</msg>
+  
+  <msg name="fSizeXS">X-Small</msg>
+  <msg name="fSizeS">Small</msg>
+  <msg name="fSizeM">Medium</msg>
+  <msg name="fSizeL">Large</msg>
+  <msg name="fSizeXL">X-Large</msg>
+  
+  <msg name="setupH1">Gadget Setup</msg>
+  <msg name="setupGreet1">Welcome to the new Birthday Reminders 2.0!</msg>
+  <msg name="setupGreet2">You are just a few clicks away from enjoying some new features!</msg>
+  <msg name="setupGreet3">Do not worry, your old birthday list is safe!</msg>
+  <msg name="setupStep1">Create a new Google spreadsheet.</msg>
+  <msg name="setupStep2">Enter Dates in Column "A" and Names in Column "B".</msg>
+  <msg name="setupStep2P">Instructions for converting your old birthday list is available on the next page.</msg>
+  <msg name="setupStep3">Save the Google spreadsheet.</msg>
+  <msg name="setupStep4">Copy the Google spreadsheet address from the address bar.</msg>
+  <msg name="setupStep5">Paste the spreadsheet address below.</msg>
+  <msg name="setupMore">Click Here For more detailed instructions</msg>
+  
+  <msg name="convertH1">Convert</msg>
+  <msg name="convertStep1">Open your Google spreadsheet</msg>
+  <msg name="convertStep2">Copy the text below.</msg>
+  <msg name="convertStep3">Paste the text into the spreadsheet.</msg>
+  <msg name="convertStep4">Clear the old data when you are done.</msg>
+  <msg name="convertClear">Clear Old Data</msg>
+  <msg name="convertMore">See the help website for additional assistance.</msg>
+  
+  <msg name="errH1">Error</msg>
+  <msg name="errDateFormat">Please set the "Format" of colum A to "date".</msg>
+  <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>
+  <msg name="errUnk">Unexpected Error</msg>
+  <msg name="errSheet">Spreadsheet Error</msg>
+  <msg name="errNoData">Please make sure you have data in your Google spreadsheet.</msg>
+  <msg name="errAccess">Access Denied</msg>
+  <msg name="errLogin">Please make sure you have access to this spreadsheet or sign in to your Google account to see your birthday list.</msg>
+  <msg name="errTimeout">Server Timeout</msg>
+  <msg name="errRefresh">Please refresh the webpage to try again.</msg>
+  <msg name="errMore">See the help website for additional assistance.</msg>
+  <msg name="errCommon">Click "Refresh" after you make the changes in your Google spreadsheet.</msg>
+</messagebundle>
