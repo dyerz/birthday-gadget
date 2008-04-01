@@ -14,6 +14,8 @@
   <msg name="showDays">Show Days Column</msg>
   <msg name="showZodiac">Show Zodiac Column</msg>
   
+  <msg name="Loading">Loading</msg>
+  
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Name</msg>
   <msg name="tableAge">Age</msg>

@@ -70,7 +70,6 @@
 	/* Toolbar CSS */
 	#toolbar{ height: 12px; text-align: center; margin: 0; padding: 0; width: 100%;}
 	#toolbar table{ border-collapse: collapse; padding: 0; margin: 0; text-align: center; width: 100%;}
-	#toolbar img{ position: absolute; top: 2px; left: 0; border: 0;}
 	#toolbar td{ padding: 0; margin: 0; font-size: 10px;}
 	#tbConfig{ width: 20%; text-align: left; color: #0000FF; text-decoration: underline; cursor: pointer;}
 	#tbConvert{	width: 30%;	color: #FF0000;	text-decoration: underline;	cursor: pointer;}
@@ -117,7 +116,7 @@
 <div id="toolbar" style="display: none;"></div><div id="toolbarVis">
 <img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
-</div><div id="tablediv" >Loading...</div><div id="colorpicker201" class="colorpicker201"></div>
+</div><div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script>
     google.load("visualization", "1");
@@ -166,9 +165,9 @@
 		_gel('toolbar').innerHTML = html.join('');
 		
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="Loading..."; goConfig();};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="Loading..."; goConvert();}
-		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="Loading..."; sendQuery();};
+		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig();};
+		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert();}
+		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery();};
 
 		//js event config
 		_gel("toolbarVis").onclick=function(){
@@ -210,7 +209,7 @@
 			}
 			return;
 		}
-		var data = response.getDataTable(), html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=0;
+		var data = response.getDataTable(), html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
 
 		//check for dates
 		if(data.getColumnType(1)=="date"){ goError('Please move the dates from column "B" to column "A"'); return; }
@@ -348,7 +347,7 @@
 			if(!urlCheck(tempStr)) return;
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
-			tableDivObj__MODULE_ID__.innerHTML ="Loading...";
+			tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__...";
 			buildToolbar();
 			sendQuery();
 		}
