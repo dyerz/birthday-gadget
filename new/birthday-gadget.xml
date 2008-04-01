@@ -218,10 +218,10 @@
 
     function handleQueryResponse(response) {
 		if(response.isError()) {
-			switch(response.getReasons()){
+			switch(response.getMessage()){
 				case "access_denied": goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
 				case "timeout": goError('Server Timeout.<br />Please refresh the window to try again.'); break;
-				default: goError('Unexpected Error: '+response.getDetailedMessage());
+				default: goError('Unexpected Error: '+response.getMessage());
 			}
 			return;
 		}
