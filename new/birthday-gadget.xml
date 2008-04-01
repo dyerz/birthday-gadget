@@ -68,191 +68,68 @@
 <![CDATA[ 
 <style>
 	/* Toolbar CSS */
-	#toolbar{
-		height: 12px;
-		text-align: center;
-		margin: 0; padding: 0; 
-		width: 100%;
-	}
-
-	#toolbar table{
-		border-collapse: collapse; 
-		padding: 0; margin: 0;
-		text-align: center;
-		width: 100%;
-	}
-
-	#toolbar img{
-		position: absolute; 
-		top: 2px; left: 0; 
-		border: 0;
-	}
-
-	#toolbar td{
-		padding: 0; margin: 0;
-		font-size: 10px;
-	}
-
-	#tbConfig{
-		width: 20%;
-		text-align: left;
-		color: #0000FF;
-		text-decoration: underline;
-		cursor: pointer;
-	}
-	
-	#tbConvert{
-		width: 30%;
-		color: #FF0000;
-		text-decoration: underline;
-		cursor: pointer;
-	}
-
-	#tbRefresh{
-		width: 20%;
-		cursor: pointer;
-		color: #0000FF;
-		text-decoration: underline;
-		text-align: right;
-	}
+	#toolbar{ height: 12px; text-align: center; margin: 0; padding: 0; width: 100%;}
+	#toolbar table{ border-collapse: collapse; padding: 0; margin: 0; text-align: center; width: 100%;}
+	#toolbar img{ position: absolute; top: 2px; left: 0; border: 0;}
+	#toolbar td{ padding: 0; margin: 0; font-size: 10px;}
+	#tbConfig{ width: 20%; text-align: left; color: #0000FF; text-decoration: underline; cursor: pointer;}
+	#tbConvert{	width: 30%;	color: #FF0000;	text-decoration: underline;	cursor: pointer;}
+	#tbRefresh{	width: 20%;	cursor: pointer; color: #0000FF; text-decoration: underline; text-align: right;}
 	
 	/* Toolbar Vis CSS */
-	#toolbarVis{
-		margin: 6px 0 0 0; padding: 0;
-		width: 100%;
-		height: 3px;
-		background-color: #666666;
-		cursor: n-resize;
-		text-align: center;
-	}
-	
-	#toolbarVis img{
-		border: none;
-		margin: 0 auto;
-		padding: 0;
-	}
-	
-	#upImg{
-		position: relative; top: -5px;
-	}
-
-	#dnImg{
-		position: relative; bottom: -5px;
-	}	
+	#toolbarVis{ margin: 6px 0 0 0; padding: 0;	width: 100%; height: 3px; background-color: #666666; cursor: n-resize; text-align: center;}
+	#toolbarVis img{ border: none; margin: 0 auto; padding: 0;}
+	#upImg{ position: relative; top: -5px;}
+	#dnImg{ position: relative; bottom: -5px;}	
 
 	/* Table Div CSS */
-	#tablediv{
-		width: 100%; 
-		margin: 10px 0 0 0; padding: 0;
-	}
-	
-	#tablediv table {
-		border-collapse: collapse; 
-		width: 100%;
-	}
-	
-	#tablediv td {
-		background-color: inherit;
-		padding: 2px;
-	}
-	
-	#tablediv tr{
-		background-color: inherit;
-	}
+	#tablediv{ width: 100%; margin: 10px 0 0 0; padding: 0;}
+	#tablediv table { border-collapse: collapse; width: 100%;}
+	#tablediv td { background-color: inherit; padding: 2px;}
+	#tablediv tr{ background-color: inherit;}
+	#dataTable td{ text-align: center;}
+	.colid { font-weight: bold; border-bottom: 1px solid #000000; text-align: center;}
 
-	#dataTable td{
-		text-align: center;
-	}
-	
-	.colid {
-		font-weight: bold;
-		border-bottom: 1px solid #000000;
-		text-align: center;
-	}
-	
 	/* Font Size CSS */
 	.xsmall{ font-size: 10px;}
 	.small{ font-size: 11px;}
 	.medium{ font-size: 12px;}
 	.large{ font-size: 14px;}
 	.xlarge{ font-size: 16px;}
-	
+
 	/* Config Table CSS */
-	#configTable{
-		width: 100%;
-	}
-	
-	#configTable div{
-		width: 100%;
-	}
-	
-	#configTable td{
-		font-size: 11px;
-	}
-	
-	/**/
-	#shUrl{
-		width: 100%;
-	}		
-	
-	.configTitle{
-		text-align: left;
-		width: 30%;
-	}
-	
-	.configText{
-		text-align: left;
-		width: 70%;
-	}
-	
+	#configTable{ width: 100%;}
+	#configTable div{width: 100%;}
+	#configTable td{font-size: 11px;}
+	#shUrl{width: 100%;}		
+	.configTitle{text-align: left; width: 30%;}
+	.configText{ text-align: left; width: 70%;}
+
 	/* Misc CSS */
-	h1{
-		font-size: 22px;
-		text-align: center;
-	}
-	
-	.error{
-		color: #FF0000;
-	}
-	
-	#oldtxt{
-		width: 100%;
-		height: 100px;
-	}
-	
-	.left{
-		text-align: left;
-	}
-	
-	.exampleSpan{
-		padding-right: 25px;
-		border: 1px solid #DDDDDD;
-	}
-	
+	h1{font-size: 22px; text-align: center;}
+	.error{color: #FF0000;}
+	#oldtxt{width: 100%;height: 100px;}
+	.left{text-align: left;}
+	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
-<div id="toolbar" style="display: none;"></div>
-<div id="toolbarVis">
+<div id="toolbar" style="display: none;"></div><div id="toolbarVis">
 <img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/up.png" height="4" width="12" />
 <img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/new/bd_content/dn.png" height="4" width="12" />
-</div>
-<div id="tablediv" >Loading...</div>
-<div id="colorpicker201" class="colorpicker201"></div>
+</div><div id="tablediv" >Loading...</div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script>
-    google.load("visualization", "1"); // Load the Google Visualization API
-	var prefs__MODULE_ID__,
-		prefArr__MODULE_ID__=new Object();
-	var tableDivObj;
+    google.load("visualization", "1");
+	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object();
+	var tableDivObj__MODULE_ID__;
     
 	//get started
     function init(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
 		prefs__MODULE_ID__ = new _IG_Prefs();
-		tableDivObj=_gel('tablediv');
- 
+		tableDivObj__MODULE_ID__=_gel('tablediv');
 		//get prefs
 		for(var i=0; i<prefNames.length; i++){
 			switch(prefNames[i]){
@@ -269,40 +146,36 @@
 					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
 			}
 		}
-		
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
-
 		//toolbar creation
 		buildToolbar();
 		if(prefArr__MODULE_ID__["tbVis"]=="false"){ flipTB(Array(true, true, false, false));}
 		else {flipTB(Array(false, false, true, false));}
-
 		//init done.. show stuff
 		sendQuery();
     }
 
-/* Toolbar functions *****************************************************************************/
+/* Toolbar functions ***************************/
 	function buildToolbar(){
 		var html = [];
-		html.push('<table><tr>');
-		html.push('<td id="tbConfig">Configure</td>');
+		html.push('<table><tr><td id="tbConfig">Configure</td>');
 		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<td id="tbConvert">Convert</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Help</a></td>');
-		html.push('<td id="tbRefresh">Refresh</td>');
-		html.push('</tr></table>');	
+		html.push('<td id="tbRefresh">Refresh</td></tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
 		
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ tableDivObj.innerHTML ="Loading..."; goConfig();};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj.innerHTML ="Loading..."; goConvert();}
-		_gel("tbRefresh").onclick=function(){ tableDivObj.innerHTML ="Loading..."; sendQuery();};
+		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="Loading..."; goConfig();};
+		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="Loading..."; goConvert();}
+		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="Loading..."; sendQuery();};
 
 		//js event config
 		_gel("toolbarVis").onclick=function(){
-		prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
-		prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
-		flipTB(Array(true, true, true, true));};
+			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
+			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
+			flipTB(Array(true, true, true, true));
+		};
 	}
 	
 	function flipTB(sh){
@@ -313,7 +186,7 @@
 		if(sh[3]) _IG_AdjustIFrameHeight();
 	}
 
-/* Data Functions ********************************************************************************/	
+/* Data Functions ******************************/	
     function sendQuery(qCheck) {
 		if(prefArr__MODULE_ID__["_table_query_url"].search(/ccc\?/)!=-1 ){
 			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?");
@@ -331,12 +204,9 @@
     function handleQueryResponse(response) {
 		if(response.isError()) {
 			switch(response.getReasons()){
-				case "access_denied":
-					goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
-				case "timeout":
-					goError('Server Timeout.<br />Please refresh the window to try again.'); break;
-				default:
-					goError('Unexpected Error');
+				case "access_denied": goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
+				case "timeout": goError('Server Timeout.<br />Please refresh the window to try again.'); break;
+				default: goError('Unexpected Error');
 			}
 			return;
 		}
@@ -351,8 +221,8 @@
 		if(dataArray.length==0){
 			html.push('<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 			html.push('__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__</div>');
-			tableDivObj.style.textAlign="center";
-			tableDivObj.innerHTML = html.join('');
+			tableDivObj__MODULE_ID__.style.textAlign="center";
+			tableDivObj__MODULE_ID__.innerHTML = html.join('');
 			_IG_AdjustIFrameHeight(); return;
 		}
 
@@ -375,24 +245,20 @@
 
 			html.push('<tr><td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>');
 			html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml(rowData[1])+'</td>');
-			if(prefArr__MODULE_ID__["showAge"])
-				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge(rowDate, rowData[2])+'</td>');
-			if(prefArr__MODULE_ID__["showDays"])
-				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays(rowData[2])+'</td>');
-			if(prefArr__MODULE_ID__["showZodiac"])
-				html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac(rowData[2])+'</td>');
+			if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge(rowDate, rowData[2])+'</td>');
+			if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays(rowData[2])+'</td>');
+			if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac(rowData[2])+'</td>');
 			html.push('</tr>');
 			if(countDisp++>=dispLength) break;
 		}
 		html.push('</table>');
 
-		tableDivObj.innerHTML = html.join('');
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_IG_AdjustIFrameHeight();
     }
 
 	function buildArray(data){
-		var dataArray=new Array();
-		var dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		var dataArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*24*60*60*1000);
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*24*60*60*1000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
@@ -414,8 +280,7 @@
 	}
 
 	function sortDate__MODULE_ID__(a, b){
-		var aA=a.split("~;~"), bA=b.split("~;~");
-		return Date.parse(aA[2])-Date.parse(bA[2]);
+		var aA=a.split("~;~"), bA=b.split("~;~"); return Date.parse(aA[2])-Date.parse(bA[2]);
 	}	
 
     function makeDate__MODULE_ID__(inDate){
@@ -431,8 +296,7 @@
 	}
 
     function makeAge(rowDate, formatDate){var n=new Date(), b=new Date();
-		n.setTime(Date.parse(formatDate)); b.setTime(rowDate);
-		return n.getFullYear()-b.getFullYear();
+		n.setTime(Date.parse(formatDate)); b.setTime(rowDate); return n.getFullYear()-b.getFullYear();
 	}
     
 	function makeDays(formatDate){
@@ -444,55 +308,47 @@
 		var s=formatDate.split("/");
 		s[1]=parseInt(s[1],10); s[2]=parseInt(s[2],10);
 		switch(s[1]){
-			case 1: return(s[2]<21?"Capricorn":"Aquarius");
-			case 2: return(s[2]<19?"Aquarius":"Pisces");
-			case 3: return(s[2]<21?"Pisces":"Aries");
-			case 4: return(s[2]<21?"Aries":"Taurus");
-			case 5: return(s[2]<22?"Taurus":"Gemini");
-			case 6: return(s[2]<22?"Gemini":"Cancer");
-			case 7: return(s[2]<23?"Cancer":"Leo");
-			case 8: return(s[2]<22?"Leo":"Virgo");
-			case 9: return(s[2]<24?"Virgo":"Libra");
-			case 10: return(s[2]<24?"Libra":"Scorpio");
-			case 11: return(s[2]<23?"Scorpio":"Sagittarius");
-			case 12: return(s[2]<23?"Sagittarius":"Capricorn");
+			case 1: return (s[2]<21?"Capricorn":"Aquarius");
+			case 2: return (s[2]<19?"Aquarius":"Pisces");
+			case 3: return (s[2]<21?"Pisces":"Aries");
+			case 4: return (s[2]<21?"Aries":"Taurus");
+			case 5: return (s[2]<22?"Taurus":"Gemini");
+			case 6: return (s[2]<22?"Gemini":"Cancer");
+			case 7: return (s[2]<23?"Cancer":"Leo");
+			case 8: return (s[2]<22?"Leo":"Virgo");
+			case 9: return (s[2]<24?"Virgo":"Libra");
+			case 10: return (s[2]<24?"Libra":"Scorpio");
+			case 11: return (s[2]<23?"Scorpio":"Sagittarius");
+			case 12: return (s[2]<23?"Sagittarius":"Capricorn");
 		}
 	}	
 	
-/* General Functions *****************************************************************************/
+/* General Functions ***************************/
     function escapeHtml(text) {
 		if (text == null) { return ''; }
 		return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-/* Help / Error Functions ************************************************************************/
+/* Help / Error Functions **********************/
 	function showHelp(){
 		var html = [];
 		html.push('<h1>Gadget Setup</h1>');
-		if(prefArr__MODULE_ID__["birthdays"]!=""){
-			html.push('Welcome to the new Birthday Reminders 2.0!');
-			html.push('<br />You are just a few clicks away from enjoying some new features!');
-			html.push('<br />Don\'t worry, you\'re old birthday list is safe!');
-		}
+		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('Welcome to the new Birthday Reminders 2.0!<br />You are just a few clicks away from enjoying some new features!<br />Don\'t worry, you\'re old birthday list is safe!');
 		html.push('<ol><li><a href="http://docs.google.com/" target="_blank">Create a new Google spreadsheet</a></li>');
 		html.push('<li>Enter Dates in Column "A" and Names in Column "B"');
-		if(prefArr__MODULE_ID__["birthdays"]!="")
-			html.push('<br />Instructions for converting your old birthday list is available on the next page.');
+		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<br />Instructions for converting your old birthday list is available on the next page.');
 		html.push('</li><li>Save the spreadsheet</li><li>Copy address from the address bar</li>');
 		html.push('<li>Paste the address below<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="Save" id="saveurl" /></li></ol>');
 		html.push('For more detailed instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
 	
-		tableDivObj.innerHTML = html.join('');
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
 			var tempStr=_trim(_gel('newurl').value);
-			if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
-			if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1) {
-				alert("Invalid Spreadsheet url"); return ;
-			}
+			if(!urlCheck(tempStr)) return;
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
-			tableDivObj.innerHTML ="Loading...";
+			tableDivObj__MODULE_ID__.innerHTML ="Loading...";
 			buildToolbar();
 			sendQuery();
 		}
@@ -502,20 +358,18 @@
 
 	function goError(errText){
 		var moreErr=[];
-		moreErr.push('<h1>Error</h1>');
-		moreErr.push('<span class="error">'+errText+'</span>');
+		moreErr.push('<h1>Error</h1><span class="error">'+errText+'</span>');
 		moreErr.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
 		moreErr.push('<br />Click "Refresh" above after you have made the changes');
-		tableDivObj.innerHTML = moreErr.join('');
+		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
 	}	
 
-/* Config Page Functions *************************************************************************/	
+/* Config Page Functions ***********************/	
 	function goConfig(){
 		var html=[];
-		html.push('<h1>Configure</h1>');
-		html.push('<table id="configTable">');
-		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
+		html.push('<h1>Configure</h1><table id="configTable">');
+		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Edit Google Spreadsheet</a></td></tr>'); 
 		html.push('<tr><td class="configTitle">Font Color</td><td class="configText"><div><input id="textSet" type="button" value="Pick" /> ');
 		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
 		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["fontColor"]+'">&nbsp</span></div></td></tr>'); 
@@ -529,7 +383,7 @@
 		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		
-		tableDivObj.innerHTML = html.join('');	
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');	
 		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ 
@@ -539,13 +393,6 @@
 	}
 	
 	function getScrollY(){var scrOfX = 0,scrOfY=0;if(typeof(window.pageYOffset)=='number'){scrOfY=window.pageYOffset;scrOfX=window.pageXOffset;}else if(document.body&&(document.body.scrollLeft||document.body.scrollTop)){scrOfY=document.body.scrollTop;scrOfX=document.body.scrollLeft;}else if(document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)){scrOfY=document.documentElement.scrollTop;scrOfX=document.documentElement.scrollLeft;}return scrOfY;}document.write("<style type='text/css'>.colorpicker201{visibility:hidden;display:none;position:absolute;background:#FFF;border:solid 1px #CCC;padding:4px;z-index:999;filter:progid:DXImageTransform.Microsoft.Shadow(color=#D0D0D0,direction=135);}.o5582brd{padding:0;width:12px;height:14px;border-bottom:solid 1px #DFDFDF;border-right:solid 1px #DFDFDF;}a.o5582n66,.o5582n66,.o5582n66a{font-family:arial,tahoma,sans-serif;text-decoration:underline;font-size:9px;color:#666;border:none;}.o5582n66,.o5582n66a{text-align:center;text-decoration:none;}a:hover.o5582n66{text-decoration:none;color:#FFA500;cursor:pointer;}.a01p3{padding:1px 4px 1px 2px;background:whitesmoke;border:solid 1px #DFDFDF;}</style>");function getTop2(){csBrHt=0;if(typeof(window.innerWidth)=='number'){csBrHt=window.innerHeight;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrHt=document.documentElement.clientHeight;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrHt=document.body.clientHeight;}ctop=((csBrHt/2)-115)+getScrollY();return ctop;}var nocol1="&#78;&#79;&#32;&#67;&#79;&#76;&#79;&#82;",clos1="&#67;&#76;&#79;&#83;&#69;",tt2="&#70;&#82;&#69;&#69;&#45;&#67;&#79;&#76;&#79;&#82;&#45;&#80;&#73;&#67;&#75;&#69;&#82;&#46;&#67;&#79;&#77;",hm2="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#119;&#119;&#119;&#46;";hm2+=tt2;tt2="&#80;&#79;&#87;&#69;&#82;&#69;&#68;&#32;&#98;&#121;&#32;&#70;&#67;&#80;";function getLeft2(){var csBrWt=0;if(typeof(window.innerWidth)=='number'){csBrWt=window.innerWidth;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrWt=document.documentElement.clientWidth;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrWt=document.body.clientWidth;}cleft=(csBrWt/2)-125;return cleft;}function setCCbldID2(objID,val){document.getElementById(objID).value=val;}function setCCbldSty2(objID,prop,val){switch(prop){case "bc":if(objID!='none'){document.getElementById(objID).style.backgroundColor=val;};break;case "vs":document.getElementById(objID).style.visibility=val;break;case "ds":document.getElementById(objID).style.display=val;break;case "tp":document.getElementById(objID).style.top=val;break;case "lf":document.getElementById(objID).style.left=val;break;}}function putOBJxColor2(OBjElem,Samp,pigMent){if(pigMent!='x'){setCCbldID2(OBjElem,pigMent);setCCbldSty2(Samp,'bc',pigMent);}setCCbldSty2('colorpicker201','vs','hidden');setCCbldSty2('colorpicker201','ds','none');}function showColorGrid2(OBjElem,Sam){var objX=new Array('00','33','66','99','CC','FF');var c=0;var z='"'+OBjElem+'","'+Sam+'",""';var xl='"'+OBjElem+'","'+Sam+'","x"';var mid='';mid+='<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="border:solid 0px #F0F0F0;padding:2px;"><tr>';mid+="<td colspan='18' align='left' style='font-size:10px;background:#6666CC;color:#FFF;font-family:arial;'>&nbsp;Chromatic Selection Palette</td></tr><tr><td colspan='18' align='center' style='margin:0;padding:2px;height:12px;' ><input class='o5582n66' type='text' size='12' id='o5582n66' value='#FFFFFF'><input class='o5582n66a' type='text' size='2' style='width:14px;' id='o5582n66a' onclick='javascript:alert(\"click on selected swatch below...\");' value='' style='border:solid 1px #666;'>&nbsp;|&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2("+z+")'><span class='a01p3'>"+nocol1+"</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2("+xl+")'><span class='a01p3'>"+clos1+"</span></a></td></tr><tr>";var br=1;for(o=0;o<6;o++){mid+='</tr><tr>';for(y=0;y<6;y++){if(y==3){mid+='</tr><tr>';}for(x=0;x<6;x++){var grid='';grid=objX[o]+objX[y]+objX[x];var b="'"+OBjElem+"', '"+Sam+"','#"+grid+"'";mid+='<td class="o5582brd" style="background-color:#'+grid+'"><a class="o5582n66"  href="javascript:onclick=putOBJxColor2('+b+');" onmouseover=javascript:document.getElementById("o5582n66").value="#'+grid+'";javascript:document.getElementById("o5582n66a").style.backgroundColor="#'+grid+'";  title="#'+grid+'"><div style="width:12px;height:14px;"></div></a></td>';c++;}}}mid+="</tr><tr><td colspan='18' align='right' style='padding:2px;border:solid 1px #FFF;background:#FFF;'><a href='"+hm2+"' style='color:#666;font-size:8px;font-family:arial;text-decoration:none;letter-spacing:1px;'>"+tt2+"</a></td></tr></table>";var ttop=getTop2();setCCbldSty2('colorpicker201','tp',ttop);document.getElementById('colorpicker201').style.left=getLeft2();setCCbldSty2('colorpicker201','vs','visible');setCCbldSty2('colorpicker201','ds','block');document.getElementById('colorpicker201').innerHTML=mid;}
-
-	function colorCheck(color, title){
-		var hexTest=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
-		if(color.length==0) return true;
-		if(!hexTest.test(color)) {alert(title+" is in an invalid format"); return false;}
-		return true;
-	}
 
 	function makeFontSize(){
 		var retStr=[], sizeStr=["xsmall", "small", "medium", "large", "xlarge"], selStr="";
@@ -576,30 +423,36 @@
 		bC=tempStr;
 		fS=_gel("fontSize").value;
 		tempStr=_trim(_gel("shUrl").value);
-		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
-		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1) {
-			alert("Invalid Spreadsheet url"); return false;
-		}
+		if(!urlCheck(tempStr)) return false;
 		
 		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "shUrl", tempStr);
-		prefArr__MODULE_ID__["fontSize"]=fS;
-		prefArr__MODULE_ID__["fontColor"]=fC;
-		prefArr__MODULE_ID__["bgColor"]=bC;
-		prefArr__MODULE_ID__["_table_query_url"]=tempStr;
+		prefArr__MODULE_ID__["fontSize"]=fS; prefArr__MODULE_ID__["fontColor"]=fC; prefArr__MODULE_ID__["bgColor"]=bC; prefArr__MODULE_ID__["_table_query_url"]=tempStr;
 		return true;
 	}
 
-/* Reverse Compatibility Functions ***************************************************************/
+	function colorCheck(color, title){
+		var hexTest=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
+		if(color.length==0) return true;
+		if(!hexTest.test(color)) {alert(title+" is in an invalid format"); return false;}
+		return true;
+	}
+	
+	function urlCheck(tempStr){
+		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
+		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1){ alert("Invalid Spreadsheet url"); return false;}
+		return true;
+	}
+
+/* Reverse Compatibility Functions *************/
 	function goConvert(){
 		var html=[];
 		html.push('<h1>Convert</h1><ol>');
 		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Open your Google spreadsheet</a></li>');
-		html.push('<li>Copy the text below.');
-		html.push('<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t")+'</textarea></li>');
+		html.push('<li>Copy the text below.<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t")+'</textarea></li>');
 		html.push('<li>Paste the text into the spreadsheet.</li><li>Clear the old data when you are done.');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" /></li></ol>');
 		html.push('See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
-		tableDivObj.innerHTML = html.join('');		
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
 			prefArr__MODULE_ID__["birthdays"]="";
