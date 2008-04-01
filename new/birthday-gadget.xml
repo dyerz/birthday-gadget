@@ -63,7 +63,6 @@
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
-<UserPref name="debugMe" default_value="true" datatype="bool" /> 
 
 <Content type="html">
 <![CDATA[ 
@@ -230,17 +229,6 @@
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj=_gel('tablediv');
  
-
-		//temp data check!!!
-		//******************************************************************************
-		if(prefs__MODULE_ID__.getBool("debugMe")){
-			prefs__MODULE_ID__.set("birthdays", '1953/01/25; Name\n2006/02/26;Madi\n1985/04/26;Test\n1989/04/27;broken?\n2001/05/25; Safe\n2007/05/25; Some Date\n1950/06/01; Test\n1954/06/05; Test\n1980/06/11; Test1\n1980/06/12; Test1\n1980/06/13; Test1\n1980/07/01; Test4\n1975/10/15;Test\n1987/11/13;Weston');
-			prefs__MODULE_ID__.set("debugMe", false);
-			//prefs__MODULE_ID__.set("_table_query_url", "");
-			prefs__MODULE_ID__ = new _IG_Prefs();
-		}
-		//******************************************************************************
-
 		//get prefs
 		for(var i=0; i<prefNames.length; i++){
 			switch(prefNames[i]){
@@ -320,7 +308,7 @@
 		if(response.isError()) {
 			switch(response.getReasons()){
 				case "access_denied":
-					goError('Spreadsheet Access Denied.<br />Please log in to your Google account.'); break;
+					goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
 				case "timeout":
 					goError('Server Timeout.<br />Please refresh the window to try again.'); break;
 				default:
