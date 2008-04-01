@@ -2,21 +2,27 @@
 <messagebundle>
   <msg name="title">Birthday Reminder 2.0</msg>
   <msg name="description">Never miss a birthday again!</msg>
+  
   <msg name="titleName">Gadget Title</msg>
   <msg name="formatName">Date Format</msg>
-  <msg name="showAge">Show Age</msg>
-  <msg name="showDays">Show Days</msg>
-  <msg name="showZodiac">Show Zodiac</msg>
-  <msg name="birthdayName">Birthdays</msg>
   <msg name="showName">Max Visible Birthdays</msg>
-  <msg name="pastNoticeName">Days After</msg>
   <msg name="futureNoticeName">Days Before</msg>
+  <msg name="pastNoticeName">Days After</msg>
+  <msg name="noticeAll">All</msg>
+  <msg name="noticeNone">None</msg>
+  <msg name="showAge">Show Age Column</msg>
+  <msg name="showDays">Show Days Column</msg>
+  <msg name="showZodiac">Show Zodiac Column</msg>
+  
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Name</msg>
   <msg name="tableAge">Age</msg>
-  <msg name="none">No birthdays saved. Please edit settings above to add the dates of the birthdays you want to remember.</msg>
-  <msg name="nobd1">No birthdays in the next </msg>
-  <msg name="nobd2"> days.</msg>
+  <msg name="tableDays">Days</msg>
+  <msg name="tableZodiac">Zodiac</msg>
+  
+  <msg name="noBirthdays1">No birthdays in the next </msg>
+  <msg name="noBirthdays2"> days.</msg>
+  
   <msg name="ajan">Jan.</msg>
   <msg name="afeb">Feb.</msg>
   <msg name="amar">Mar.</msg>
@@ -29,9 +35,31 @@
   <msg name="aoct">Oct.</msg>
   <msg name="anov">Nov.</msg>
   <msg name="adec">Dec.</msg>
-  <msg name="trans"></msg>
   <msg name="today">Today</msg>
-  <msg name="confirmSave">Continue without saving?</msg>
+  
+  <msg name="tbConfig">Configure</msg>
+  <msg name="tbConvert">Convert</msg>
+  <msg name="tbHelp">Help</msg>
+  <msg name="tbRefresh">Refresh</msg>
+  
+  <msg name="configEdit">Edit Google Spreadsheet</msg>
+  <msg name="configFontColor">Font Color</msg>
+  <msg name="configBGColor">Background Color</msg>
+  <msg name="configFontSize">Font Size</msg>
+  <msg name="configURL">Spreadsheet URL</msg>
+  <msg name="configBack">Back</msg>
+  <msg name="configSave">Save</msg>
+  <msg name="configPick">Pick</msg>
+  <msg name="configConfirm">Continue without saving?</msg>
+  <msg name="configErr">Invalid</msg>
+  
+  <msg name="fSizeXS">X-Small</msg>
+  <msg name="fSizeS">Small</msg>
+  <msg name="fSizeM">Medium</msg>
+  <msg name="fSizeL">Large</msg>
+  <msg name="fSizeXL">X-Large</msg>
+  
+  
   <msg name="modeTitleDisplay">Display</msg>
   <msg name="modeTitleEdit">Edit</msg>
   <msg name="buttonSave">Save</msg>
