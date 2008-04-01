@@ -193,10 +193,10 @@
 	function flipTB(sh){
 		if(prefArr__MODULE_ID__["tbVis"]=="false"){
 			_gel("toolbarVis").title="__MSG_tbHide__";
-			_gel("toolbar").style.show=""; _gel("upImg").style.show=""; _gel("dnImg").style.show="none";
+			_gel("toolbar").style.display=""; _gel("upImg").style.display=""; _gel("dnImg").style.display="none";
 		} else {
 			_gel("toolbarVis").title="__MSG_tbShow__";
-			_gel("toolbar").style.show="none"; _gel("upImg").style.show="none"; _gel("dnImg").style.show="";
+			_gel("toolbar").style.display="none"; _gel("upImg").style.display="none"; _gel("dnImg").style.display="";
 		}
 		if(sh) _IG_AdjustIFrameHeight();
 	}
