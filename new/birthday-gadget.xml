@@ -337,8 +337,10 @@
 		
 		var dataArray=buildArray(data);
 		if(dataArray.length==0){
-			tableDivObj.innerHTML = '__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__';
+			html.push('<div style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">);
+			html.push('__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__</div>');
 			tableDivObj.style.textAlign="center";
+			tableDivObj.innerHTML = html.join('');
 			_IG_AdjustIFrameHeight(); return;
 		}
 
