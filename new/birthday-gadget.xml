@@ -179,7 +179,10 @@
 	
 	/* Config Table CSS */
 	#configTable{
-		table-layout: fixed;
+		width: 100%;
+	}
+	
+	#configTable div{
 		width: 100%;
 	}
 	
