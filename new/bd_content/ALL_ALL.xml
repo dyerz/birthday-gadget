@@ -46,7 +46,6 @@
   <msg name="tbShow">Show the Toolbar</msg>
   <msg name="tbHide">Hide the Toolbar</msg>
   
-  
   <msg name="configEdit">Edit Google Spreadsheet</msg>
   <msg name="configFontColor">Font Color</msg>
   <msg name="configBGColor">Background Color</msg>
@@ -96,21 +95,4 @@
   <msg name="errRefresh">Please refresh the webpage to try again.</msg>
   <msg name="errMore">See the help website for additional assistance.</msg>
   <msg name="errCommon">Click "Refresh" after you make the changes in your Google spreadsheet.</msg>
-  
-  
-  
-  <msg name="modeTitleDisplay">Display</msg>
-  <msg name="modeTitleEdit">Edit</msg>
-  <msg name="buttonSave">Save</msg>
-  <msg name="boxTitleError">Error</msg>
-  <msg name="errMonth">Invalid month</msg>
-  <msg name="errDay">Invalid day</msg>
-  <msg name="errFormat">Format not supported</msg>
-  <msg name="errName">Name not found</msg>
-  <msg name="errNameChar">'|' not allowed in Name</msg>
-  <msg name="errLine">Only one ';' per line</msg>
-  <msg name="errDate">Incorrect Date</msg>
-  <msg name="boxTitlePreview">Preview</msg>
-  <msg name="format">Format: YYYY/MM/DD;Name or MM/DD;Name</msg>
-  <msg name="warnOver">Warning! Maximum Characters Reached, Please Delete Some.</msg>
 </messagebundle>
