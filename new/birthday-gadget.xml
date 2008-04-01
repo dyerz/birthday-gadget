@@ -228,6 +228,8 @@
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
 		prefs__MODULE_ID__ = new _IG_Prefs();
+		tableDivObj=_gel('tablediv');
+ 
 
 		//temp data check!!!
 		//******************************************************************************
@@ -280,9 +282,9 @@
 		_gel('toolbar').innerHTML = html.join('');
 		
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConfig();};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; goConvert();}
-		_gel("tbRefresh").onclick=function(){ _gel('tablediv').innerHTML ="Loading..."; sendQuery();};
+		_gel("tbConfig").onclick=function(){ tableDivObj.innerHTML ="Loading..."; goConfig();};
+		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj.innerHTML ="Loading..."; goConvert();}
+		_gel("tbRefresh").onclick=function(){ tableDivObj.innerHTML ="Loading..."; sendQuery();};
 
 		//js event config
 		_gel("toolbarVis").onclick=function(){
@@ -335,8 +337,9 @@
 		
 		var dataArray=buildArray(data);
 		if(dataArray.length==0){
-			html.push('__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__');
-			_gel('tablediv').style.textAlign="center"; return;
+			tableDivObj.innerHTML = '__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__';
+			tableDivObj.style.textAlign="center";
+			_IG_AdjustIFrameHeight(); return;
 		}
 
 		html.push('<table id="dataTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
@@ -369,7 +372,7 @@
 		}
 		html.push('</table>');
 
-		_gel('tablediv').innerHTML = html.join('');
+		tableDivObj.innerHTML = html.join('');
 		_IG_AdjustIFrameHeight();
     }
 
@@ -466,7 +469,7 @@
 		html.push('<br /><input type="button" value="Save" id="saveurl" /></li></ol>');
 		html.push('For more detailed instructions, <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">Click Here</a>');
 	
-		_gel('tablediv').innerHTML = html.join('');
+		tableDivObj.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
 			var tempStr=_trim(_gel('newurl').value);
 			if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
@@ -475,7 +478,7 @@
 			}
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
-			_gel('tablediv').innerHTML ="Loading...";
+			tableDivObj.innerHTML ="Loading...";
 			buildToolbar();
 			sendQuery();
 		}
@@ -489,7 +492,7 @@
 		moreErr.push('<span class="error">'+errText+'</span>');
 		moreErr.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
 		moreErr.push('<br />Click "Refresh" above after you have made the changes');
-		_gel('tablediv').innerHTML = moreErr.join('');
+		tableDivObj.innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
 	}	
 
@@ -512,7 +515,7 @@
 		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
 		
-		_gel('tablediv').innerHTML = html.join('');	
+		tableDivObj.innerHTML = html.join('');	
 		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ 
@@ -582,7 +585,7 @@
 		html.push('<li>Paste the text into the spreadsheet.</li><li>Clear the old data when you are done.');
 		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" /></li></ol>');
 		html.push('See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
-		_gel('tablediv').innerHTML = html.join('');		
+		tableDivObj.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
 			prefArr__MODULE_ID__["birthdays"]="";
