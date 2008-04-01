@@ -193,8 +193,10 @@
 	/**/
 	#shUrl{
 		width: 100%;
-		overflow hidden;
-	}
+		overflow: scroll;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		overflow:-moz-scrollbars-horizontal;	}
 	
 	
 	.configTitle{
