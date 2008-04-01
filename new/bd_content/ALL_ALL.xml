@@ -74,8 +74,7 @@
   <msg name="setupStep3">Save the Google spreadsheet.</msg>
   <msg name="setupStep4">Copy the Google spreadsheet address from the address bar.</msg>
   <msg name="setupStep5">Paste the spreadsheet address below.</msg>
-  <msg name="setupMore">For more detailed instructions</msg>
-  <msg name="setupClick">Click Here</msg>
+  <msg name="setupMore">Click Here For more detailed instructions</msg>
   
   <msg name="convertH1">Convert</msg>
   <msg name="convertStep1">Open your Google spreadsheet</msg>
@@ -84,6 +83,12 @@
   <msg name="convertStep4">Clear the old data when you are done.</msg>
   <msg name="convertClear">Clear Old Data</msg>
   <msg name="convertMore">See the help website for additional assistance.</msg>
+  
+  <msg name="errH1">Error</msg>
+  <msg name="errDateFormat">Please set the "Format" of colum A to "date".</msg>
+  <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>
+  <msg name="errMore">See the help website for additional assistance.</msg>
+  <msg name="errCommon">Click "Refresh" after you make the changes in the Google spreadsheet.</msg>
   
   
   

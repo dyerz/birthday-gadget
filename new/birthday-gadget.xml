@@ -221,7 +221,7 @@
 			switch(response.getReasons()){
 				case "access_denied": goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
 				case "timeout": goError('Server Timeout.<br />Please refresh the window to try again.'); break;
-				default: goError('Unexpected Error');
+				default: goError('Unexpected Error: '+response.getDetailedMessage());
 			}
 			return;
 		}
@@ -355,7 +355,7 @@
 		html.push('</li><li>__MSG_setupStep3__</li><li>__MSG_setupStep4__</li>');
 		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
-		html.push('__MSG_setupMore__ <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">__MSG_setupClick__</a>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="FAQ" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
@@ -364,8 +364,6 @@
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 			tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__...";
-			//buildToolbar();
-			//sendQuery();
 			init();
 		}
 
@@ -463,12 +461,12 @@
 /* Convert - Reverse Compatibility Functions ***/
 	function goConvert(){
 		var html=[];
-		html.push('<h1>Convert</h1><ol>');
-		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Open your Google spreadsheet</a></li>');
-		html.push('<li>Copy the text below.<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t")+'</textarea></li>');
-		html.push('<li>Paste the text into the spreadsheet.</li><li>Clear the old data when you are done.');
-		html.push('<br /><input type="button" value="Clear Old Data" id="clearOld" /></li></ol>');
-		html.push('See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
+		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
+		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_convertStep1__</a></li>');
+		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t")+'</textarea></li>');
+		html.push('<li>__MSG_convertStep3__</li><li>__MSG_convertStep4__');
+		html.push('<br /><input type="button" value="__MSG_convertClear__" id="clearOld" /></li></ol>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">__MSG_convertMore__</a></div>');
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
