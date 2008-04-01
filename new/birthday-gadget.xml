@@ -218,18 +218,19 @@
 
     function handleQueryResponse(response) {
 		if(response.isError()) {
-			switch(response.getMessage()){
+			switch(response.getReasons()){
 				case "access_denied": goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
 				case "timeout": goError('Server Timeout.<br />Please refresh the window to try again.'); break;
-				default: goError('Unexpected Error: '+response.getMessage());
+				case "invalid_query": goError('Spreadsheet problem.<br />Please make sure you have data in your spreadsheet.'); break;
+				default: goError('Unexpected Error: '+response.getDetailedMessage());
 			}
 			return;
 		}
 		var data = response.getDataTable(), html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
 
 		//check for dates
-		if(data.getColumnType(1)=="date"){ goError('Please move the dates from column "B" to column "A"'); return; }
-		if(data.getColumnType(0)!="date"){ goError('Please set the "Format" of colum A to "date"'); return; }
+		if(data.getColumnType(1)=="date"){ goError('__MSG_errColumn__'); return; }
+		if(data.getColumnType(0)!="date"){ goError('__MSG_errDateFormat__'); return; }
 		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError('No data was found in your spreadsheet'); return; }
 		
 		var dataArray=buildArray(data);
@@ -372,9 +373,9 @@
 
 	function goError(errText){
 		var moreErr=[];
-		moreErr.push('<h1>Error</h1><span class="error">'+errText+'</span>');
-		moreErr.push('<br />See <a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">the help website</a> for additional assistance.');
-		moreErr.push('<br />Click "Refresh" above after you have made the changes');
+		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
+		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">__MSG_errMore__</a>');
+		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
 	}	
