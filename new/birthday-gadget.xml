@@ -219,10 +219,10 @@
     function handleQueryResponse(response) {
 		if(response.isError()) {
 			switch(response.getReasons()){
-				case "access_denied": goError('Spreadsheet Access Denied.<br />Please make sure you have access to this spreadsheet or log in to your Google account.'); break;
-				case "timeout": goError('Server Timeout.<br />Please refresh the window to try again.'); break;
-				case "invalid_query": goError('Spreadsheet problem.<br />Please make sure you have data in your spreadsheet.'); break;
-				default: goError('Unexpected Error: '+response.getDetailedMessage());
+				case "access_denied": goError('__MSG_errAccess__<br />__MSG_errLogin__'); break;
+				case "timeout": goError('__MSG_errTimeout__<br />__MSG_errRefresh__'); break;
+				case "invalid_query": goError('__MSG_errSheet__<br />__MSG_errNoData__'); break;
+				default: goError('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />__MSG_errNoData__');
 			}
 			return;
 		}
@@ -231,7 +231,7 @@
 		//check for dates
 		if(data.getColumnType(1)=="date"){ goError('__MSG_errColumn__'); return; }
 		if(data.getColumnType(0)!="date"){ goError('__MSG_errDateFormat__'); return; }
-		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError('No data was found in your spreadsheet'); return; }
+		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError('__MSG_errNoData__'); return; }
 		
 		var dataArray=buildArray(data);
 		if(dataArray.length==0){

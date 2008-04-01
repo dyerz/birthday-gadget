@@ -87,8 +87,15 @@
   <msg name="errH1">Error</msg>
   <msg name="errDateFormat">Please set the "Format" of colum A to "date".</msg>
   <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>
+  <msg name="errUnk">Unexpected Error</msg>
+  <msg name="errSheet">Spreadsheet Error</msg>
+  <msg name="errNoData">Please make sure you have data in your Google spreadsheet.</msg>
+  <msg name="errAccess">Access Denied</msg>
+  <msg name="errLogin">Please make sure you have access to this spreadsheet or sign in to your Google account to see your birthday list.</msg>
+  <msg name="errTimeout">Server Timeout</msg>
+  <msg name="errRefresh">Please refresh the webpage to try again.</msg>
   <msg name="errMore">See the help website for additional assistance.</msg>
-  <msg name="errCommon">Click "Refresh" after you make the changes in the Google spreadsheet.</msg>
+  <msg name="errCommon">Click "Refresh" after you make the changes in your Google spreadsheet.</msg>
   
   
   
