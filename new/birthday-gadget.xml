@@ -192,9 +192,9 @@
 	
 	/**/
 	#shUrl{
-		wrap: off;
+		white-space: nowrap;
 		width: 100%;
-		height: 22px;
+		height: 32px;
 		overflow: scroll;
 		overflow-y: hidden;
 		overflow-x: scroll;
@@ -530,7 +530,7 @@
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></div></td></tr>'); 
 		html.push('<tr><td class="configTitle">Font Size</td><td class="configText">'+makeFontSize()+'</td></tr>'); 
 //		html.push('<tr><td class="configTitle">Spreadsheet Url</td><td class="configText"><div><input id="shUrl" type="text" value="'+prefArr__MODULE_ID__["_table_query_url"]+'" /></div></td></tr>'); 
-		html.push('<tr><td class="configTitle">Spreadsheet Url</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
+		html.push('<tr><td class="configTitle">Spreadsheet Url</td><td class="configText"><textarea id="shUrl" rows="1" wrap="off">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
 		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
