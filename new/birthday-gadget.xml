@@ -183,15 +183,20 @@
 		font-size: 11px;
 	}
 	
-	/*
+	/**/
 	#shUrl{
 		width: 100%;
 	}
-	*/
+	
 	
 	.configTitle{
 		text-align: left;
-		width: 10%;
+		width: 15%;
+	}
+	
+	.configText{
+		text-align: left;
+		width: 85%;
 	}
 	
 	/* Misc CSS */
@@ -504,15 +509,15 @@
 		var html=[];
 		html.push('<h1>Configure</h1>');
 		html.push('<table id="configTable">');
-		html.push('<tr><td colspan="2"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
-		html.push('<tr><td class="configTitle">Font Color</td><td><input id="textSet" type="button" value="Pick" />');
+		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">Edit Spreadsheet</a></td></tr>'); 
+		html.push('<tr><td class="configTitle">Font Color</td><td class="configText"><input id="textSet" type="button" value="Pick" />');
 		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
 		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["fontColor"]+'">&nbsp</span></td></tr>'); 
-		html.push('<tr><td class="configTitle">Background Color</td><td><input id="bgcSet" type="button" value="Pick" />');
+		html.push('<tr><td class="configTitle">Background Color</td><td class="configText"><input id="bgcSet" type="button" value="Pick" />');
 		html.push('<input id="bgcDiv" type="text" value="'+prefArr__MODULE_ID__["bgColor"]+'" /> ');
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
-		html.push('<tr><td class="configTitle">Font Size</td><td>'+makeFontSize()+'</td></tr>'); 
-		html.push('<tr><td class="configTitle">Spreadsheet Url</td><td><input id="shUrl" type="text" value="'+prefArr__MODULE_ID__["_table_query_url"]+'" /></td></tr>'); 
+		html.push('<tr><td class="configTitle">Font Size</td><td class="configText">'+makeFontSize()+'</td></tr>'); 
+		html.push('<tr><td class="configTitle">Spreadsheet Url</td><td class="configText"><input id="shUrl" type="text" value="'+prefArr__MODULE_ID__["_table_query_url"]+'" /></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0;">');
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
 		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
