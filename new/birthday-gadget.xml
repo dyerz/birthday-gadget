@@ -182,6 +182,7 @@
 	
 	#configTable td{
 		font-size: 11px;
+		display: inline;
 	}
 	
 	#shUrl{
