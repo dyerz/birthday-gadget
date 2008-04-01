@@ -150,17 +150,20 @@
 		border-collapse: collapse; 
 		width: 100%;
 	}
-
+	
 	#tablediv td {
 		background-color: inherit;
 		padding: 2px;
-		text-align: center;
 	}
 	
 	#tablediv tr{
 		background-color: inherit;
 	}
 
+	#dataTable td{
+		text-align: center;
+	}
+	
 	.colid {
 		font-weight: bold;
 		border-bottom: 1px solid #000000;
@@ -185,7 +188,7 @@
 	
 	/**/
 	#shUrl{
-		width: 100%;
+		width: 80%;
 	}
 	
 	
