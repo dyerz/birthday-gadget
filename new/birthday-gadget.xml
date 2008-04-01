@@ -64,6 +64,9 @@
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
 
+<UserPref name="debugMe" default_value="false" datatype="bool" />
+
+
 <Content type="html">
 <![CDATA[ 
 <style>
@@ -145,6 +148,17 @@
 					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
 			}
 		}
+		
+		/*** DEBUG ***/
+		if(prefs__MODULE_ID__.getBool("debugMe")){
+			prefArr__MODULE_ID__["_table_query_url"]="";
+			prefs__MODULE_ID__.set("_table_query_url", "");
+			prefArr__MODULE_ID__["birthdays"]="2008/08/12\tName";
+			prefs__MODULE_ID__.set("birthdays", prefArr__MODULE_ID__["birthdays"]);
+			prefs__MODULE_ID__.set("debugMe", false);
+		}
+		
+		
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
 		//toolbar creation
