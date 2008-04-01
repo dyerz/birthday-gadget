@@ -249,7 +249,7 @@
 			if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays(rowData[2])+'</td>');
 			if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac(rowData[2])+'</td>');
 			html.push('</tr>');
-			if(countDisp++>=dispLength) break;
+			if(countDisp++>dispLength) break;
 		}
 		html.push('</table>');
 
