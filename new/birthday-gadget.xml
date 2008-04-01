@@ -183,9 +183,11 @@
 		font-size: 11px;
 	}
 	
+	/*
 	#shUrl{
 		width: 100%;
 	}
+	*/
 	
 	.configTitle{
 		text-align: left;
