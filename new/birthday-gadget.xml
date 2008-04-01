@@ -337,7 +337,7 @@
 		
 		var dataArray=buildArray(data);
 		if(dataArray.length==0){
-			html.push('<div style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
+			html.push('<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 			html.push('__MSG_nobd1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_nobd2__</div>');
 			tableDivObj.style.textAlign="center";
 			tableDivObj.innerHTML = html.join('');
