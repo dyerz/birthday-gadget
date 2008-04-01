@@ -188,18 +188,18 @@
 	
 	/**/
 	#shUrl{
-		width: 80%;
+		width: 50%;
 	}
 	
 	
 	.configTitle{
 		text-align: left;
-		width: 15%;
+		width: 25%;
 	}
 	
 	.configText{
 		text-align: left;
-		width: 85%;
+		width: 75%;
 	}
 	
 	/* Misc CSS */
@@ -521,7 +521,7 @@
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="configTitle">Font Size</td><td class="configText">'+makeFontSize()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">Spreadsheet Url</td><td class="configText"><input id="shUrl" type="text" value="'+prefArr__MODULE_ID__["_table_query_url"]+'" /></td></tr>'); 
-		html.push('</table><table style="margin: 0; padding: 0;">');
+		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="Back" /></td>');
 		html.push('<td><input id="configSave" type="button" value="Save" /></td></tr>'); 
 		html.push('</table>');
