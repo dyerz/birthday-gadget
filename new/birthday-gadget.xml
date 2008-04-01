@@ -177,6 +177,7 @@
 	/* Config Table CSS */
 	#configTable{
 		table-layout: fixed;
+		width: 100%;
 	}
 	
 	#configTable td{
