@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Lembretes Do Aniversário</msg>
-  <msg name="description">Nunca falte um aniversário outra vez!</msg>
-  <msg name="titleName">Título</msg>
-  <msg name="birthdayName">Birthdays</msg>
-  <msg name="showName">Aniversários visíveis</msg>
-  <msg name="noticeName">Visualizar dias</msg>
+  <msg name="title"> Lembrete de aniversário 2,0</msg>
+  <msg name="description"> Nunca perca uma aniversário de novo! </msg>
+  
+  <msg name="titleName"> Gadget Título</msg>
+  <msg name="formatName">Data Format</msg>
+  <msg name="showName"> Máximo visível aniversários</msg>
+  <msg name="futureNoticeName">Dias Antes</msg>
+  <msg name="pastNoticeName"> Dias Após</msg>
+  <msg name="noticeAll">Todos</msg>
+  <msg name="noticeNone">Nenhum</msg>
+  <msg name="showAge">Mostrar idade coluna</msg>
+  <msg name="showDays">Mostrar dias coluna</msg>
+  <msg name="showZodiac">Mostrar Zodiac coluna</msg>
+  
+  <msg name="Loading">Carregando</msg>
+  
   <msg name="tableDate">Data</msg>
   <msg name="tableName">Nome</msg>
   <msg name="tableAge">Idade</msg>
-  <msg name="none">Nenhum aniversário conservou. Edite por favor ajustes acima para adicionar as datas dos aniversários que você quer recordar.</msg>
-  <msg name="nobd1">Nenhuns aniversários nos </msg>
-  <msg name="nobd2"> dias seguintes.</msg>
+  <msg name="tableDays">Dias</msg>
+  <msg name="tableZodiac">Zodiac</msg>
+  
+  <msg name="noBirthdays1"> Nenhum aniversários nos próximos</msg>
+  <msg name="noBirthdays2">dias.</msg>
+  
   <msg name="ajan">jan.</msg>
   <msg name="afeb">fev.</msg>
   <msg name="amar">marco</msg>
@@ -24,22 +37,75 @@
   <msg name="aoct">out.</msg>
   <msg name="anov">nov.</msg>
   <msg name="adec">dez.</msg>
-  <msg name="trans">Ajuda da tradução do Guilherme N.</msg>
   <msg name="today">Hoje</msg>
-  <msg name="formatName">Formato de data</msg>
-  <msg name="confirmSave">Prosiga sem gravação?</msg>
-  <msg name="modeTitleDisplay">Exposição</msg>
-  <msg name="modeTitleEdit">Editar</msg>
-  <msg name="buttonSave">Registro</msg>
-  <msg name="boxTitleError">Erro</msg>
-  <msg name="errMonth">Mês inválido</msg>
-  <msg name="errDay">Dia inválido</msg>
-  <msg name="errFormat">Formato não suportado</msg>
-  <msg name="errName">Nome não encontrado</msg>
-  <msg name="errNameChar">'|' não permitido no nome</msg>
-  <msg name="errLine">Somente um ';' por a linha</msg>
-  <msg name="errDate">Data Incorreta</msg>
-  <msg name="boxTitlePreview">Inspecção prévia</msg>
-  <msg name="format">Formato: YYYY/MM/DD;Nome ou MM/DD;Nome</msg>
-  <msg name="warnOver">Aviso! Os Caráteres Máximos Alcançaram, Satisfazem A Supressão Alguns.</msg>
+  
+  <msg name="zCapricorn">Capricórnio </msg>
+  <msg name="zAquarius">Aquarius</msg>
+  <msg name="zPisces">Pisces</msg>
+  <msg name="zAries">Áries </msg>
+  <msg name="zTaurus">Taurus</msg>
+  <msg name="zGemini">Gemini</msg>
+  <msg name="zCancer">Câncer </msg>
+  <msg name="zLeo">Leo</msg>
+  <msg name="zVirgo">Virgo</msg>
+  <msg name="zLibra">Libra</msg>
+  <msg name="zScorpio">Escorpião </msg>
+  <msg name="zSagittarius">Sagitário </msg>
+  
+  <msg name="tbConfig">Configurar</msg>
+  <msg name="tbConvert">Converter</msg>
+  <msg name="tbHelp">Ajuda</msg>
+  <msg name="tbRefresh">Atualizar</msg>
+  <msg name="tbShow">Mostrar Barra de Ferramentas</msg>
+  <msg name="tbHide">Ocultar Barra de Ferramentas</msg>
+  
+  <msg name="configEdit">Editar Google planilha</msg>
+  <msg name="configFontColor">Cor da fonte</msg>
+  <msg name="configBGColor">Cor do plano de fundo</msg>
+  <msg name="configFontSize">Tamanho da fonte</msg>
+  <msg name="configURL">Planilha URL</msg>
+  <msg name="configBack">Voltar</msg>
+  <msg name="configSave">Salvar</msg>
+  <msg name="configPick">Pick</msg>
+  <msg name="configConfirm">Continuar sem salvar?</msg>
+  <msg name="configErr">Inválido </msg>
+  
+  <msg name="fSizeXS">X-Pequenas</msg>
+  <msg name="fSizeS">Pequenas</msg>
+  <msg name="fSizeM">Médias </msg>
+  <msg name="fSizeL">Large</msg>
+  <msg name="fSizeXL">X-Large</msg>
+  
+  <msg name="setupH1">Gadget Setup</msg>
+  <msg name="setupGreet1"> Bem-vindo ao novo Aniversário Lembretes 2,0!</msg>
+  <msg name="setupGreet2"> Você está apenas a alguns cliques de distância de gozar alguns novos recursos! </msg>
+  <msg name="setupGreet3"> Não se preocupe, o seu antigo aniversário lista é seguro!</msg>
+  <msg name="setupStep1">Criar uma nova planilha do Google.</msg>
+  <msg name="setupStep2">Datas entra na coluna "A" e Nomes na Coluna "B".</msg>
+  <msg name="setupStep2P"> Instruções para converter suas antigas aniversário lista está disponível na página seguinte.</msg>
+  <msg name="setupStep3">Salvar a planilha do Google.</msg>
+  <msg name="setupStep4"> Copie o endereço do Google planilha barra de endereços.</msg>
+  <msg name="setupStep5"> Cole a planilha endereço abaixo.</msg>
+  <msg name="setupMore"> Clique Aqui Para obter instruções mais detalhadas</msg>
+  
+  <msg name="convertH1">Converter</msg>
+  <msg name="convertStep1">Abra sua planilha do Google</msg>
+  <msg name="convertStep2">Copie o texto abaixo.</msg>
+  <msg name="convertStep3">Cole o texto na planilha.</msg>
+  <msg name="convertStep4">Limpar os dados antigos quando tiver terminado.</msg>
+  <msg name="convertClear">Limpar dados antigos</msg>
+  <msg name="convertMore"> Veja o website para ajudar a assistência adicional. </msg>
+  
+  <msg name="errH1">Erro</msg>
+  <msg name="errDateFormat">Por favor, defina o "Tipo" da coluna "A" a "data".</msg>
+  <msg name="errColumn">Por favor mova as datas da coluna "B" a coluna "A".</msg>
+  <msg name="errUnk">Erro inesperado</msg>
+  <msg name="errSheet">Erro de planilha</msg>
+  <msg name="errNoData"> Certifique-se de que você tem os dados em sua planilha do Google.</msg>
+  <msg name="errAccess">Acesso negado</msg>
+  <msg name="errLogin"> Certifique-se de que você tenha acesso a essa planilha ou acessar a sua conta do Google para ver o seu aniversário lista. </msg>
+  <msg name="errTimeout">Server Timeout</msg>
+  <msg name="errRefresh"> Atualize a página para tentar novamente. </msg>
+  <msg name="errMore"> Veja o website para ajudar a assistência adicional. </msg>
+  <msg name="errCommon"> Clique em "Atualizar" após fazer as alterações em sua planilha do Google.</msg>
 </messagebundle>

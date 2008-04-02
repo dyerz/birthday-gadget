@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Recordatorios De Cumpleaños</msg>
-  <msg name="description">¡Nunca olvides los cumpleaños de tus amigos otra vez!</msg>
-  <msg name="titleName">Título</msg>
-  <msg name="birthdayName">Cumpleaños</msg>
-  <msg name="showName">Cumpleaños Visibles</msg>
-  <msg name="noticeName">Dias de Aviso</msg>
+  <msg name="title">Recordatorio de cumpleaños 2,0</msg>
+  <msg name="description">Nunca pierdas un cumpleaños de nuevo!</msg>
+  
+  <msg name="titleName">Gadget Título</msg>
+  <msg name="formatName">Formato de fecha</msg>
+  <msg name="showName">Máxima visible Cumpleaños</msg>
+  <msg name="futureNoticeName">Antes de días</msg>
+  <msg name="pastNoticeName">Después de días</msg>
+  <msg name="noticeAll">Todos</msg>
+  <msg name="noticeNone">Ninguno</msg>
+  <msg name="showAge">Mostrar edad columna</msg>
+  <msg name="showDays">Mostrar columna días</msg>
+  <msg name="showZodiac">Mostrar columna Zodiac</msg>
+  
+  <msg name="Loading">Cargando</msg>
+  
   <msg name="tableDate">Fecha</msg>
   <msg name="tableName">Nombre</msg>
   <msg name="tableAge">Edad</msg>
-  <msg name="none">Ningun cumpleaños guardado, Por Favor, edita la configuracion y añade las fechas de los cumpleaños que deseas recordar.</msg>
-  <msg name="nobd1">Ningún cumpleaños en los próximos </msg>
-  <msg name="nobd2"> días.</msg>
+  <msg name="tableDays">Días</msg>
+  <msg name="tableZodiac">Zodiac</msg>
+  
+  <msg name="noBirthdays1">Ningún cumpleaños en los próximos</msg>
+  <msg name="noBirthdays2">días.</msg>
+  
   <msg name="ajan">Enero</msg>
   <msg name="afeb">Feb.</msg>
   <msg name="amar">Marzo</msg>
@@ -24,22 +37,75 @@
   <msg name="aoct">Oct.</msg>
   <msg name="anov">Nov.</msg>
   <msg name="adec">Dic.</msg>
-  <msg name="trans">*¿Traducción incorrecta?*</msg>
   <msg name="today">Hoy</msg>
-  <msg name="formatName">Formato De Fecha</msg>
-  <msg name="confirmSave">¿Continuar sin guardar?</msg>
-  <msg name="modeTitleDisplay">Mostrar</msg>
-  <msg name="modeTitleEdit">Editar</msg>
-  <msg name="buttonSave">Guardar</msg>
-  <msg name="boxTitleError">Error</msg>
-  <msg name="errMonth">Mes incorrecto</msg>
-  <msg name="errDay">Día incorrecto</msg>
-  <msg name="errFormat">Formato no soportado</msg>
-  <msg name="errName">Nombre no encontrado</msg>
-  <msg name="errNameChar">'|' no permitido en el nombre</msg>
-  <msg name="errLine">Solamente un ';' por línea</msg>
-  <msg name="errDate">Fecha Incorrecta</msg>
-  <msg name="boxTitlePreview">Previsualizar</msg>
-  <msg name="format">Formato: YYYY/MM/DD;Nombre o MM/DD;Nombre</msg>
-  <msg name="warnOver">¡Advertencia! Numero de caracteres Máximo, por favor quita alguno.</msg>
+  
+  <msg name="zCapricorn">Capricornio</msg>
+  <msg name="zAquarius">Acuario</msg>
+  <msg name="zPisces">Piscis</msg>
+  <msg name="zAries">Aries</msg>
+  <msg name="zTaurus">Tauro</msg>
+  <msg name="zGemini">Géminis</msg>
+  <msg name="zCancer">Cáncer</msg>
+  <msg name="zLeo">Leo</msg>
+  <msg name="zVirgo">Virgo</msg>
+  <msg name="zLibra">Libra</msg>
+  <msg name="zScorpio">Scorpio</msg>
+  <msg name="zSagittarius">Sagitario</msg>
+  
+  <msg name="tbConfig">Configurar</msg>
+  <msg name="tbConvert">Convertir</msg>
+  <msg name="tbHelp">Ayuda</msg>
+  <msg name="tbRefresh">Actualizar</msg>
+  <msg name="tbShow">Mostrar la Barra de Herramientas</msg>
+  <msg name="tbHide">Ocultar la Barra de Herramientas</msg>
+  
+  <msg name="configEdit">Editar Google hoja de c�lculo</msg>
+  <msg name="configFontColor">Font Color</msg>
+  <msg name="configBGColor">Color de fondo</msg>
+  <msg name="configFontSize">Tamaño de Fuente</msg>
+  <msg name="configURL">URL de hoja de cálculo</msg>
+  <msg name="configBack">Volver</msg>
+  <msg name="configSave">Guardar</msg>
+  <msg name="configPick">Pick</msg>
+  <msg name="configConfirm">Continuar sin guardar?</msg>
+  <msg name="configErr">No válido</msg>
+  
+  <msg name="fSizeXS">X-Pequeños</msg>
+  <msg name="fSizeS">Pequeños</msg>
+  <msg name="fSizeM">Mediano</msg>
+  <msg name="fSizeL">Las grandes</msg>
+  <msg name="fSizeXL">X-Large</msg>
+  
+  <msg name="setupH1">Gadget Setup</msg>
+  <msg name="setupGreet1">Bienvenido al nuevo cumpleaños Recordatorios 2,0!</msg>
+  <msg name="setupGreet2">Usted se encuentra a sólo unos clics de distancia de disfrutar de algunas nuevas características!</msg>
+  <msg name="setupGreet3">No se preocupe, su antigua lista de cumpleaños es seguro!</msg>
+  <msg name="setupStep1">Crear una nueva hoja de cálculo de Google.</msg>
+  <msg name="setupStep2">Introduzca las fechas en la columna "A" y los nombres en la columna "B".</msg>
+  <msg name="setupStep2P">Instrucciones para convertir su viejo cumpleaños lista está disponible en la siguiente página.</msg>
+  <msg name="setupStep3">Guardar la hoja de cálculo de Google.</msg>
+  <msg name="setupStep4">Copie la hoja de cálculo de Google dirección de la barra de direcciones.</msg>
+  <msg name="setupStep5">Pega la hoja de cálculo siguiente dirección.</msg>
+  <msg name="setupMore">Haga clic aquí Para obtener instrucciones más detalladas</msg>
+  
+  <msg name="convertH1">Convertir</msg>
+  <msg name="convertStep1">Abra su hoja de cálculo de Google</msg>
+  <msg name="convertStep2">Copiar el texto a continuación.</msg>
+  <msg name="convertStep3">Pegue el texto en la hoja de cálculo.</msg>
+  <msg name="convertStep4">Borrar los datos antiguos cuando haya terminado.</msg>
+  <msg name="convertClear">Borrar datos antiguos</msg>
+  <msg name="convertMore">Consulte la página web para obtener ayuda adicional.</msg>
+  
+  <msg name="errH1">Error</msg>
+  <msg name="errDateFormat">Por favor, el conjunto "Formato" de la columna "A" a "fecha".</msg>
+  <msg name="errColumn">Por favor, mover las fechas a partir de la columna "B" a la columna "A".</msg>
+  <msg name="errUnk">Error inesperado</msg>
+  <msg name="errSheet">Error de hoja de cálculo</msg>
+  <msg name="errNoData">Por favor, asegúrese de que tiene los datos en su hoja de cálculo de Google.</msg>
+  <msg name="errAccess">Acceso denegado</msg>
+  <msg name="errLogin">Por favor, asegúrese de que tiene acceso a esta hoja de cálculo o acceder a su cuenta de Google para ver su lista de cumpleaños.</msg>
+  <msg name="errTimeout">Servidor de Tiempo</msg>
+  <msg name="errRefresh">Por favor, actualice la página web para intentarlo de nuevo.</msg>
+  <msg name="errMore">Consulte la página web para obtener ayuda adicional.</msg>
+  <msg name="errCommon">Haga clic en "Actualizar" después de hacer los cambios en su hoja de cálculo de Google.</msg>
 </messagebundle>

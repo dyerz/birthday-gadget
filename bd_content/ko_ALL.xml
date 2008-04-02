@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">생일 신호</msg>
-  <msg name="description">결코 너의 친구 생일을 다시 놓치지 말라!</msg>
-  <msg name="titleName">제목</msg>
-  <msg name="birthdayName">생일</msg>
-  <msg name="showName">보이는 생일</msg>
-  <msg name="noticeName">일 고시</msg>
+  <msg name="title">생일 알리미 2.0</msg>
+  <msg name="description">결코 놓칠 수 생일을 다시 한번!</msg>
+  
+  <msg name="titleName">가제트 제목</msg>
+  <msg name="formatName">날짜 형식</msg>
+  <msg name="showName">최대 보이는 생일</msg>
+  <msg name="futureNoticeName">일전</msg>
+  <msg name="pastNoticeName">며칠 뒤</msg>
+  <msg name="noticeAll">모든</msg>
+  <msg name="noticeNone">없음</msg>
+  <msg name="showAge">나이 칼럼 게재</msg>
+  <msg name="showDays">쇼 일간 열</msg>
+  <msg name="showZodiac">조디악이 열에 표시</msg>
+  
+  <msg name="Loading">로딩</msg>
+  
   <msg name="tableDate">날짜</msg>
   <msg name="tableName">이름</msg>
-  <msg name="tableAge">나이</msg>
-  <msg name="none">너가 생각하고 싶는 생일을 추가하기 위하여 보일 것이다 생일은, 만족시키기 위하여 조정을 의 위에 편집하지 않는다.</msg>
-  <msg name="nobd1">다음 </msg>
-  <msg name="nobd2"> 일안에 오르는 생일.</msg>
+  <msg name="tableAge">연령</msg>
+  <msg name="tableDays">일</msg>
+  <msg name="tableZodiac">조디악</msg>
+  
+  <msg name="noBirthdays1">생일을</msg>
+  <msg name="noBirthdays2">일 이내에 없다.</msg>
+  
   <msg name="ajan">1월</msg>
   <msg name="afeb">2월</msg>
   <msg name="amar">3월</msg>
@@ -24,22 +37,75 @@
   <msg name="aoct">10월</msg>
   <msg name="anov">11월</msg>
   <msg name="adec">12월</msg>
-  <msg name="trans">*부정확한가 번역?*</msg>
-  <msg name="today">오늘</msg>
-  <msg name="formatName">날짜 표시 형식</msg>
-  <msg name="confirmSave">저축없이 계속하십시요?</msg>
-  <msg name="modeTitleDisplay">전시</msg>
-  <msg name="modeTitleEdit">편집하십시요</msg>
-  <msg name="buttonSave">를 제외하고</msg>
-  <msg name="boxTitleError">과실</msg>
-  <msg name="errMonth">부당한 달</msg>
-  <msg name="errDay">부당한 일</msg>
-  <msg name="errFormat">지원하지 않는 체재</msg>
-  <msg name="errName">발견하지 않는 이름</msg>
-  <msg name="errNameChar">'|' 이름안에 허용하지 않아</msg>
-  <msg name="errLine">단 1개은';' 선당</msg>
-  <msg name="errDate">부정확한 날짜</msg>
-  <msg name="boxTitlePreview">시사</msg>
-  <msg name="format">체재: YYYY/MM/DD;이름 또는MM/DD;이름</msg>
-  <msg name="warnOver">경고! 감소가 최대 특성에 의하여 어떤 도달하고, 만족시킨다.</msg>
+  <msg name="today">오늘의</msg>
+  
+  <msg name="zCapricorn">염소자리</msg>
+  <msg name="zAquarius">물병자리</msg>
+  <msg name="zPisces">물고기 자리</msg>
+  <msg name="zAries">양자리</msg>
+  <msg name="zTaurus">황소 자리</msg>
+  <msg name="zGemini">쌍둥이 자리</msg>
+  <msg name="zCancer">암</msg>
+  <msg name="zLeo">레오</msg>
+  <msg name="zVirgo">처녀자리</msg>
+  <msg name="zLibra">천칭자리</msg>
+  <msg name="zScorpio">전갈자리</msg>
+  <msg name="zSagittarius">궁수자리</msg>
+  
+  <msg name="tbConfig">구성</msg>
+  <msg name="tbConvert">변환</msg>
+  <msg name="tbHelp">도움말</msg>
+  <msg name="tbRefresh">새로고침</msg>
+  <msg name="tbShow">툴바를 표시합니다</msg>
+  <msg name="tbHide">툴바를 숨기</msg>
+  
+  <msg name="configEdit">google 스프레드 시트를 수정</msg>
+  <msg name="configFontColor">글꼴 색상</msg>
+  <msg name="configBGColor">배경 색상</msg>
+  <msg name="configFontSize">글꼴 크기</msg>
+  <msg name="configURL">스프레드 쉬트</msg>
+  <msg name="configBack">위로</msg>
+  <msg name="configSave">저장</msg>
+  <msg name="configPick">선택</msg>
+  <msg name="configConfirm">계속을 저장하지 않고?</msg>
+  <msg name="configErr">무효</msg>
+  
+  <msg name="fSizeXS">x - 소형</msg>
+  <msg name="fSizeS">중소</msg>
+  <msg name="fSizeM">매체</msg>
+  <msg name="fSizeL">대형</msg>
+  <msg name="fSizeXL">x -  대형</msg>
+  
+  <msg name="setupH1">장치 설치</msg>
+  <msg name="setupGreet1">새로운 생일 알림 2.0에 오신 것을 환영합니다!</msg>
+  <msg name="setupGreet2">당신은 몇 번만 클릭 떨어져을 즐기는 사람들에게 새로운 기능!</msg>
+  <msg name="setupGreet3">걱정 마세요, 당신의 옛 생일 목록은 안전하게!</msg>
+  <msg name="setupStep1">새 구글 스프레드 시트를 만드십시오.</msg>
+  <msg name="setupStep2">날짜를 입력하십시오 열의 "라는"와 이름을 열 "b"합니다.</msg>
+  <msg name="setupStep2P">전환에 대한 지침 귀하의 옛 생일 목록은 다음 페이지에서 다운로드할 수있습니다.</msg>
+  <msg name="setupStep3">google 스프레드 시트에 저장합니다.</msg>
+  <msg name="setupStep4">google 스프레드 시트를 복사하여 주소 표시줄에서 주소를합니다.</msg>
+  <msg name="setupStep5">아래 주소를 붙여 스프레드 시트를합니다.</msg>
+  <msg name="setupMore">자세한 지침을 보려면 여기를 클릭하십시오</msg>
+  
+  <msg name="convertH1">변환</msg>
+  <msg name="convertStep1">귀하의 구글 스프레드 시트를 열고</msg>
+  <msg name="convertStep2">아래의 텍스트를 복사합니다.</msg>
+  <msg name="convertStep3">스프레드 시트를 텍스트를 붙여 넣습니다.</msg>
+  <msg name="convertStep4">오래된 데이터를 삭제 작업을 완료하면합니다.</msg>
+  <msg name="convertClear">오래된 데이터 지우기</msg>
+  <msg name="convertMore">도움이 웹사이트에 대한 추가 지원을 참조하십시오.</msg>
+  
+  <msg name="errH1">오류</msg>
+  <msg name="errDateFormat">를 설정하시기 바랍니다 "포맷"을 열 "를"을 "날짜"합니다.</msg>
+  <msg name="errColumn">에서 날짜로 이동하시기 바랍니다 열 "b"를 열 "를"합니다.</msg>
+  <msg name="errUnk">예기치 않은 오류</msg>
+  <msg name="errSheet">스프레드 쉬트 오류</msg>
+  <msg name="errNoData">데이터를 수 있는지 확인하시기 바랍니다 귀하의 구글 스프레드 시트를합니다.</msg>
+  <msg name="errAccess">액세스 거부</msg>
+  <msg name="errLogin">이 스프레드 쉬트에 액세스 권한을 갖고 있는지 확인하시기 바랍니다하거나 귀하의 구글 계정으로 로그인하여 귀하의 생일을 목록을 참조하십시오.</msg>
+  <msg name="errTimeout">서버 시간 초과</msg>
+  <msg name="errRefresh">웹 페이지를 새로 고치십시오을 다시 시도하십시오.</msg>
+  <msg name="errMore">도움이 웹사이트에 대한 추가 지원을 참조하십시오.</msg>
+  <msg name="errCommon">"를 클릭하십시오 새로고침"의 변경 사항을 완료한 후 귀하의 구글 스프레드 시트를합니다.</msg>
 </messagebundle>

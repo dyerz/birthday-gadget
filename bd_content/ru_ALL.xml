@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Памятки Дней рождения</msg>
-  <msg name="description">Никогда не пропускайте дни рождения ваших друзей снова!</msg>
-  <msg name="titleName">Заголовок</msg>
-  <msg name="birthdayName">Дни рождения</msg>
-  <msg name="showName">Видимые Дни рождения</msg>
-  <msg name="noticeName">Извещение о Днях</msg>
+  <msg name="title">Напоминание о дне рождения 2,0</msg>
+  <msg name="description">Никогда не пропустить день рождения еще раз!</msg>
+  
+  <msg name="titleName">Гаджет Название</msg>
+  <msg name="formatName">Формат даты</msg>
+  <msg name="showName">Максимальный видимый рождения</msg>
+  <msg name="futureNoticeName">Дни До</msg>
+  <msg name="pastNoticeName">После Дней</msg>
+  <msg name="noticeAll">Все</msg>
+  <msg name="noticeNone">Никто</msg>
+  <msg name="showAge">Показать Возраст колонка</msg>
+  <msg name="showDays">Показать дней колонка</msg>
+  <msg name="showZodiac">Показать зодиака колонка</msg>
+  
+  <msg name="Loading">Загрузка</msg>
+  
   <msg name="tableDate">Дата</msg>
-  <msg name="tableName">Имя</msg>
-  <msg name="tableAge">Время</msg>
-  <msg name="none">Нет никаких дней рождения, которые можно показать. Редактируйте установки выше для того, чтобы добавить дни рождения, о которые вам должны напомнить.</msg>
-  <msg name="nobd1">Отсутствие дней рождения в следующих </msg>
-  <msg name="nobd2"> днях.</msg>
+  <msg name="tableName">Имя </msg>
+  <msg name="tableAge">Возраст</msg>
+  <msg name="tableDays">Дней</msg>
+  <msg name="tableZodiac">Зодиак</msg>
+  
+  <msg name="noBirthdays1">Нет дней рождения в ближайшие</msg>
+  <msg name="noBirthdays2">дней.</msg>
+  
   <msg name="ajan">янв</msg>
   <msg name="afeb">фев</msg>
   <msg name="amar">мар</msg>
@@ -24,22 +37,75 @@
   <msg name="aoct">окт</msg>
   <msg name="anov">ноя</msg>
   <msg name="adec">дек</msg>
-  <msg name="trans">помощь перевода от Павел М.</msg>
   <msg name="today">Сегодня</msg>
-  <msg name="formatName">Формат даты</msg>
-  <msg name="confirmSave">Продолжать без сохранения?</msg>
-  <msg name="modeTitleDisplay">Индикация</msg>
-  <msg name="modeTitleEdit">Редактируйте</msg>
-  <msg name="buttonSave">Сохранить</msg>
-  <msg name="boxTitleError">Ошибка</msg>
-  <msg name="errMonth">Неправильный месяц</msg>
-  <msg name="errDay">Неправильный день</msg>
-  <msg name="errFormat">Неподдерживаемая форма</msg>
-  <msg name="errName">Имя не найдено</msg>
-  <msg name="errNameChar">'|' не позволено в имени</msg>
-  <msg name="errLine">Только одна ';' в линии!</msg>
-  <msg name="errDate">Неправильная дата</msg>
-  <msg name="boxTitlePreview">Предварительный просмотр</msg>
-  <msg name="format">Форма: YYYY/MM/DD;Имя или MM/DD;Имя</msg>
-  <msg name="warnOver">Внимание! Превышено максимальное число символов, пожалуйста, удалите что-нибудь.</msg>
+  
+  <msg name="zCapricorn">Козерог</msg>
+  <msg name="zAquarius">Водолей</msg>
+  <msg name="zPisces">Рыбы</msg>
+  <msg name="zAries">Овен</msg>
+  <msg name="zTaurus">Телец</msg>
+  <msg name="zGemini">Близнецы</msg>
+  <msg name="zCancer">Рак</msg>
+  <msg name="zLeo">Лев</msg>
+  <msg name="zVirgo">Дева</msg>
+  <msg name="zLibra">Весы</msg>
+  <msg name="zScorpio">Скорпион</msg>
+  <msg name="zSagittarius">Стрелец</msg>
+  
+  <msg name="tbConfig">Настроить</msg>
+  <msg name="tbConvert">Конвертировать</msg>
+  <msg name="tbHelp">Помощь</msg>
+  <msg name="tbRefresh">Обновить</msg>
+  <msg name="tbShow">Показать панель инструментов</msg>
+  <msg name="tbHide">Скрыть панель инструментов</msg>
+  
+  <msg name="configEdit">Изменить таблицу Google</msg>
+  <msg name="configFontColor">Цвет шрифта</msg>
+  <msg name="configBGColor">Цвет фона</msg>
+  <msg name="configFontSize">Размер шрифта</msg>
+  <msg name="configURL">Таблиц URL</msg>
+  <msg name="configBack">Назад</msg>
+  <msg name="configSave">Сохранить</msg>
+  <msg name="configPick">Выберите</msg>
+  <msg name="configConfirm">Продолжить без сохранения?</msg>
+  <msg name="configErr">Недействительными</msg>
+  
+  <msg name="fSizeXS">X-Малые</msg>
+  <msg name="fSizeS">Малых</msg>
+  <msg name="fSizeM">Среднесрочной</msg>
+  <msg name="fSizeL">Крупных</msg>
+  <msg name="fSizeXL">X-Крупных</msg>
+  
+  <msg name="setupH1">Гаджет Настройка</msg>
+  <msg name="setupGreet1">Добро пожаловать на новый рождения Напоминания 2,0!</msg>
+  <msg name="setupGreet2">Вы находитесь всего в нескольких кликах от пользуются некоторые новые возможности!</msg>
+  <msg name="setupGreet3">Не волнуйтесь, ваш старый день рождения список безопасных!</msg>
+  <msg name="setupStep1">Создать новый Google таблицы.</msg>
+  <msg name="setupStep2">Введите даты в колонке "А" и названий в колонке "Б".</msg>
+  <msg name="setupStep2P">Инструкции для переноса старого рождения списком можно ознакомиться на следующей странице.</msg>
+  <msg name="setupStep3">Спасите Google таблицы.</msg>
+  <msg name="setupStep4">Скопируйте таблицу Google-адрес из адресной строки.</msg>
+  <msg name="setupStep5">Вставьте таблицу ниже адресу.</msg>
+  <msg name="setupMore">Щелкните Здесь Для более подробных инструкций</msg>
+  
+  <msg name="convertH1">Конвертировать</msg>
+  <msg name="convertStep1">Откройте ваши таблицы Google</msg>
+  <msg name="convertStep2">Скопируйте приведенный ниже текст.</msg>
+  <msg name="convertStep3">Вставьте текст в таблицу.</msg>
+  <msg name="convertStep4">Очистить старые данные, когда вы закончите.</msg>
+  <msg name="convertClear">Открытый старые данные</msg>
+  <msg name="convertMore">См. помощью веб-сайт для получения дополнительной помощи.</msg>
+  
+  <msg name="errH1">Ошибка</msg>
+  <msg name="errDateFormat">Пожалуйста, установите "Формат" в графе "А" до "дата".</msg>
+  <msg name="errColumn">Пожалуйста, ведите датируется колонке "Б" в графе "А".</msg>
+  <msg name="errUnk">Неожиданная ошибка</msg>
+  <msg name="errSheet">Таблиц Ошибка</msg>
+  <msg name="errNoData">Пожалуйста, убедитесь, что ваши данные в электронную таблицу Google.</msg>
+  <msg name="errAccess">Отказано в доступе</msg>
+  <msg name="errLogin">Убедитесь, что у вас есть доступ к этой таблице или войдите в свою учетную запись Google, чтобы просмотреть список рождения.</msg>
+  <msg name="errTimeout">Тайм-аут сервера</msg>
+  <msg name="errRefresh">Пожалуйста, обновите страницу и повторите попытку.</msg>
+  <msg name="errMore">См. помощью веб-сайт для получения дополнительной помощи.</msg>
+  <msg name="errCommon">Нажмите кнопку "Обновить" после того, как вы решили внести изменения в вашем Google таблицы.</msg>
 </messagebundle>

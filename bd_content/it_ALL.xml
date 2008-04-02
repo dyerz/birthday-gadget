@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Ricordati Del Compleanno</msg>
-  <msg name="description">Non manchi mai ancora i compleanni dei vostri amici!</msg>
-  <msg name="titleName">Titolo</msg>
-  <msg name="birthdayName">Compleanni</msg>
-  <msg name="showName">Compleanni Visibili</msg>
-  <msg name="noticeName">Di Giorni di preavviso</msg>
+  <msg name="title">Promemoria compleanni 2,0</msg>
+  <msg name="description">Per non perdere nemmeno un compleanno!</msg>
+  
+  <msg name="titleName">Titolo gadget</msg>
+  <msg name="formatName">Data Format</msg>
+  <msg name="showName">Massimo visibile compleanni</msg>
+  <msg name="futureNoticeName">Prima di giorni</msg>
+  <msg name="pastNoticeName">Dopo giorni</msg>
+  <msg name="noticeAll">Tutte</msg>
+  <msg name="noticeNone">Nessuno</msg>
+  <msg name="showAge">Inserisci colonna di età</msg>
+  <msg name="showDays">Inserisci colonna di giorni</msg>
+  <msg name="showZodiac">Inserisci colonna zodiaco</msg>
+  
+  <msg name="Loading">Caricamento</msg>
+  
   <msg name="tableDate">Data</msg>
   <msg name="tableName">Nome</msg>
   <msg name="tableAge">Età</msg>
-  <msg name="none">Nessun compleanno da visualizzare, soddisfare pubblica le regolazioni qui sopra per aggiungere i compleanni che desiderate ricordarsi di.</msg>
-  <msg name="nobd1">Nessun compleanno nei prossimi </msg>
-  <msg name="nobd2"> giorni.</msg>
+  <msg name="tableDays">Giorni</msg>
+  <msg name="tableZodiac">Zodiaco</msg>
+  
+  <msg name="noBirthdays1">N. compleanni nei prossimi</msg>
+  <msg name="noBirthdays2">giorni.</msg>
+  
   <msg name="ajan">genn.</msg>
   <msg name="afeb">febbr.</msg>
   <msg name="amar">mar.</msg>
@@ -24,22 +37,75 @@
   <msg name="aoct">ott.</msg>
   <msg name="anov">nov.</msg>
   <msg name="adec">dic.</msg>
-  <msg name="trans">*Traduzione errata?*</msg>
-  <msg name="today">Oggi</msg>
-  <msg name="formatName">Disposizione Di Data</msg>
-  <msg name="confirmSave">Continui senza saving?</msg>
-  <msg name="modeTitleDisplay">Esposizione</msg>
-  <msg name="modeTitleEdit">Pubblichi</msg>
-  <msg name="buttonSave">Salva</msg>
-  <msg name="boxTitleError">Errore</msg>
-  <msg name="errMonth">Mese non valido</msg>
-  <msg name="errDay">Giorno non valido</msg>
-  <msg name="errFormat">Disposizione non sostenuta</msg>
-  <msg name="errName">Nome non trovato</msg>
-  <msg name="errNameChar">'|' non consentito a nel nome</msg>
-  <msg name="errLine">Soltanto uno ';' per la linea</msg>
-  <msg name="errDate">Data Errata</msg>
-  <msg name="boxTitlePreview">Previsione</msg>
-  <msg name="format">Disposizione: YYYY/MM/DD;Nome o MM/DD;Nome</msg>
-  <msg name="warnOver">Avvertimento! I Caratteri Massimi Hanno raggiunto, Soddisfano La Cancellazione Alcuni.</msg>
+  <msg name="today">Today</msg>
+  
+  <msg name="zCapricorn">Capricorno</msg>
+  <msg name="zAquarius">Aquarius</msg>
+  <msg name="zPisces">Pesci</msg>
+  <msg name="zAries">Ariete</msg>
+  <msg name="zTaurus">Toro</msg>
+  <msg name="zGemini">Gemini</msg>
+  <msg name="zCancer">Cancro</msg>
+  <msg name="zLeo">Leo</msg>
+  <msg name="zVirgo">Virgo</msg>
+  <msg name="zLibra">Bilancia</msg>
+  <msg name="zScorpio">Scorpione</msg>
+  <msg name="zSagittarius">Sagittario</msg>
+  
+  <msg name="tbConfig">Configura</msg>
+  <msg name="tbConvert">Convertire</msg>
+  <msg name="tbHelp">Aiuto</msg>
+  <msg name="tbRefresh">Aggiorna</msg>
+  <msg name="tbShow">Mostra la Toolbar</msg>
+  <msg name="tbHide">Nascondere la Toolbar</msg>
+  
+  <msg name="configEdit">Modifica foglio di lavoro di Google</msg>
+  <msg name="configFontColor">Colore carattere</msg>
+  <msg name="configBGColor">Colore sfondo</msg>
+  <msg name="configFontSize">Dimensione carattere</msg>
+  <msg name="configURL">URL di foglio di calcolo</msg>
+  <msg name="configBack">Torna</msg>
+  <msg name="configSave">Salva</msg>
+  <msg name="configPick">Pick</msg>
+  <msg name="configConfirm">Continua senza salvare?</msg>
+  <msg name="configErr">Non valido</msg>
+  
+  <msg name="fSizeXS">X-Piccola</msg>
+  <msg name="fSizeS">Piccola</msg>
+  <msg name="fSizeM">Medium</msg>
+  <msg name="fSizeL">Grandi</msg>
+  <msg name="fSizeXL">X-Grandi</msg>
+  
+  <msg name="setupH1">Gadget Setup</msg>
+  <msg name="setupGreet1">Benvenuti nel nuovo promemoria 2,0 Compleanno!</msg>
+  <msg name="setupGreet2">Siete pochi click di distanza da gustare alcune nuove funzionalità!</msg>
+  <msg name="setupGreet3">Non preoccupatevi, il vostro vecchio compleanno elenco è sicuro!</msg>
+  <msg name="setupStep1">Creare un nuovo foglio di lavoro di Google.</msg>
+  <msg name="setupStep2">Date entrare nella colonna "A" e nomi nella colonna "B".</msg>
+  <msg name="setupStep2P">Istruzioni per convertire il vostro vecchio compleanno elenco è disponibile alla pagina successiva</msg>
+  <msg name="setupStep3">Salvare il foglio di lavoro di Google.</msg>
+  <msg name="setupStep4">Copiare il foglio di lavoro di Google indirizzo dalla barra degli indirizzi.</msg>
+  <msg name="setupStep5">Incollare il foglio di calcolo indicato di seguito.</msg>
+  <msg name="setupMore">Clicca Qui Per informazioni più dettagliate</msg>
+  
+  <msg name="convertH1">Convertire</msg>
+  <msg name="convertStep1">Apri il tuo foglio di lavoro di Google</msg>
+  <msg name="convertStep2">Copiare il testo qui di seguito.</msg>
+  <msg name="convertStep3">Incollare il testo nel foglio di calcolo.</msg>
+  <msg name="convertStep4">Cancella i vecchi dati quando avete finito.</msg>
+  <msg name="convertClear">Cancella vecchi dati</msg>
+  <msg name="convertMore">Vedere il sito web per aiutare ulteriore assistenza.</msg>
+  
+  <msg name="errH1">Errore</msg>
+  <msg name="errDateFormat">Si prega di impostare il "Formato" della colonna "A" a "data".</msg>
+  <msg name="errColumn">Si prega di spostare le date dalla colonna "B", a colonna "A".</msg>
+  <msg name="errUnk">Errore inatteso</msg>
+  <msg name="errSheet">Errore foglio di calcolo</msg>
+  <msg name="errNoData">Verifica che non vi siano dati nel tuo foglio di lavoro di Google.</msg>
+  <msg name="errAccess">Accesso negato</msg>
+  <msg name="errLogin">Verifica di aver accesso a questo foglio di calcolo o di accedere al tuo account Google per vedere il tuo compleanno.</msg>
+  <msg name="errTimeout">Timeout server</msg>
+  <msg name="errRefresh">Vi preghiamo di aggiornare la pagina web per riprovare.</msg>
+  <msg name="errMore">Vedere il sito web per aiutare ulteriore assistenza.</msg>
+  <msg name="errCommon">Fare clic sul pulsante "Aggiorna", dopo aver effettuato le modifiche nel tuo foglio di lavoro di Google.</msg>
 </messagebundle>

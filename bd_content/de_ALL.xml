@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Geburtstagserinnerungen</msg>
-  <msg name="description">Verpasse nie wieder einen Geburtstag!</msg>
-  <msg name="titleName">Titel</msg>
-  <msg name="birthdayName">Geburtstage</msg>
-  <msg name="showName">Sichtbare Geburtstage</msg>
-  <msg name="noticeName">Tagesnachricht</msg>
+  <msg name="title">Geburtstagserinnerungen 2.0</msg>
+  <msg name="description">Verpassen Sie nie wieder einen Geburtstag!</msg>
+  
+  <msg name="titleName">Gadget-Titel</msg>
+  <msg name="formatName">Datum Format</msg>
+  <msg name="showName">Maximale sichtbar Geburtstage</msg>
+  <msg name="futureNoticeName">Vor Tagen</msg>
+  <msg name="pastNoticeName">Nach Tagen</msg>
+  <msg name="noticeAll">Alle</msg>
+  <msg name="noticeNone">Keine</msg>
+  <msg name="showAge">Karte Alter Spalte</msg>
+  <msg name="showDays">Zeigen Tagen Spalte</msg>
+  <msg name="showZodiac">Karte Zodiac Spalte</msg>
+  
+  <msg name="Loading">Loading</msg>
+  
   <msg name="tableDate">Datum</msg>
   <msg name="tableName">Name</msg>
   <msg name="tableAge">Alter</msg>
-  <msg name="none">Keine gespeicherten Geburtstage. Bitte ändere oben die Einstellungen um Geburtstage, an die Du erinnert werden möchtest, hinzuzufügen.</msg>
-  <msg name="nobd1">In den folgenden </msg>
-  <msg name="nobd2"> Tagen stehen keine Geburtstage an.</msg>
+  <msg name="tableDays">Tage</msg>
+  <msg name="tableZodiac">Tierkreis</msg>
+  
+  <msg name="noBirthdays1">Keine Geburtstage in den n�chsten</msg>
+  <msg name="noBirthdays2">Tagen.</msg>
+  
   <msg name="ajan">Jan.</msg>
   <msg name="afeb">Feb.</msg>
   <msg name="amar">März</msg>
@@ -24,22 +37,75 @@
   <msg name="aoct">Okt.</msg>
   <msg name="anov">Nov.</msg>
   <msg name="adec">Dez.</msg>
-  <msg name="trans">*Falsch übersetzt?*</msg>
   <msg name="today">Heute</msg>
-  <msg name="formatName">Datum-Format</msg>
-  <msg name="confirmSave">Fortfahren ohne zu speichern?</msg>
-  <msg name="modeTitleDisplay">Anzeigen</msg>
-  <msg name="modeTitleEdit">Editieren</msg>
-  <msg name="buttonSave">Speichern</msg>
-  <msg name="boxTitleError">Störung</msg>
-  <msg name="errMonth">Unzulässiger Monat</msg>
-  <msg name="errDay">Unzulässiger Tag</msg>
-  <msg name="errFormat">Format nicht unterstützt</msg>
-  <msg name="errName">Name nicht gefunden</msg>
-  <msg name="errNameChar">'|' nicht erlaubt im Namen</msg>
-  <msg name="errLine">Nur ein ';' pro Linie</msg>
-  <msg name="errDate">Falsches Datum</msg>
-  <msg name="boxTitlePreview">Vorschau</msg>
-  <msg name="format">Format: JJJJ/MM/TT;Name oder MM/TT;Name</msg>
-  <msg name="warnOver">Achtung! Maximale Zeichenanzahl erreicht. Bitte einige löschen!</msg>
+  
+  <msg name="zCapricorn">Steinbock</msg>
+  <msg name="zAquarius">Aquarius</msg>
+  <msg name="zPisces">Pisces</msg>
+  <msg name="zAries">Widder</msg>
+  <msg name="zTaurus">Taurus</msg>
+  <msg name="zGemini">Gemini</msg>
+  <msg name="zCancer">Krebs</msg>
+  <msg name="zLeo">Leo</msg>
+  <msg name="zVirgo">Virgo</msg>
+  <msg name="zLibra">Libra</msg>
+  <msg name="zScorpio">Scorpio</msg>
+  <msg name="zSagittarius">Schütze</msg>
+  
+  <msg name="tbConfig">Konfigurieren</msg>
+  <msg name="tbConvert">Convert</msg>
+  <msg name="tbHelp">Hilfe</msg>
+  <msg name="tbRefresh">Aktualisieren</msg>
+  <msg name="tbShow">Zeige die Toolbar</msg>
+  <msg name="tbHide">Ausblenden der Toolbar</msg>
+  
+  <msg name="configEdit">Bearbeiten Google Spreadsheet</msg>
+  <msg name="configFontColor">Font Color</msg>
+  <msg name="configBGColor">Hintergrundfarbe</msg>
+  <msg name="configFontSize">Schriftgröße</msg>
+  <msg name="configURL">Spreadsheet URL</msg>
+  <msg name="configBack">Zurück</msg>
+  <msg name="configSave">Speichern</msg>
+  <msg name="configPick">Pick</msg>
+  <msg name="configConfirm">Weiter, ohne sie zu speichern?</msg>
+  <msg name="configErr">Ungültige</msg>
+  
+  <msg name="fSizeXS">Extrakleines</msg>
+  <msg name="fSizeS">Klein</msg>
+  <msg name="fSizeM">Mittel</msg>
+  <msg name="fSizeL">Große</msg>
+  <msg name="fSizeXL">Extragroße</msg>
+  
+  <msg name="setupH1">Gadget-Setup</msg>
+  <msg name="setupGreet1">Willkommen auf der neuen Geburtstag Erinnerungen 2,0!</msg>
+  <msg name="setupGreet2">Sie sind nur ein paar Mausklicks entfernt genießen einige neue Features!</msg>
+  <msg name="setupGreet3">Machen Sie sich keine Sorgen, Ihre alten Geburtstag Liste ist sicher!</msg>
+  <msg name="setupStep1">Erstellen Sie ein neues Google-Tabelle.</msg>
+  <msg name="setupStep2">Geben Sie Termine in der Spalte "A" und Namen in der Spalte "B".</msg>
+  <msg name="setupStep2P">Anleitung für das Umwandeln Ihrer alten Geburtstag Liste finden Sie auf der nächsten Seite.</msg>
+  <msg name="setupStep3">Speichern Sie die Google-Tabelle.</msg>
+  <msg name="setupStep4">Kopieren Sie die Google-Tabelle Adresse aus der Adressleiste.</msg>
+  <msg name="setupStep5">Fügen Sie die Tabelle unten angegebene Adresse.</msg>
+  <msg name="setupMore">Klicken Sie hier für detaillierte Anweisungen</msg>
+  
+  <msg name="convertH1">Convert</msg>
+  <msg name="convertStep1">Öffnen Sie die Google-Tabelle</msg>
+  <msg name="convertStep2">Kopieren Sie den Text unten.</msg>
+  <msg name="convertStep3">Fügen Sie den Text in der Tabelle.</msg>
+  <msg name="convertStep4">Löschen der alten Daten, wenn Sie fertig sind.</msg>
+  <msg name="convertClear">Frei alten Daten</msg>
+  <msg name="convertMore">Finden Sie in der Hilfe-Website für zusätzliche Unterstützung.</msg>
+  
+  <msg name="errH1">Fehler</msg>
+  <msg name="errDateFormat">Bitte setzen Sie den "Format" in der Spalte "A" nach "Datum".</msg>
+  <msg name="errColumn">Bitte bewegen Sie die Daten aus der Spalte "B" in Spalte "A".</msg>
+  <msg name="errUnk">Unerwarteter Fehler</msg>
+  <msg name="errSheet">Spreadsheet-Fehler</msg>
+  <msg name="errNoData">Bitte stellen Sie sicher, dass Sie in Ihrem Google-Tabelle.</msg>
+  <msg name="errAccess">Zugriff verweigert</msg>
+  <msg name="errLogin">Bitte stellen Sie sicher, dass Sie Zugriff auf diese Tabelle an oder melden Sie sich bei Ihrem Google-Konto an, um Ihre Geburtstags-Liste.</msg>
+  <msg name="errTimeout">Server-Timeout</msg>
+  <msg name="errRefresh">Bitte aktualisieren Sie die Web-Seite um es erneut zu versuchen.</msg>
+  <msg name="errMore">Finden Sie in der Hilfe-Website für zusätzliche Unterstützung.</msg>
+  <msg name="errCommon">Klicken Sie auf "Aktualisieren", nachdem Sie die Änderungen in Ihrem Google-Tabelle.</msg>
 </messagebundle>
