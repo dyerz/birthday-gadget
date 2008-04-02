@@ -1,4 +1,4 @@
-﻿<axml version="1.0" encoding="UTF-8"a>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Напоминание о дне рождения 2,0</msg>
   <msg name="description">Никогда не пропустить день рождения еще раз!</msg>
