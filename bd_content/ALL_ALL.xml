@@ -101,7 +101,7 @@
   <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>
   <msg name="errUnk">Unexpected Error</msg>
   <msg name="errSheet">Spreadsheet Error</msg>
-  <msg name="errNoData">Please make sure you have data in your Google spreadsheet.</msg>
+  <msg name="errNoData">Please make sure you have access to this spreadsheet and that you have data in your Google spreadsheet.</msg>
   <msg name="errAccess">Access Denied</msg>
   <msg name="errLogin">Please make sure you have access to this spreadsheet or sign in to your Google account to see your birthday list.</msg>
   <msg name="errTimeout">Server Timeout</msg>
