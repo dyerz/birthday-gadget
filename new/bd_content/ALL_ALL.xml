@@ -39,6 +39,19 @@
   <msg name="adec">Dec.</msg>
   <msg name="today">Today</msg>
   
+  <msg name="zCapricorn">Capricorn</msg>
+  <msg name="zAquarius">Aquarius</msg>
+  <msg name="zPisces">Pisces</msg>
+  <msg name="zAries">Aries</msg>
+  <msg name="zTaurus">Taurus</msg>
+  <msg name="zGemini">Gemini</msg>
+  <msg name="zCancer">Cancer</msg>
+  <msg name="zLeo">Leo</msg>
+  <msg name="zVirgo">Virgo</msg>
+  <msg name="zLibra">Libra</msg>
+  <msg name="zScorpio">Scorpio</msg>
+  <msg name="zSagittarius">Sagittarius</msg>
+  
   <msg name="tbConfig">Configure</msg>
   <msg name="tbConvert">Convert</msg>
   <msg name="tbHelp">Help</msg>

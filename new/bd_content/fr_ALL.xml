@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Birthday Reminder 2.0</msg>
-  <msg name="description">Never miss a birthday again!</msg>
+  <msg name="title">Anniversaire Rappel 2,0</msg>
+  <msg name="description">Ne manquez plus jamais un anniversaire!</msg>
   
-  <msg name="titleName">Gadget Title</msg>
-  <msg name="formatName">Date Format</msg>
-  <msg name="showName">Max Visible Birthdays</msg>
-  <msg name="futureNoticeName">Days Before</msg>
-  <msg name="pastNoticeName">Days After</msg>
-  <msg name="noticeAll">All</msg>
-  <msg name="noticeNone">None</msg>
-  <msg name="showAge">Show Age Column</msg>
-  <msg name="showDays">Show Days Column</msg>
-  <msg name="showZodiac">Show Zodiac Column</msg>
+  <msg name="titleName">Titre Gadget</msg>
+  <msg name="formatName">Format de date</msg>
+  <msg name="showName">Max Visible Anniversaires</msg>
+  <msg name="futureNoticeName">Avant jours</msg>
+  <msg name="pastNoticeName">Après jours</msg>
+  <msg name="noticeAll">Tous</msg>
+  <msg name="noticeNone">Aucune</msg>
+  <msg name="showAge">Voir la colonne de l'âge</msg>
+  <msg name="showDays">Voir la colonne jours</msg>
+  <msg name="showZodiac">Voir la colonne de Zodiac</msg>
   
-  <msg name="Loading">Loading</msg>
+  <msg name="Loading">Chargement</msg>
   
   <msg name="tableDate">Date</msg>
   <msg name="tableName">Name</msg>

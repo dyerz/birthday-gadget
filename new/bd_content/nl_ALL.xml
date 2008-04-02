@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Birthday Reminder 2.0</msg>
-  <msg name="description">Never miss a birthday again!</msg>
+  <msg name="title">Verjaardagsherinnering 2,0</msg>
+  <msg name="description">Mis nooit meer een verjaardag!</msg>
   
-  <msg name="titleName">Gadget Title</msg>
-  <msg name="formatName">Date Format</msg>
-  <msg name="showName">Max Visible Birthdays</msg>
-  <msg name="futureNoticeName">Days Before</msg>
-  <msg name="pastNoticeName">Days After</msg>
-  <msg name="noticeAll">All</msg>
-  <msg name="noticeNone">None</msg>
-  <msg name="showAge">Show Age Column</msg>
-  <msg name="showDays">Show Days Column</msg>
-  <msg name="showZodiac">Show Zodiac Column</msg>
+  <msg name="titleName">Gadget titel</msg>
+  <msg name="formatName">Datum Formaat</msg>
+  <msg name="showName">Max zichtbaar Verjaardagen</msg>
+  <msg name="futureNoticeName">Voordat Dagen</msg>
+  <msg name="pastNoticeName">Na Dagen</msg>
+  <msg name="noticeAll">Alle</msg>
+  <msg name="noticeNone">Geen</msg>
+  <msg name="showAge">Toon leeftijd kolom</msg>
+  <msg name="showDays">Toon dagen kolom</msg>
+  <msg name="showZodiac">Toon Zodiac kolom</msg>
   
-  <msg name="Loading">Loading</msg>
+  <msg name="Loading">Laden</msg>
   
-  <msg name="tableDate">Date</msg>
-  <msg name="tableName">Name</msg>
-  <msg name="tableAge">Age</msg>
-  <msg name="tableDays">Days</msg>
+  <msg name="tableDate">Datum</msg>
+  <msg name="tableName">Naam</msg>
+  <msg name="tableAge">Leeftijd</msg>
+  <msg name="tableDays">Dagen</msg>
   <msg name="tableZodiac">Zodiac</msg>
   
-  <msg name="noBirthdays1">No birthdays in the next </msg>
-  <msg name="noBirthdays2"> days.</msg>
+  <msg name="noBirthdays1">Geen verjaardagen in de komende</msg>
+  <msg name="noBirthdays2"> dagen.</msg>
   
-  <msg name="ajan">Jan.</msg>
-  <msg name="afeb">Feb.</msg>
-  <msg name="amar">Mar.</msg>
-  <msg name="aapr">Apr.</msg>
-  <msg name="amay">May</msg>
-  <msg name="ajun">June</msg>
-  <msg name="ajul">July</msg>
-  <msg name="aaug">Aug.</msg>
-  <msg name="asep">Sept.</msg>
-  <msg name="aoct">Oct.</msg>
-  <msg name="anov">Nov.</msg>
-  <msg name="adec">Dec.</msg>
-  <msg name="today">Today</msg>
+  <msg name="ajan">jan</msg>
+  <msg name="afeb">feb</msg>
+  <msg name="amar">mrt</msg>
+  <msg name="aapr">apr</msg>
+  <msg name="amay">mei</msg>
+  <msg name="ajun">jun</msg>
+  <msg name="ajul">jul</msg>
+  <msg name="aaug">aug</msg>
+  <msg name="asep">sep.</msg>
+  <msg name="aoct">okt</msg>
+  <msg name="anov">nov</msg>
+  <msg name="adec">dec</msg>
+  <msg name="today">Vandaag</msg>
   
   <msg name="tbConfig">Configure</msg>
-  <msg name="tbConvert">Convert</msg>
-  <msg name="tbHelp">Help</msg>
-  <msg name="tbRefresh">Refresh</msg>
-  <msg name="tbShow">Show the Toolbar</msg>
-  <msg name="tbHide">Hide the Toolbar</msg>
+  <msg name="tbConvert">Omzetten</msg>
+  <msg name="tbHelp">Hulp</msg>
+  <msg name="tbRefresh">Vernieuwen</msg>
+  <msg name="tbShow">Toon de werkbalk</msg>
+  <msg name="tbHide">Verberg de Toolbar</msg>
   
-  <msg name="configEdit">Edit Google Spreadsheet</msg>
-  <msg name="configFontColor">Font Color</msg>
-  <msg name="configBGColor">Background Color</msg>
-  <msg name="configFontSize">Font Size</msg>
+  <msg name="configEdit">Bewerken Google Spreadsheet</msg>
+  <msg name="configFontColor">Tekstkleur</msg>
+  <msg name="configBGColor">Achtergrondkleur</msg>
+  <msg name="configFontSize">Tekengrootte</msg>
   <msg name="configURL">Spreadsheet URL</msg>
-  <msg name="configBack">Back</msg>
-  <msg name="configSave">Save</msg>
+  <msg name="configBack">Terug</msg>
+  <msg name="configSave">Opslaan</msg>
   <msg name="configPick">Pick</msg>
-  <msg name="configConfirm">Continue without saving?</msg>
+  <msg name="configConfirm">Doorgaan zonder op te slaan?</msg>
   <msg name="configErr">Invalid</msg>
   
-  <msg name="fSizeXS">X-Small</msg>
-  <msg name="fSizeS">Small</msg>
+  <msg name="fSizeXS">X-Kleine</msg>
+  <msg name="fSizeS">Kleine</msg>
   <msg name="fSizeM">Medium</msg>
-  <msg name="fSizeL">Large</msg>
-  <msg name="fSizeXL">X-Large</msg>
+  <msg name="fSizeL">Grote</msg>
+  <msg name="fSizeXL">X-Grote</msg>
   
   <msg name="setupH1">Gadget Setup</msg>
   <msg name="setupGreet1">Onthaal aan nieuwe Herinneringen 2,0 van de Verjaardag!</msg>
@@ -76,23 +76,23 @@
   <msg name="setupMore">Klik hier voor meer gedetailleerde instructies</msg>
   
   <msg name="convertH1">Verbetering</msg>
-  <msg name="convertStep1">Open your Google spreadsheet</msg>
-  <msg name="convertStep2">Copy the text below.</msg>
-  <msg name="convertStep3">Paste the text into the spreadsheet.</msg>
-  <msg name="convertStep4">Clear the old data when you are done.</msg>
-  <msg name="convertClear">Clear Old Data</msg>
-  <msg name="convertMore">See the help website for additional assistance.</msg>
+  <msg name="convertStep1">Open uw Google spreadsheet</msg>
+  <msg name="convertStep2">Kopieer de onderstaande tekst.</msg>
+  <msg name="convertStep3">Plak de tekst in de spreadsheet.</msg>
+  <msg name="convertStep4">Wis de oude gegevens als je klaar bent.</msg>
+  <msg name="convertClear">Wis oude gegevens</msg>
+  <msg name="convertMore">Zie de Help-website voor meer hulp.</msg>
   
-  <msg name="errH1">Error</msg>
-  <msg name="errDateFormat">Please set the "Format" of colum A to "date".</msg>
-  <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>
-  <msg name="errUnk">Unexpected Error</msg>
-  <msg name="errSheet">Spreadsheet Error</msg>
-  <msg name="errNoData">Please make sure you have data in your Google spreadsheet.</msg>
-  <msg name="errAccess">Access Denied</msg>
-  <msg name="errLogin">Please make sure you have access to this spreadsheet or sign in to your Google account to see your birthday list.</msg>
-  <msg name="errTimeout">Server Timeout</msg>
-  <msg name="errRefresh">Please refresh the webpage to try again.</msg>
-  <msg name="errMore">See the help website for additional assistance.</msg>
-  <msg name="errCommon">Click "Refresh" after you make the changes in your Google spreadsheet.</msg>
+  <msg name="errH1">Fout</msg>
+  <msg name="errDateFormat">Stel het "Format" van kolom A tot "datum".</msg>
+  <msg name="errColumn">Beweeg de data uit kolom "B" kolom "A".</msg>
+  <msg name="errUnk">Onverwachte fout</msg>
+  <msg name="errSheet">Spreadsheet fout</msg>
+  <msg name="errNoData">Zorg ervoor dat u de gegevens in uw Google spreadsheet.</msg>
+  <msg name="errAccess">Zwijnen</msg>
+  <msg name="errLogin">Zorg ervoor dat u toegang heeft tot deze spreadsheet of melden bij uw Google-account om uw verjaardag lijst.</msg>
+  <msg name="errTimeout">Server Time-out</msg>
+  <msg name="errRefresh">Vernieuw de webpagina om het nogmaals te proberen.</msg>
+  <msg name="errMore">Zie de Help-website voor meer hulp.</msg>
+  <msg name="errCommon">Klik op "Refresh" nadat u de wijzigingen in uw Google spreadsheet.</msg>
 </messagebundle>

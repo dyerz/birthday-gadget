@@ -324,18 +324,18 @@
 		var s=formatDate.split("/");
 		s[1]=parseInt(s[1],10); s[2]=parseInt(s[2],10);
 		switch(s[1]){
-			case 1: return (s[2]<21?"Capricorn":"Aquarius");
-			case 2: return (s[2]<19?"Aquarius":"Pisces");
-			case 3: return (s[2]<21?"Pisces":"Aries");
-			case 4: return (s[2]<21?"Aries":"Taurus");
-			case 5: return (s[2]<22?"Taurus":"Gemini");
-			case 6: return (s[2]<22?"Gemini":"Cancer");
-			case 7: return (s[2]<23?"Cancer":"Leo");
-			case 8: return (s[2]<22?"Leo":"Virgo");
-			case 9: return (s[2]<24?"Virgo":"Libra");
-			case 10: return (s[2]<24?"Libra":"Scorpio");
-			case 11: return (s[2]<23?"Scorpio":"Sagittarius");
-			case 12: return (s[2]<23?"Sagittarius":"Capricorn");
+			case 1: return (s[2]<21?"__MSG_zCapricorn__":"__MSG_zAquarius__");
+			case 2: return (s[2]<19?"__MSG_zAquarius__":"__MSG_zPisces__");
+			case 3: return (s[2]<21?"__MSG_zPisces__":"__MSG_zAries__");
+			case 4: return (s[2]<21?"__MSG_zAries__":"__MSG_zTaurus__");
+			case 5: return (s[2]<22?"__MSG_zTaurus__":"__MSG_zGemini__");
+			case 6: return (s[2]<22?"__MSG_zGemini__":"__MSG_zCancer__");
+			case 7: return (s[2]<23?"__MSG_zCancer__":"__MSG_zLeo__");
+			case 8: return (s[2]<22?"__MSG_zLeo__":"__MSG_zVirgo__");
+			case 9: return (s[2]<24?"__MSG_zVirgo__":"__MSG_zLibra__");
+			case 10: return (s[2]<24?"__MSG_zLibra__":"__MSG_zScorpio__");
+			case 11: return (s[2]<23?"__MSG_zScorpio__":"__MSG_zSagittarius__");
+			case 12: return (s[2]<23?"__MSG_zSagittarius__":"__MSG_zCapricorn__");
 		}
 	}	
 	
