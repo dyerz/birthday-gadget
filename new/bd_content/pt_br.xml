@@ -64,18 +64,18 @@
   <msg name="fSizeXL">X-Large</msg>
   
   <msg name="setupH1">Gadget Setup</msg>
-  <msg name="setupGreet1">Welcome to the new Birthday Reminders 2.0!</msg>
-  <msg name="setupGreet2">You are just a few clicks away from enjoying some new features!</msg>
-  <msg name="setupGreet3">Do not worry, your old birthday list is safe!</msg>
-  <msg name="setupStep1">Create a new Google spreadsheet.</msg>
-  <msg name="setupStep2">Enter Dates in Column "A" and Names in Column "B".</msg>
-  <msg name="setupStep2P">Instructions for converting your old birthday list is available on the next page.</msg>
-  <msg name="setupStep3">Save the Google spreadsheet.</msg>
-  <msg name="setupStep4">Copy the Google spreadsheet address from the address bar.</msg>
-  <msg name="setupStep5">Paste the spreadsheet address below.</msg>
-  <msg name="setupMore">Click Here For more detailed instructions</msg>
+  <msg name="setupGreet1">Boa vinda aos lembretes novos 2.0 do aniversário!</msg>
+  <msg name="setupGreet2">Você é justo alguns cliques away de apreciar algumas características novas!</msg>
+  <msg name="setupGreet3">Não se preocupe, sua lista velha do aniversário é seguro!</msg>
+  <msg name="setupStep1">Críe um spreadsheet novo de Google.</msg>
+  <msg name="setupStep2">Dê entrada com datas na coluna "A" e nomes na coluna "B".</msg>
+  <msg name="setupStep2P">As instruções para converter sua lista velha do aniversário estão disponíveis na página seguinte.</msg>
+  <msg name="setupStep3">Excepto o spreadsheet de Google.</msg>
+  <msg name="setupStep4">Copy o endereço do spreadsheet de Google da barra do endereço.</msg>
+  <msg name="setupStep5">Cole o endereço do spreadsheet abaixo.</msg>
+  <msg name="setupMore">Estale aqui para umas instruções mais detalhadas</msg>
   
-  <msg name="convertH1">Convert</msg>
+  <msg name="convertH1">Melhoramento</msg>
   <msg name="convertStep1">Open your Google spreadsheet</msg>
   <msg name="convertStep2">Copy the text below.</msg>
   <msg name="convertStep3">Paste the text into the spreadsheet.</msg>
