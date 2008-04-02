@@ -133,7 +133,7 @@
 	var tableDivObj__MODULE_ID__;
     
 	//get started
-    function init(){
+    function init__MODULE_ID__(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
 		prefs__MODULE_ID__ = new _IG_Prefs();
@@ -166,16 +166,16 @@
 		***/
 		
 		//queryurl check
-		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
+		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp__MODULE_ID__(); return;}
 		//toolbar creation
-		buildToolbar();
-		flipTB(false);
+		buildToolbar__MODULE_ID__();
+		flipTB__MODULE_ID__(false);
 		//init done.. show stuff
-		sendQuery();
+		sendQuery__MODULE_ID__();
     }
 
 /* Toolbar functions ***************************/
-	function buildToolbar(){
+	function buildToolbar__MODULE_ID__(){
 		var html = [];
 		html.push('<table><tr><td id="tbConfig">__MSG_tbConfig__</td>');
 		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<td id="tbConvert">__MSG_tbConvert__</td>');
@@ -184,19 +184,19 @@
 		_gel('toolbar').innerHTML = html.join('');
 		
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig();};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert();}
-		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery();};
+		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();};
+		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}
+		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery__MODULE_ID__();};
 
 		//js event config
 		_gel("toolbarVis").onclick=function(){
 			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
 			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
-			flipTB(true);
+			flipTB__MODULE_ID__(true);
 		};
 	}
 	
-	function flipTB(sh){
+	function flipTB__MODULE_ID__(sh){
 		if(prefArr__MODULE_ID__["tbVis"]=="false"){
 			_gel("toolbarVis").title="__MSG_tbHide__";
 			_gel("toolbar").style.display=""; _gel("upImg").style.display=""; _gel("dnImg").style.display="none";
@@ -208,38 +208,38 @@
 	}
 
 /* Data Functions ******************************/	
-    function sendQuery(qCheck) {
+    function sendQuery__MODULE_ID__(qCheck) {
 		if(prefArr__MODULE_ID__["_table_query_url"].search(/ccc\?/)!=-1 ){
 			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?");
 			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
 				prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].substring(0, prefArr__MODULE_ID__["_table_query_url"].indexOf("&"));
-			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(prefArr__MODULE_ID__["_table_query_url"])
+			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(prefArr__MODULE_ID__["_table_query_url"])
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 		}
 
 		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
 		query.setQuery("select A, B format A 'yyyy/MM/dd'");
-		query.send(handleQueryResponse);
+		query.send(handleQueryResponse__MODULE_ID__);
     }
 
-    function handleQueryResponse(response) {
+    function handleQueryResponse__MODULE_ID__(response) {
 		if(response.isError()) {
 			switch(response.getReasons()){
-				case "access_denied": goError('__MSG_errAccess__<br />__MSG_errLogin__'); break;
-				case "timeout": goError('__MSG_errTimeout__<br />__MSG_errRefresh__'); break;
-				case "invalid_query": goError('__MSG_errSheet__<br />__MSG_errNoData__'); break;
-				default: goError('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />__MSG_errNoData__');
+				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br />__MSG_errLogin__'); break;
+				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__'); break;
+				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br />__MSG_errNoData__'); break;
+				default: goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />__MSG_errNoData__');
 			}
 			return;
 		}
 		var data = response.getDataTable(), html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
 
 		//check for dates
-		if(data.getColumnType(1)=="date"){ goError('__MSG_errColumn__'); return; }
-		if(data.getColumnType(0)!="date"){ goError('__MSG_errDateFormat__'); return; }
-		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError('__MSG_errNoData__'); return; }
+		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__'); return; }
+		if(data.getColumnType(0)!="date"){ goError__MODULE_ID__('__MSG_errDateFormat__'); return; }
+		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
 		
-		var dataArray=buildArray(data);
+		var dataArray=buildArray__MODULE_ID__(data);
 		if(dataArray.length==0){
 			html.push('<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 			html.push('__MSG_noBirthdays1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_noBirthdays2__</div>');
@@ -266,10 +266,10 @@
 			rowDate=Date.parse(rowData[0]);
 
 			html.push('<tr><td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>');
-			html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml(rowData[1])+'</td>');
-			if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge(rowDate, rowData[2])+'</td>');
-			if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays(rowData[2])+'</td>');
-			if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac(rowData[2])+'</td>');
+			html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>');
+			if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>');
+			if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>');
+			if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>');
 			html.push('</tr>');
 			if(countDisp++>=dispLength) break;
 		}
@@ -280,7 +280,7 @@
 		_IG_AdjustIFrameHeight();
     }
 
-	function buildArray(data){
+	function buildArray__MODULE_ID__(data){
 		var dataArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
@@ -318,16 +318,16 @@
 		}
 	}
 
-    function makeAge(rowDate, formatDate){var n=new Date(), b=new Date();
+    function makeAge__MODULE_ID__(rowDate, formatDate){var n=new Date(), b=new Date();
 		n.setTime(Date.parse(formatDate)); b.setTime(rowDate); return n.getFullYear()-b.getFullYear();
 	}
     
-	function makeDays(formatDate){
+	function makeDays__MODULE_ID__(formatDate){
 		var t=new Date();
 		return Math.round((Date.parse(formatDate)-Date.parse(t.getFullYear()+"/"+(t.getMonth()+1)+"/"+t.getDate()))/(86400000));
 	}
 	
-	function makeZodiac(formatDate){
+	function makeZodiac__MODULE_ID__(formatDate){
 		var s=formatDate.split("/");
 		s[1]=parseInt(s[1],10); s[2]=parseInt(s[2],10);
 		switch(s[1]){
@@ -347,13 +347,13 @@
 	}	
 	
 /* General Functions ***************************/
-    function escapeHtml(text) {
+    function escapeHtml__MODULE_ID__(text) {
 		if (text == null) { return ''; }
 		return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
 /* Help / Error Functions **********************/
-	function showHelp(){
+	function showHelp__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/setup");	
 		var html = [];
 		html.push('<h1>__MSG_setupH1__</h1>');
@@ -369,17 +369,17 @@
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
 			var tempStr=_trim(_gel('newurl').value);
-			if(!urlCheck(tempStr)) return;
-			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml(tempStr)
+			if(!urlCheck__MODULE_ID__(tempStr)) return;
+			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 			tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__...";
-			init();
+			init__MODULE_ID__();
 		}
 
 		_IG_AdjustIFrameHeight();
 	}
 
-	function goError(errText){
+	function goError__MODULE_ID__(errText){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
@@ -390,7 +390,7 @@
 	}	
 
 /* Config Page Functions ***********************/	
-	function goConfig(){
+	function goConfig__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/config");	
 		var html=[];
 		html.push('<h1>__MSG_tbConfig__</h1><table id="configTable">');
@@ -401,7 +401,7 @@
 		html.push('<tr><td class="configTitle">__MSG_configBGColor__</td><td class="configText"><input id="bgcSet" type="button" value="__MSG_configPick__" /> ');
 		html.push('<input id="bgcDiv" type="text" value="'+prefArr__MODULE_ID__["bgColor"]+'" /> ');
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
-		html.push('<tr><td class="configTitle">__MSG_configFontSize__</td><td class="configText">'+makeFontSize()+'</td></tr>'); 
+		html.push('<tr><td class="configTitle">__MSG_configFontSize__</td><td class="configText">'+makeFontSize__MODULE_ID__()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configURL__</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="__MSG_configBack__" /></td>');
@@ -409,17 +409,17 @@
 		html.push('</table>');
 		
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');	
-		_gel('textSet').onclick=function(){ showColorGrid2("textDiv","textSpan");_IG_AdjustIFrameHeight();}
-		_gel('bgcSet').onclick=function(){ showColorGrid2("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
+		_gel('textSet').onclick=function(){ showColorGrid2__MODULE_ID__("textDiv","textSpan");_IG_AdjustIFrameHeight();}
+		_gel('bgcSet').onclick=function(){ showColorGrid2__MODULE_ID__("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ 
-			if(!configChanged() || confirm("__MSG_configConfirm__"))  sendQuery();}
-		_gel('configSave').onclick=function(){if(configSave()) sendQuery();}
+			if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  sendQuery__MODULE_ID__();}
+		_gel('configSave').onclick=function(){if(configSave__MODULE_ID__()) sendQuery__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 	
-	function getScrollY(){var scrOfX = 0,scrOfY=0;if(typeof(window.pageYOffset)=='number'){scrOfY=window.pageYOffset;scrOfX=window.pageXOffset;}else if(document.body&&(document.body.scrollLeft||document.body.scrollTop)){scrOfY=document.body.scrollTop;scrOfX=document.body.scrollLeft;}else if(document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)){scrOfY=document.documentElement.scrollTop;scrOfX=document.documentElement.scrollLeft;}return scrOfY;}document.write("<style type='text/css'>.colorpicker201{visibility:hidden;display:none;position:absolute;background:#FFF;border:solid 1px #CCC;padding:4px;z-index:999;filter:progid:DXImageTransform.Microsoft.Shadow(color=#D0D0D0,direction=135);}.o5582brd{padding:0;width:12px;height:14px;border-bottom:solid 1px #DFDFDF;border-right:solid 1px #DFDFDF;}a.o5582n66,.o5582n66,.o5582n66a{font-family:arial,tahoma,sans-serif;text-decoration:underline;font-size:9px;color:#666;border:none;}.o5582n66,.o5582n66a{text-align:center;text-decoration:none;}a:hover.o5582n66{text-decoration:none;color:#FFA500;cursor:pointer;}.a01p3{padding:1px 4px 1px 2px;background:whitesmoke;border:solid 1px #DFDFDF;}</style>");function getTop2(){csBrHt=0;if(typeof(window.innerWidth)=='number'){csBrHt=window.innerHeight;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrHt=document.documentElement.clientHeight;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrHt=document.body.clientHeight;}ctop=((csBrHt/2)-115)+getScrollY();return ctop;}var nocol1="&#78;&#79;&#32;&#67;&#79;&#76;&#79;&#82;",clos1="&#67;&#76;&#79;&#83;&#69;",tt2="&#70;&#82;&#69;&#69;&#45;&#67;&#79;&#76;&#79;&#82;&#45;&#80;&#73;&#67;&#75;&#69;&#82;&#46;&#67;&#79;&#77;",hm2="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#119;&#119;&#119;&#46;";hm2+=tt2;tt2="&#80;&#79;&#87;&#69;&#82;&#69;&#68;&#32;&#98;&#121;&#32;&#70;&#67;&#80;";function getLeft2(){var csBrWt=0;if(typeof(window.innerWidth)=='number'){csBrWt=window.innerWidth;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrWt=document.documentElement.clientWidth;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrWt=document.body.clientWidth;}cleft=(csBrWt/2)-125;return cleft;}function setCCbldID2(objID,val){document.getElementById(objID).value=val;}function setCCbldSty2(objID,prop,val){switch(prop){case "bc":if(objID!='none'){document.getElementById(objID).style.backgroundColor=val;};break;case "vs":document.getElementById(objID).style.visibility=val;break;case "ds":document.getElementById(objID).style.display=val;break;case "tp":document.getElementById(objID).style.top=val;break;case "lf":document.getElementById(objID).style.left=val;break;}}function putOBJxColor2(OBjElem,Samp,pigMent){if(pigMent!='x'){setCCbldID2(OBjElem,pigMent);setCCbldSty2(Samp,'bc',pigMent);}setCCbldSty2('colorpicker201','vs','hidden');setCCbldSty2('colorpicker201','ds','none');}function showColorGrid2(OBjElem,Sam){var objX=new Array('00','33','66','99','CC','FF');var c=0;var z='"'+OBjElem+'","'+Sam+'",""';var xl='"'+OBjElem+'","'+Sam+'","x"';var mid='';mid+='<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="border:solid 0px #F0F0F0;padding:2px;"><tr>';mid+="<td colspan='18' align='left' style='font-size:10px;background:#6666CC;color:#FFF;font-family:arial;'>&nbsp;Chromatic Selection Palette</td></tr><tr><td colspan='18' align='center' style='margin:0;padding:2px;height:12px;' ><input class='o5582n66' type='text' size='12' id='o5582n66' value='#FFFFFF'><input class='o5582n66a' type='text' size='2' style='width:14px;' id='o5582n66a' onclick='javascript:alert(\"click on selected swatch below...\");' value='' style='border:solid 1px #666;'>&nbsp;|&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2("+z+")'><span class='a01p3'>"+nocol1+"</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2("+xl+")'><span class='a01p3'>"+clos1+"</span></a></td></tr><tr>";var br=1;for(o=0;o<6;o++){mid+='</tr><tr>';for(y=0;y<6;y++){if(y==3){mid+='</tr><tr>';}for(x=0;x<6;x++){var grid='';grid=objX[o]+objX[y]+objX[x];var b="'"+OBjElem+"', '"+Sam+"','#"+grid+"'";mid+='<td class="o5582brd" style="background-color:#'+grid+'"><a class="o5582n66"  href="javascript:onclick=putOBJxColor2('+b+');" onmouseover=javascript:document.getElementById("o5582n66").value="#'+grid+'";javascript:document.getElementById("o5582n66a").style.backgroundColor="#'+grid+'";  title="#'+grid+'"><div style="width:12px;height:14px;"></div></a></td>';c++;}}}mid+="</tr><tr><td colspan='18' align='right' style='padding:2px;border:solid 1px #FFF;background:#FFF;'><a href='"+hm2+"' style='color:#666;font-size:8px;font-family:arial;text-decoration:none;letter-spacing:1px;'>"+tt2+"</a></td></tr></table>";var ttop=getTop2();setCCbldSty2('colorpicker201','tp',ttop);document.getElementById('colorpicker201').style.left=getLeft2();setCCbldSty2('colorpicker201','vs','visible');setCCbldSty2('colorpicker201','ds','block');document.getElementById('colorpicker201').innerHTML=mid;}
+	function getScrollY__MODULE_ID__(){var scrOfX = 0,scrOfY=0;if(typeof(window.pageYOffset)=='number'){scrOfY=window.pageYOffset;scrOfX=window.pageXOffset;}else if(document.body&&(document.body.scrollLeft||document.body.scrollTop)){scrOfY=document.body.scrollTop;scrOfX=document.body.scrollLeft;}else if(document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)){scrOfY=document.documentElement.scrollTop;scrOfX=document.documentElement.scrollLeft;}return scrOfY;}document.write("<style type='text/css'>.colorpicker201{visibility:hidden;display:none;position:absolute;background:#FFF;border:solid 1px #CCC;padding:4px;z-index:999;filter:progid:DXImageTransform.Microsoft.Shadow(color=#D0D0D0,direction=135);}.o5582brd{padding:0;width:12px;height:14px;border-bottom:solid 1px #DFDFDF;border-right:solid 1px #DFDFDF;}a.o5582n66,.o5582n66,.o5582n66a{font-family:arial,tahoma,sans-serif;text-decoration:underline;font-size:9px;color:#666;border:none;}.o5582n66,.o5582n66a{text-align:center;text-decoration:none;}a:hover.o5582n66{text-decoration:none;color:#FFA500;cursor:pointer;}.a01p3{padding:1px 4px 1px 2px;background:whitesmoke;border:solid 1px #DFDFDF;}</style>");function getTop2__MODULE_ID__(){csBrHt=0;if(typeof(window.innerWidth)=='number'){csBrHt=window.innerHeight;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrHt=document.documentElement.clientHeight;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrHt=document.body.clientHeight;}ctop=((csBrHt/2)-115)+getScrollY__MODULE_ID__();return ctop;}var nocol1="&#78;&#79;&#32;&#67;&#79;&#76;&#79;&#82;",clos1="&#67;&#76;&#79;&#83;&#69;",tt2="&#70;&#82;&#69;&#69;&#45;&#67;&#79;&#76;&#79;&#82;&#45;&#80;&#73;&#67;&#75;&#69;&#82;&#46;&#67;&#79;&#77;",hm2="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#119;&#119;&#119;&#46;";hm2+=tt2;tt2="&#80;&#79;&#87;&#69;&#82;&#69;&#68;&#32;&#98;&#121;&#32;&#70;&#67;&#80;";function getLeft2__MODULE_ID__(){var csBrWt=0;if(typeof(window.innerWidth)=='number'){csBrWt=window.innerWidth;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrWt=document.documentElement.clientWidth;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrWt=document.body.clientWidth;}cleft=(csBrWt/2)-125;return cleft;}function setCCbldID2__MODULE_ID__(objID,val){document.getElementById(objID).value=val;}function setCCbldSty2__MODULE_ID__(objID,prop,val){switch(prop){case "bc":if(objID!='none'){document.getElementById(objID).style.backgroundColor=val;};break;case "vs":document.getElementById(objID).style.visibility=val;break;case "ds":document.getElementById(objID).style.display=val;break;case "tp":document.getElementById(objID).style.top=val;break;case "lf":document.getElementById(objID).style.left=val;break;}}function putOBJxColor2__MODULE_ID__(OBjElem,Samp,pigMent){if(pigMent!='x'){setCCbldID2__MODULE_ID__(OBjElem,pigMent);setCCbldSty2__MODULE_ID__(Samp,'bc',pigMent);}setCCbldSty2__MODULE_ID__('colorpicker201','vs','hidden');setCCbldSty2__MODULE_ID__('colorpicker201','ds','none');}function showColorGrid2__MODULE_ID__(OBjElem,Sam){var objX=new Array('00','33','66','99','CC','FF');var c=0;var z='"'+OBjElem+'","'+Sam+'",""';var xl='"'+OBjElem+'","'+Sam+'","x"';var mid='';mid+='<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="border:solid 0px #F0F0F0;padding:2px;"><tr>';mid+="<td colspan='18' align='left' style='font-size:10px;background:#6666CC;color:#FFF;font-family:arial;'>&nbsp;Chromatic Selection Palette</td></tr><tr><td colspan='18' align='center' style='margin:0;padding:2px;height:12px;' ><input class='o5582n66' type='text' size='12' id='o5582n66' value='#FFFFFF'><input class='o5582n66a' type='text' size='2' style='width:14px;' id='o5582n66a' onclick='javascript:alert(\"click on selected swatch below...\");' value='' style='border:solid 1px #666;'>&nbsp;|&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2__MODULE_ID__("+z+")'><span class='a01p3'>"+nocol1+"</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2__MODULE_ID__("+xl+")'><span class='a01p3'>"+clos1+"</span></a></td></tr><tr>";var br=1;for(o=0;o<6;o++){mid+='</tr><tr>';for(y=0;y<6;y++){if(y==3){mid+='</tr><tr>';}for(x=0;x<6;x++){var grid='';grid=objX[o]+objX[y]+objX[x];var b="'"+OBjElem+"', '"+Sam+"','#"+grid+"'";mid+='<td class="o5582brd" style="background-color:#'+grid+'"><a class="o5582n66"  href="javascript:onclick=putOBJxColor2__MODULE_ID__('+b+');" onmouseover=javascript:document.getElementById("o5582n66").value="#'+grid+'";javascript:document.getElementById("o5582n66a").style.backgroundColor="#'+grid+'";  title="#'+grid+'"><div style="width:12px;height:14px;"></div></a></td>';c++;}}}mid+="</tr><tr><td colspan='18' align='right' style='padding:2px;border:solid 1px #FFF;background:#FFF;'><a href='"+hm2+"' style='color:#666;font-size:8px;font-family:arial;text-decoration:none;letter-spacing:1px;'>"+tt2+"</a></td></tr></table>";var ttop=getTop2__MODULE_ID__();setCCbldSty2__MODULE_ID__('colorpicker201','tp',ttop);document.getElementById('colorpicker201').style.left=getLeft2__MODULE_ID__();setCCbldSty2__MODULE_ID__('colorpicker201','vs','visible');setCCbldSty2__MODULE_ID__('colorpicker201','ds','block');document.getElementById('colorpicker201').innerHTML=mid;}
 
-	function makeFontSize(){
+	function makeFontSize__MODULE_ID__(){
 		var retStr=[], sizeStr=["xsmall", "small", "medium", "large", "xlarge"], dispStr=["__MSG_fSizeXS__", "__MSG_fSizeS__", "__MSG_fSizeM__", "__MSG_fSizeL__", "__MSG_fSizeXL__"], selStr="";
 		retStr.push('<select id="fontSize">');
 		for(var i=0; i<sizeStr.length; i++){
@@ -430,7 +430,7 @@
 		return retStr;
 	}
 
-	function configChanged(){
+	function configChanged__MODULE_ID__(){
 		if(_gel("textDiv").value!=prefArr__MODULE_ID__["fontColor"]) return true;
 		if(_gel("bgcDiv").value!=prefArr__MODULE_ID__["bgColor"]) return true;
 		if(_gel("fontSize").value!=prefs__MODULE_ID__.getString("fontSize")) return true;
@@ -438,24 +438,24 @@
 		return false;
 	}
 	
-	function configSave(){
+	function configSave__MODULE_ID__(){
 		var fC, bC, fS, sU;
 		var tempStr=_trim(_gel("textDiv").value);
-		if(!colorCheck(tempStr, "Font Color")) return false;
+		if(!colorCheck__MODULE_ID__(tempStr, "Font Color")) return false;
 		fC=tempStr;
 		tempStr=_trim(_gel("bgcDiv").value);
-		if(!colorCheck(tempStr, "Background Color")) return false;
+		if(!colorCheck__MODULE_ID__(tempStr, "Background Color")) return false;
 		bC=tempStr;
 		fS=_gel("fontSize").value;
 		tempStr=_trim(_gel("shUrl").value);
-		if(!urlCheck(tempStr)) return false;
+		if(!urlCheck__MODULE_ID__(tempStr)) return false;
 		
 		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "shUrl", tempStr);
 		prefArr__MODULE_ID__["fontSize"]=fS; prefArr__MODULE_ID__["fontColor"]=fC; prefArr__MODULE_ID__["bgColor"]=bC; prefArr__MODULE_ID__["_table_query_url"]=tempStr;
 		return true;
 	}
 
-	function colorCheck(color, title){
+	function colorCheck__MODULE_ID__(color, title){
 		var hexTest=new RegExp(/^[#]{1}[0-9a-f]{6}$/i);
 		if(color.length==0) return true;
 		title=title=="Font Color"?"__MSG_configFontColor__":"__MSG_configBGColor__";
@@ -463,14 +463,14 @@
 		return true;
 	}
 	
-	function urlCheck(tempStr){
+	function urlCheck__MODULE_ID__(tempStr){
 		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
-		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9]{23}/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
+		if(tempStr.search(/http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9\-]{23}/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
 		return true;
 	}
 
 /* Convert - Reverse Compatibility Functions ***/
-	function goConvert(){
+	function goConvert__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/convert");	
 		var html=[];
 		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
@@ -483,13 +483,13 @@
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
 			prefArr__MODULE_ID__["birthdays"]="";
-			buildToolbar();
-			sendQuery();
+			buildToolbar__MODULE_ID__();
+			sendQuery__MODULE_ID__();
 		}
 		_IG_AdjustIFrameHeight();
 	}	
 
-	google.setOnLoadCallback(init);
+	google.setOnLoadCallback(init__MODULE_ID__);
 </script>
 ]]> 
 </Content>
