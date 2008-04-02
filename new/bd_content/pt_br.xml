@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Lembrete de aniversário 2,0</msg>
-  <msg name="description">Nunca perca uma aniversário de novo!</msg>
+  <msg name="title"> Lembrete de aniversÃ¡rio 2,0</msg>
+  <msg name="description"> Nunca perca uma aniversÃ¡rio de novo! </msg>
   
-  <msg name="titleName">Gadget Título</msg>
+  <msg name="titleName"> Gadget TÃ­tulo</msg>
   <msg name="formatName">Data Format</msg>
-  <msg name="showName">Máximo visível aniversários</msg>
+  <msg name="showName"> MÃ¡ximo visÃ­vel aniversÃ¡rios</msg>
   <msg name="futureNoticeName">Dias Antes</msg>
-  <msg name="pastNoticeName">Dias Após</msg>
+  <msg name="pastNoticeName"> Dias ApÃ³s</msg>
   <msg name="noticeAll">Todos</msg>
   <msg name="noticeNone">Nenhum</msg>
   <msg name="showAge">Mostrar idade coluna</msg>
@@ -22,7 +22,7 @@
   <msg name="tableDays">Dias</msg>
   <msg name="tableZodiac">Zodiac</msg>
   
-  <msg name="noBirthdays1">Nenhum aniversários nos próximos</msg>
+  <msg name="noBirthdays1"> Nenhum aniversÃ¡rios nos prÃ³ximos</msg>
   <msg name="noBirthdays2">dias.</msg>
   
   <msg name="ajan">jan.</msg>
@@ -39,18 +39,18 @@
   <msg name="adec">dez.</msg>
   <msg name="today">Hoje</msg>
   
-  <msg name="zCapricorn">Capricórnio</msg>
+  <msg name="zCapricorn">CapricÃ³rnio </msg>
   <msg name="zAquarius">Aquarius</msg>
   <msg name="zPisces">Pisces</msg>
-  <msg name="zAries">Áries</msg>
+  <msg name="zAries">Ãries </msg>
   <msg name="zTaurus">Taurus</msg>
   <msg name="zGemini">Gemini</msg>
-  <msg name="zCancer">Câncer</msg>
+  <msg name="zCancer">CÃ¢ncer </msg>
   <msg name="zLeo">Leo</msg>
   <msg name="zVirgo">Virgo</msg>
   <msg name="zLibra">Libra</msg>
-  <msg name="zScorpio">Escorpião</msg>
-  <msg name="zSagittarius">Sagitário</msg>
+  <msg name="zScorpio">EscorpiÃ£o </msg>
+  <msg name="zSagittarius">SagitÃ¡rio </msg>
   
   <msg name="tbConfig">Configurar</msg>
   <msg name="tbConvert">Converter</msg>
@@ -68,25 +68,25 @@
   <msg name="configSave">Salvar</msg>
   <msg name="configPick">Pick</msg>
   <msg name="configConfirm">Continuar sem salvar?</msg>
-  <msg name="configErr">Inválido</msg>
+  <msg name="configErr">InvÃ¡lido </msg>
   
   <msg name="fSizeXS">X-Pequenas</msg>
   <msg name="fSizeS">Pequenas</msg>
-  <msg name="fSizeM">Médias</msg>
+  <msg name="fSizeM">MÃ©dias </msg>
   <msg name="fSizeL">Large</msg>
   <msg name="fSizeXL">X-Large</msg>
   
   <msg name="setupH1">Gadget Setup</msg>
-  <msg name="setupGreet1">Bem-vindo ao novo Aniversário Lembretes 2,0!</msg>
-  <msg name="setupGreet2">Você está apenas a alguns cliques de distância de gozar alguns novos recursos!</msg>
-  <msg name="setupGreet3">Não se preocupe, o seu antigo aniversário lista é seguro!</msg>
+  <msg name="setupGreet1"> Bem-vindo ao novo AniversÃ¡rio Lembretes 2,0!</msg>
+  <msg name="setupGreet2"> VocÃª estÃ¡ apenas a alguns cliques de distÃ¢ncia de gozar alguns novos recursos! </msg>
+  <msg name="setupGreet3"> NÃ£o se preocupe, o seu antigo aniversÃ¡rio lista Ã© seguro!</msg>
   <msg name="setupStep1">Criar uma nova planilha do Google.</msg>
   <msg name="setupStep2">Datas entra na coluna "A" e Nomes na Coluna "B".</msg>
-  <msg name="setupStep2P">Instruções para converter suas antigas aniversário lista está disponível na página seguinte.</msg>
+  <msg name="setupStep2P"> InstruÃ§Ãµes para converter suas antigas aniversÃ¡rio lista estÃ¡ disponÃ­vel na pÃ¡gina seguinte.</msg>
   <msg name="setupStep3">Salvar a planilha do Google.</msg>
-  <msg name="setupStep4">Copie o endereço do Google planilha barra de endereços.</msg>
-  <msg name="setupStep5">Cole a planilha endereço abaixo.</msg>
-  <msg name="setupMore">Clique Aqui Para obter instruções mais detalhadas</msg>
+  <msg name="setupStep4"> Copie o endereÃ§o do Google planilha barra de endereÃ§os.</msg>
+  <msg name="setupStep5"> Cole a planilha endereÃ§o abaixo.</msg>
+  <msg name="setupMore"> Clique Aqui Para obter instruÃ§Ãµes mais detalhadas</msg>
   
   <msg name="convertH1">Converter</msg>
   <msg name="convertStep1">Abra sua planilha do Google</msg>
@@ -94,18 +94,18 @@
   <msg name="convertStep3">Cole o texto na planilha.</msg>
   <msg name="convertStep4">Limpar os dados antigos quando tiver terminado.</msg>
   <msg name="convertClear">Limpar dados antigos</msg>
-  <msg name="convertMore">Veja o website para ajudar a assistência adicional.</msg>
+  <msg name="convertMore"> Veja o website para ajudar a assistÃªncia adicional. </msg>
   
   <msg name="errH1">Erro</msg>
   <msg name="errDateFormat">Por favor, defina o "Tipo" da coluna "A" a "data".</msg>
   <msg name="errColumn">Por favor mova as datas da coluna "B" a coluna "A".</msg>
   <msg name="errUnk">Erro inesperado</msg>
   <msg name="errSheet">Erro de planilha</msg>
-  <msg name="errNoData">Certifique-se de que você tem os dados em sua planilha do Google.</msg>
+  <msg name="errNoData"> Certifique-se de que vocÃª tem os dados em sua planilha do Google.</msg>
   <msg name="errAccess">Acesso negado</msg>
-  <msg name="errLogin">Certifique-se de que você tenha acesso a essa planilha ou acessar a sua conta do Google para ver o seu aniversário lista.</msg>
+  <msg name="errLogin"> Certifique-se de que vocÃª tenha acesso a essa planilha ou acessar a sua conta do Google para ver o seu aniversÃ¡rio lista. </msg>
   <msg name="errTimeout">Server Timeout</msg>
-  <msg name="errRefresh">Atualize a página para tentar novamente.</msg>
-  <msg name="errMore">Veja o website para ajudar a assistência adicional.</msg>
-  <msg name="errCommon">Clique em "Atualizar" após fazer as alterações em sua planilha do Google.</msg>
+  <msg name="errRefresh"> Atualize a pÃ¡gina para tentar novamente. </msg>
+  <msg name="errMore"> Veja o website para ajudar a assistÃªncia adicional. </msg>
+  <msg name="errCommon"> Clique em "Atualizar" apÃ³s fazer as alteraÃ§Ãµes em sua planilha do Google.</msg>
 </messagebundle>

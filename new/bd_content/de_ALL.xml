@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Geburtstagserinnerungen 2.0</msg>
   <msg name="description">Verpassen Sie nie wieder einen Geburtstag!</msg>
@@ -27,7 +27,7 @@
   
   <msg name="ajan">Jan.</msg>
   <msg name="afeb">Feb.</msg>
-  <msg name="amar">März</msg>
+  <msg name="amar">MÃ¤rz</msg>
   <msg name="aapr">Apr.</msg>
   <msg name="amay">Mai</msg>
   <msg name="ajun">Juni</msg>
@@ -50,7 +50,7 @@
   <msg name="zVirgo">Virgo</msg>
   <msg name="zLibra">Libra</msg>
   <msg name="zScorpio">Scorpio</msg>
-  <msg name="zSagittarius">Schütze</msg>
+  <msg name="zSagittarius">SchÃ¼tze</msg>
   
   <msg name="tbConfig">Konfigurieren</msg>
   <msg name="tbConvert">Convert</msg>
@@ -62,39 +62,39 @@
   <msg name="configEdit">Bearbeiten Google Spreadsheet</msg>
   <msg name="configFontColor">Font Color</msg>
   <msg name="configBGColor">Hintergrundfarbe</msg>
-  <msg name="configFontSize">Schriftgröße</msg>
+  <msg name="configFontSize">SchriftgrÃ¶ÃŸe</msg>
   <msg name="configURL">Spreadsheet URL</msg>
-  <msg name="configBack">Zurück</msg>
+  <msg name="configBack">ZurÃ¼ck</msg>
   <msg name="configSave">Speichern</msg>
   <msg name="configPick">Pick</msg>
   <msg name="configConfirm">Weiter, ohne sie zu speichern?</msg>
-  <msg name="configErr">Ungültige</msg>
+  <msg name="configErr">UngÃ¼ltige</msg>
   
   <msg name="fSizeXS">Extrakleines</msg>
   <msg name="fSizeS">Klein</msg>
   <msg name="fSizeM">Mittel</msg>
-  <msg name="fSizeL">Groß</msg>
-  <msg name="fSizeXL">Extragroßes</msg>
+  <msg name="fSizeL">GroÃŸe</msg>
+  <msg name="fSizeXL">ExtragroÃŸe</msg>
   
   <msg name="setupH1">Gadget-Setup</msg>
   <msg name="setupGreet1">Willkommen auf der neuen Geburtstag Erinnerungen 2,0!</msg>
-  <msg name="setupGreet2">Sie sind nur ein paar Mausklicks entfernt genießen einige neue Features!</msg>
+  <msg name="setupGreet2">Sie sind nur ein paar Mausklicks entfernt genieÃŸen einige neue Features!</msg>
   <msg name="setupGreet3">Machen Sie sich keine Sorgen, Ihre alten Geburtstag Liste ist sicher!</msg>
   <msg name="setupStep1">Erstellen Sie ein neues Google-Tabelle.</msg>
   <msg name="setupStep2">Geben Sie Termine in der Spalte "A" und Namen in der Spalte "B".</msg>
-  <msg name="setupStep2P">Anleitung für das Umwandeln Ihrer alten Geburtstag Liste finden Sie auf der nächsten Seite.</msg>
+  <msg name="setupStep2P">Anleitung fÃ¼r das Umwandeln Ihrer alten Geburtstag Liste finden Sie auf der nÃ¤chsten Seite.</msg>
   <msg name="setupStep3">Speichern Sie die Google-Tabelle.</msg>
   <msg name="setupStep4">Kopieren Sie die Google-Tabelle Adresse aus der Adressleiste.</msg>
-  <msg name="setupStep5">Fügen Sie die Tabelle unten angegebene Adresse.</msg>
-  <msg name="setupMore">Klicken Sie hier für detaillierte Anweisungen</msg>
+  <msg name="setupStep5">FÃ¼gen Sie die Tabelle unten angegebene Adresse.</msg>
+  <msg name="setupMore">Klicken Sie hier fÃ¼r detaillierte Anweisungen</msg>
   
   <msg name="convertH1">Convert</msg>
-  <msg name="convertStep1">Öffnen Sie die Google-Tabelle</msg>
+  <msg name="convertStep1">Ã–ffnen Sie die Google-Tabelle</msg>
   <msg name="convertStep2">Kopieren Sie den Text unten.</msg>
-  <msg name="convertStep3">Fügen Sie den Text in der Tabelle.</msg>
-  <msg name="convertStep4">Löschen der alten Daten, wenn Sie fertig sind.</msg>
+  <msg name="convertStep3">FÃ¼gen Sie den Text in der Tabelle.</msg>
+  <msg name="convertStep4">LÃ¶schen der alten Daten, wenn Sie fertig sind.</msg>
   <msg name="convertClear">Frei alten Daten</msg>
-  <msg name="convertMore">Finden Sie in der Hilfe-Website für zusätzliche Unterstützung.</msg>
+  <msg name="convertMore">Finden Sie in der Hilfe-Website fÃ¼r zusÃ¤tzliche UnterstÃ¼tzung.</msg>
   
   <msg name="errH1">Fehler</msg>
   <msg name="errDateFormat">Bitte setzen Sie den "Format" in der Spalte "A" nach "Datum".</msg>
@@ -106,6 +106,6 @@
   <msg name="errLogin">Bitte stellen Sie sicher, dass Sie Zugriff auf diese Tabelle an oder melden Sie sich bei Ihrem Google-Konto an, um Ihre Geburtstags-Liste.</msg>
   <msg name="errTimeout">Server-Timeout</msg>
   <msg name="errRefresh">Bitte aktualisieren Sie die Web-Seite um es erneut zu versuchen.</msg>
-  <msg name="errMore">Finden Sie in der Hilfe-Website für zusätzliche Unterstützung.</msg>
-  <msg name="errCommon">Klicken Sie auf "Aktualisieren", nachdem Sie die Änderungen in Ihrem Google-Tabelle.</msg>
+  <msg name="errMore">Finden Sie in der Hilfe-Website fÃ¼r zusÃ¤tzliche UnterstÃ¼tzung.</msg>
+  <msg name="errCommon">Klicken Sie auf "Aktualisieren", nachdem Sie die Ã„nderungen in Ihrem Google-Tabelle.</msg>
 </messagebundle>

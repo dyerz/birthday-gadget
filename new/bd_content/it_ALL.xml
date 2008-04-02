@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+Ôªø<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Promemoria compleanni 2,0</msg>
   <msg name="description">Per non perdere nemmeno un compleanno!</msg>
@@ -10,7 +10,7 @@
   <msg name="pastNoticeName">Dopo giorni</msg>
   <msg name="noticeAll">Tutte</msg>
   <msg name="noticeNone">Nessuno</msg>
-  <msg name="showAge">Inserisci colonna di et‡</msg>
+  <msg name="showAge">Inserisci colonna di et√†</msg>
   <msg name="showDays">Inserisci colonna di giorni</msg>
   <msg name="showZodiac">Inserisci colonna zodiaco</msg>
   
@@ -18,7 +18,7 @@
   
   <msg name="tableDate">Data</msg>
   <msg name="tableName">Nome</msg>
-  <msg name="tableAge">Et‡</msg>
+  <msg name="tableAge">Et√†</msg>
   <msg name="tableDays">Giorni</msg>
   <msg name="tableZodiac">Zodiaco</msg>
   
@@ -78,15 +78,15 @@
   
   <msg name="setupH1">Gadget Setup</msg>
   <msg name="setupGreet1">Benvenuti nel nuovo promemoria 2,0 Compleanno!</msg>
-  <msg name="setupGreet2">Siete pochi click di distanza da gustare alcune nuove funzionalit‡!</msg>
-  <msg name="setupGreet3">Non preoccupatevi, il vostro vecchio compleanno elenco Ë sicuro!</msg>
+  <msg name="setupGreet2">Siete pochi click di distanza da gustare alcune nuove funzionalit√†!</msg>
+  <msg name="setupGreet3">Non preoccupatevi, il vostro vecchio compleanno elenco √® sicuro!</msg>
   <msg name="setupStep1">Creare un nuovo foglio di lavoro di Google.</msg>
   <msg name="setupStep2">Date entrare nella colonna "A" e nomi nella colonna "B".</msg>
-  <msg name="setupStep2P">Istruzioni per convertire il vostro vecchio compleanno elenco Ë disponibile alla pagina successiva.</msg>
+  <msg name="setupStep2P">Istruzioni per convertire il vostro vecchio compleanno elenco √® disponibile alla pagina successiva</msg>
   <msg name="setupStep3">Salvare il foglio di lavoro di Google.</msg>
   <msg name="setupStep4">Copiare il foglio di lavoro di Google indirizzo dalla barra degli indirizzi.</msg>
   <msg name="setupStep5">Incollare il foglio di calcolo indicato di seguito.</msg>
-  <msg name="setupMore">Clicca Qui Per informazioni pi˘ dettagliate</msg>
+  <msg name="setupMore">Clicca Qui Per informazioni pi√π dettagliate</msg>
   
   <msg name="convertH1">Convertire</msg>
   <msg name="convertStep1">Apri il tuo foglio di lavoro di Google</msg>
