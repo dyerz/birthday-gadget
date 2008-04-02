@@ -97,7 +97,7 @@
   <msg name="convertMore">Vedere il sito web per aiutare ulteriore assistenza.</msg>
   
   <msg name="errH1">Errore</msg>
-  <msg name="errDateFormat">Si prega di impostare il "Formato" di "A" alla colonna "data".</msg>
+  <msg name="errDateFormat">Si prega di impostare il "Formato" della colonna "A" a "data".</msg>
   <msg name="errColumn">Si prega di spostare le date dalla colonna "B", a colonna "A".</msg>
   <msg name="errUnk">Errore inatteso</msg>
   <msg name="errSheet">Errore foglio di calcolo</msg>

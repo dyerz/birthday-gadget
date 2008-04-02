@@ -97,7 +97,7 @@
   <msg name="convertMore">Veja o website para ajudar a assistência adicional.</msg>
   
   <msg name="errH1">Erro</msg>
-  <msg name="errDateFormat">Por favor, defina o "Format", de um a coluna "data".</msg>
+  <msg name="errDateFormat">Por favor, defina o "Tipo" da coluna "A" a "data".</msg>
   <msg name="errColumn">Por favor mova as datas da coluna "B" a coluna "A".</msg>
   <msg name="errUnk">Erro inesperado</msg>
   <msg name="errSheet">Erro de planilha</msg>

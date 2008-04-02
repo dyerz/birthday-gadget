@@ -97,7 +97,7 @@
   <msg name="convertMore">Voir le site web pour plus d'assistance.</msg>
   
   <msg name="errH1">Erreur</msg>
-  <msg name="errDateFormat">S’il vous plaît définir le "Format" de la colonne A de la "date".</msg>
+  <msg name="errDateFormat">S’il vous plaît définir le "Format" de la colonne «A» à «date».</msg>
   <msg name="errColumn">S’il vous plaît déplacer les dates de la colonne «B» de la colonne «A».</msg>
   <msg name="errUnk">Erreur inattendue</msg>
   <msg name="errSheet">Erreur tableur</msg>

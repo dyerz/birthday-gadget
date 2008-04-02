@@ -97,7 +97,7 @@
   <msg name="convertMore">Finden Sie in der Hilfe-Website für zusätzliche Unterstützung.</msg>
   
   <msg name="errH1">Fehler</msg>
-  <msg name="errDateFormat">Bitte setzen Sie den "Format"-Kolumne von A nach "Datum".</msg>
+  <msg name="errDateFormat">Bitte setzen Sie den "Format" in der Spalte "A" nach "Datum".</msg>
   <msg name="errColumn">Bitte bewegen Sie die Daten aus der Spalte "B" in Spalte "A".</msg>
   <msg name="errUnk">Unerwarteter Fehler</msg>
   <msg name="errSheet">Spreadsheet-Fehler</msg>

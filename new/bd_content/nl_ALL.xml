@@ -97,7 +97,7 @@
   <msg name="convertMore">Zie de Help-website voor meer hulp.</msg>
   
   <msg name="errH1">Fout</msg>
-  <msg name="errDateFormat">Stel het "Format" van kolom A tot "datum".</msg>
+  <msg name="errDateFormat">Stel het "Format" in de kolom "A" tot "datum".</msg>
   <msg name="errColumn">Beweeg de data uit kolom "B" kolom "A".</msg>
   <msg name="errUnk">Onverwachte fout</msg>
   <msg name="errSheet">Spreadsheet fout</msg>
