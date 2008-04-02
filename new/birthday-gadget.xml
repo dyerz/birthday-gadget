@@ -64,9 +64,6 @@
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="true" datatype="hidden" /> 
 
-<UserPref name="debugMe" default_value="false" datatype="bool" />
-
-
 <Content type="html">
 <![CDATA[ 
 <style>
@@ -149,7 +146,7 @@
 			}
 		}
 		
-		/*** DEBUG ***/
+		/*** DEBUG 
 		if(prefs__MODULE_ID__.getBool("debugMe")){
 			prefArr__MODULE_ID__["_table_query_url"]="";
 			prefs__MODULE_ID__.set("_table_query_url", "");
@@ -157,7 +154,7 @@
 			prefs__MODULE_ID__.set("birthdays", prefArr__MODULE_ID__["birthdays"]);
 			prefs__MODULE_ID__.set("debugMe", false);
 		}
-		
+		***/
 		
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp(); return;}
@@ -267,6 +264,7 @@
 			html.push('</tr>');
 			if(countDisp++>=dispLength) break;
 		}
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
 		html.push('</table>');
 
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
@@ -347,6 +345,7 @@
 
 /* Help / Error Functions **********************/
 	function showHelp(){
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/setup");	
 		var html = [];
 		html.push('<h1>__MSG_setupH1__</h1>');
 		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('__MSG_setupGreet1__<br />__MSG_setupGreet2__<br />__MSG_setupGreet3__');
@@ -372,6 +371,7 @@
 	}
 
 	function goError(errText){
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
 		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/new/faq.html" title="Help" target="_blank">__MSG_errMore__</a>');
@@ -382,6 +382,7 @@
 
 /* Config Page Functions ***********************/	
 	function goConfig(){
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/config");	
 		var html=[];
 		html.push('<h1>__MSG_tbConfig__</h1><table id="configTable">');
 		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
@@ -461,6 +462,7 @@
 
 /* Convert - Reverse Compatibility Functions ***/
 	function goConvert(){
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/convert");	
 		var html=[];
 		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
 		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_convertStep1__</a></li>');
