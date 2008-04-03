@@ -88,7 +88,7 @@
 	#toolbarVis{ position: relative; margin: 6px 0 0 0; padding: 0;	width: 100%; height: 3px; background-color: #666666; cursor: n-resize; text-align: center;}
 	#toolbarVis img{ border: none; margin: 0 auto; padding: 0;}
 	#upImg{ position: absolute; top: -5px;}
-	#dnImg{ position: absolute; bottom: -5px;}	
+	#dnImg{ position: absolute; bottom: -6px;}	
 
 	/* Table Div CSS */
 	#tablediv{ width: 100%; margin: 10px 0 0 0; padding: 0;}
