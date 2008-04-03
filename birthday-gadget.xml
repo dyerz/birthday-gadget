@@ -138,6 +138,7 @@
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
+		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
 		//get prefs
 		for(var i=0; i<prefNames.length; i++){
 			switch(prefNames[i]){
