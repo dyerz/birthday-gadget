@@ -12,7 +12,7 @@
   <msg name="noticeNone">Geen</msg>
   <msg name="showAge">Toon leeftijd kolom</msg>
   <msg name="showDays">Toon dagen kolom</msg>
-  <msg name="showZodiac">Toon Zodiac kolom</msg>
+  <msg name="showZodiac">Toon sterrenbeeld kolom</msg>
   
   <msg name="Loading">Laden</msg>
   
@@ -20,7 +20,7 @@
   <msg name="tableName">Naam</msg>
   <msg name="tableAge">Leeftijd</msg>
   <msg name="tableDays">Dagen</msg>
-  <msg name="tableZodiac">Zodiac</msg>
+  <msg name="tableZodiac">Sterrenbeeld</msg>
   
   <msg name="noBirthdays1">Geen verjaardagen in de komende</msg>
   <msg name="noBirthdays2"> dagen.</msg>
@@ -40,17 +40,17 @@
   <msg name="today">Vandaag</msg>
   
   <msg name="zCapricorn">Steenbok</msg>
-  <msg name="zAquarius">Aquarius</msg>
+  <msg name="zAquarius">Waterman</msg>
   <msg name="zPisces">Vissen</msg>
-  <msg name="zAries">Aries</msg>
-  <msg name="zTaurus">Taurus</msg>
-  <msg name="zGemini">Gemini</msg>
-  <msg name="zCancer">Kanker</msg>
-  <msg name="zLeo">Leo</msg>
-  <msg name="zVirgo">Virgo</msg>
-  <msg name="zLibra">Libra</msg>
+  <msg name="zAries">Ram</msg>
+  <msg name="zTaurus">Stier</msg>
+  <msg name="zGemini">Tweelingen</msg>
+  <msg name="zCancer">Kreeft</msg>
+  <msg name="zLeo">Leeuw</msg>
+  <msg name="zVirgo">Maagd</msg>
+  <msg name="zLibra">Weegschaal</msg>
   <msg name="zScorpio">Schorpioen</msg>
-  <msg name="zSagittarius">Sagittarius</msg>
+  <msg name="zSagittarius">Boogschutter</msg>
   
   <msg name="tbConfig">Configure</msg>
   <msg name="tbConvert">Omzetten</msg>
