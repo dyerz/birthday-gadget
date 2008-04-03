@@ -308,8 +308,8 @@
 
     function makeDate__MODULE_ID__(inDate){
 		var month=new Array("__MSG_ajan__", "__MSG_afeb__", "__MSG_amar__", "__MSG_aapr__", "__MSG_amay__", "__MSG_ajun__", "__MSG_ajul__", "__MSG_aaug__", "__MSG_asep__", "__MSG_aoct__", "__MSG_anov__", "__MSG_adec__");
-		var tempArr=inDate.split("/"), m=parseInt(tempArr[1]), d=tempArr[2], n=new Date();
-		if(n.getMonth()==m && n.getDate()==d ) return("__MSG_today__");
+		var tempArr=inDate.split("/"), m=parseInt(tempArr[1], 10), d=tempArr[2], n=new Date();
+		if(n.getMonth()+1==m && n.getDate()==d ) return("__MSG_today__");
 		switch(prefArr__MODULE_ID__["dateFormat"]){
 			case 0: return (month[m-1]+" "+d);
 			case 1: return (d+" "+month[m-1]);
