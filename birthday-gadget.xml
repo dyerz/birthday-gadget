@@ -209,8 +209,8 @@
 
 /* Data Functions ******************************/	
     function sendQuery__MODULE_ID__(qCheck) {
-		if(prefArr__MODULE_ID__["_table_query_url"].search(/ccc\?/)!=-1 ){
-			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?");
+		if(prefArr__MODULE_ID__["_table_query_url"].search(/tq\?/)==-1 ){
+			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?").replace(/pub\?/, "tq?");
 			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
 				prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].substring(0, prefArr__MODULE_ID__["_table_query_url"].indexOf("&"));
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(prefArr__MODULE_ID__["_table_query_url"])
@@ -465,7 +465,7 @@
 	
 	function urlCheck__MODULE_ID__(tempStr){
 		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
-		if(tempStr.search(/^http:\/\/spreadsheets\.google\.com\/(ccc|tq)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
+		if(tempStr.search(/^http:\/\/spreadsheets\.google\.com\/(ccc|tq|pub)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
 		return true;
 	}
 
