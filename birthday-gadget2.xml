@@ -219,9 +219,18 @@
 		}
 
 		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
-		query.setQuery("select * format A 'yyyy/MM/dd'");
-		query.send(handleQueryResponse__MODULE_ID__);
+		query.setQuery("select *");
+		query.send(testData__MODULE_ID__);
     }
+	
+	function testData__MODULE_ID__(response){
+		var tempData=response.getDataTable();
+		if(tempData.getNumberOfRows()==0 || tempData.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
+		
+		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
+		query.setQuery("select A, B format A 'yyyy/MM/dd'");
+		query.send(handleQueryResponse__MODULE_ID__);
+	}
 
     function handleQueryResponse__MODULE_ID__(response) {
 		if(response.isError()) {
