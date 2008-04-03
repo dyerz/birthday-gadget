@@ -71,7 +71,7 @@
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
-<UserPref name="tbVis" default_value="true" datatype="hidden" /> 
+<UserPref name="tbVis" default_value="false" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
