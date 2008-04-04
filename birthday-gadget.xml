@@ -19,6 +19,7 @@
     <Locale lang="pt-PT" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_ALL.xml" />
     <Locale lang="pt-BR" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_br_ALL.xml" />
     <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
+    <Locale lang="sv" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/sv_ALL.xml" />
     <Require feature="idi" /> 
     <Require feature="locked-domain" /> 
     <Require feature="analytics" /> 

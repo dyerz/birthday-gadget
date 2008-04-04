@@ -18,6 +18,7 @@
     <Locale lang="pt-PT" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_ALL.xml" />
     <Locale lang="pt-BR" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_br_ALL.xml" />
     <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
+    <Locale lang="sv" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/sv_ALL.xml" />
     <Require feature="idi" /> 
     <Require feature="locked-domain" /> 
     <Require feature="analytics" /> 
@@ -319,8 +320,9 @@
 		moveIt.onDragTargetLost=function (object) { if (object == null) return; object.innerHTML=_gel(object.id).innerHTML;}
         moveIt.onDragEnd=function(source, target){
 			if(target==null) return;
-			var src=source.id.substring(-1) , tar=target.id.substring(-1);
-			var srcRE = New RegExp(src), tarRE = New RegExp(tar);
+			var src=source.id.substring(-1), tar=target.id.substring(-1);
+			var srcRE = New RegExp(src);
+			var tarRE = New RegExp(tar);
 			var tempOrder=prefArr__MODULE_ID__["tbOrder"].replace(src,"x").replace(tar,"y");
 			prefArr__MODULE_ID__["tbOrder"]=tempOrder.replace(/x/, tar).replace(/y/, src);
 			prefs__MODULE_ID__.set("tbOrder", prefArr__MODULE_ID__["tbOrder"]);
