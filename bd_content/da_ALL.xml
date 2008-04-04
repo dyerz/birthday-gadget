@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="title">Fødselsdag Rykkerbrev 2.0</msg>
+  <msg name="description">Aldrig nogen sinde føle savnet af en fødselsdag igen!</msg>
+  
+  <msg name="titleName">Indretning Titel</msg>
+  <msg name="formatName">Aldersbestemme Format</msg>
+  <msg name="showName">Maksimum Synlig Fødselsdage</msg>
+  <msg name="futureNoticeName">Dage I nærværelse af</msg>
+  <msg name="pastNoticeName">Dage Efter</msg>
+  <msg name="noticeAll">Al</msg>
+  <msg name="noticeNone">Ikke nogen</msg>
+  <msg name="showAge">Røbe sig Alder Søjle</msg>
+  <msg name="showDays">Røbe sig Dage Søjle</msg>
+  <msg name="showZodiac">Røbe sig Zodiac Søjle</msg>
+  
+  <msg name="Loading">Ladning</msg>
+  
+  <msg name="tableDate">Aldersbestemme</msg>
+  <msg name="tableName">Benævne</msg>
+  <msg name="tableAge">Alder</msg>
+  <msg name="tableDays">Dage</msg>
+  <msg name="tableZodiac">Zodiac</msg>
+  
+  <msg name="noBirthdays1">Ikke fødselsdage i den næste</msg>
+  <msg name="noBirthdays2">dage.</msg>
+  
+  <msg name="ajan">Jan.</msg>
+  <msg name="afeb">Feb.</msg>
+  <msg name="amar">Mar.</msg>
+  <msg name="aapr">Apr.</msg>
+  <msg name="amay">May</msg>
+  <msg name="ajun">June</msg>
+  <msg name="ajul">July</msg>
+  <msg name="aaug">Aug.</msg>
+  <msg name="asep">Sept.</msg>
+  <msg name="aoct">Oct.</msg>
+  <msg name="anov">Nov.</msg>
+  <msg name="adec">Dec.</msg>
+  <msg name="today">Idag</msg>
+  
+  <msg name="zCapricorn">Lunefuld</msg>
+  <msg name="zAquarius">Akvariet</msg>
+  <msg name="zPisces">Pisces</msg>
+  <msg name="zAries">Aries</msg>
+  <msg name="zTaurus">Taurus</msg>
+  <msg name="zGemini">Gemini</msg>
+  <msg name="zCancer">Cancer</msg>
+  <msg name="zLeo">Leo</msg>
+  <msg name="zVirgo">Jomfru</msg>
+  <msg name="zLibra">Bibliotekar</msg>
+  <msg name="zScorpio">Afsvedet</msg>
+  <msg name="zSagittarius">Sagittarius</msg>
+  
+  <msg name="tbConfig">Konfigurere</msg>
+  <msg name="tbConvert">Omforme</msg>
+  <msg name="tbHelp">Hjælp</msg>
+  <msg name="tbRefresh">Forny</msg>
+  <msg name="tbShow">Røbe sig den Værktøj</msg>
+  <msg name="tbHide">Skjule den Værktøj</msg>
+  
+  <msg name="configEdit">Redigere Google Regneark</msg>
+  <msg name="configFontColor">Skrifttype Kolorere</msg>
+  <msg name="configBGColor">Baggrund Kolorere</msg>
+  <msg name="configFontSize">Skrifttype Nummer</msg>
+  <msg name="configURL">Regneark URL</msg>
+  <msg name="configBack">Igen</msg>
+  <msg name="configSave">Opspare</msg>
+  <msg name="configPick">Hakke</msg>
+  <msg name="configConfirm">Fortsætte uden besparelse?</msg>
+  <msg name="configErr">Invalid</msg>
+  
+  <msg name="fSizeXS">X-Ringe</msg>
+  <msg name="fSizeS">Ringe</msg>
+  <msg name="fSizeM">Medium</msg>
+  <msg name="fSizeL">Stor</msg>
+  <msg name="fSizeXL">X-Stor</msg>
+  
+  <msg name="setupH1">Indretning  Setup</msg>
+  <msg name="setupGreet1">Velkommen hen til den ny Fødselsdag Påmindelser 2.0!</msg>
+  <msg name="setupGreet2">Du er netop nogle få falde i hak bortrejst af glæde sig ved noget ny egenskaber!</msg>
+  <msg name="setupGreet3">Lave ikke bekymre, jeres forhenværende fødselsdag liste er sikker!</msg>
+  <msg name="setupStep1">Skabe en ny Google regneark.</msg>
+  <msg name="setupStep2">Postere Datoer i Søjle "en" og Navne i Søjle "B".</msg>
+  <msg name="setupStep2P">Instruks nemlig omdanner jeres forhenværende fødselsdag liste findes oven på den næste side.</msg>
+  <msg name="setupStep3">Opspare den Google regneark.</msg>
+  <msg name="setupStep4">Afskrift den Google regneark henvende af den henvende advokatstanden.</msg>
+  <msg name="setupStep5">Opklæbe den regneark henvende nedenstående.</msg>
+  <msg name="setupMore">Falde i hak Her ovre Om mere indgående instruks</msg>
+  
+  <msg name="convertH1">Omforme</msg>
+  <msg name="convertStep1">Lukke op jeres Google regneark</msg>
+  <msg name="convertStep2">Afskrift den tekst nedenstående.</msg>
+  <msg name="convertStep3">Opklæbe den tekst i den regneark.</msg>
+  <msg name="convertStep4">Rense luften forhenværende data hvor du er gennemstegt.</msg>
+  <msg name="convertClear">Slette Forhenværende Data</msg>
+  <msg name="convertMore">Se efter den hjælp website nemlig nærmere hjælp.</msg>
+  
+  <msg name="errH1">Fejl</msg>
+  <msg name="errDateFormat">Behage placere den "format" i søjle "en" hidtil"".</msg>
+  <msg name="errColumn">Behage skridt den stammer fra søjle "B" hen til søjle "en".</msg>
+  <msg name="errUnk">Uventede Fejl</msg>
+  <msg name="errSheet">Regneark Fejl</msg>
+  <msg name="errNoData">Behage sikre du har data i jeres Google regneark.</msg>
+  <msg name="errAccess">Adgang Nægtede</msg>
+  <msg name="errLogin">Behage sikre du har adgang hen til indeværende regneark eller påtegne i hen til jeres Google beretning hen til se efter jeres fødselsdag liste.</msg>
+  <msg name="errTimeout">Styreenhed Pause</msg>
+  <msg name="errRefresh">Behage forny den webpage hen til prøve igen.</msg>
+  <msg name="errMore">Se efter den hjælp website nemlig nærmere hjælp.</msg>
+  <msg name="errCommon">Falde i hak "forny" værsågod at gå foran skabe den forandringer i jeres Google regneark.</msg>
+</messagebundle>

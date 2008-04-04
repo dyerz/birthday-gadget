@@ -9,6 +9,7 @@
   author_email="birthdaygadget@gmail.com"
   height="200">
     <Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ALL_ALL.xml" />
+    <Locale lang="da" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/da_ALL.xml" />
     <Locale lang="de" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/de_ALL.xml" />
     <Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
     <Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
