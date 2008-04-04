@@ -133,7 +133,7 @@
 <script>
     google.load("visualization", "1");
 	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object();
-	var tableDivObj__MODULE_ID__;
+	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__;
     
 	//get started
     function init__MODULE_ID__(){
@@ -243,8 +243,8 @@
 		if(data.getColumnType(0)!="date"){ goError__MODULE_ID__('__MSG_errDateFormat__'); return; }
 		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
 		
-		var dataArray=buildArray__MODULE_ID__(data);
-		if(dataArray.length==0){
+		dataArray__MODULE_ID__=buildArray__MODULE_ID__(data);
+		if(dataArray__MODULE_ID__.length==0){
 			html.push('<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 			html.push('__MSG_noBirthdays1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_noBirthdays2__</div>');
 			tableDivObj__MODULE_ID__.style.textAlign="center";
@@ -252,12 +252,12 @@
 			_IG_AdjustIFrameHeight(); return;
 		}
 		
-		buildTable__MODULE_ID__(dataArray);
+		buildTable__MODULE_ID__();
 		_IG_AdjustIFrameHeight();
 		dragging__MODULE_ID__();	
 	}
 	
-	function buildTable__MODULE_ID__(dataArray){
+	function buildTable__MODULE_ID__(){
 		var html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
 		
 		html.push('<table id="dataTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
@@ -278,11 +278,11 @@
 		}
 		html.push('</tr>');
 
-		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray.length:prefArr__MODULE_ID__["showBDay"];
+		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray__MODULE_ID__.length:prefArr__MODULE_ID__["showBDay"];
 
 		// Add the data rows
-		for (var row = 0; row < dataArray.length; row++) {
-			var rowData=dataArray[row].split("~;~");
+		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
+			var rowData=dataArray__MODULE_ID__[row].split("~;~");
 			rowDate=Date.parse(rowData[0]);
 
 			html.push('<tr>');
