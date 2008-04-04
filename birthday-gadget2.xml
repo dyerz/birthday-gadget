@@ -23,6 +23,7 @@
     <Require feature="analytics" /> 
     <Require feature="dynamic-height" />
     <Require feature="setprefs"/>
+	<Require feature="drag" /> 
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" default_value="__MSG_title__" />
 <UserPref name="birthdays" datatype="hidden" default_value="" /> 
@@ -72,6 +73,7 @@
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="false" datatype="hidden" /> 
+<UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
@@ -135,7 +137,7 @@
 	//get started
     function init__MODULE_ID__(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
-			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor");
+			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor", "tbOrder");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
 		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
@@ -219,16 +221,7 @@
 		}
 
 		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
-		query.setQuery("select *");
-		query.send(testData__MODULE_ID__);
-    }
-	
-	function testData__MODULE_ID__(response){
-		var tempData=response.getDataTable();
-		if(tempData.getNumberOfRows()==0 || tempData.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
-		
-		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
-		query.setQuery("select A, B format A 'yyyy/MM/dd'");
+		query.setQuery("select * format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse__MODULE_ID__);
 	}
 
@@ -242,7 +235,7 @@
 			}
 			return;
 		}
-		var data = response.getDataTable(), html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
+		var data = response.getDataTable();
 
 		//check for dates
 		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__'); return; }
@@ -257,15 +250,31 @@
 			tableDivObj__MODULE_ID__.innerHTML = html.join('');
 			_IG_AdjustIFrameHeight(); return;
 		}
-
+		
+		buildTable__MODULE_ID__(dataArray);
+		_IG_AdjustIFrameHeight();
+		dragging__MODULE_ID__();	
+	}
+	
+	function buildTable__MODULE_ID__(dataArray){
+		var html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
+		
 		html.push('<table id="dataTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 
 		// Header row for column Ids
 		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"';
-		html.push('<tr><td'+headerStr+'>__MSG_tableDate__</td><td'+headerStr+'>__MSG_tableName__</td>');
-		if(prefArr__MODULE_ID__["showAge"]) html.push('<td'+headerStr+'>__MSG_tableAge__</td>');
-		if(prefArr__MODULE_ID__["showDays"]) html.push('<td'+headerStr+'>__MSG_tableDays__</td>');
-		if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td'+headerStr+'>__MSG_tableZodiac__</td>');
+		html.push('<tr>');
+		
+		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
+		for(step=0; step<order.length; step++){
+			switch(parseInt(order[step],10)){
+				case 1: html.push('<td'+headerStr+' id="thHead1">__MSG_tableDate__</td>'); break;
+				case 2: html.push('<td'+headerStr+' id="thHead2">__MSG_tableName__</td>'); break;
+				case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td'+headerStr+' id="thHead3">__MSG_tableAge__</td>'); break;
+				case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td'+headerStr+' id="thHead4">__MSG_tableDays__</td>'); break;
+				case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td'+headerStr+' id="thHead5">__MSG_tableZodiac__</td>'); break;
+			}
+		}
 		html.push('</tr>');
 
 		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray.length:prefArr__MODULE_ID__["showBDay"];
@@ -275,21 +284,51 @@
 			var rowData=dataArray[row].split("~;~");
 			rowDate=Date.parse(rowData[0]);
 
-			html.push('<tr><td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>');
-			html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>');
-			if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>');
-			if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>');
-			if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>');
+			html.push('<tr>');
+			for(step=0; step<order.length; step++){
+				switch(parseInt(order[step],10)){
+					case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
+					case 2: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>'); break;
+					case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>'); break;
+					case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>'); break;
+					case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>'); break;
+				}
+			}
 			html.push('</tr>');
 			if(countDisp++>=dispLength) break;
 		}
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
 		html.push('</table>');
-
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
-		_IG_AdjustIFrameHeight();
-    }
+	}
 
+	function dragging__MODULE_ID__(){
+		var moveIt = new _IG_Drag(), currentSource=null;
+		
+		moveIt.addSource("thHead1"); moveIt.addTarget("thHead1");
+		moveIt.addSource("thHead2"); moveIt.addTarget("thHead2");
+		if(prefArr__MODULE_ID__["showAge"]) { moveIt.addSource("thHead3"); moveIt.addTarget("thHead3");}
+		if(prefArr__MODULE_ID__["showDays"]) { moveIt.addSource("thHead4"); moveIt.addTarget("thHead4");}
+		if(prefArr__MODULE_ID__["showZodiac"]) { moveIt.addSource("thHead5"); moveIt.addTarget("thHead5");}
+	
+		moveIt.onDragStart=function(object){currentSource=object;}
+		moveIt.onDragTargetHit=function(object, old_object) {
+			moveIt.onDragTargetLost(old_object);
+			if (object != currentSource) object.innerHTML = "** Swap **";
+		}
+		moveIt.onDragTargetLost=function (object) { if (object == null) return; object.innerHTML=_gel(object.id).innerHTML;}
+        moveIt.onDragEnd=function(source, target){
+			if(target==null) return;
+			var src=source.id.substring(-1) , tar=target.id.substring(-1);
+			var srcRE = New RegExp(src), tarRE = New RegExp(tar);
+			var tempOrder=prefArr__MODULE_ID__["tbOrder"].replace(src,"x").replace(tar,"y");
+			prefArr__MODULE_ID__["tbOrder"]=tempOrder.replace(/x/, tar).replace(/y/, src);
+			prefs__MODULE_ID__.set("tbOrder", prefArr__MODULE_ID__["tbOrder"]);
+			buildTable();
+		}		
+		
+	}
+	
 	function buildArray__MODULE_ID__(data){
 		var dataArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
