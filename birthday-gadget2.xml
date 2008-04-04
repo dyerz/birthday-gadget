@@ -236,7 +236,7 @@
 			}
 			return;
 		}
-		var data = response.getDataTable(), html;
+		var data = response.getDataTable(), html=[];
 
 		//check for dates
 		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__'); return; }
