@@ -254,7 +254,6 @@
 		
 		buildTable__MODULE_ID__();
 		_IG_AdjustIFrameHeight();
-		dragging__MODULE_ID__();	
 	}
 	
 	function buildTable__MODULE_ID__(){
@@ -301,6 +300,7 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
 		html.push('</table>');
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
+		dragging__MODULE_ID__();	
 	}
 
 	function dragging__MODULE_ID__(){
