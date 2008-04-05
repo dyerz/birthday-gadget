@@ -315,10 +315,10 @@
 		moveIt.onDragStart=function(object){currentSource=object;};
 		moveIt.onDragTargetHit=function(object, old_object) {
 			moveIt.onDragTargetLost(old_object);
-			if (object != currentSource) object.innerHTML = "<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">** Swap **</div>";
+			if (object != currentSource) object.innerHTML = '<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">** Swap **</div>';
 		};
-		moveIt.onDragTargetLost=function (object) {
-			if (object == null) return;
+		moveIt.onDragTargetLost=function(object){
+			if(object == null) return;
       object.innerHTML=_gel(object.id).innerHTML;};
     moveIt.onDragEnd=function(source, target){
 			if(target==null) return;
