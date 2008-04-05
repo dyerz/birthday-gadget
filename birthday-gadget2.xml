@@ -320,7 +320,7 @@
 		moveIt.onDragTargetLost=function (object) { if (object == null) return; object.innerHTML=_gel(object.id).innerHTML;};
         moveIt.onDragEnd=function(source, target){
 			if(target==null) return;
-			var src=source.id.substring(-1), tar=target.id.substring(-1);
+			var src=source.id.substring(6, 1), tar=target.id.substring(6, 1); 
 			var srcRE = new RegExp(src), tarRE = new RegExp(tar);
 			var tempOrder=prefArr__MODULE_ID__["tbOrder"].replace(src,"x").replace(tar,"y");
 			prefArr__MODULE_ID__["tbOrder"]=tempOrder.replace(/x/, tar).replace(/y/, src);
