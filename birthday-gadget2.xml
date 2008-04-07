@@ -371,19 +371,22 @@
 			groupArray.push(data.getFormattedValue(row,2));
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
-		groupArray=groupArray.sort();
-		var testIt=new RegExp, varLen=groupArray.length;
-		for(var i=0; i<varLen; i++){
-			testIt.compile(groupArray[i], "i")
-			if(testIt.test(groupArray[i+1])){ groupArray=groupArray.slice(i+1, 1); i=0; varLen=groupArray.length; }
-		}
-		groupArray__MODULE_ID__=groupArray;
+		groupArray__MODULE_ID__=buildGroup__MODULE_ID__(groupArray.sort());
 		return(dataArray);
 	}
 
 	function sortDate__MODULE_ID__(a, b){
 		var aA=a.split("~;~"), bA=b.split("~;~"); return Date.parse(aA[2])-Date.parse(bA[2]);
-	}	
+	}
+
+	function buildGroup__MODULE_ID__(groupArray){
+		var testIt=new RegExp, varLen=groupArray.length;
+		for(var i=0; i<varLen; i++){
+			testIt.compile(groupArray[i], "i")
+			if(testIt.test(groupArray[i+1])){ groupArray=groupArray.splice(i+1, 1); i=0; varLen=groupArray.length; }
+		}
+		return groupArray;
+	}
 
 	function makeToday__MODULE_ID__(inDate){
 		var t=new Date(), b=new Date(inDate);
