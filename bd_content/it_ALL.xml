@@ -15,7 +15,7 @@
   <msg name="showZodiac">Inserisci colonna zodiaco</msg>
   
   <msg name="myMinis"></msg>
-  <msg name="mmDrag">New Feature: Dragging</msg>
+  <msg name="mmDrag">Nuova funzione: di trascinamento. Riordinare le colonne.</msg>
   
   <msg name="Loading">Caricamento</msg>
   
@@ -41,7 +41,7 @@
   <msg name="aoct">ott.</msg>
   <msg name="anov">nov.</msg>
   <msg name="adec">dic.</msg>
-  <msg name="today">Today</msg>
+  <msg name="today">Oggi</msg>
   
   <msg name="zCapricorn">Capricorno</msg>
   <msg name="zAquarius">Aquarius</msg>

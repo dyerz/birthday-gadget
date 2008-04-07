@@ -15,7 +15,7 @@
   <msg name="showZodiac">Vise Stjernetegn</msg>
   
   <msg name="myMinis"></msg>
-  <msg name="mmDrag">New Feature: Dragging</msg>
+  <msg name="mmDrag">Ny Indslag: Dragging. Re-opstille den søjler.</msg>
   
   <msg name="Loading">Ladning</msg>
   
@@ -24,7 +24,7 @@
   <msg name="tableAge">Alder</msg>
   <msg name="tableDays">Dage</msg>
   <msg name="tableZodiac">Stjernetegn</msg>
-  <msg name="tableSwap">Swap</msg>
+  <msg name="tableSwap">Bytte</msg>
   
   <msg name="noBirthdays1">Ikke fødselsdage i den næste</msg>
   <msg name="noBirthdays2">dage.</msg>

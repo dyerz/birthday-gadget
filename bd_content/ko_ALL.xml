@@ -15,7 +15,7 @@
   <msg name="showZodiac">조디악이 열에 표시</msg>
   
   <msg name="myMinis"></msg>
-  <msg name="mmDrag">New Feature: Dragging</msg>
+  <msg name="mmDrag">새로운 기능 : 드래그합니다. 다시 - 주문 열을합니다.</msg>
   
   <msg name="Loading">로딩</msg>
   
@@ -24,7 +24,7 @@
   <msg name="tableAge">연령</msg>
   <msg name="tableDays">일</msg>
   <msg name="tableZodiac">조디악</msg>
-  <msg name="tableSwap">Swap</msg>
+  <msg name="tableSwap">스왑</msg>
   
   <msg name="noBirthdays1">생일을</msg>
   <msg name="noBirthdays2">일 이내에 없다.</msg>
