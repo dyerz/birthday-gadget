@@ -378,8 +378,9 @@
 
 	function makeToday__MODULE_ID__(inDate){
 		var t=new Date(), b=new Date(inDate);
-		if((prefArr__MODULE_ID__["fontColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#FFFFFF") 
-		   || (prefArr__MODULE_ID__["bgColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#000000")) return '<tr>'; 
+		
+		if((prefArr__MODULE_ID__["bgColor"]!="" && prefArr__MODULE_ID__["bgColor"]!="#FFFFFF") 
+		   || (prefArr__MODULE_ID__["fontColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#000000")) return '<tr>'; 
 		return (t.month()==b.month() && t.date()==b.date())?'<tr class="red">':'<tr>';
 	}
 	
