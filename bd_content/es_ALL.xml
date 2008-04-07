@@ -14,6 +14,9 @@
   <msg name="showDays">Mostrar columna días</msg>
   <msg name="showZodiac">Mostrar columna Zodiac</msg>
   
+  <msg name="myMinis"></msg>
+  <msg name="mmDrag">New Feature: Dragging</msg>
+  
   <msg name="Loading">Cargando</msg>
   
   <msg name="tableDate">Fecha</msg>
@@ -21,6 +24,7 @@
   <msg name="tableAge">Edad</msg>
   <msg name="tableDays">Días</msg>
   <msg name="tableZodiac">Zodiac</msg>
+  <msg name="tableSwap">Swap</msg>
   
   <msg name="noBirthdays1">Ningún cumpleaños en los próximos</msg>
   <msg name="noBirthdays2">días.</msg>

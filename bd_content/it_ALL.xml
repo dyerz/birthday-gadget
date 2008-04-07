@@ -14,6 +14,9 @@
   <msg name="showDays">Inserisci colonna di giorni</msg>
   <msg name="showZodiac">Inserisci colonna zodiaco</msg>
   
+  <msg name="myMinis"></msg>
+  <msg name="mmDrag">New Feature: Dragging</msg>
+  
   <msg name="Loading">Caricamento</msg>
   
   <msg name="tableDate">Data</msg>
@@ -21,6 +24,7 @@
   <msg name="tableAge">Età</msg>
   <msg name="tableDays">Giorni</msg>
   <msg name="tableZodiac">Zodiaco</msg>
+  <msg name="tableSwap">Swap</msg>
   
   <msg name="noBirthdays1">N. compleanni nei prossimi</msg>
   <msg name="noBirthdays2">giorni.</msg>

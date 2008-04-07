@@ -14,6 +14,9 @@
   <msg name="showDays">Vise dato</msg>
   <msg name="showZodiac">Vise Stjernetegn</msg>
   
+  <msg name="myMinis"></msg>
+  <msg name="mmDrag">New Feature: Dragging</msg>
+  
   <msg name="Loading">Ladning</msg>
   
   <msg name="tableDate">Dato</msg>
@@ -21,6 +24,7 @@
   <msg name="tableAge">Alder</msg>
   <msg name="tableDays">Dage</msg>
   <msg name="tableZodiac">Stjernetegn</msg>
+  <msg name="tableSwap">Swap</msg>
   
   <msg name="noBirthdays1">Ikke fødselsdage i den næste</msg>
   <msg name="noBirthdays2">dage.</msg>
@@ -64,10 +68,10 @@
   <msg name="configBGColor">Baggrundsfarve</msg>
   <msg name="configFontSize">Skriftstørrelse</msg>
   <msg name="configURL">Regneark URL</msg>
-  <msg name="configBack">Fotryd</msg>
+  <msg name="configBack">Fortryd</msg>
   <msg name="configSave">Gem</msg>
   <msg name="configPick">Vælg</msg>
-  <msg name="configConfirm">Fortsætte uden besparelse?</msg>
+  <msg name="configConfirm">Fortsætte uden at gemme?</msg>
   <msg name="configErr">Invalid</msg>
   
   <msg name="fSizeXS">X-lille</msg>

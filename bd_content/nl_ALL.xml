@@ -14,6 +14,9 @@
   <msg name="showDays">Toon dagen kolom</msg>
   <msg name="showZodiac">Toon sterrenbeeld kolom</msg>
   
+  <msg name="myMinis"></msg>
+  <msg name="mmDrag">New Feature: Dragging</msg>
+  
   <msg name="Loading">Laden</msg>
   
   <msg name="tableDate">Datum</msg>
@@ -21,6 +24,7 @@
   <msg name="tableAge">Leeftijd</msg>
   <msg name="tableDays">Dagen</msg>
   <msg name="tableZodiac">Sterrenbeeld</msg>
+  <msg name="tableSwap">Swap</msg>
   
   <msg name="noBirthdays1">Geen verjaardagen in de komende</msg>
   <msg name="noBirthdays2"> dagen.</msg>

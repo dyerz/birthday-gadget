@@ -14,6 +14,9 @@
   <msg name="showDays">Visa antal dagar</msg>
   <msg name="showZodiac">Visa stjärntecken</msg>
   
+  <msg name="myMinis"></msg>
+  <msg name="mmDrag">New Feature: Dragging</msg>
+  
   <msg name="Loading">Laddar</msg>
   
   <msg name="tableDate">Datum</msg>
@@ -21,6 +24,7 @@
   <msg name="tableAge">Ålder</msg>
   <msg name="tableDays">Dagar</msg>
   <msg name="tableZodiac">Stjärntecken</msg>
+  <msg name="tableSwap">Swap</msg>
   
   <msg name="noBirthdays1">Inga födelsedagar inom </msg>
   <msg name="noBirthdays2"> dagar.</msg>
