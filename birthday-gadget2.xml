@@ -304,7 +304,7 @@
 	}
 
 	function dragging__MODULE_ID__(){
-		var moveIt = new _IG_Drag(), currentSource=null;
+		var moveIt = new _IG_Drag(), currentSource=null, prevInner=null;
 		
 		moveIt.addSource("thHead1"); moveIt.addTarget("thHead1");
 		moveIt.addSource("thHead2"); moveIt.addTarget("thHead2");
@@ -315,12 +315,10 @@
 		moveIt.onDragStart=function(object){currentSource=object;};
 		moveIt.onDragTargetHit=function(object, old_object) {
 			moveIt.onDragTargetLost(old_object);
-			if (object != currentSource) object.innerHTML = '<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">** Swap **</div>';
+			if (object != currentSource){prevInner=object.innerHTML; object.innerHTML = ** Swap **;}
 		};
-		moveIt.onDragTargetLost=function(object){
-			if(object == null) return;
-      object.innerHTML=_gel(object.id).innerHTML;};
-    moveIt.onDragEnd=function(source, target){
+		moveIt.onDragTargetLost=function(object){ if(object == null) {return;} object.innerHTML=prevInner; };
+		moveIt.onDragEnd=function(source, target){
 			if(target==null) return;
 			var src=source.id.substring(6), tar=target.id.substring(6); 
 			var srcRE = new RegExp(src), tarRE = new RegExp(tar);
