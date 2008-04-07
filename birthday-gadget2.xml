@@ -312,7 +312,7 @@
 		if(prefArr__MODULE_ID__["showDays"]) { moveIt.addSource("thHead4"); moveIt.addTarget("thHead4");}
 		if(prefArr__MODULE_ID__["showZodiac"]) { moveIt.addSource("thHead5"); moveIt.addTarget("thHead5");}
 	
-		moveIt.onDragStart=function(object){currentSource=object;};
+		moveIt.onDragStart=function(object){currentSource=object; prevInner=object.innerHTML;};
 		moveIt.onDragTargetHit=function(object, old_object) {
 			moveIt.onDragTargetLost(old_object);
 			if (object != currentSource){prevInner=object.innerHTML; object.innerHTML = '** Swap **';}
