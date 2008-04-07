@@ -123,7 +123,7 @@
 	.left{text-align: left;}
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
-	.dragging{cursor: move;}
+	.dragging{font-weight: bold; border: 1px solid #000000; cursor: move;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -314,12 +314,12 @@
 		for(var i=1; i<=5; i++){
 			if(i<3 || prefArr__MODULE_ID__[shArr[i]]){
 				tempObj=_gel("thHead"+i);
-				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">'+tempObj.innerHTML+'</div>');
+				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'">'+tempObj.innerHTML+'</div>');
 				moveIt.addTarget("thHead"+i);
 				origObj[i]=tempObj.innerHTML;
 			}
 		}
-	
+
 		moveIt.onDragStart=function(object){currentSource=object};
 		moveIt.onDragTargetHit=function(object, old_object) {
 			moveIt.onDragTargetLost(old_object);
