@@ -99,7 +99,7 @@
 	#tablediv td { background-color: inherit; padding: 2px;}
 	#tablediv tr{ background-color: inherit;}
 	#dataTable td{ text-align: center;}
-	.colid { font-weight: bold; border-bottom: 1px solid #000000; text-align: center; cursor: move;}
+	.colid { font-weight: bold; border-bottom: 1px solid #000000; text-align: center;}
 
 	/* Font Size CSS */
 	.xsmall{ font-size: 10px;}
@@ -123,6 +123,7 @@
 	.left{text-align: left;}
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
+	.dragging{cursor: move;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -308,12 +309,12 @@
 		var moveIt = new _IG_Drag(), currentSource=null, origObj=[], shArr=[];
 		shArr[3]="showAge"; shArr[4]="showAge"; shArr[5]="showAge"; 
 		
-		origObj[0]='<div class="highlight">** Swap **</div>',
+		origObj[0]='<div class="highlight">** Swap **</div>';
 		
 		for(var i=1; i<=5; i++){
 			if(i<3 || prefArr__MODULE_ID__[shArr[i]]){
 				var tempStr=_gel("thHead"+i).innerHTML;
-				moveIt.addSource(""+i, "thHead"+i, '<div class="'+prefArr__MODULE_ID__["fontSize"]+'" +style="font-weight: bold;">'+tempStr+'</div>');
+				moveIt.addSource(""+i, "thHead"+i, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'" +style="font-weight: bold;">'+tempStr+'</div>');
 				moveIt.addTarget("thHead"+i);
 				origObj[i]=tempStr;
 			}
