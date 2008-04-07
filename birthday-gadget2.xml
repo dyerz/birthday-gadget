@@ -380,7 +380,7 @@
 	}
 	
 	function sortGroup__MODULE_ID__(a, b){
-		return a.toLowerCase()>b.toLowerCase();
+		c=a.toLowerCase(); d=b.toLowerCase(); return c>d?1:c<d?-1:0;
 	}
 
 	function buildGroup__MODULE_ID__(groupArray){
