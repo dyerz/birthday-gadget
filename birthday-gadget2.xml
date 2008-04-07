@@ -73,6 +73,7 @@
 <UserPref name="fontColor" default_value="#000000" datatype="hidden" />
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
+<UserPref name="group" default_value="" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbVis" default_value="false" datatype="hidden" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
@@ -137,13 +138,13 @@
 <script>
     google.load("visualization", "1");
 	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__= new _IG_MiniMessage(__MODULE_ID__);
-	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__;
+	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__;
     
 	//get started
     function init__MODULE_ID__(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor", "tbOrder",
-			"MM0");
+			"group", "MM0");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
 		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
@@ -351,7 +352,7 @@
 	}
 	
 	function buildArray__MODULE_ID__(data){
-		var dataArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		var dataArray=new Array(), groupArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
@@ -367,8 +368,16 @@
 			if(tempDate.getTime()>maxDate.getTime() && prefArr__MODULE_ID__["warnForward"]!=0) continue;
 			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
 			dataArray.push(dataDate+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
+			groupArray.push(data.getFormattedValue(row,2);
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
+		groupArray=groupArray.sort();
+		var testIt=new RegExp, varLen=groupArray.length;
+		for(var i=0; i<varLen; i++){
+			testIt.compile(groupArray[i], "i")
+			if(testIt.test(groupArray[i+1])){ groupArray=groupArray.slice(i+1); varLen=groupArray.length; }
+		}
+		groupArray__MODULE_ID__=groupArray;
 		return(dataArray);
 	}
 
@@ -438,6 +447,15 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/visitMM/"+msg);	
 	}
 
+	function makeSel(id, sel, valArr, dispArr){
+		var html=['<select id="'+id+'">'], selStr="";
+		for(var i=0; i<valArr.length; i++){
+			selStr=valArr[i]==sel?" selected":""; html.push('<option value="'+valArr[i]+'"'+selStr+'>'+dispArr[i]+'</option>');
+		}
+		html.push('</select>');
+		return(html);
+	}	
+	
 /* Help / Error Functions **********************/
 	function showHelp__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/setup");	
@@ -488,6 +506,7 @@
 		html.push('<input id="bgcDiv" type="text" value="'+prefArr__MODULE_ID__["bgColor"]+'" /> ');
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontSize__</td><td class="configText">'+makeFontSize__MODULE_ID__()+'</td></tr>'); 
+		html.push('<tr><td class="configTitle">__MSG_configGroup__</td><td class="configText">'+makeGroup__MODULE_ID__()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configURL__</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="__MSG_configBack__" /></td>');
@@ -505,15 +524,14 @@
 	
 	function getScrollY__MODULE_ID__(){var scrOfX = 0,scrOfY=0;if(typeof(window.pageYOffset)=='number'){scrOfY=window.pageYOffset;scrOfX=window.pageXOffset;}else if(document.body&&(document.body.scrollLeft||document.body.scrollTop)){scrOfY=document.body.scrollTop;scrOfX=document.body.scrollLeft;}else if(document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)){scrOfY=document.documentElement.scrollTop;scrOfX=document.documentElement.scrollLeft;}return scrOfY;}document.write("<style type='text/css'>.colorpicker201{visibility:hidden;display:none;position:absolute;background:#FFF;border:solid 1px #CCC;padding:4px;z-index:999;filter:progid:DXImageTransform.Microsoft.Shadow(color=#D0D0D0,direction=135);}.o5582brd{padding:0;width:12px;height:14px;border-bottom:solid 1px #DFDFDF;border-right:solid 1px #DFDFDF;}a.o5582n66,.o5582n66,.o5582n66a{font-family:arial,tahoma,sans-serif;text-decoration:underline;font-size:9px;color:#666;border:none;}.o5582n66,.o5582n66a{text-align:center;text-decoration:none;}a:hover.o5582n66{text-decoration:none;color:#FFA500;cursor:pointer;}.a01p3{padding:1px 4px 1px 2px;background:whitesmoke;border:solid 1px #DFDFDF;}</style>");function getTop2__MODULE_ID__(){csBrHt=0;if(typeof(window.innerWidth)=='number'){csBrHt=window.innerHeight;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrHt=document.documentElement.clientHeight;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrHt=document.body.clientHeight;}ctop=((csBrHt/2)-115)+getScrollY__MODULE_ID__();return ctop;}var nocol1="&#78;&#79;&#32;&#67;&#79;&#76;&#79;&#82;",clos1="&#67;&#76;&#79;&#83;&#69;",tt2="&#70;&#82;&#69;&#69;&#45;&#67;&#79;&#76;&#79;&#82;&#45;&#80;&#73;&#67;&#75;&#69;&#82;&#46;&#67;&#79;&#77;",hm2="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#119;&#119;&#119;&#46;";hm2+=tt2;tt2="&#80;&#79;&#87;&#69;&#82;&#69;&#68;&#32;&#98;&#121;&#32;&#70;&#67;&#80;";function getLeft2__MODULE_ID__(){var csBrWt=0;if(typeof(window.innerWidth)=='number'){csBrWt=window.innerWidth;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrWt=document.documentElement.clientWidth;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrWt=document.body.clientWidth;}cleft=(csBrWt/2)-125;return cleft;}function setCCbldID2__MODULE_ID__(objID,val){document.getElementById(objID).value=val;}function setCCbldSty2__MODULE_ID__(objID,prop,val){switch(prop){case "bc":if(objID!='none'){document.getElementById(objID).style.backgroundColor=val;};break;case "vs":document.getElementById(objID).style.visibility=val;break;case "ds":document.getElementById(objID).style.display=val;break;case "tp":document.getElementById(objID).style.top=val;break;case "lf":document.getElementById(objID).style.left=val;break;}}function putOBJxColor2__MODULE_ID__(OBjElem,Samp,pigMent){if(pigMent!='x'){setCCbldID2__MODULE_ID__(OBjElem,pigMent);setCCbldSty2__MODULE_ID__(Samp,'bc',pigMent);}setCCbldSty2__MODULE_ID__('colorpicker201','vs','hidden');setCCbldSty2__MODULE_ID__('colorpicker201','ds','none');}function showColorGrid2__MODULE_ID__(OBjElem,Sam){var objX=new Array('00','33','66','99','CC','FF');var c=0;var z='"'+OBjElem+'","'+Sam+'",""';var xl='"'+OBjElem+'","'+Sam+'","x"';var mid='';mid+='<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="border:solid 0px #F0F0F0;padding:2px;"><tr>';mid+="<td colspan='18' align='left' style='font-size:10px;background:#6666CC;color:#FFF;font-family:arial;'>&nbsp;Chromatic Selection Palette</td></tr><tr><td colspan='18' align='center' style='margin:0;padding:2px;height:12px;' ><input class='o5582n66' type='text' size='12' id='o5582n66' value='#FFFFFF'><input class='o5582n66a' type='text' size='2' style='width:14px;' id='o5582n66a' onclick='javascript:alert(\"click on selected swatch below...\");' value='' style='border:solid 1px #666;'>&nbsp;|&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2__MODULE_ID__("+z+")'><span class='a01p3'>"+nocol1+"</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2__MODULE_ID__("+xl+")'><span class='a01p3'>"+clos1+"</span></a></td></tr><tr>";var br=1;for(o=0;o<6;o++){mid+='</tr><tr>';for(y=0;y<6;y++){if(y==3){mid+='</tr><tr>';}for(x=0;x<6;x++){var grid='';grid=objX[o]+objX[y]+objX[x];var b="'"+OBjElem+"', '"+Sam+"','#"+grid+"'";mid+='<td class="o5582brd" style="background-color:#'+grid+'"><a class="o5582n66"  href="javascript:onclick=putOBJxColor2__MODULE_ID__('+b+');" onmouseover=javascript:document.getElementById("o5582n66").value="#'+grid+'";javascript:document.getElementById("o5582n66a").style.backgroundColor="#'+grid+'";  title="#'+grid+'"><div style="width:12px;height:14px;"></div></a></td>';c++;}}}mid+="</tr><tr><td colspan='18' align='right' style='padding:2px;border:solid 1px #FFF;background:#FFF;'><a href='"+hm2+"' style='color:#666;font-size:8px;font-family:arial;text-decoration:none;letter-spacing:1px;'>"+tt2+"</a></td></tr></table>";var ttop=getTop2__MODULE_ID__();setCCbldSty2__MODULE_ID__('colorpicker201','tp',ttop);document.getElementById('colorpicker201').style.left=getLeft2__MODULE_ID__();setCCbldSty2__MODULE_ID__('colorpicker201','vs','visible');setCCbldSty2__MODULE_ID__('colorpicker201','ds','block');document.getElementById('colorpicker201').innerHTML=mid;}
 
+	function makeGroup__MODULE_ID__(){
+		return makeSel("group", prefArr__MODULE_ID__["group"], groupArray__MODULE_ID__,  groupArray__MODULE_ID__);
+	}
+	
 	function makeFontSize__MODULE_ID__(){
-		var retStr=[], sizeStr=["xsmall", "small", "medium", "large", "xlarge"], dispStr=["__MSG_fSizeXS__", "__MSG_fSizeS__", "__MSG_fSizeM__", "__MSG_fSizeL__", "__MSG_fSizeXL__"], selStr="";
-		retStr.push('<select id="fontSize">');
-		for(var i=0; i<sizeStr.length; i++){
-			selStr=sizeStr[i]==prefArr__MODULE_ID__["fontSize"]?" selected":"";
-			retStr.push('<option value="'+sizeStr[i]+'"'+selStr+'>'+dispStr[i]+'</option>');
-		}
-		retStr.push('</select>');
-		return retStr;
+		var sizeStr=["xsmall", "small", "medium", "large", "xlarge"],
+			dispStr=["__MSG_fSizeXS__", "__MSG_fSizeS__", "__MSG_fSizeM__", "__MSG_fSizeL__", "__MSG_fSizeXL__"];
+		return makeSel("fontSize", prefArr__MODULE_ID__["fontSize"], sizeStr, dispStr);
 	}
 
 	function configChanged__MODULE_ID__(){
@@ -533,10 +551,11 @@
 		if(!colorCheck__MODULE_ID__(tempStr, "Background Color")) return false;
 		bC=tempStr;
 		fS=_gel("fontSize").value;
+		gG=_gel("group").value;
 		tempStr=_trim(_gel("shUrl").value);
 		if(!urlCheck__MODULE_ID__(tempStr)) return false;
 		
-		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "_table_query_url", tempStr);
+		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "group", gG, "_table_query_url", tempStr);
 		prefArr__MODULE_ID__["fontSize"]=fS; prefArr__MODULE_ID__["fontColor"]=fC; prefArr__MODULE_ID__["bgColor"]=bC; prefArr__MODULE_ID__["_table_query_url"]=tempStr;
 		return true;
 	}
