@@ -265,16 +265,16 @@
 
 		// Header row for column Ids
 		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"';
-		html.push('<tr>');
 		
+		html.push('<tr>');
 		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
 		for(step=0; step<order.length; step++){
 			switch(parseInt(order[step],10)){
-				case 1: html.push('<td id="thHead1"'+headerStr+'>__MSG_tableDate__</td>'); break;
-				case 2: html.push('<td id="thHead2"'+headerStr+'>__MSG_tableName__</td>'); break;
-				case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td id="thHead3"'+headerStr+'>__MSG_tableAge__</td>'); break;
-				case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td id="thHead4"'+headerStr+'>__MSG_tableDays__</td>'); break;
-				case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td id="thHead5"'+headerStr+'>__MSG_tableZodiac__</td>'); break;
+				case 1: html.push('<td'+headerStr+'><div id="thHead1">__MSG_tableDate__</div></td>'); break;
+				case 2: html.push('<td'+headerStr+'><div id="thHead2">__MSG_tableName__</div></td>'); break;
+				case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td'+headerStr+'><div id="thHead3">__MSG_tableAge__</div></td>'); break;
+				case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td'+headerStr+'><div id="thHead4">__MSG_tableDays__</div></td>'); break;
+				case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td'+headerStr+'><div id="thHead5">__MSG_tableZodiac__</div></td>'); break;
 			}
 		}
 		html.push('</tr>');
@@ -316,7 +316,7 @@
 				tempObj=_gel("thHead"+i);
 				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'">'+tempObj.innerHTML+'</div>');
 				moveIt.addTarget("thHead"+i);
-				if(tempObj.clientWidth) tempObj._IG_Drag_surrogateOffsetX=tempObj.clientWidth/2;
+				//if(tempObj.clientWidth) tempObj._IG_Drag_surrogateOffsetX=tempObj.clientWidth/2;
 				origObj[i]=tempObj.innerHTML;
 			}
 		}
