@@ -182,7 +182,7 @@
 		flipTB__MODULE_ID__(false);
 		if(prefArr__MODULE_ID__["MM0"]){
 			var msgStr=[
-				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-06</span> &raquo; </span>',
+				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
 				'<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmDrag__" onclick="visitMM__MODULE_ID__();">__MSG_mmDrag__</a>'
 				].join('');
 			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(0));
