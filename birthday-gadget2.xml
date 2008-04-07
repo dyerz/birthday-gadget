@@ -314,7 +314,7 @@
 		for(var i=1; i<=5; i++){
 			if(i<3 || prefArr__MODULE_ID__[shArr[i]]){
 				var tempObj=_gel("thHead"+i);
-				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">'+tempObj.innerHTML+'</div>');
+				moveIt.addSource("drag"+i, _gel("thHead"+i);, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">'+tempObj.innerHTML+'</div>');
 				moveIt.addTarget("thHead"+i);
 				origObj[i]=tempObj.innerHTML;
 			}
