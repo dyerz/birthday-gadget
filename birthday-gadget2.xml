@@ -306,17 +306,17 @@
 	}
 
 	function dragging__MODULE_ID__(){
-		var moveIt = new _IG_Drag(), currentSource=null, origObj=[], shArr=[], tempStr;
-		shArr[3]="showAge"; shArr[4]="showAge"; shArr[5]="showAge"; 
+		var moveIt = new _IG_Drag(), currentSource=null, origObj=[], shArr=[], tempObj;
+		shArr[3]="showAge"; shArr[4]="showDays"; shArr[5]="showZodiac"; 
 		
 		origObj[0]='<div class="highlight">** Swap **</div>';
 		
 		for(var i=1; i<=5; i++){
 			if(i<3 || prefArr__MODULE_ID__[shArr[i]]){
-				tempStr=_gel("thHead"+i).innerHTML;
-				moveIt.addSource("drag"+i, _gel("thHead"+i), '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">'+tempStr+'</div>');
+				tempObj=_gel("thHead"+i);
+				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'" style="font-weight: bold;">'+tempObj.innerHTML+'</div>');
 				moveIt.addTarget("thHead"+i);
-				origObj[i]=tempStr;
+				origObj[i]=tempObj.innerHTML;
 			}
 		}
 	
