@@ -297,7 +297,7 @@
 			var rowData=dataArray__MODULE_ID__[row].split("~;~");
 			rowDate=Date.parse(rowData[0]);
 
-			html.push('<tr>');
+			html.push(makeToday__MODULE_ID__(rowData[0]));
 			for(step=0; step<order.length; step++){
 				switch(parseInt(order[step],10)){
 					case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
@@ -376,7 +376,7 @@
 		var aA=a.split("~;~"), bA=b.split("~;~"); return Date.parse(aA[2])-Date.parse(bA[2]);
 	}	
 
-	function makeDate__MODULE_ID__(inDate){
+	function makeToday__MODULE_ID__(inDate){
 		var t=new Date(), b=new Date(inDate);
 		if((prefArr__MODULE_ID__["fontColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#FFFFFF") 
 		   || (prefArr__MODULE_ID__["bgColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#000000")) return '<tr>'; 
