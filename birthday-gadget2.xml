@@ -315,7 +315,7 @@
 		moveIt.onDragStart=function(object){currentSource=object;};
 		moveIt.onDragTargetHit=function(object, old_object) {
 			moveIt.onDragTargetLost(old_object);
-			if (object != currentSource){prevInner=object.innerHTML; object.innerHTML = ** Swap **;}
+			if (object != currentSource){prevInner=object.innerHTML; object.innerHTML = '** Swap **';}
 		};
 		moveIt.onDragTargetLost=function(object){ if(object == null) {return;} object.innerHTML=prevInner; };
 		moveIt.onDragEnd=function(source, target){
