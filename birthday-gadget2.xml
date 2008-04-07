@@ -99,7 +99,7 @@
 	#tablediv td { background-color: inherit; padding: 2px;}
 	#tablediv tr{ background-color: inherit;}
 	#dataTable td{ text-align: center;}
-	.colid { font-weight: bold; border-bottom: 1px solid #000000; text-align: center;}
+	.colid { font-weight: bold; border-bottom: 1px solid #000000; text-align: center; cursor: move;}
 
 	/* Font Size CSS */
 	.xsmall{ font-size: 10px;}
@@ -305,7 +305,7 @@
 	}
 
 	function dragging__MODULE_ID__(){
-		var moveIt = new _IG_Drag(), currentSource=null, prevInner;
+		var moveIt = new _IG_Drag(), currentSource=null;
 		
 		moveIt.addSource("thHead1"); moveIt.addTarget("thHead1");
 		moveIt.addSource("thHead2"); moveIt.addTarget("thHead2");
@@ -313,12 +313,21 @@
 		if(prefArr__MODULE_ID__["showDays"]) { moveIt.addSource("thHead4"); moveIt.addTarget("thHead4");}
 		if(prefArr__MODULE_ID__["showZodiac"]) { moveIt.addSource("thHead5"); moveIt.addTarget("thHead5");}
 	
-		moveIt.onDragStart=function(object){currentSource=object; prevInner=object.innerHTML;};
+		var origObj=new Array(
+			'<div class="highlight">** Swap **</div>',
+			_gel('thHead1').innerHTML,
+			_gel('thHead2').innerHTML,
+			_gel('thHead3').innerHTML,
+			_gel('thHead4').innerHTML,
+			_gel('thHead5').innerHTML
+		);
+		
+		moveIt.onDragStart=function(object){currentSource=object};
 		moveIt.onDragTargetHit=function(object, old_object) {
 			moveIt.onDragTargetLost(old_object);
-			if (object != currentSource){prevInner=object.innerHTML; object.innerHTML = '<div class="highlight">** Swap **</div>';}
+			if (object != currentSource){object.innerHTML = origObj[0];}
 		};
-		moveIt.onDragTargetLost=function(object){ if(object == null) {return;} object.innerHTML=prevInner; };
+		moveIt.onDragTargetLost=function(object){ if(object == null) {return;} object.innerHTML=origObj[parseInt(object.id.substring.6, 10)]; };
 		moveIt.onDragEnd=function(source, target){
 			if(target==null) return;
 			var src=source.id.substring(6), tar=target.id.substring(6), srcRE = new RegExp(src), tarRE = new RegExp(tar);
