@@ -49,7 +49,7 @@
   <EnumValue value="20" />
   <EnumValue value="0" display_value="__MSG_noticeAll__" />
 </UserPref>
-<UserPref name="warnForward" display_name="__MSG_futureNoticeName__" default_value="7" datatype="enum" >
+<UserPref name="warnForward" display_name="__MSG_futureNoticeName__" default_value="14" datatype="enum" >
   <EnumValue value="3" />
   <EnumValue value="7" />
   <EnumValue value="10" />
@@ -120,7 +120,7 @@
 
 	/* Misc CSS */
 	h1{font-size: 22px; text-align: center;}
-	.error{color: #FF0000;}
+	.error, .red{color: #FF0000;}
 	#oldtxt{width: 100%;height: 100px;}
 	.left{text-align: left;}
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
@@ -376,6 +376,13 @@
 		var aA=a.split("~;~"), bA=b.split("~;~"); return Date.parse(aA[2])-Date.parse(bA[2]);
 	}	
 
+	function makeDate__MODULE_ID__(inDate){
+		var t=new Date(), b=new Date(inDate);
+		if((prefArr__MODULE_ID__["fontColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#FFFFFF") 
+		   || (prefArr__MODULE_ID__["bgColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#000000")) return '<tr>'; 
+		return (t.month()==b.month() && t.date()==b.date())?'<tr class="red">':'<tr>';
+	}
+	
     function makeDate__MODULE_ID__(inDate){
 		var month=new Array("__MSG_ajan__", "__MSG_afeb__", "__MSG_amar__", "__MSG_aapr__", "__MSG_amay__", "__MSG_ajun__", "__MSG_ajul__", "__MSG_aaug__", "__MSG_asep__", "__MSG_aoct__", "__MSG_anov__", "__MSG_adec__");
 		var tempArr=inDate.split("/"), m=parseInt(tempArr[1], 10), d=tempArr[2], n=new Date();
