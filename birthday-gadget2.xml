@@ -123,7 +123,7 @@
 	.left{text-align: left;}
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
-	.dragging{font-weight: bold; border: 1px solid #000000; cursor: move; text-align: center;}
+	.dragging{font-weight: bold; cursor: move; text-align: center;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -315,6 +315,7 @@
 			if(i<3 || prefArr__MODULE_ID__[shArr[i]]){
 				tempObj=_gel("thHead"+i);
 				objWidth=tempObj.clientWidth?' style="width: '+tempObj.clientWidth+'px;"':"";
+				tempObj._IG_Drag_surrogateOffsetY = 0; tempObj._IG_Drag_surrogateOffsetX = 0;
 				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'"'+objWidth+'>'+tempObj.innerHTML+'</div>');
 				moveIt.addTarget("thHead"+i);
 				origObj[i]=tempObj.innerHTML;
