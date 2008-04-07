@@ -313,14 +313,13 @@
 		if(prefArr__MODULE_ID__["showDays"]) { moveIt.addSource("thHead4"); moveIt.addTarget("thHead4");}
 		if(prefArr__MODULE_ID__["showZodiac"]) { moveIt.addSource("thHead5"); moveIt.addTarget("thHead5");}
 	
-		var origObj=new Array(
-			'<div class="highlight">** Swap **</div>',
-			_gel('thHead1').innerHTML,
-			_gel('thHead2').innerHTML,
-			_gel('thHead3').innerHTML,
-			_gel('thHead4').innerHTML,
-			_gel('thHead5').innerHTML
-		);
+		var origObj=new Array();
+		origObj[0]='<div class="highlight">** Swap **</div>',
+		origObj[1]=_gel('thHead1').innerHTML;
+		origObj[2]=_gel('thHead2').innerHTML;
+		if(prefArr__MODULE_ID__["showAge"]) origObj[3]=_gel('thHead3').innerHTML;
+		if(prefArr__MODULE_ID__["showDays"]) origObj[4]=_gel('thHead4').innerHTML;
+		if(prefArr__MODULE_ID__["showZodiac"]) origObj[5]=_gel('thHead5').innerHTML;
 		
 		moveIt.onDragStart=function(object){currentSource=object};
 		moveIt.onDragTargetHit=function(object, old_object) {
