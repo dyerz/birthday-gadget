@@ -316,7 +316,7 @@
 				tempObj=_gel("thHead"+i);
 				moveIt.addSource("drag"+i, tempObj, '<div class="dragging '+prefArr__MODULE_ID__["fontSize"]+'">'+tempObj.innerHTML+'</div>');
 				moveIt.addTarget("thHead"+i);
-				tempObj._IG_Drag_surrogateOffsetX=0;
+				tempObj._IG_Drag_surrogateOffsetX="40%";
 				origObj[i]=tempObj.innerHTML;
 			}
 		}
