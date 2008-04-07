@@ -453,7 +453,7 @@
 		tempStr=_trim(_gel("shUrl").value);
 		if(!urlCheck__MODULE_ID__(tempStr)) return false;
 		
-		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "shUrl", tempStr);
+		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "_table_query_url", tempStr);
 		prefArr__MODULE_ID__["fontSize"]=fS; prefArr__MODULE_ID__["fontColor"]=fC; prefArr__MODULE_ID__["bgColor"]=bC; prefArr__MODULE_ID__["_table_query_url"]=tempStr;
 		return true;
 	}
