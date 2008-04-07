@@ -368,7 +368,7 @@
 			if(tempDate.getTime()>maxDate.getTime() && prefArr__MODULE_ID__["warnForward"]!=0) continue;
 			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
 			dataArray.push(dataDate+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
-			groupArray.push(data.getFormattedValue(row,2);
+			groupArray.push(data.getFormattedValue(row,2));
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
 		groupArray=groupArray.sort();
