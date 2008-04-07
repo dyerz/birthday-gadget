@@ -327,7 +327,10 @@
 			moveIt.onDragTargetLost(old_object);
 			if (object != currentSource){object.innerHTML = origObj[0];}
 		};
-		moveIt.onDragTargetLost=function(object){ if(object == null) {return;} object.innerHTML=origObj[parseInt(object.id.substring.6, 10)]; };
+		moveIt.onDragTargetLost=function(object){
+			if(object == null) {return;}
+			object.innerHTML=origObj[parseInt(object.id.substring(6), 10)];
+		};
 		moveIt.onDragEnd=function(source, target){
 			if(target==null) return;
 			var src=source.id.substring(6), tar=target.id.substring(6), srcRE = new RegExp(src), tarRE = new RegExp(tar);
