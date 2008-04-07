@@ -371,12 +371,16 @@
 			groupArray.push(data.getFormattedValue(row,2));
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
-		groupArray__MODULE_ID__=buildGroup__MODULE_ID__(groupArray.sort());
+		groupArray__MODULE_ID__=buildGroup__MODULE_ID__(groupArray.sort(sortGroup__MODULE_ID__));
 		return(dataArray);
 	}
 
 	function sortDate__MODULE_ID__(a, b){
 		var aA=a.split("~;~"), bA=b.split("~;~"); return Date.parse(aA[2])-Date.parse(bA[2]);
+	}
+	
+	function sortGroup__MODULE_ID__(a, b){
+		return a.toLowerCase()>b.toLowerCase();
 	}
 
 	function buildGroup__MODULE_ID__(groupArray){
