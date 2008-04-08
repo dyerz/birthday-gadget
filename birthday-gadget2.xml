@@ -512,7 +512,8 @@
 		html.push('<input id="bgcDiv" type="text" value="'+prefArr__MODULE_ID__["bgColor"]+'" /> ');
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontSize__</td><td class="configText">'+makeFontSize__MODULE_ID__()+'</td></tr>'); 
-		html.push('<tr><td class="configTitle">__MSG_configGroup__</td><td class="configText">'+makeGroup__MODULE_ID__()+'</td></tr>'); 
+		//Group Feature to be added later
+		//html.push('<tr><td class="configTitle">__MSG_configGroup__</td><td class="configText">'+makeGroup__MODULE_ID__()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configURL__</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="__MSG_configBack__" /></td>');
