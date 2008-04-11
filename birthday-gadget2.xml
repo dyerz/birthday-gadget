@@ -85,7 +85,7 @@
 <![CDATA[ 
 <style>
 	/* Toolbar CSS */
-	#toolbar{position: absolute; top: -15px; left: 0; height: 15px; text-align: center; margin: 0 0 2px 0; padding: 0; width: 100%; border-bottom: 1px solid #DDDDDD;}
+	#toolbar{position: absolute; top: -15px; left: 0; height: 15px; text-align: center; margin: 0 0 2px 0; padding: 0; width: 100%; border-bottom: 1px solid #DDDDDD; background-color: #FFFFFF; z-index=99;}
 	#toolbar table{ border-collapse: collapse; padding: 0; margin: 0; text-align: center; width: 100%;}
 	#toolbar td{ padding: 0; margin: 0; font-size: 10px;}
 	#tbConfig{ width: 20%; text-align: left; color: #0000FF; text-decoration: underline; cursor: pointer;}
