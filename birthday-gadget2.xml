@@ -513,7 +513,7 @@
 		return CaretPos;
 	}
 	
-	function handleMMs(){
+	function handleMMs__MODULE_ID__(){
 		var m=prefArr__MODULE_ID__["MMs"].split(""), msgStr=[];
 		if(prefArr__MODULE_ID__["MM0"]){ m[0]="1"; prefs__MODULE_ID__.set("MMs", m.join("")); }
 		for(var i=0; i<m.length; i++){
