@@ -557,11 +557,13 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
-		moreErr.push('<br />__MSG_errLite__<br /><input type="button" id="goLite" value="__MSG_errGoLite" />');
+		if(prefArr__MODULE_ID__["birthdays2"]=="") moreErr.push('<br />__MSG_errLite__<br /><input type="button" id="goLite" value="__MSG_errGoLite__" />');
+		else moreErr.push('<br />__MSG_errLiteReady__<br /><input type="button" id="goClear" value="__MSG_errLiteClear__" />');
 		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_errMore__" target="_blank">__MSG_errMore__</a>');
 		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
-		_gel('goLite').onclick()=function(){showLiteData__MODULE_ID__();}
+		if(prefArr__MODULE_ID__["birthdays2"]=="") _gel('goLite').onclick=function(){showLiteData__MODULE_ID__();}
+		else _gel('goClear').onclick=function(){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]); showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}	
 

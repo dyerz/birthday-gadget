@@ -70,7 +70,6 @@
   <msg name="configBGColor">Background Color</msg>
   <msg name="configFontSize">Font Size</msg>
   <msg name="configURL">Spreadsheet URL</msg>
-  <msg name="configLite">Lite List</msg>
   <msg name="configBack">Back</msg>
   <msg name="configSave">Save</msg>
   <msg name="configPick">Pick</msg>
@@ -125,6 +124,8 @@
   <msg name="errRefresh">Please refresh the webpage to try again.</msg>
   <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
   <msg name="errGoLite">Use Birthday Reminders Lite</msg>
+  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
+  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
   <msg name="errMore">See the help website for additional assistance.</msg>
   <msg name="errCommon">Click "Refresh" after you make the changes in your Google spreadsheet.</msg>
 </messagebundle>
