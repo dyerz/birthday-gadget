@@ -339,7 +339,7 @@
 			}
 		}
 		html.push('</tr>');
-		return html;
+		return html.join('');
 	}
 
 	function makeTableRow__MODULE_ID__(rowData){
@@ -358,7 +358,7 @@
 			}
 		}
 		html.push('</tr>');
-		return html;
+		return html.join('');
 	}
 	
 	function dragging__MODULE_ID__(){
