@@ -213,23 +213,16 @@ var hideTB__MODULE_ID__=null;
 			this.style.top="0";
 		}
 		tbObj.onmouseout=function(){
-			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 1500);
+			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 500);
 		}
 	}
 	
+	var hideTBHeight__MODULE_ID__=0;
 	function waitHideTB__MODULE_ID__(){
-		tbObj=_gel("toolbar").style.top="-15px";
-	}
-	
-	function flipTB__MODULE_ID__(sh){
-		if(prefArr__MODULE_ID__["tbVis"]=="false"){
-			_gel("toolbarVis").title="__MSG_tbHide__";
-			_gel("toolbar").style.display=""; _gel("upImg").style.display=""; _gel("dnImg").style.display="none";
-		} else {
-			_gel("toolbarVis").title="__MSG_tbShow__";
-			_gel("toolbar").style.display="none"; _gel("upImg").style.display="none"; _gel("dnImg").style.display="";
-		}
-		if(sh) _IG_AdjustIFrameHeight();
+		if(hideTBHeight__MODULE_ID__==-15) {hideTBHeight__MODULE_ID__=0; return;}
+		hideTBHeight__MODULE_ID__-=3;
+		tbObj=_gel("toolbar").style.top=hideTBHeight__MODULE_ID__+"px";
+		hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 100);
 	}
 
 /* Data Functions ******************************/	
