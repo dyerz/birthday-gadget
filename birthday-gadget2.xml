@@ -566,7 +566,8 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/config");	
 		var html=[];
 		html.push('<h1 id="configH1">__MSG_tbConfig__</h1><table id="configTable">');
-		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
+		if(prefArr__MODULE_ID__["birthdays2"]!="") html.push('<tr><td colspan="2" class="left"><span id="editLite" class="link">Edit Birthday Lite List</span></td></tr>'); 
+		else html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontColor__</td><td class="configText"><input id="textSet" type="button" value="__MSG_configPick__" /> ');
 		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
 		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["fontColor"]+'">&nbsp</span></td></tr>'); 
@@ -577,7 +578,6 @@
 		//Group Feature to be added later
 		//html.push('<tr><td class="configTitle">__MSG_configGroup__</td><td class="configText">'+makeGroup__MODULE_ID__()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configURL__</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
-		if(prefArr__MODULE_ID__["birthdays2"]!="") html.push('<tr><td class="configTitle">__MSG_configLite__</td><td class="configText"><span id="editLite" class="link">Edit Birthday Lite List</span></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="__MSG_configBack__" /></td>');
 		html.push('<td><input id="configSave" type="button" value="__MSG_configSave__" /></td></tr>'); 
