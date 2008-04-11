@@ -121,8 +121,8 @@
 	.configText{ text-align: left; width: 70%;}
 
 	/* Misc CSS */
-	h1{font-size: 22px; text-align: center;}
-	h3{font-size: 16px; text-align: center;}
+	h1{font-size: 22px; text-align: center; margin: 2px 0; padding: 0;}
+	h3{font-size: 16px; text-align: center; margin: 1px 0; padding: 0;}
 	.error, .red{color: #FF0000;}
 	.green{color: #CC0000;}
 	#oldtxt, #litetxt{width: 100%;height: 100px;}
@@ -131,7 +131,7 @@
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
 	.dragging{font-weight: bold; cursor: move; text-align: center;}
 	.link{color: #0000FF; text-decoration: underline; cursor: pointer;}
-	.listHide{list-style-type: none;}
+	litePrev{border: 1px solid #DDDDDD;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -701,6 +701,12 @@
 		endStr=endStr==-1?testStr.length:endStr; testStr=testStr.substring(strStart, endStr);
 		testArr=testStr.indexOf(";")!=-1?testStr.split(";"):testStr.split("\t");
 		if(!liteTestRow__MODULE_ID__(testArr, -1)) return;
+		var tempDate=new Date(); tempDate.setTime(Date.parse(testArr[0]));
+		if(tempDate.getMonth()<nowDate.getMonth() ||
+			(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
+			tempDate.setFullYear(nowDate.getFullYear()+1);
+		else tempDate.setFullYear(nowDate.getFullYear());
+		testArr.push(tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();)
 		html.push('Preview<br />');
 		html.push('<table id="litePrevTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 		html.push(makeTableHead__MODULE_ID__()); html.push(makeTableRow__MODULE_ID__(testArr));
