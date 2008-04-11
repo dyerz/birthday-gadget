@@ -528,7 +528,7 @@
 						msgStr.push('<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>');
 						msgStr.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmLite__" onclick="visitMM__MODULE_ID__(1);">__MSG_mmLite__</a>');
 						break;
-					deafult:
+					deafult: msgStr=[];
 				}
 				if(msgStr.length!=0) msg__MODULE_ID__.createDismissibleMessage(msgStr.join(''), hideMM__MODULE_ID__(i));
 			}
