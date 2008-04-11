@@ -100,6 +100,10 @@
   <msg name="convertClear">Clear Old Data</msg>
   <msg name="convertMore">See the help website for additional assistance.</msg>
   
+  <msg name="liteH1">Lite Version</msg>
+  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="liteStep1">Enter your birthdays below:</msg>
+  
   <msg name="errH1">Error</msg>
   <msg name="errDateFormat">Please set the "Format" of column "A" to "date".</msg>
   <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>

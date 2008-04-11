@@ -29,7 +29,6 @@
 	<Require feature="minimessage"/>
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" default_value="__MSG_title__" />
-<UserPref name="birthdays" datatype="hidden" default_value="" /> 
 <UserPref name="dateFormat" display_name="__MSG_formatName__" default_value="0" datatype="enum" >
   <EnumValue value="0" display_value="MMM DD" />
   <EnumValue value="1" display_value="DD MMM" />
@@ -71,13 +70,13 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
+<UserPref name="birthdays" datatype="hidden" default_value="" /> 
+<UserPref name="birthdays2" datatype="hidden" default_value="" /> 
 <UserPref name="fontColor" default_value="#000000" datatype="hidden" />
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
 <UserPref name="group" default_value="" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
-<UserPref name="tbVis" default_value="false" datatype="hidden" /> 
-<UserPref name="tbType" default_value="standard" datatype="hidden" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
 <UserPref name="MM0" default_value="1" datatype="hidden" /> 
 
@@ -124,7 +123,8 @@
 	/* Misc CSS */
 	h1{font-size: 22px; text-align: center;}
 	.error, .red{color: #FF0000;}
-	#oldtxt{width: 100%;height: 100px;}
+	.green{color: #CC0000;}
+	#oldtxt, #litetxt{width: 100%;height: 100px;}
 	.left{text-align: left;}
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
@@ -177,7 +177,7 @@
 		***/
 		
 		//queryurl check
-		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp__MODULE_ID__(); return;}
+		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
 		//toolbar creation
 		buildToolbar__MODULE_ID__();
 		if(prefArr__MODULE_ID__["MM0"]){
@@ -188,7 +188,8 @@
 			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(0));
 		}
 		//init done.. show stuff
-		sendQuery__MODULE_ID__();
+		chooseDataSource__MODULE_ID__();
+
     }
 
 /* Toolbar functions ***************************/
@@ -202,9 +203,9 @@
 		_gel('toolbar').innerHTML = html.join('');
 
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();};
+		_gel("tbConfig").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
 		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}
-		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery__MODULE_ID__();};
+		_gel("tbRefresh").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
 
 		//js event config
 		tbObj=_gel("toolbar");
@@ -216,9 +217,19 @@
 		if(hideTBHeight__MODULE_ID__<=-15) {hideTBHeight__MODULE_ID__=0; return;}
 		_gel("toolbar").style.top=(hideTBHeight__MODULE_ID__--)+"px"; hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 100);
 	}
+	
+	function checkConfirm__MODULE_ID__(){
+		switch(tableDivObj__MODULE_ID__.firstChild.id){
+			case "configH1": return (configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
+			case "liteH1": return (liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
+			default: return false;
+		}
+	}
 
 /* Data Functions ******************************/	
-    function sendQuery__MODULE_ID__(qCheck) {
+	function chooseDataSource__MODULE_ID__(){ if(prefArr__MODULE_ID__["_table_query_url"] ==""){ buildLiteData__MODULE_ID__(); return; } sendQuery__MODULE_ID__(); }
+	
+    function sendQuery__MODULE_ID__() {
 		if(prefArr__MODULE_ID__["_table_query_url"].search(/tq\?/)==-1 ){
 			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?").replace(/pub\?/, "tq?");
 			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
@@ -226,7 +237,7 @@
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(prefArr__MODULE_ID__["_table_query_url"])
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 		}
-
+		
 		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
 		query.setQuery("select * format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse__MODULE_ID__);
@@ -242,7 +253,7 @@
 			}
 			return;
 		}
-		var data = response.getDataTable(), html=[];
+		var data = response.getDataTable();
 
 		//check for dates
 		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__'); return; }
@@ -250,6 +261,41 @@
 		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
 		
 		dataArray__MODULE_ID__=buildArray__MODULE_ID__(data);
+		buildTable__MODULE_ID__();
+	}
+
+	function buildLiteData__MODULE_ID__(){
+		var liteStr=prefArr__MODULE_ID__["birthdays2"], liteArr=[];
+		if(liteStr=="") { showLiteData__MODULE_ID__(); return;}
+		liteArr=liteStr.split("\n");
+		var dataArray=[], groupArray=[], dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
+		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
+		for(var row=0; row<liteArr.length; row++){
+			liteRow=liteArr[row].split(";");
+			dataDate=liteRow[0];
+			tempData=Date.parse(dataDate);
+			tempDate.setTime(tempData);
+			if(tempDate.getMonth()<nowDate.getMonth() ||
+				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
+				tempDate.setFullYear(nowDate.getFullYear()+1);
+			else tempDate.setFullYear(nowDate.getFullYear());
+			if(tempDate.getTime()>maxDate.getTime() && prefArr__MODULE_ID__["warnForward"]!=0) continue;
+			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
+			dataArray.push(dataDate+"~;~"+liteRow[1]+"~;~"+formatDate);
+			//groupArray.push(data.getFormattedValue(row,2));
+		}
+		dataArray=dataArray.sort(sortDate__MODULE_ID__);
+		//groupArray__MODULE_ID__=buildGroup__MODULE_ID__(groupArray.sort(sortGroup__MODULE_ID__));
+		
+		dataArray__MODULE_ID__=dataArray;
+		buildTable__MODULE_ID__();
+	}
+	
+/* Table Functions *****************************/	
+	function buildTable__MODULE_ID__(){
+		var html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
+		
 		if(dataArray__MODULE_ID__.length==0){
 			html.push('<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 			html.push('__MSG_noBirthdays1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_noBirthdays2__</div>');
@@ -258,18 +304,29 @@
 			_IG_AdjustIFrameHeight(); return;
 		}
 		
-		buildTable__MODULE_ID__();
-		_IG_AdjustIFrameHeight();
-	}
-	
-	function buildTable__MODULE_ID__(){
-		var html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
-		
 		html.push('<table id="dataTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 
 		// Header row for column Ids
-		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"';
+		html.push(makeTableHead__MODULE_ID__());
 		
+		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray__MODULE_ID__.length:prefArr__MODULE_ID__["showBDay"];
+
+		// Add the data rows
+		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
+			var rowData=dataArray__MODULE_ID__[row].split("~;~");
+			html.push(makeTableHead__MODULE_ID__(rowData));
+			
+			if(countDisp++>=dispLength) break;
+		}
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
+		html.push('</table>');
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');
+		dragging__MODULE_ID__();
+		_IG_AdjustIFrameHeight();
+	}
+	
+	function makeTableHead__MODULE_ID__(){
+		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"', html=[];
 		html.push('<tr>');
 		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
 		for(step=0; step<order.length; step++){
@@ -282,33 +339,27 @@
 			}
 		}
 		html.push('</tr>');
-
-		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray__MODULE_ID__.length:prefArr__MODULE_ID__["showBDay"];
-
-		// Add the data rows
-		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
-			var rowData=dataArray__MODULE_ID__[row].split("~;~");
-			rowDate=Date.parse(rowData[0]);
-
-			html.push(makeToday__MODULE_ID__(rowData[0]));
-			for(step=0; step<order.length; step++){
-				switch(parseInt(order[step],10)){
-					case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
-					case 2: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>'); break;
-					case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>'); break;
-					case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>'); break;
-					case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>'); break;
-				}
-			}
-			html.push('</tr>');
-			if(countDisp++>=dispLength) break;
-		}
-		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
-		html.push('</table>');
-		tableDivObj__MODULE_ID__.innerHTML = html.join('');
-		dragging__MODULE_ID__();	
+		return html;
 	}
 
+	function makeTableRow_MODULE_ID__(rowData){
+		var html=[];
+		rowDate=Date.parse(rowData[0]);
+
+		html.push(makeToday__MODULE_ID__(rowData[0]));
+		for(step=0; step<order.length; step++){
+			switch(parseInt(order[step],10)){
+				case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
+				case 2: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>'); break;
+				case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>'); break;
+				case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>'); break;
+				case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>'); break;
+			}
+		}
+		html.push('</tr>');
+		return html;
+	}
+	
 	function dragging__MODULE_ID__(){
 		var moveIt = new _IG_Drag(), currentSource=null, origObj=[], shArr=[], tempObj, objWidth="";
 		shArr[3]="showAge"; shArr[4]="showDays"; shArr[5]="showZodiac"; 
@@ -344,7 +395,7 @@
 	}
 	
 	function buildArray__MODULE_ID__(data){
-		var dataArray=new Array(), groupArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		var dataArray=[], groupArray=[], dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
@@ -453,6 +504,18 @@
 		html.push('</select>');
 		return(html);
 	}	
+
+	function getCaretPosition__MODULE_ID__(ctrl) {
+		var CaretPos = 0; ctrl.focus();
+		if (document.selection) {
+			var range=document.selection.createRange(), stored_range=range.duplicate();
+			stored_range.moveToElementText( ctrl ); stored_range.setEndPoint( 'EndToEnd', range );
+			ctrl.selectionStart = stored_range.text.length - range.text.length;
+			ctrl.selectionEnd = ctrl.selectionStart + range.text.length;
+		}
+		if (ctrl.selectionStart || ctrl.selectionStart == '0') CaretPos = ctrl.selectionStart;
+		return CaretPos;
+	}
 	
 /* Help / Error Functions **********************/
 	function showHelp__MODULE_ID__(){
@@ -466,7 +529,7 @@
 		html.push('</li><li>__MSG_setupStep3__</li><li>__MSG_setupStep4__</li>');
 		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
-		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="FAQ" target="_blank">__MSG_setupMore__</a>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
@@ -485,7 +548,7 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
-		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="Help" target="_blank">__MSG_errMore__</a>');
+		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_errMore__" target="_blank">__MSG_errMore__</a>');
 		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
 		_IG_AdjustIFrameHeight();
@@ -495,7 +558,7 @@
 	function goConfig__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/config");	
 		var html=[];
-		html.push('<h1>__MSG_tbConfig__</h1><table id="configTable">');
+		html.push('<h1 id="configH1">__MSG_tbConfig__</h1><table id="configTable">');
 		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontColor__</td><td class="configText"><input id="textSet" type="button" value="__MSG_configPick__" /> ');
 		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
@@ -515,9 +578,8 @@
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');	
 		_gel('textSet').onclick=function(){ showColorGrid2__MODULE_ID__("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2__MODULE_ID__("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
-		_gel('configBack').onclick=function(){ 
-			if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  sendQuery__MODULE_ID__();}
-		_gel('configSave').onclick=function(){if(configSave__MODULE_ID__()) sendQuery__MODULE_ID__();}
+		_gel('configBack').onclick=function(){ if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
+		_gel('configSave').onclick=function(){ if(configSave__MODULE_ID__()) chooseDataSource__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 	
@@ -568,6 +630,7 @@
 	}
 	
 	function urlCheck__MODULE_ID__(tempStr){
+		if(tempStr.length==0) return true;
 		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
 		if(tempStr.search(/^http:\/\/spreadsheets\.google\.com\/(ccc|tq|pub)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
 		return true;
@@ -579,19 +642,93 @@
 		var html=[];
 		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
 		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_convertStep1__</a></li>');
-		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t").replace(/\|/g, "\n")+'</textarea></li>');
+		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t").replace(/\|/g, "\n").replace(/\r/g, "")+'</textarea></li>');
 		html.push('<li>__MSG_convertStep3__</li><li>__MSG_convertStep4__');
 		html.push('<br /><input type="button" value="__MSG_convertClear__" id="clearOld" /></li></ol>');
-		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="Help" target="_blank">__MSG_convertMore__</a></div>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_convertMore__" target="_blank">__MSG_convertMore__</a></div>');
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
 			prefArr__MODULE_ID__["birthdays"]="";
 			buildToolbar__MODULE_ID__();
-			sendQuery__MODULE_ID__();
+			chooseDataSource__MODULE_ID__();
 		}
 		_IG_AdjustIFrameHeight();
-	}	
+	}
+
+/* Lite Data Functions *************************/
+	function showLiteData__MODULE_ID__(){
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/lite");	
+		var oldtxt="", html=[];
+		if(prefArr__MODULE_ID__["birthdays"]!=""){
+			oldtxt=prefArr__MODULE_ID__["birthdays"].replace(/\|/g, "\n").replace(/\r/g, "");
+			prefs__MODULE_ID__.set("birthdays","");	prefArr__MODULE_ID__["birthdays"]="";
+		}	
+		html.push('<h1 id="liteH1">__MSG_liteH1__</h1><h3 class="red">__MSG_liteWarn__</h3><div id="litePrev"></div><div style="text-align: left;"><ul class="listHide">');
+		html.push('<li>__MSG_liteStep1__<br /><textarea id="litetxt">'+prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n")+'</textarea></li>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a></div>');
+		html.push('<li><table style="margin: 0; padding: 0; text-align: center;">');
+		html.push('<tr><td><input id="liteBack" type="button" value="__MSG_configBack__" /></td>');
+		html.push('<td><input id="liteSave" type="button" value="__MSG_configSave__" /></td></tr>'); 
+		html.push('</table></li></ul></div>');
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
+
+		_gel('litetxt').onkeyup=function(){ preview__MODULE_ID__();}
+		_gel('liteBack').onclick=function(){ if(!liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
+		_gel('liteSave').onclick=function(){ if(liteSave__MODULE_ID__()) chooseDataSource__MODULE_ID__();}
+		
+		buildToolbar__MODULE_ID__();
+		_IG_AdjustIFrameHeight();
+	}
+	
+	function preview__MODULE_ID__(){
+		var txtObj=_gel('litetxt'), prevObj=_gel('liteprev'), testArr=[], html=[];
+		if(txtObj.value.length>1000){
+			prevObj.className="red";
+			prevObj.innerHTML='Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.';
+			txtObj.value=txtObj.value.substring(-1);
+			_IG_AdjustIFrameHeight();
+			return;
+		}
+		var pos=getCaretPosition__MODULE_ID__(txtObj), testStr=txtObj.value.replace(/\r/g, "");
+		var strStart=testStr.lastIndexOf("\n", pos), endStr=testStr.indexOf("\n", pos);
+		endStr=endStr==-1?testStr.length:endStr; testStr=testStr.subString(strStart, endStr);
+		testArr=testStr.indexOf(";")!=-1?testStr.split(";"):testStr.split("\t");
+		if(!liteTestRow__MODULE_ID__(testArr, -1)) return;
+		html.push('Preview<br />');
+		html.push('<table id="litePrevTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
+		html.push(makeTableHead__MODULE_ID__()); html.push(makeTableRow__MODULE_ID__(testArr));
+		html.push('</table>')
+		prevObj.innerHTML=html.join('');
+		_IG_AdjustIFrameHeight();
+	}
+	
+	function liteChanged__MODULE_ID__(){
+		return _gel('litetxt').value!=prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n");
+	}
+	
+	function liteSave__MODULE_ID__(){
+		var tempArr=_gel('litetxt').value.replace(/\r/g, "").split("\n"), tempRow, tempDate, finalStr="";
+		for(var rows=0; rows<tempArr.length; rows++){
+			tempRow=tempArr[rows].indexOf(";")!=-1?tempArr[rows].split(";"):tempArr[rows].split("\t");
+			if(!liteTestRow__MODULE_ID__(tempRow, rows+1)) {_IG_AdjustIFrameHeight(); return false;}
+			tempDate=new Date(tempRow[0]);
+			finalStr+=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate()+";"+_trim(tempRow[1])+"\n";
+		}
+		prefArr__MODULE_ID__["birthdays2"]=finalStr;
+		prefs__MODULE_ID__.set("birthdays2",finalStr);
+		return true;
+	}
+	
+	function liteTestRow__MODULE_ID__(testArr, row){
+		var rowStr=row==-1?"":"Line "+row+" ", prevObj=_gel('liteprev');
+		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter birthdays like "Date; Name"'; return false; }
+		if(testArr.length>2) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter one birthday per line'; return false; }
+		var testDate=Date.parse(testArr[0]);
+		if(isNaN(testDate)) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Invalid Date'; return false; }
+		prevObj.className="";
+		return true;
+	}
 
 	google.setOnLoadCallback(init__MODULE_ID__);
 </script>
