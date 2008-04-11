@@ -706,7 +706,7 @@
 			(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
 			tempDate.setFullYear(nowDate.getFullYear()+1);
 		else tempDate.setFullYear(nowDate.getFullYear());
-		testArr.push(tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();)
+		testArr.push(tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate());
 		html.push('Preview<br />');
 		html.push('<table id="litePrevTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 		html.push(makeTableHead__MODULE_ID__()); html.push(makeTableRow__MODULE_ID__(testArr));
