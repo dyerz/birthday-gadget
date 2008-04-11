@@ -688,7 +688,7 @@
 	}
 	
 	function preview__MODULE_ID__(){
-		var txtObj=_gel('litetxt'), prevObj=_gel('liteprev'), testArr=[], html=[];
+		var txtObj=_gel('litetxt'), prevObj=_gel('litePrev'), testArr=[], html=[];
 		if(txtObj.value.length>1000){
 			prevObj.className="red";
 			prevObj.innerHTML='Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.';
@@ -727,7 +727,7 @@
 	}
 	
 	function liteTestRow__MODULE_ID__(testArr, row){
-		var rowStr=row==-1?"":"Line "+row+" ", prevObj=_gel('liteprev');
+		var rowStr=row==-1?"":"Line "+row+" ", prevObj=_gel('litePrev');
 		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter birthdays like "Date; Name"'; return false; }
 		if(testArr.length>2) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter one birthday per line'; return false; }
 		var testDate=Date.parse(testArr[0]);
