@@ -68,6 +68,7 @@
   <msg name="configBGColor">Background Color</msg>
   <msg name="configFontSize">Font Size</msg>
   <msg name="configURL">Spreadsheet URL</msg>
+  <msg name="configLite">Lite List</msg>
   <msg name="configBack">Back</msg>
   <msg name="configSave">Save</msg>
   <msg name="configPick">Pick</msg>

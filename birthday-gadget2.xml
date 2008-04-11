@@ -534,7 +534,7 @@
 		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
 		html.push('<div style="text-align: center;">If you do not want to use Google spreadsheets or <br />If you have problems with Google spreadsheets');
-		html.push('<br /><span id="goLite" class="link">Click here to use Birthday Gadgets Lite</span></div>');
+		html.push('<br /><span id="goLite" class="link">Use Birthday Gadgets Lite</span></div>');
 		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
@@ -576,6 +576,7 @@
 		//Group Feature to be added later
 		//html.push('<tr><td class="configTitle">__MSG_configGroup__</td><td class="configText">'+makeGroup__MODULE_ID__()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configURL__</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
+		if(prefArr__MODULE_ID__["birthdays2"]!="") html.push('<tr><td class="configTitle">__MSG_configLite__</td><td class="configText"><span id="editLite" class="link">Edit Birthday Lite List</span></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="__MSG_configBack__" /></td>');
 		html.push('<td><input id="configSave" type="button" value="__MSG_configSave__" /></td></tr>'); 
@@ -586,6 +587,7 @@
 		_gel('bgcSet').onclick=function(){ showColorGrid2__MODULE_ID__("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
 		_gel('configSave').onclick=function(){ if(configSave__MODULE_ID__()) chooseDataSource__MODULE_ID__();}
+		_gel('editLite').onclick=function(){showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 	
@@ -720,7 +722,7 @@
 	}
 	
 	function liteSave__MODULE_ID__(){
-		var tempArr=_gel('litetxt').value.replace(/\r/g, "").split("\n"), tempRow, tempDate, finalStr="";
+		var tempArr=_trim(_gel('litetxt').value.replace(/\r/g, "")).split("\n"), tempRow, tempDate, finalStr="";
 		for(var rows=0; rows<tempArr.length; rows++){
 			tempRow=tempArr[rows].indexOf(";")!=-1?tempArr[rows].split(";"):tempArr[rows].split("\t");
 			if(!liteTestRow__MODULE_ID__(tempRow, rows+1)) {_IG_AdjustIFrameHeight(); return false;}
