@@ -347,6 +347,7 @@
 		rowDate=Date.parse(rowData[0]);
 
 		html.push(makeToday__MODULE_ID__(rowData[0]));
+		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
 		for(step=0; step<order.length; step++){
 			switch(parseInt(order[step],10)){
 				case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
