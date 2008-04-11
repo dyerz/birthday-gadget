@@ -140,7 +140,7 @@
 
 <script type="text/javascript">
     google.load("visualization", "1");
-	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__= new _IG_MiniMessage(__MODULE_ID__);
+	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__=new _IG_MiniMessage(__MODULE_ID__);
 	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__;
     
 	//get started
@@ -183,6 +183,7 @@
 		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
 		//toolbar creation
 		buildToolbar__MODULE_ID__();
+		//mini-messages
 		if(prefArr__MODULE_ID__["MM0"]){
 			var msgStr=[
 				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
@@ -190,9 +191,15 @@
 				].join('');
 			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(0));
 		}
+		if(prefArr__MODULE_ID__["MM1"]){
+			var msgStr=[
+				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
+				'<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmLite__" onclick="visitMM__MODULE_ID__(1);">__MSG_mmDrag__</a>'
+				].join('');
+			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(1));
+		}
 		//init done.. show stuff
 		chooseDataSource__MODULE_ID__();
-
     }
 
 /* Toolbar functions ***************************/
@@ -223,8 +230,8 @@
 	
 	function checkConfirm__MODULE_ID__(){
 		switch(tableDivObj__MODULE_ID__.firstChild.id){
-			case "configH1": return (configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
-			case "liteH1": return (liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
+			case "configH1": return (!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
+			case "liteH1": return (!liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
 			default: return false;
 		}
 	}
@@ -276,10 +283,7 @@
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
 		for(var row=0; row<liteArr.length; row++){
 			if(liteArr[row]=="") continue;
-			liteRow=liteArr[row].split(";");
-			dataDate=liteRow[0];
-			tempData=Date.parse(dataDate);
-			tempDate.setTime(tempData);
+			liteRow=liteArr[row].split(";"); dataDate=liteRow[0]; tempData=Date.parse(dataDate); tempDate.setTime(tempData);
 			if(tempDate.getMonth()<nowDate.getMonth() ||
 				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
 				tempDate.setFullYear(nowDate.getFullYear()+1);
@@ -319,7 +323,6 @@
 		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
 			var rowData=dataArray__MODULE_ID__[row].split("~;~");
 			html.push(makeTableRow__MODULE_ID__(rowData));
-			
 			if(countDisp++>=dispLength) break;
 		}
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
@@ -349,7 +352,6 @@
 	function makeTableRow__MODULE_ID__(rowData){
 		var html=[];
 		rowDate=Date.parse(rowData[0]);
-
 		html.push(makeToday__MODULE_ID__(rowData[0]));
 		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
 		for(step=0; step<order.length; step++){
@@ -555,9 +557,11 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
+		moreErr.push('<br />__MSG_errLite__<br /><input type="button" id="goLite" value="__MSG_errGoLite" />');
 		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_errMore__" target="_blank">__MSG_errMore__</a>');
 		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
+		_gel('goLite').onclick()=function(){showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}	
 
@@ -566,8 +570,8 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/config");	
 		var html=[];
 		html.push('<h1 id="configH1">__MSG_tbConfig__</h1><table id="configTable">');
-		if(prefArr__MODULE_ID__["birthdays2"]!="") html.push('<tr><td colspan="2" class="left"><span id="editLite" class="link">Edit Birthday Lite List</span></td></tr>'); 
-		else html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
+		if(prefArr__MODULE_ID__["_table_query_url"]!="") html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
+		else html.push('<tr><td colspan="2" class="left"><span id="editLite" class="link">__MSG_configEditLite__</span></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontColor__</td><td class="configText"><input id="textSet" type="button" value="__MSG_configPick__" /> ');
 		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
 		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["fontColor"]+'">&nbsp</span></td></tr>'); 
@@ -692,13 +696,7 @@
 	
 	function preview__MODULE_ID__(){
 		var txtObj=_gel('litetxt'), prevObj=_gel('litePrev'), testArr=[], html=[];
-		if(txtObj.value.length>1000){
-			prevObj.className="red";
-			prevObj.innerHTML='Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.';
-			txtObj.value=txtObj.value.substring(-1);
-			_IG_AdjustIFrameHeight();
-			return;
-		}
+		if(txtObj.value.length>1000){ prevObj.className="red"; prevObj.innerHTML='__MSG_liteErrMax__'; txtObj.value=txtObj.value.substring(-1); _IG_AdjustIFrameHeight(); return;}
 		var pos=getCaretPosition__MODULE_ID__(txtObj), testStr=txtObj.value.replace(/\r/g, "");
 		var strStart=testStr.lastIndexOf("\n", pos), endStr=testStr.indexOf("\n", pos);
 		endStr=endStr==-1?testStr.length:endStr; testStr=testStr.substring(strStart, endStr);
@@ -710,7 +708,7 @@
 			tempDate.setFullYear(nowDate.getFullYear()+1);
 		else tempDate.setFullYear(nowDate.getFullYear());
 		testArr.push(tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate());
-		html.push('Preview<br />');
+		html.push('__MSG_litePrev__<br />');
 		html.push('<table id="litePrevTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 		html.push(makeTableHead__MODULE_ID__()); html.push(makeTableRow__MODULE_ID__(testArr));
 		html.push('</table>')
@@ -736,11 +734,11 @@
 	}
 	
 	function liteTestRow__MODULE_ID__(testArr, row){
-		var rowStr=row==-1?"":"Line "+row+" ", prevObj=_gel('litePrev');
-		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'Please enter birthdays like "Date; Name"'; return false; }
-		if(testArr.length>2) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter one birthday per line'; return false; }
+		var rowStr=row==-1?"":"__MSG_liteErrLine__ "+row+" ", prevObj=_gel('litePrev');
+		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'__MSG_liteErrFormat__'; return false; }
+		if(testArr.length>2) { prevObj.className="red"; prevObj.innerHTML=rowStr+'__MSG_liteErrOne__'; return false; }
 		var testDate=Date.parse(testArr[0]);
-		if(isNaN(testDate)) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Invalid Date'; return false; }
+		if(isNaN(testDate)) { prevObj.className="red"; prevObj.innerHTML=rowStr+'__MSG_liteErrDate__'; return false; }
 		prevObj.className="";
 		return true;
 	}

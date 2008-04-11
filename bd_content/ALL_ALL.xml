@@ -16,6 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">New Feature: Dragging. Re-order the columns.</msg>
+  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
   
   <msg name="Loading">Loading</msg>
   
@@ -64,6 +65,7 @@
   <msg name="tbHide">Hide the Toolbar</msg>
   
   <msg name="configEdit">Edit Google Spreadsheet</msg>
+  <msg name="configEditLite">Edit Birthday Lite List</msg>
   <msg name="configFontColor">Font Color</msg>
   <msg name="configBGColor">Background Color</msg>
   <msg name="configFontSize">Font Size</msg>
@@ -101,9 +103,15 @@
   <msg name="convertClear">Clear Old Data</msg>
   <msg name="convertMore">See the help website for additional assistance.</msg>
   
-  <msg name="liteH1">Lite Version</msg>
+  <msg name="liteH1">Birthday List</msg>
   <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="litePrev">Preview</msg>
   <msg name="liteStep1">Enter your birthdays below:</msg>
+  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteErrLine">Line</msg>
+  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
+  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
+  <msg name="liteErrDate">Error: Invalid Date.</msg>
   
   <msg name="errH1">Error</msg>
   <msg name="errDateFormat">Please set the "Format" of column "A" to "date".</msg>
@@ -115,6 +123,8 @@
   <msg name="errLogin">Please make sure you have access to this spreadsheet or sign in to your Google account to see your birthday list.</msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh">Please refresh the webpage to try again.</msg>
+  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
+  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
   <msg name="errMore">See the help website for additional assistance.</msg>
   <msg name="errCommon">Click "Refresh" after you make the changes in your Google spreadsheet.</msg>
 </messagebundle>
