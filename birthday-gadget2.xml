@@ -275,6 +275,7 @@
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
 		for(var row=0; row<liteArr.length; row++){
+			if(lireArr[row]=="") continue;
 			liteRow=liteArr[row].split(";");
 			dataDate=liteRow[0];
 			tempData=Date.parse(dataDate);
