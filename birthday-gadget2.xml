@@ -133,7 +133,7 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <div id="toolbar"></div>
-<scirpt type="text/javascript">/* <div id="toolbarVis"><img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/up.png" height="4" width="12" /><img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/dn.png" height="4" width="12" /></div> */</script>
+<scirpt type="text/javascript">/* '<div id="toolbarVis"><img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/up.png" height="4" width="12" /><img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/dn.png" height="4" width="12" /></div>' */</script>
 <div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script type="text/javascript">
@@ -208,9 +208,13 @@
 		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery__MODULE_ID__();};
 
 		tbObj=_gel("toolbar");
-		tbObj.onmouseover=function(obj){
-			alert(obj.id);
+		tbObj.onmouseover=function(){
+			this.style.top="0";
 		}
+		tbObj.onmouseout=function(){
+			this.style.top="-12px";
+		}
+		
 		
 		
 		//js event config
