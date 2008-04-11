@@ -535,7 +535,7 @@
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
 		html.push('<div style="text-align: center;">If you do not want to use Google spreadsheets or <br />If you have problems with Google spreadsheets</div>');
 		html.push('<br /><span id="goLite" class="link">Click here to use Birthday Gadgets Lite</span></div>');
-		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
+		html.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
