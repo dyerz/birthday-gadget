@@ -16,6 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nyhet: Ändra ordningen av kolumnerna</msg>
+  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
   
   <msg name="Loading">Laddar</msg>
   
@@ -64,6 +65,7 @@
   <msg name="tbHide">Dölj Verktygsraden</msg>
   
   <msg name="configEdit">Ändra Google kalkylblad</msg>
+  <msg name="configEditLite">Edit Birthday Lite List</msg>
   <msg name="configFontColor">Fontfärg</msg>
   <msg name="configBGColor">Bakgrundsfärg</msg>
   <msg name="configFontSize">Fontstorlek</msg>
@@ -100,6 +102,16 @@
   <msg name="convertClear">Radera tidigare data</msg>
   <msg name="convertMore">Se hjälpsidan för vidare instruktion</msg>
   
+  <msg name="liteH1">Birthday List Lite</msg>
+  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="litePrev">Preview</msg>
+  <msg name="liteStep1">Enter your birthdays below:</msg>
+  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteErrLine">Line</msg>
+  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
+  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
+  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  
   <msg name="errH1">Fel</msg>
   <msg name="errDateFormat">Sätt "Format" av kolumn "A" till "datum".</msg>
   <msg name="errColumn">Flytta datum från kolumn "B" till kolumn "A".</msg>
@@ -110,6 +122,10 @@
   <msg name="errLogin">Se till att du har access till kalkylbladet eller logga in till Google kontot för att se födelsedatat.</msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh">Uppdatera sidan och försök igen.</msg>
+  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
+  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
+  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
+  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
   <msg name="errMore">Se hjälpsidan för vidare instruktion.</msg>
   <msg name="errCommon">Klicka på "Uppdatera" efter att du ändrat ditt Google kalkylblad.</msg>
 </messagebundle>

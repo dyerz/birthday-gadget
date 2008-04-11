@@ -16,6 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Ny Indslag: Dragging. Re-opstille den søjler.</msg>
+  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
   
   <msg name="Loading">Ladning</msg>
   
@@ -64,6 +65,7 @@
   <msg name="tbHide">Skjule den Værktøj</msg>
   
   <msg name="configEdit">Redigere Google Regneark</msg>
+  <msg name="configEditLite">Edit Birthday Lite List</msg>
   <msg name="configFontColor">Skrifttfarve</msg>
   <msg name="configBGColor">Baggrundsfarve</msg>
   <msg name="configFontSize">Skriftstørrelse</msg>
@@ -100,6 +102,16 @@
   <msg name="convertClear">Slette Forhenværende Data</msg>
   <msg name="convertMore">Se efter den hjælp website nemlig nærmere hjælp.</msg>
   
+  <msg name="liteH1">Birthday List Lite</msg>
+  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="litePrev">Preview</msg>
+  <msg name="liteStep1">Enter your birthdays below:</msg>
+  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteErrLine">Line</msg>
+  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
+  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
+  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  
   <msg name="errH1">Fejl</msg>
   <msg name="errDateFormat">Behage placere den "format" i søjle "en" hidtil"".</msg>
   <msg name="errColumn">Behage skridt den stammer fra søjle "B" hen til søjle "en".</msg>
@@ -110,6 +122,10 @@
   <msg name="errLogin">Behage sikre du har adgang hen til indeværende regneark eller påtegne i hen til jeres Google beretning hen til se efter jeres fødselsdag liste.</msg>
   <msg name="errTimeout">Styreenhed Pause</msg>
   <msg name="errRefresh">Behage forny den webpage hen til prøve igen.</msg>
+  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
+  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
+  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
+  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
   <msg name="errMore">Se efter den hjælp website nemlig nærmere hjælp.</msg>
   <msg name="errCommon">Falde i hak "forny" værsågod at gå foran skabe den forandringer i jeres Google regneark.</msg>
 </messagebundle>

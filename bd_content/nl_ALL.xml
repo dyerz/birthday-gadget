@@ -16,6 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nieuwe functie: slepen. Re-order de kolommen.</msg>
+  <msg name="mmLite">Nieuwe functie: Verjaardag gadget Lite. Sla uw verjaardagen zonder een Spreadsheet.</msg>
   
   <msg name="Loading">Laden</msg>
   
@@ -27,7 +28,7 @@
   <msg name="tableSwap">Swap</msg>
   
   <msg name="noBirthdays1">Geen verjaardagen in de komende</msg>
-  <msg name="noBirthdays2"> dagen.</msg>
+  <msg name="noBirthdays2">dagen.</msg>
   
   <msg name="ajan">jan</msg>
   <msg name="afeb">feb</msg>
@@ -64,6 +65,7 @@
   <msg name="tbHide">Verberg de Toolbar</msg>
   
   <msg name="configEdit">Bewerken Google Spreadsheet</msg>
+  <msg name="configEditLite">Edit verjaardag Lite lijst</msg>
   <msg name="configFontColor">Tekstkleur</msg>
   <msg name="configBGColor">Achtergrondkleur</msg>
   <msg name="configFontSize">Tekengrootte</msg>
@@ -100,6 +102,16 @@
   <msg name="convertClear">Wis oude gegevens</msg>
   <msg name="convertMore">Zie de Help-website voor meer hulp.</msg>
   
+  <msg name="liteH1">Verjaardag Lijst Lite</msg>
+  <msg name="liteWarn">Waarschuwing: U wilt misschien opslaan van een kopie van deze lijst in een andere locatie</msg>
+  <msg name="litePrev">Preview</msg>
+  <msg name="liteStep1">Geef uw verjaardagen hieronder:</msg>
+  <msg name="liteErrMax">Fout: De Verjaardag Herinneringen Lite versie heeft een maximum van 1000 tekens.</msg>
+  <msg name="liteErrLine">Line</msg>
+  <msg name="liteErrFormat">Geef verjaardagen als "Dag; Naam"</msg>
+  <msg name="liteErrOne">Fout: Geef een verjaardag per regel.</msg>
+  <msg name="liteErrDate">Fout: Ongeldige datum.</msg>
+  
   <msg name="errH1">Fout</msg>
   <msg name="errDateFormat">Stel het "Format" in de kolom "A" tot "datum".</msg>
   <msg name="errColumn">Beweeg de data uit kolom "B" kolom "A".</msg>
@@ -110,6 +122,10 @@
   <msg name="errLogin">Zorg ervoor dat u toegang heeft tot deze spreadsheet of melden bij uw Google-account om uw verjaardag lijst.</msg>
   <msg name="errTimeout">Server Time-out</msg>
   <msg name="errRefresh">Vernieuw de webpagina om het nogmaals te proberen.</msg>
+  <msg name="errLite">Als deze fout blijft, klik hieronder om uw verjaardag informatie in de gadget.</msg>
+  <msg name="errGoLite">Gebruik verjaardagsherinneringen Lite</msg>
+  <msg name="errLiteReady">U hebt Jarig in Verjaardag Herinneringen Lite, klik hieronder om uw spreadsheet URL.</msg>
+  <msg name="errLiteClear">Duidelijke spreadsheet URL</msg>
   <msg name="errMore">Zie de Help-website voor meer hulp.</msg>
   <msg name="errCommon">Klik op "Refresh" nadat u de wijzigingen in uw Google spreadsheet.</msg>
 </messagebundle>

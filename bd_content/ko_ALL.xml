@@ -16,6 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">새로운 기능 : 드래그합니다. 다시 - 주문 열을합니다.</msg>
+  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
   
   <msg name="Loading">로딩</msg>
   
@@ -64,6 +65,7 @@
   <msg name="tbHide">툴바를 숨기</msg>
   
   <msg name="configEdit">google 스프레드 시트를 수정</msg>
+  <msg name="configEditLite">Edit Birthday Lite List</msg>
   <msg name="configFontColor">글꼴 색상</msg>
   <msg name="configBGColor">배경 색상</msg>
   <msg name="configFontSize">글꼴 크기</msg>
@@ -100,6 +102,16 @@
   <msg name="convertClear">오래된 데이터 지우기</msg>
   <msg name="convertMore">도움이 웹사이트에 대한 추가 지원을 참조하십시오.</msg>
   
+  <msg name="liteH1">Birthday List Lite</msg>
+  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="litePrev">Preview</msg>
+  <msg name="liteStep1">Enter your birthdays below:</msg>
+  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteErrLine">Line</msg>
+  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
+  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
+  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  
   <msg name="errH1">오류</msg>
   <msg name="errDateFormat">를 설정하시기 바랍니다 "포맷"을 열 "를"을 "날짜"합니다.</msg>
   <msg name="errColumn">에서 날짜로 이동하시기 바랍니다 열 "b"를 열 "를"합니다.</msg>
@@ -110,6 +122,10 @@
   <msg name="errLogin">이 스프레드 쉬트에 액세스 권한을 갖고 있는지 확인하시기 바랍니다하거나 귀하의 구글 계정으로 로그인하여 귀하의 생일을 목록을 참조하십시오.</msg>
   <msg name="errTimeout">서버 시간 초과</msg>
   <msg name="errRefresh">웹 페이지를 새로 고치십시오을 다시 시도하십시오.</msg>
+  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
+  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
+  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
+  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
   <msg name="errMore">도움이 웹사이트에 대한 추가 지원을 참조하십시오.</msg>
   <msg name="errCommon">"를 클릭하십시오 새로고침"의 변경 사항을 완료한 후 귀하의 구글 스프레드 시트를합니다.</msg>
 </messagebundle>

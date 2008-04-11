@@ -16,6 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Novo recurso: arrasto. Re-ordem das colunas.</msg>
+  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
   
   <msg name="Loading">Carregando</msg>
   
@@ -64,6 +65,7 @@
   <msg name="tbHide">Ocultar Barra de Ferramentas</msg>
   
   <msg name="configEdit">Editar Google planilha</msg>
+  <msg name="configEditLite">Edit Birthday Lite List</msg>
   <msg name="configFontColor">Cor da fonte</msg>
   <msg name="configBGColor">Cor do plano de fundo</msg>
   <msg name="configFontSize">Tamanho da fonte</msg>
@@ -100,6 +102,16 @@
   <msg name="convertClear">Limpar dados antigos</msg>
   <msg name="convertMore"> Veja o website para ajudar a assistência adicional. </msg>
   
+  <msg name="liteH1">Birthday List Lite</msg>
+  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="litePrev">Preview</msg>
+  <msg name="liteStep1">Enter your birthdays below:</msg>
+  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteErrLine">Line</msg>
+  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
+  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
+  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  
   <msg name="errH1">Erro</msg>
   <msg name="errDateFormat">Por favor, defina o "Tipo" da coluna "A" a "data".</msg>
   <msg name="errColumn">Por favor mova as datas da coluna "B" a coluna "A".</msg>
@@ -110,6 +122,10 @@
   <msg name="errLogin"> Certifique-se de que você tenha acesso a essa planilha ou acessar a sua conta do Google para ver o seu aniversário lista. </msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh"> Atualize a página para tentar novamente. </msg>
+  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
+  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
+  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
+  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
   <msg name="errMore"> Veja o website para ajudar a assistência adicional. </msg>
   <msg name="errCommon"> Clique em "Atualizar" após fazer as alterações em sua planilha do Google.</msg>
 </messagebundle>

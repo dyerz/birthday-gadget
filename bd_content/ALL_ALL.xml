@@ -102,7 +102,7 @@
   <msg name="convertClear">Clear Old Data</msg>
   <msg name="convertMore">See the help website for additional assistance.</msg>
   
-  <msg name="liteH1">Birthday List</msg>
+  <msg name="liteH1">Birthday List Lite</msg>
   <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
   <msg name="litePrev">Preview</msg>
   <msg name="liteStep1">Enter your birthdays below:</msg>
