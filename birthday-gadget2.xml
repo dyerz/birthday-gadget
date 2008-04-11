@@ -129,6 +129,7 @@
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
 	.dragging{font-weight: bold; cursor: move; text-align: center;}
+	.link{color: #0000FF; text-decoration: underline; cursor: pointer;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -530,8 +531,8 @@
 		html.push('</li><li>__MSG_setupStep3__</li><li>__MSG_setupStep4__</li>');
 		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
-		html.push('<div style="text-align: center;">If you do not want to use Google spreadsheets or If you have problems with Google spreadsheets</div>');
-		html.push('<div id="goLite" class="link">Click here to use Birthday Gadgets Lite</div>');
+		html.push('<div style="text-align: center;">If you do not want to use Google spreadsheets or <br />If you have problems with Google spreadsheets</div>');
+		html.push('<br /><span id="goLite" class="link">Click here to use Birthday Gadgets Lite</span></div>');
 		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
