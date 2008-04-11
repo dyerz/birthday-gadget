@@ -143,8 +143,8 @@
 	//get started
     function init__MODULE_ID__(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
-			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor", "tbOrder",
-			"group", "MM0");
+			"showZodiac", "_table_query_url", "tbVis", "birthdays", "birthdays2", "fontSize", "fontColor", "bgColor", 
+			"tbOrder", "group", "MM0");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
 		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
