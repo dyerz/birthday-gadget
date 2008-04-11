@@ -85,7 +85,7 @@
 <![CDATA[ 
 <style>
 	/* Toolbar CSS */
-	#toolbar{position: absolute; top: -12px; left: 0; height: 12px; text-align: center; margin: 0; padding: 0; width: 100%; border-bottom: 1px solid #DDDDDD;}
+	#toolbar{position: absolute; top: -15px; left: 0; height: 15px; text-align: center; margin: 0 0 2px 0; padding: 0; width: 100%; border-bottom: 1px solid #DDDDDD;}
 	#toolbar table{ border-collapse: collapse; padding: 0; margin: 0; text-align: center; width: 100%;}
 	#toolbar td{ padding: 0; margin: 0; font-size: 10px;}
 	#tbConfig{ width: 20%; text-align: left; color: #0000FF; text-decoration: underline; cursor: pointer;}
@@ -133,7 +133,6 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <div id="toolbar"></div>
-<scirpt type="text/javascript">// '<div id="toolbarVis"><img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/up.png" height="4" width="12" /><img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/dn.png" height="4" width="12" /></div>' */</script>
 <div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script type="text/javascript">
@@ -181,7 +180,6 @@
 		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp__MODULE_ID__(); return;}
 		//toolbar creation
 		buildToolbar__MODULE_ID__();
-		//flipTB__MODULE_ID__(false);
 		if(prefArr__MODULE_ID__["MM0"]){
 			var msgStr=[
 				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
@@ -208,31 +206,20 @@ var hideTB__MODULE_ID__=null;
 		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}
 		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery__MODULE_ID__();};
 
+		//js event config
 		tbObj=_gel("toolbar");
 		tbObj.onmouseover=function(){
 			if(hideTB__MODULE_ID__) clearTimeout(hideTB__MODULE_ID__)
 			this.style.top="0";
 		}
 		tbObj.onmouseout=function(){
-			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__(this)", 5000);
+			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 5000);
 		}
-		
-		
-		
-		//js event config
-		/*
-		_gel("toolbarVis").onclick=function(){
-			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
-			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
-			flipTB__MODULE_ID__(true);
-		};
-		*/
 	}
 	
-	function waitHideTB__MODULE_ID__(tbObj){
-		tbObj.style.top="-12px";
+	function waitHideTB__MODULE_ID__(){
+		tbObj=_gel("toolbar").style.top="-15px";
 	}
-	
 	
 	function flipTB__MODULE_ID__(sh){
 		if(prefArr__MODULE_ID__["tbVis"]=="false"){
