@@ -79,6 +79,7 @@
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
 <UserPref name="MM0" default_value="1" datatype="hidden" /> 
+<UserPref name="MMs" default_value="10" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
@@ -147,7 +148,7 @@
     function init__MODULE_ID__(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
 			"showZodiac", "_table_query_url", "tbVis", "birthdays", "birthdays2", "fontSize", "fontColor", "bgColor", 
-			"tbOrder", "group", "MM0");
+			"tbOrder", "group", "MMs");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
 		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
@@ -184,20 +185,7 @@
 		//toolbar creation
 		buildToolbar__MODULE_ID__();
 		//mini-messages
-		if(prefArr__MODULE_ID__["MM0"]){
-			var msgStr=[
-				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
-				'<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmDrag__" onclick="visitMM__MODULE_ID__(0);">__MSG_mmDrag__</a>'
-				].join('');
-			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(0));
-		}
-		if(prefArr__MODULE_ID__["MM1"]){
-			var msgStr=[
-				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
-				'<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmLite__" onclick="visitMM__MODULE_ID__(1);">__MSG_mmDrag__</a>'
-				].join('');
-			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(1));
-		}
+		handleMMs__MODULE_ID__();
 		//init done.. show stuff
 		chooseDataSource__MODULE_ID__();
     }
@@ -496,7 +484,10 @@
     }
 	
 	function hideMM__MODULE_ID__(msg){
-		return function(){_IG_Analytics("UA-310375-4", "/birthday-gadget/hideMM/"+msg); prefs__MODULE_ID__.set("MM" + msg, 0); _IG_AdjustIFrameHeight();}
+		return function(){
+			_IG_Analytics("UA-310375-4", "/birthday-gadget/hideMM/"+msg);
+			var tempArr=prefArr__MODULE_ID__["MMs"].split(""); tempArr[msg]="0";
+			prefs__MODULE_ID__.set("MMs", tempArr.join("")); _IG_AdjustIFrameHeight();}
 	}
 	
 	function visitMM__MODULE_ID__(msg){
@@ -505,9 +496,7 @@
 
 	function makeSel(id, sel, valArr, dispArr){
 		var html=['<select id="'+id+'">'], selStr="";
-		for(var i=0; i<valArr.length; i++){
-			selStr=valArr[i]==sel?" selected":""; html.push('<option value="'+valArr[i]+'"'+selStr+'>'+dispArr[i]+'</option>');
-		}
+		for(var i=0; i<valArr.length; i++){ selStr=valArr[i]==sel?" selected":""; html.push('<option value="'+valArr[i]+'"'+selStr+'>'+dispArr[i]+'</option>');}
 		html.push('</select>');
 		return(html);
 	}	
@@ -522,6 +511,28 @@
 		}
 		if (ctrl.selectionStart || ctrl.selectionStart == '0') CaretPos = ctrl.selectionStart;
 		return CaretPos;
+	}
+	
+	function handleMMs(){
+		var m=prefArr__MODULE_ID__["MMs"].split(""), msgStr=[];
+		if(prefArr__MODULE_ID__["MM0"]){ m[0]="1"; prefs__MODULE_ID__.set("MMs", m.join("")); }
+		for(var i=0; i<m.length; i++){
+			msgStr=[];
+			if(m[i]=="1"){
+				switch(i){
+					case 0:
+						msgStr.push('<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>');
+						msgStr.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmDrag__" onclick="visitMM__MODULE_ID__(0);">__MSG_mmDrag__</a>');
+						break;
+					case 1:
+						msgStr.push('<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>');
+						msgStr.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmLite__" onclick="visitMM__MODULE_ID__(1);">__MSG_mmLite__</a>');
+						break;
+					deafult:
+				}
+				if(msgStr.length!=0) msg__MODULE_ID__.createDismissibleMessage(msgStr.join(''), hideMM__MODULE_ID__(i));
+			}
+		}
 	}
 	
 /* Setup / Error Functions **********************/
@@ -563,7 +574,7 @@
 		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
 		if(prefArr__MODULE_ID__["birthdays2"]=="") _gel('goLite').onclick=function(){showLiteData__MODULE_ID__();}
-		else _gel('goClear').onclick=function(){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]); showLiteData__MODULE_ID__();}
+		else _gel('goClear').onclick=function(){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]); chooseDataSource__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}	
 
