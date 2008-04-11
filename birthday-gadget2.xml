@@ -613,7 +613,7 @@
 		if(!colorCheck__MODULE_ID__(tempStr, "Background Color")) return false;
 		bC=tempStr;
 		fS=_gel("fontSize").value;
-		gG=_gel("group").value;
+		//gG=_gel("group").value;
 		tempStr=_trim(_gel("shUrl").value);
 		if(!urlCheck__MODULE_ID__(tempStr)) return false;
 		
