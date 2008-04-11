@@ -133,7 +133,7 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <div id="toolbar"></div>
-<scirpt type="text/javascript">/* '<div id="toolbarVis"><img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/up.png" height="4" width="12" /><img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/dn.png" height="4" width="12" /></div>' */</script>
+<scirpt type="text/javascript">// '<div id="toolbarVis"><img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/up.png" height="4" width="12" /><img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/dn.png" height="4" width="12" /></div>' */</script>
 <div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script type="text/javascript">
@@ -194,6 +194,7 @@
     }
 
 /* Toolbar functions ***************************/
+var hideTB__MODULE_ID__=null;
 	function buildToolbar__MODULE_ID__(){
 		var html = [];
 		html.push('<table><tr><td id="tbConfig">__MSG_tbConfig__</td>');
@@ -209,10 +210,11 @@
 
 		tbObj=_gel("toolbar");
 		tbObj.onmouseover=function(){
+			if(hideTB__MODULE_ID__) clearTimeout(hideTB__MODULE_ID__)
 			this.style.top="0";
 		}
 		tbObj.onmouseout=function(){
-			this.style.top="-12px";
+			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__(this)", 5000);
 		}
 		
 		
@@ -226,6 +228,11 @@
 		};
 		*/
 	}
+	
+	function waitHideTB__MODULE_ID__(tbObj){
+		tbObj.style.top="-12px";
+	}
+	
 	
 	function flipTB__MODULE_ID__(sh){
 		if(prefArr__MODULE_ID__["tbVis"]=="false"){
