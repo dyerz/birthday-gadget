@@ -314,7 +314,7 @@
 		// Add the data rows
 		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
 			var rowData=dataArray__MODULE_ID__[row].split("~;~");
-			html.push(makeTableHead__MODULE_ID__(rowData));
+			html.push(makeTableRow__MODULE_ID__(rowData));
 			
 			if(countDisp++>=dispLength) break;
 		}
@@ -342,7 +342,7 @@
 		return html;
 	}
 
-	function makeTableRow_MODULE_ID__(rowData){
+	function makeTableRow__MODULE_ID__(rowData){
 		var html=[];
 		rowDate=Date.parse(rowData[0]);
 
