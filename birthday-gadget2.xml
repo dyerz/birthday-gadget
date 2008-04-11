@@ -99,7 +99,7 @@
 	#dnImg{ position: absolute; bottom: -6px;}	
 
 	/* Table Div CSS */
-	#tablediv{ width: 100%; margin: 10px 0 0 0; padding: 0;}
+	#tablediv{ width: 100%; margin: 2px 0 0 0; padding: 0;}
 	#tablediv table { border-collapse: collapse; width: 100%;}
 	#tablediv td { background-color: inherit; padding: 2px;}
 	#tablediv tr{ background-color: inherit;}
@@ -213,7 +213,7 @@ var hideTB__MODULE_ID__=null;
 			this.style.top="0";
 		}
 		tbObj.onmouseout=function(){
-			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 5000);
+			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 1500);
 		}
 	}
 	
