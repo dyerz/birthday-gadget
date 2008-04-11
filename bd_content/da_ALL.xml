@@ -16,7 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Ny Indslag: Dragging. Re-opstille den søjler.</msg>
-  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
+  <msg name="mmLite">Ny Indslag: Fødselsdag Indretning Ordret. Opspare jeres fødselsdage uden en Regneark.</msg>
   
   <msg name="Loading">Ladning</msg>
   
@@ -65,7 +65,7 @@
   <msg name="tbHide">Skjule den Værktøj</msg>
   
   <msg name="configEdit">Redigere Google Regneark</msg>
-  <msg name="configEditLite">Edit Birthday Lite List</msg>
+  <msg name="configEditLite">Redigere Fødselsdag Ordret Liste</msg>
   <msg name="configFontColor">Skrifttfarve</msg>
   <msg name="configBGColor">Baggrundsfarve</msg>
   <msg name="configFontSize">Skriftstørrelse</msg>
@@ -102,15 +102,15 @@
   <msg name="convertClear">Slette Forhenværende Data</msg>
   <msg name="convertMore">Se efter den hjælp website nemlig nærmere hjælp.</msg>
   
-  <msg name="liteH1">Birthday List Lite</msg>
-  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
-  <msg name="litePrev">Preview</msg>
-  <msg name="liteStep1">Enter your birthdays below:</msg>
-  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
-  <msg name="liteErrLine">Line</msg>
-  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
-  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
-  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  <msg name="liteH1">Fødselsdag Liste Ordret</msg>
+  <msg name="liteWarn">advarende Det må du gerne ville gerne opspare en afskrift heraf liste i en anden placering.</msg>
+  <msg name="litePrev">Forpremiere</msg>
+  <msg name="liteStep1">Postere jeres fødselsdage nedenstående:</msg>
+  <msg name="liteErrMax">fejl Den Fødselsdag Påmindelser Ordret Gengivelse har maksimum 1000 bogstaver.</msg>
+  <msg name="liteErrLine">Kø</msg>
+  <msg name="liteErrFormat">Behage postere fødselsdage lige "aldersbestemme; Benævne"</msg>
+  <msg name="liteErrOne">fejl Behage postere sig fødselsdag per kø.</msg>
+  <msg name="liteErrDate">fejl Invalid Aldersbestemme.</msg>
   
   <msg name="errH1">Fejl</msg>
   <msg name="errDateFormat">Behage placere den "format" i søjle "en" hidtil"".</msg>
@@ -122,10 +122,10 @@
   <msg name="errLogin">Behage sikre du har adgang hen til indeværende regneark eller påtegne i hen til jeres Google beretning hen til se efter jeres fødselsdag liste.</msg>
   <msg name="errTimeout">Styreenhed Pause</msg>
   <msg name="errRefresh">Behage forny den webpage hen til prøve igen.</msg>
-  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
-  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
-  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
-  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
+  <msg name="errLite">Selv om indeværende fejl fortsætter, behage falde i hak nedenstående hen til opspare jeres fødselsdag information i den indretning.</msg>
+  <msg name="errGoLite">Hjælp Fødselsdag Påmindelser Ordret</msg>
+  <msg name="errLiteReady">Du har Fødselsdage i Fødselsdag Påmindelser Ordret, falde i hak nedenstående hen til slette jeres regneark URL.</msg>
+  <msg name="errLiteClear">Slette Regneark URL</msg>
   <msg name="errMore">Se efter den hjælp website nemlig nærmere hjælp.</msg>
   <msg name="errCommon">Falde i hak "forny" værsågod at gå foran skabe den forandringer i jeres Google regneark.</msg>
 </messagebundle>

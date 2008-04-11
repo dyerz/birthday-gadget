@@ -16,7 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nuova funzione: di trascinamento. Riordinare le colonne.</msg>
-  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
+  <msg name="mmLite">Nuova funzione: compleanno gadget Lite. Salva il tuo compleanno senza un foglio di calcolo.</msg>
   
   <msg name="Loading">Caricamento</msg>
   
@@ -65,7 +65,7 @@
   <msg name="tbHide">Nascondere la Toolbar</msg>
   
   <msg name="configEdit">Modifica foglio di lavoro di Google</msg>
-  <msg name="configEditLite">Edit Birthday Lite List</msg>
+  <msg name="configEditLite">Modifica compleanno Lite list</msg>
   <msg name="configFontColor">Colore carattere</msg>
   <msg name="configBGColor">Colore sfondo</msg>
   <msg name="configFontSize">Dimensione carattere</msg>
@@ -102,15 +102,15 @@
   <msg name="convertClear">Cancella vecchi dati</msg>
   <msg name="convertMore">Vedere il sito web per aiutare ulteriore assistenza.</msg>
   
-  <msg name="liteH1">Birthday List Lite</msg>
-  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
-  <msg name="litePrev">Preview</msg>
-  <msg name="liteStep1">Enter your birthdays below:</msg>
-  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteH1">Compleanno elenco Lite</msg>
+  <msg name="liteWarn">Attenzione: È possibile salvare una copia di questa lista in un altro percorso.</msg>
+  <msg name="litePrev">Anteprima</msg>
+  <msg name="liteStep1">Inserisci il tuo compleanni di seguito:</msg>
+  <msg name="liteErrMax">Errore: La versione di Lite Compleanno Promemoria ha un massimo di 1000 caratteri.</msg>
   <msg name="liteErrLine">Line</msg>
-  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
-  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
-  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  <msg name="liteErrFormat">Inserite i compleanni, come "Data; Nome"</msg>
+  <msg name="liteErrOne">Errore: Inserisci un compleanno per riga.</msg>
+  <msg name="liteErrDate">Errore: Data non valida.</msg>
   
   <msg name="errH1">Errore</msg>
   <msg name="errDateFormat">Si prega di impostare il "Formato" della colonna "A" a "data".</msg>
@@ -122,10 +122,10 @@
   <msg name="errLogin">Verifica di aver accesso a questo foglio di calcolo o di accedere al tuo account Google per vedere il tuo compleanno.</msg>
   <msg name="errTimeout">Timeout server</msg>
   <msg name="errRefresh">Vi preghiamo di aggiornare la pagina web per riprovare.</msg>
-  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
-  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
-  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
-  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
+  <msg name="errLite">Se l'errore persiste, la preghiamo di cliccare qui sotto per salvare il tuo compleanno informazioni e gadget.</msg>
+  <msg name="errGoLite">Utilizzare i promemoria compleanno Lite</msg>
+  <msg name="errLiteReady">Hai Compleanni e Compleanno Promemoria Lite, fare clic qui sotto per cancellare il tuo foglio di URL.</msg>
+  <msg name="errLiteClear">Cancella foglio di URL</msg>
   <msg name="errMore">Vedere il sito web per aiutare ulteriore assistenza.</msg>
   <msg name="errCommon">Fare clic sul pulsante "Aggiorna", dopo aver effettuato le modifiche nel tuo foglio di lavoro di Google.</msg>
 </messagebundle>

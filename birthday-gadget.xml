@@ -29,7 +29,6 @@
 	<Require feature="minimessage"/>
 </ModulePrefs>
 <UserPref name="title" display_name="__MSG_titleName__" default_value="__MSG_title__" />
-<UserPref name="birthdays" datatype="hidden" default_value="" /> 
 <UserPref name="dateFormat" display_name="__MSG_formatName__" default_value="0" datatype="enum" >
   <EnumValue value="0" display_value="MMM DD" />
   <EnumValue value="1" display_value="DD MMM" />
@@ -50,7 +49,7 @@
   <EnumValue value="20" />
   <EnumValue value="0" display_value="__MSG_noticeAll__" />
 </UserPref>
-<UserPref name="warnForward" display_name="__MSG_futureNoticeName__" default_value="7" datatype="enum" >
+<UserPref name="warnForward" display_name="__MSG_futureNoticeName__" default_value="14" datatype="enum" >
   <EnumValue value="3" />
   <EnumValue value="7" />
   <EnumValue value="10" />
@@ -71,19 +70,22 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
+<UserPref name="birthdays" datatype="hidden" default_value="" /> 
+<UserPref name="birthdays2" datatype="hidden" default_value="" /> 
 <UserPref name="fontColor" default_value="#000000" datatype="hidden" />
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
+<UserPref name="group" default_value="" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
-<UserPref name="tbVis" default_value="false" datatype="hidden" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
 <UserPref name="MM0" default_value="1" datatype="hidden" /> 
+<UserPref name="MMs" default_value="01" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
 <style>
 	/* Toolbar CSS */
-	#toolbar{ height: 12px; text-align: center; margin: 0; padding: 0; width: 100%;}
+	#toolbar{position: absolute; top: -14px; left: 0; height: 15px; text-align: center; margin: 0 0 2px 0; padding: 0; width: 100%; border-bottom: 1px solid #DDDDDD; background-color: #FFFFFF; z-index=99;}
 	#toolbar table{ border-collapse: collapse; padding: 0; margin: 0; text-align: center; width: 100%;}
 	#toolbar td{ padding: 0; margin: 0; font-size: 10px;}
 	#tbConfig{ width: 20%; text-align: left; color: #0000FF; text-decoration: underline; cursor: pointer;}
@@ -97,7 +99,7 @@
 	#dnImg{ position: absolute; bottom: -6px;}	
 
 	/* Table Div CSS */
-	#tablediv{ width: 100%; margin: 10px 0 0 0; padding: 0;}
+	#tablediv{ width: 100%; margin: 2px 0 0 0; padding: 0;}
 	#tablediv table { border-collapse: collapse; width: 100%;}
 	#tablediv td { background-color: inherit; padding: 2px;}
 	#tablediv tr{ background-color: inherit;}
@@ -120,31 +122,33 @@
 	.configText{ text-align: left; width: 70%;}
 
 	/* Misc CSS */
-	h1{font-size: 22px; text-align: center;}
-	.error{color: #FF0000;}
-	#oldtxt{width: 100%;height: 100px;}
+	h1{font-size: 22px; text-align: center; margin: 2px 0; padding: 0;}
+	h3{font-size: 16px; text-align: center; margin: 1px 0; padding: 0;}
+	.error, .red{color: #FF0000;}
+	.green{color: #CC0000;}
+	#oldtxt, #litetxt{width: 100%;height: 100px;}
 	.left{text-align: left;}
 	.exampleSpan{padding-right: 25px;border: 1px solid #DDDDDD;}
 	.highlight{background-color: #FFFF99; width: 100%; color: #000000;}
 	.dragging{font-weight: bold; cursor: move; text-align: center;}
+	.link{color: #0000FF; text-decoration: underline; cursor: pointer;}
+	litePrev{border: 1px solid #DDDDDD;}
 </style>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
-<div id="toolbar" style="display: none;"></div><div id="toolbarVis">
-<img id="upImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/up.png" height="4" width="12" />
-<img id="dnImg" style="display: none;" src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/dn.png" height="4" width="12" />
-</div><div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
+<div id="toolbar"></div>
+<div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
 
-<script>
+<script type="text/javascript">
     google.load("visualization", "1");
-	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__= new _IG_MiniMessage(__MODULE_ID__);
-	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__;
+	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__=new _IG_MiniMessage(__MODULE_ID__);
+	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__;
     
 	//get started
     function init__MODULE_ID__(){
 		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
-			"showZodiac", "_table_query_url", "tbVis", "birthdays", "fontSize", "fontColor", "bgColor", "tbOrder",
-			"MM0");
+			"showZodiac", "_table_query_url", "tbVis", "birthdays", "birthdays2", "fontSize", "fontColor", "bgColor", 
+			"tbOrder", "group", "MMs");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
 		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
@@ -177,22 +181,17 @@
 		***/
 		
 		//queryurl check
-		if(prefArr__MODULE_ID__["_table_query_url"]=="") {showHelp__MODULE_ID__(); return;}
+		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
 		//toolbar creation
 		buildToolbar__MODULE_ID__();
-		flipTB__MODULE_ID__(false);
-		if(prefArr__MODULE_ID__["MM0"]){
-			var msgStr=[
-				'<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>',
-				'<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmDrag__" onclick="visitMM__MODULE_ID__(0);">__MSG_mmDrag__</a>'
-				].join('');
-			msg__MODULE_ID__.createDismissibleMessage(msgStr, hideMM__MODULE_ID__(0));
-		}
+		//mini-messages
+		handleMMs__MODULE_ID__();
 		//init done.. show stuff
-		sendQuery__MODULE_ID__();
+		chooseDataSource__MODULE_ID__();
     }
 
 /* Toolbar functions ***************************/
+	var hideTB__MODULE_ID__=null, hideTBHeight__MODULE_ID__=0;
 	function buildToolbar__MODULE_ID__(){
 		var html = [];
 		html.push('<table><tr><td id="tbConfig">__MSG_tbConfig__</td>');
@@ -200,33 +199,35 @@
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_tbHelp__" target="_blank">__MSG_tbHelp__</a></td>');
 		html.push('<td id="tbRefresh">__MSG_tbRefresh__</td></tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
-		
+
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();};
+		_gel("tbConfig").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
 		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}
-		_gel("tbRefresh").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; sendQuery__MODULE_ID__();};
+		_gel("tbRefresh").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
 
 		//js event config
-		_gel("toolbarVis").onclick=function(){
-			prefArr__MODULE_ID__["tbVis"]=prefArr__MODULE_ID__["tbVis"]=="true"?"false":"true";
-			prefs__MODULE_ID__.set("tbVis", prefArr__MODULE_ID__["tbVis"]);
-			flipTB__MODULE_ID__(true);
-		};
+		tbObj=_gel("toolbar");
+		tbObj.onmouseover=function(){ if(hideTB__MODULE_ID__) clearTimeout(hideTB__MODULE_ID__); hideTBHeight__MODULE_ID__=0; this.style.top="0";}
+		tbObj.onmouseout=function(){ hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 500); }
+	}
+
+	function waitHideTB__MODULE_ID__(){
+		if(hideTBHeight__MODULE_ID__<=-15) {hideTBHeight__MODULE_ID__=0; return;}
+		_gel("toolbar").style.top=(hideTBHeight__MODULE_ID__--)+"px"; hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 100);
 	}
 	
-	function flipTB__MODULE_ID__(sh){
-		if(prefArr__MODULE_ID__["tbVis"]=="false"){
-			_gel("toolbarVis").title="__MSG_tbHide__";
-			_gel("toolbar").style.display=""; _gel("upImg").style.display=""; _gel("dnImg").style.display="none";
-		} else {
-			_gel("toolbarVis").title="__MSG_tbShow__";
-			_gel("toolbar").style.display="none"; _gel("upImg").style.display="none"; _gel("dnImg").style.display="";
+	function checkConfirm__MODULE_ID__(){
+		switch(tableDivObj__MODULE_ID__.firstChild.id){
+			case "configH1": return (!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
+			case "liteH1": return (!liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
+			default: return false;
 		}
-		if(sh) _IG_AdjustIFrameHeight();
 	}
 
 /* Data Functions ******************************/	
-    function sendQuery__MODULE_ID__(qCheck) {
+	function chooseDataSource__MODULE_ID__(){ if(prefArr__MODULE_ID__["_table_query_url"] ==""){ buildLiteData__MODULE_ID__(); return; } sendQuery__MODULE_ID__(); }
+	
+    function sendQuery__MODULE_ID__() {
 		if(prefArr__MODULE_ID__["_table_query_url"].search(/tq\?/)==-1 ){
 			prefArr__MODULE_ID__["_table_query_url"]=prefArr__MODULE_ID__["_table_query_url"].replace(/ccc\?/, "tq?").replace(/pub\?/, "tq?");
 			if(prefArr__MODULE_ID__["_table_query_url"].search(/\&/)!=-1)
@@ -234,7 +235,7 @@
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(prefArr__MODULE_ID__["_table_query_url"])
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
 		}
-
+		
 		var query=new google.visualization.Query(prefArr__MODULE_ID__["_table_query_url"]);
 		query.setQuery("select * format A 'yyyy/MM/dd'");
 		query.send(handleQueryResponse__MODULE_ID__);
@@ -250,7 +251,7 @@
 			}
 			return;
 		}
-		var data = response.getDataTable(), html=[];
+		var data = response.getDataTable();
 
 		//check for dates
 		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__'); return; }
@@ -258,6 +259,39 @@
 		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
 		
 		dataArray__MODULE_ID__=buildArray__MODULE_ID__(data);
+		buildTable__MODULE_ID__();
+	}
+
+	function buildLiteData__MODULE_ID__(){
+		var liteStr=prefArr__MODULE_ID__["birthdays2"], liteArr=[];
+		if(liteStr=="") { showLiteData__MODULE_ID__(); return;}
+		liteArr=liteStr.split("\n");
+		var dataArray=[], groupArray=[], dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
+		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
+		for(var row=0; row<liteArr.length; row++){
+			if(liteArr[row]=="") continue;
+			liteRow=liteArr[row].split(";"); dataDate=liteRow[0]; tempData=Date.parse(dataDate); tempDate.setTime(tempData);
+			if(tempDate.getMonth()<nowDate.getMonth() ||
+				(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
+				tempDate.setFullYear(nowDate.getFullYear()+1);
+			else tempDate.setFullYear(nowDate.getFullYear());
+			if(tempDate.getTime()>maxDate.getTime() && prefArr__MODULE_ID__["warnForward"]!=0) continue;
+			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
+			dataArray.push(dataDate+"~;~"+liteRow[1]+"~;~"+formatDate);
+			//groupArray.push(data.getFormattedValue(row,2));
+		}
+		dataArray=dataArray.sort(sortDate__MODULE_ID__);
+		//groupArray__MODULE_ID__=buildGroup__MODULE_ID__(groupArray.sort(sortGroup__MODULE_ID__));
+		
+		dataArray__MODULE_ID__=dataArray;
+		buildTable__MODULE_ID__();
+	}
+	
+/* Table Functions *****************************/	
+	function buildTable__MODULE_ID__(){
+		var html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
+		
 		if(dataArray__MODULE_ID__.length==0){
 			html.push('<div class="'+prefArr__MODULE_ID__["fontSize"]+'" style="width: 100%; color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 			html.push('__MSG_noBirthdays1__ '+prefArr__MODULE_ID__["warnForward"]+' __MSG_noBirthdays2__</div>');
@@ -266,18 +300,28 @@
 			_IG_AdjustIFrameHeight(); return;
 		}
 		
-		buildTable__MODULE_ID__();
-		_IG_AdjustIFrameHeight();
-	}
-	
-	function buildTable__MODULE_ID__(){
-		var html=[], rowDate, dispAge=0, dispDate="", dispDays=0, countDisp=1;
-		
 		html.push('<table id="dataTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
 
 		// Header row for column Ids
-		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"';
+		html.push(makeTableHead__MODULE_ID__());
 		
+		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray__MODULE_ID__.length:prefArr__MODULE_ID__["showBDay"];
+
+		// Add the data rows
+		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
+			var rowData=dataArray__MODULE_ID__[row].split("~;~");
+			html.push(makeTableRow__MODULE_ID__(rowData));
+			if(countDisp++>=dispLength) break;
+		}
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
+		html.push('</table>');
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');
+		dragging__MODULE_ID__();
+		_IG_AdjustIFrameHeight();
+	}
+	
+	function makeTableHead__MODULE_ID__(){
+		var headerStr=' class="colid '+prefArr__MODULE_ID__["fontSize"]+'" style="border-color: '+prefArr__MODULE_ID__["fontColor"]+';"', html=[];
 		html.push('<tr>');
 		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
 		for(step=0; step<order.length; step++){
@@ -290,33 +334,27 @@
 			}
 		}
 		html.push('</tr>');
-
-		dispLength=prefArr__MODULE_ID__["showBDay"]==0?dataArray__MODULE_ID__.length:prefArr__MODULE_ID__["showBDay"];
-
-		// Add the data rows
-		for (var row = 0; row < dataArray__MODULE_ID__.length; row++) {
-			var rowData=dataArray__MODULE_ID__[row].split("~;~");
-			rowDate=Date.parse(rowData[0]);
-
-			html.push('<tr>');
-			for(step=0; step<order.length; step++){
-				switch(parseInt(order[step],10)){
-					case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
-					case 2: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>'); break;
-					case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>'); break;
-					case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>'); break;
-					case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>'); break;
-				}
-			}
-			html.push('</tr>');
-			if(countDisp++>=dispLength) break;
-		}
-		_IG_Analytics("UA-310375-4", "/birthday-gadget/display");	
-		html.push('</table>');
-		tableDivObj__MODULE_ID__.innerHTML = html.join('');
-		dragging__MODULE_ID__();	
+		return html.join('');
 	}
 
+	function makeTableRow__MODULE_ID__(rowData){
+		var html=[];
+		rowDate=Date.parse(rowData[0]);
+		html.push(makeToday__MODULE_ID__(rowData[0]));
+		var order=prefArr__MODULE_ID__["tbOrder"].split(""), step;
+		for(step=0; step<order.length; step++){
+			switch(parseInt(order[step],10)){
+				case 1: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDate__MODULE_ID__(rowData[0])+'</td>'); break;
+				case 2: html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+escapeHtml__MODULE_ID__(rowData[1])+'</td>'); break;
+				case 3: if(prefArr__MODULE_ID__["showAge"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeAge__MODULE_ID__(rowDate, rowData[2])+'</td>'); break;
+				case 4: if(prefArr__MODULE_ID__["showDays"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeDays__MODULE_ID__(rowData[2])+'</td>'); break;
+				case 5: if(prefArr__MODULE_ID__["showZodiac"]) html.push('<td class="'+prefArr__MODULE_ID__["fontSize"]+'">'+makeZodiac__MODULE_ID__(rowData[2])+'</td>'); break;
+			}
+		}
+		html.push('</tr>');
+		return html.join('');
+	}
+	
 	function dragging__MODULE_ID__(){
 		var moveIt = new _IG_Drag(), currentSource=null, origObj=[], shArr=[], tempObj, objWidth="";
 		shArr[3]="showAge"; shArr[4]="showDays"; shArr[5]="showZodiac"; 
@@ -352,7 +390,7 @@
 	}
 	
 	function buildArray__MODULE_ID__(data){
-		var dataArray=new Array(), dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
+		var dataArray=[], groupArray=[], dataDate, tempDate=new Date(), nowDate=new Date(), maxDate=new Date(), formatDate="", tempData;
 		nowDate.setTime(nowDate.getTime()-prefArr__MODULE_ID__["warnPast"]*86400000);
 		maxDate.setTime(maxDate.getTime()+prefArr__MODULE_ID__["warnForward"]*86400000);
 		for(var row=0; row<data.getNumberOfRows(); row++){
@@ -368,15 +406,37 @@
 			if(tempDate.getTime()>maxDate.getTime() && prefArr__MODULE_ID__["warnForward"]!=0) continue;
 			formatDate=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate();
 			dataArray.push(dataDate+"~;~"+data.getFormattedValue(row,1)+"~;~"+formatDate);
+			//groupArray.push(data.getFormattedValue(row,2));
 		}
 		dataArray=dataArray.sort(sortDate__MODULE_ID__);
+		//groupArray__MODULE_ID__=buildGroup__MODULE_ID__(groupArray.sort(sortGroup__MODULE_ID__));
 		return(dataArray);
 	}
 
 	function sortDate__MODULE_ID__(a, b){
 		var aA=a.split("~;~"), bA=b.split("~;~"); return Date.parse(aA[2])-Date.parse(bA[2]);
-	}	
+	}
+	
+	function sortGroup__MODULE_ID__(a, b){
+		c=a.toLowerCase(); d=b.toLowerCase(); return c>d?1:c<d?-1:0;
+	}
 
+	function buildGroup__MODULE_ID__(groupArray){
+		var testIt=new RegExp, varLen=groupArray.length;
+		for(var i=0; i<varLen; i++){
+			testIt.compile(groupArray[i], "i")
+			if(testIt.test(groupArray[i+1])){ groupArray.splice(i+1, 1); i=0; varLen=groupArray.length; }
+		}
+		return groupArray;
+	}
+
+	function makeToday__MODULE_ID__(inDate){
+		var t=new Date(), b=new Date(inDate);
+		if((prefArr__MODULE_ID__["bgColor"]!="" && prefArr__MODULE_ID__["bgColor"]!="#FFFFFF") 
+		   || (prefArr__MODULE_ID__["fontColor"]!="" && prefArr__MODULE_ID__["fontColor"]!="#000000")) return '<tr>'; 
+		return (t.getMonth()==b.getMonth() && t.getDate()==b.getDate())?'<tr class="red">':'<tr>';
+	}
+	
     function makeDate__MODULE_ID__(inDate){
 		var month=new Array("__MSG_ajan__", "__MSG_afeb__", "__MSG_amar__", "__MSG_aapr__", "__MSG_amay__", "__MSG_ajun__", "__MSG_ajul__", "__MSG_aaug__", "__MSG_asep__", "__MSG_aoct__", "__MSG_anov__", "__MSG_adec__");
 		var tempArr=inDate.split("/"), m=parseInt(tempArr[1], 10), d=tempArr[2], n=new Date();
@@ -424,14 +484,58 @@
     }
 	
 	function hideMM__MODULE_ID__(msg){
-		return function(){_IG_Analytics("UA-310375-4", "/birthday-gadget/hideMM/"+msg); prefs__MODULE_ID__.set("MM" + msg, 0); _IG_AdjustIFrameHeight();}
+		return function(){
+			_IG_Analytics("UA-310375-4", "/birthday-gadget/hideMM/"+msg);
+			var tempArr=prefArr__MODULE_ID__["MMs"].split(""); tempArr[msg]="0";
+			prefs__MODULE_ID__.set("MMs", tempArr.join("")); _IG_AdjustIFrameHeight();}
 	}
 	
 	function visitMM__MODULE_ID__(msg){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/visitMM/"+msg);	
 	}
 
-/* Help / Error Functions **********************/
+	function makeSel(id, sel, valArr, dispArr){
+		var html=['<select id="'+id+'">'], selStr="";
+		for(var i=0; i<valArr.length; i++){ selStr=valArr[i]==sel?" selected":""; html.push('<option value="'+valArr[i]+'"'+selStr+'>'+dispArr[i]+'</option>');}
+		html.push('</select>');
+		return(html);
+	}	
+
+	function getCaretPosition__MODULE_ID__(ctrl) {
+		var CaretPos = 0; ctrl.focus();
+		if (document.selection) {
+			var range=document.selection.createRange(), stored_range=range.duplicate();
+			stored_range.moveToElementText( ctrl ); stored_range.setEndPoint( 'EndToEnd', range );
+			ctrl.selectionStart = stored_range.text.length - range.text.length;
+			ctrl.selectionEnd = ctrl.selectionStart + range.text.length;
+		}
+		if (ctrl.selectionStart || ctrl.selectionStart == '0') CaretPos = ctrl.selectionStart;
+		return CaretPos;
+	}
+	
+	function handleMMs__MODULE_ID__(){
+		var m=prefArr__MODULE_ID__["MMs"].split(""), msgStr=[];
+		if(prefArr__MODULE_ID__["MM0"]){ m[0]="1"; prefs__MODULE_ID__.set("MMs", m.join("")); }
+		for(var i=0; i<m.length; i++){
+			msgStr=[];
+			if(m[i]=="1"){
+				switch(i){
+					case 0:
+						msgStr.push('<span style="color:#676767;"><span style="font-size:9px;">2008-04-07</span> &raquo; </span>');
+						msgStr.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor12" target="_blank" title="__MSG_mmDrag__" onclick="visitMM__MODULE_ID__(0);">__MSG_mmDrag__</a>');
+						break;
+					case 1:
+						msgStr.push('<span style="color:#676767;"><span style="font-size:9px;">2008-04-10</span> &raquo; </span>');
+						msgStr.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html#anchor13" target="_blank" title="__MSG_mmLite__" onclick="visitMM__MODULE_ID__(1);">__MSG_mmLite__</a>');
+						break;
+					deafult: msgStr=[];
+				}
+				if(msgStr.length!=0) msg__MODULE_ID__.createDismissibleMessage(msgStr.join(''), hideMM__MODULE_ID__(i));
+			}
+		}
+	}
+	
+/* Setup / Error Functions **********************/
 	function showHelp__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/setup");	
 		var html = [];
@@ -443,7 +547,9 @@
 		html.push('</li><li>__MSG_setupStep3__</li><li>__MSG_setupStep4__</li>');
 		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
-		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="FAQ" target="_blank">__MSG_setupMore__</a>');
+		html.push('<div style="text-align: center;">If you do not want to use Google spreadsheets or <br />If you have problems with Google spreadsheets');
+		html.push('<br /><span id="goLite" class="link">Use Birthday Gadgets Lite</span></div>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
 		_gel('saveurl').onclick=function(){
@@ -454,7 +560,7 @@
 			tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__...";
 			init__MODULE_ID__();
 		}
-
+		_gel('goLite').onclick=function(){ showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 
@@ -462,9 +568,13 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
-		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="Help" target="_blank">__MSG_errMore__</a>');
+		if(prefArr__MODULE_ID__["birthdays2"]=="") moreErr.push('<br />__MSG_errLite__<br /><input type="button" id="goLite" value="__MSG_errGoLite__" />');
+		else moreErr.push('<br />__MSG_errLiteReady__<br /><input type="button" id="goClear" value="__MSG_errLiteClear__" />');
+		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_errMore__" target="_blank">__MSG_errMore__</a>');
 		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
+		if(prefArr__MODULE_ID__["birthdays2"]=="") _gel('goLite').onclick=function(){showLiteData__MODULE_ID__();}
+		else _gel('goClear').onclick=function(){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]); chooseDataSource__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}	
 
@@ -472,8 +582,9 @@
 	function goConfig__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/config");	
 		var html=[];
-		html.push('<h1>__MSG_tbConfig__</h1><table id="configTable">');
-		html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
+		html.push('<h1 id="configH1">__MSG_tbConfig__</h1><table id="configTable">');
+		if(prefArr__MODULE_ID__["_table_query_url"]!="") html.push('<tr><td colspan="2" class="left"><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_configEdit__</a></td></tr>'); 
+		else html.push('<tr><td colspan="2" class="left"><span id="editLite" class="link">__MSG_configEditLite__</span></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontColor__</td><td class="configText"><input id="textSet" type="button" value="__MSG_configPick__" /> ');
 		html.push('<input id="textDiv" type="text" value="'+prefArr__MODULE_ID__["fontColor"]+'" /> ');
 		html.push('<span id="textSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["fontColor"]+'">&nbsp</span></td></tr>'); 
@@ -481,6 +592,8 @@
 		html.push('<input id="bgcDiv" type="text" value="'+prefArr__MODULE_ID__["bgColor"]+'" /> ');
 		html.push('<span id="bgcSpan" class="exampleSpan" style="background-color: '+prefArr__MODULE_ID__["bgColor"]+'">&nbsp</span></td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configFontSize__</td><td class="configText">'+makeFontSize__MODULE_ID__()+'</td></tr>'); 
+		//Group Feature to be added later
+		//html.push('<tr><td class="configTitle">__MSG_configGroup__</td><td class="configText">'+makeGroup__MODULE_ID__()+'</td></tr>'); 
 		html.push('<tr><td class="configTitle">__MSG_configURL__</td><td class="configText"><textarea id="shUrl" rows="1">'+prefArr__MODULE_ID__["_table_query_url"]+'</textarea></td></tr>'); 
 		html.push('</table><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="configBack" type="button" value="__MSG_configBack__" /></td>');
@@ -490,23 +603,22 @@
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');	
 		_gel('textSet').onclick=function(){ showColorGrid2__MODULE_ID__("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2__MODULE_ID__("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
-		_gel('configBack').onclick=function(){ 
-			if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  sendQuery__MODULE_ID__();}
-		_gel('configSave').onclick=function(){if(configSave__MODULE_ID__()) sendQuery__MODULE_ID__();}
+		_gel('configBack').onclick=function(){ if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
+		_gel('configSave').onclick=function(){ if(configSave__MODULE_ID__()) chooseDataSource__MODULE_ID__();}
+		_gel('editLite').onclick=function(){showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 	
 	function getScrollY__MODULE_ID__(){var scrOfX = 0,scrOfY=0;if(typeof(window.pageYOffset)=='number'){scrOfY=window.pageYOffset;scrOfX=window.pageXOffset;}else if(document.body&&(document.body.scrollLeft||document.body.scrollTop)){scrOfY=document.body.scrollTop;scrOfX=document.body.scrollLeft;}else if(document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)){scrOfY=document.documentElement.scrollTop;scrOfX=document.documentElement.scrollLeft;}return scrOfY;}document.write("<style type='text/css'>.colorpicker201{visibility:hidden;display:none;position:absolute;background:#FFF;border:solid 1px #CCC;padding:4px;z-index:999;filter:progid:DXImageTransform.Microsoft.Shadow(color=#D0D0D0,direction=135);}.o5582brd{padding:0;width:12px;height:14px;border-bottom:solid 1px #DFDFDF;border-right:solid 1px #DFDFDF;}a.o5582n66,.o5582n66,.o5582n66a{font-family:arial,tahoma,sans-serif;text-decoration:underline;font-size:9px;color:#666;border:none;}.o5582n66,.o5582n66a{text-align:center;text-decoration:none;}a:hover.o5582n66{text-decoration:none;color:#FFA500;cursor:pointer;}.a01p3{padding:1px 4px 1px 2px;background:whitesmoke;border:solid 1px #DFDFDF;}</style>");function getTop2__MODULE_ID__(){csBrHt=0;if(typeof(window.innerWidth)=='number'){csBrHt=window.innerHeight;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrHt=document.documentElement.clientHeight;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrHt=document.body.clientHeight;}ctop=((csBrHt/2)-115)+getScrollY__MODULE_ID__();return ctop;}var nocol1="&#78;&#79;&#32;&#67;&#79;&#76;&#79;&#82;",clos1="&#67;&#76;&#79;&#83;&#69;",tt2="&#70;&#82;&#69;&#69;&#45;&#67;&#79;&#76;&#79;&#82;&#45;&#80;&#73;&#67;&#75;&#69;&#82;&#46;&#67;&#79;&#77;",hm2="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#119;&#119;&#119;&#46;";hm2+=tt2;tt2="&#80;&#79;&#87;&#69;&#82;&#69;&#68;&#32;&#98;&#121;&#32;&#70;&#67;&#80;";function getLeft2__MODULE_ID__(){var csBrWt=0;if(typeof(window.innerWidth)=='number'){csBrWt=window.innerWidth;}else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){csBrWt=document.documentElement.clientWidth;}else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){csBrWt=document.body.clientWidth;}cleft=(csBrWt/2)-125;return cleft;}function setCCbldID2__MODULE_ID__(objID,val){document.getElementById(objID).value=val;}function setCCbldSty2__MODULE_ID__(objID,prop,val){switch(prop){case "bc":if(objID!='none'){document.getElementById(objID).style.backgroundColor=val;};break;case "vs":document.getElementById(objID).style.visibility=val;break;case "ds":document.getElementById(objID).style.display=val;break;case "tp":document.getElementById(objID).style.top=val;break;case "lf":document.getElementById(objID).style.left=val;break;}}function putOBJxColor2__MODULE_ID__(OBjElem,Samp,pigMent){if(pigMent!='x'){setCCbldID2__MODULE_ID__(OBjElem,pigMent);setCCbldSty2__MODULE_ID__(Samp,'bc',pigMent);}setCCbldSty2__MODULE_ID__('colorpicker201','vs','hidden');setCCbldSty2__MODULE_ID__('colorpicker201','ds','none');}function showColorGrid2__MODULE_ID__(OBjElem,Sam){var objX=new Array('00','33','66','99','CC','FF');var c=0;var z='"'+OBjElem+'","'+Sam+'",""';var xl='"'+OBjElem+'","'+Sam+'","x"';var mid='';mid+='<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="border:solid 0px #F0F0F0;padding:2px;"><tr>';mid+="<td colspan='18' align='left' style='font-size:10px;background:#6666CC;color:#FFF;font-family:arial;'>&nbsp;Chromatic Selection Palette</td></tr><tr><td colspan='18' align='center' style='margin:0;padding:2px;height:12px;' ><input class='o5582n66' type='text' size='12' id='o5582n66' value='#FFFFFF'><input class='o5582n66a' type='text' size='2' style='width:14px;' id='o5582n66a' onclick='javascript:alert(\"click on selected swatch below...\");' value='' style='border:solid 1px #666;'>&nbsp;|&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2__MODULE_ID__("+z+")'><span class='a01p3'>"+nocol1+"</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='o5582n66' href='javascript:onclick=putOBJxColor2__MODULE_ID__("+xl+")'><span class='a01p3'>"+clos1+"</span></a></td></tr><tr>";var br=1;for(o=0;o<6;o++){mid+='</tr><tr>';for(y=0;y<6;y++){if(y==3){mid+='</tr><tr>';}for(x=0;x<6;x++){var grid='';grid=objX[o]+objX[y]+objX[x];var b="'"+OBjElem+"', '"+Sam+"','#"+grid+"'";mid+='<td class="o5582brd" style="background-color:#'+grid+'"><a class="o5582n66"  href="javascript:onclick=putOBJxColor2__MODULE_ID__('+b+');" onmouseover=javascript:document.getElementById("o5582n66").value="#'+grid+'";javascript:document.getElementById("o5582n66a").style.backgroundColor="#'+grid+'";  title="#'+grid+'"><div style="width:12px;height:14px;"></div></a></td>';c++;}}}mid+="</tr><tr><td colspan='18' align='right' style='padding:2px;border:solid 1px #FFF;background:#FFF;'><a href='"+hm2+"' style='color:#666;font-size:8px;font-family:arial;text-decoration:none;letter-spacing:1px;'>"+tt2+"</a></td></tr></table>";var ttop=getTop2__MODULE_ID__();setCCbldSty2__MODULE_ID__('colorpicker201','tp',ttop);document.getElementById('colorpicker201').style.left=getLeft2__MODULE_ID__();setCCbldSty2__MODULE_ID__('colorpicker201','vs','visible');setCCbldSty2__MODULE_ID__('colorpicker201','ds','block');document.getElementById('colorpicker201').innerHTML=mid;}
 
+	function makeGroup__MODULE_ID__(){
+		return makeSel("group", prefArr__MODULE_ID__["group"], groupArray__MODULE_ID__,  groupArray__MODULE_ID__);
+	}
+	
 	function makeFontSize__MODULE_ID__(){
-		var retStr=[], sizeStr=["xsmall", "small", "medium", "large", "xlarge"], dispStr=["__MSG_fSizeXS__", "__MSG_fSizeS__", "__MSG_fSizeM__", "__MSG_fSizeL__", "__MSG_fSizeXL__"], selStr="";
-		retStr.push('<select id="fontSize">');
-		for(var i=0; i<sizeStr.length; i++){
-			selStr=sizeStr[i]==prefArr__MODULE_ID__["fontSize"]?" selected":"";
-			retStr.push('<option value="'+sizeStr[i]+'"'+selStr+'>'+dispStr[i]+'</option>');
-		}
-		retStr.push('</select>');
-		return retStr;
+		var sizeStr=["xsmall", "small", "medium", "large", "xlarge"],
+			dispStr=["__MSG_fSizeXS__", "__MSG_fSizeS__", "__MSG_fSizeM__", "__MSG_fSizeL__", "__MSG_fSizeXL__"];
+		return makeSel("fontSize", prefArr__MODULE_ID__["fontSize"], sizeStr, dispStr);
 	}
 
 	function configChanged__MODULE_ID__(){
@@ -526,9 +638,11 @@
 		if(!colorCheck__MODULE_ID__(tempStr, "Background Color")) return false;
 		bC=tempStr;
 		fS=_gel("fontSize").value;
+		//gG=_gel("group").value;
 		tempStr=_trim(_gel("shUrl").value);
 		if(!urlCheck__MODULE_ID__(tempStr)) return false;
 		
+		//prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "group", gG, "_table_query_url", tempStr);
 		prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "_table_query_url", tempStr);
 		prefArr__MODULE_ID__["fontSize"]=fS; prefArr__MODULE_ID__["fontColor"]=fC; prefArr__MODULE_ID__["bgColor"]=bC; prefArr__MODULE_ID__["_table_query_url"]=tempStr;
 		return true;
@@ -543,6 +657,7 @@
 	}
 	
 	function urlCheck__MODULE_ID__(tempStr){
+		if(tempStr.length==0) return true;
 		if(tempStr.search(/\&/)!=-1) tempStr=tempStr.substring(0, tempStr.indexOf("&"));
 		if(tempStr.search(/^http:\/\/spreadsheets\.google\.com\/(ccc|tq|pub)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
 		return true;
@@ -554,19 +669,92 @@
 		var html=[];
 		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
 		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_convertStep1__</a></li>');
-		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t").replace(/\|/g, "\n")+'</textarea></li>');
+		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t").replace(/\|/g, "\n").replace(/\r/g, "")+'</textarea></li>');
 		html.push('<li>__MSG_convertStep3__</li><li>__MSG_convertStep4__');
 		html.push('<br /><input type="button" value="__MSG_convertClear__" id="clearOld" /></li></ol>');
-		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="Help" target="_blank">__MSG_convertMore__</a></div>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_convertMore__" target="_blank">__MSG_convertMore__</a></div>');
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
 			prefs__MODULE_ID__.set("birthdays","");
 			prefArr__MODULE_ID__["birthdays"]="";
 			buildToolbar__MODULE_ID__();
-			sendQuery__MODULE_ID__();
+			chooseDataSource__MODULE_ID__();
 		}
 		_IG_AdjustIFrameHeight();
-	}	
+	}
+
+/* Lite Data Functions *************************/
+	function showLiteData__MODULE_ID__(){
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/lite");	
+		var oldtxt="", html=[];
+		if(prefArr__MODULE_ID__["birthdays"]!=""){
+			oldtxt=prefArr__MODULE_ID__["birthdays"].replace(/\|/g, "\n").replace(/\r/g, "");
+			prefs__MODULE_ID__.set("birthdays","");	prefArr__MODULE_ID__["birthdays"]="";
+		}	
+		html.push('<h1 id="liteH1">__MSG_liteH1__</h1><h3 class="red">__MSG_liteWarn__</h3><div id="litePrev"></div><div style="text-align: left;">');
+		html.push('__MSG_liteStep1__<br /><textarea id="litetxt">'+prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n")+'</textarea></li>');
+		html.push('</div><table style="margin: 0; padding: 0; text-align: center;">');
+		html.push('<tr><td><input id="liteBack" type="button" value="__MSG_configBack__" /></td>');
+		html.push('<td><input id="liteSave" type="button" value="__MSG_configSave__" /></td></tr></table>');
+		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
+		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
+
+		_gel('litetxt').onkeyup=function(){ preview__MODULE_ID__();}
+		_gel('liteBack').onclick=function(){ if(!liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
+		_gel('liteSave').onclick=function(){ if(liteSave__MODULE_ID__()) chooseDataSource__MODULE_ID__();}
+		
+		buildToolbar__MODULE_ID__();
+		_IG_AdjustIFrameHeight();
+	}
+	
+	function preview__MODULE_ID__(){
+		var txtObj=_gel('litetxt'), prevObj=_gel('litePrev'), testArr=[], html=[];
+		if(txtObj.value.length>1000){ prevObj.className="red"; prevObj.innerHTML='__MSG_liteErrMax__'; txtObj.value=txtObj.value.substring(-1); _IG_AdjustIFrameHeight(); return;}
+		var pos=getCaretPosition__MODULE_ID__(txtObj), testStr=txtObj.value.replace(/\r/g, "");
+		var strStart=testStr.lastIndexOf("\n", pos), endStr=testStr.indexOf("\n", pos);
+		endStr=endStr==-1?testStr.length:endStr; testStr=testStr.substring(strStart, endStr);
+		testArr=testStr.indexOf(";")!=-1?testStr.split(";"):testStr.split("\t");
+		if(!liteTestRow__MODULE_ID__(testArr, -1)) return;
+		var tempDate=new Date(), nowDate=new Date(); tempDate.setTime(Date.parse(testArr[0]));
+		if(tempDate.getMonth()<nowDate.getMonth() ||
+			(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
+			tempDate.setFullYear(nowDate.getFullYear()+1);
+		else tempDate.setFullYear(nowDate.getFullYear());
+		testArr.push(tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate());
+		html.push('__MSG_litePrev__<br />');
+		html.push('<table id="litePrevTable" style="color: '+prefArr__MODULE_ID__["fontColor"]+'; background-color: '+prefArr__MODULE_ID__["bgColor"]+';">');
+		html.push(makeTableHead__MODULE_ID__()); html.push(makeTableRow__MODULE_ID__(testArr));
+		html.push('</table>')
+		prevObj.innerHTML=html.join('');
+		_IG_AdjustIFrameHeight();
+	}
+	
+	function liteChanged__MODULE_ID__(){
+		return _gel('litetxt').value!=prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n");
+	}
+	
+	function liteSave__MODULE_ID__(){
+		var tempArr=_trim(_gel('litetxt').value.replace(/\r/g, "")).split("\n"), tempRow, tempDate, finalStr="";
+		for(var rows=0; rows<tempArr.length; rows++){
+			tempRow=tempArr[rows].indexOf(";")!=-1?tempArr[rows].split(";"):tempArr[rows].split("\t");
+			if(!liteTestRow__MODULE_ID__(tempRow, rows+1)) {_IG_AdjustIFrameHeight(); return false;}
+			tempDate=new Date(tempRow[0]);
+			finalStr+=tempDate.getFullYear()+"/"+(tempDate.getMonth()+1)+"/"+tempDate.getDate()+";"+_trim(tempRow[1])+"\n";
+		}
+		prefArr__MODULE_ID__["birthdays2"]=finalStr;
+		prefs__MODULE_ID__.set("birthdays2",finalStr);
+		return true;
+	}
+	
+	function liteTestRow__MODULE_ID__(testArr, row){
+		var rowStr=row==-1?"":"__MSG_liteErrLine__ "+row+" ", prevObj=_gel('litePrev');
+		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'__MSG_liteErrFormat__'; return false; }
+		if(testArr.length>2) { prevObj.className="red"; prevObj.innerHTML=rowStr+'__MSG_liteErrOne__'; return false; }
+		var testDate=Date.parse(testArr[0]);
+		if(isNaN(testDate)) { prevObj.className="red"; prevObj.innerHTML=rowStr+'__MSG_liteErrDate__'; return false; }
+		prevObj.className="";
+		return true;
+	}
 
 	google.setOnLoadCallback(init__MODULE_ID__);
 </script>

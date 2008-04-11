@@ -16,7 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nouvelle fonctionnalité: Dragging. Re-order les colonnes.</msg>
-  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
+  <msg name="mmLite">Nouvelle fonctionnalité: Anniversaire gadget Lite. Enregistrez vos anniversaires, sans une feuille de calcul.</msg>
   
   <msg name="Loading">Chargement</msg>
   
@@ -65,7 +65,7 @@
   <msg name="tbHide">Masquer la barre d'outils</msg>
   
   <msg name="configEdit">Modifier la feuille de calcul Google</msg>
-  <msg name="configEditLite">Edit Birthday Lite List</msg>
+  <msg name="configEditLite">Edit Lite Liste Anniversaire</msg>
   <msg name="configFontColor">Couleur du texte</msg>
   <msg name="configBGColor">Couleur d'arrière-plan</msg>
   <msg name="configFontSize">Taille de police</msg>
@@ -102,15 +102,15 @@
   <msg name="convertClear">Effacer les anciennes données</msg>
   <msg name="convertMore">Voir le site web pour plus d'assistance.</msg>
   
-  <msg name="liteH1">Birthday List Lite</msg>
-  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="liteH1">Anniversaire liste Lite</msg>
+  <msg name="liteWarn">Attention: Vous voudrez peut-être enregistrer une copie de cette liste dans un autre endroit.</msg>
   <msg name="litePrev">Preview</msg>
-  <msg name="liteStep1">Enter your birthdays below:</msg>
-  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
-  <msg name="liteErrLine">Line</msg>
-  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
-  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
-  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  <msg name="liteStep1">Entrez vos anniversaires de naissance ci-dessous:</msg>
+  <msg name="liteErrMax">Erreur: The Birthday Rappels Version Lite dispose d'un maximum de 1000 caractères.</msg>
+  <msg name="liteErrLine">Ligne</msg>
+  <msg name="liteErrFormat">S’il vous plaît entrer anniversaires comme "date; Name"</msg>
+  <msg name="liteErrOne">Erreur: S’il vous plaît entrer un anniversaire par ligne.</msg>
+  <msg name="liteErrDate">Erreur: Date non valide.</msg>
   
   <msg name="errH1">Erreur</msg>
   <msg name="errDateFormat">S’il vous plaît définir le "Format" de la colonne «A» à «date».</msg>
@@ -122,10 +122,10 @@
   <msg name="errLogin">S’il vous plaît assurez-vous d'avoir accès à cette feuille de calcul ou de vous connecter à votre compte Google pour voir votre liste d'anniversaire.</msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh">S’il vous plaît rafraîchir la page pour réessayer.</msg>
-  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
-  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
-  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
-  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
+  <msg name="errLite">Si l'erreur persiste, s’il vous plaît cliquez ci-dessous pour enregistrer votre anniversaire information dans le gadget.</msg>
+  <msg name="errGoLite">Utilisez des rappels d'anniversaire Lite</msg>
+  <msg name="errLiteReady">Vous avez Anniversaires dans Rappels Anniversaire Lite, cliquez ci-dessous pour effacer votre tableur Web.</msg>
+  <msg name="errLiteClear">Clair tableur Web</msg>
   <msg name="errMore">Voir le site web pour plus d'assistance.</msg>
   <msg name="errCommon">Cliquez sur "Actualiser" après les modifications que vous apportez dans votre feuille de calcul Google.</msg>
 </messagebundle>

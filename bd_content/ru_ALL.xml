@@ -16,12 +16,12 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Новая функция: Перетаскивание. Восстановление порядка столбцов.</msg>
-  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
+  <msg name="mmLite">Новая функция: день рождения гаджет lite. Сохраните свой день рождения без таблиц.</msg>
   
   <msg name="Loading">Загрузка</msg>
   
   <msg name="tableDate">Дата</msg>
-  <msg name="tableName">Имя </msg>
+  <msg name="tableName">Имя</msg>
   <msg name="tableAge">Возраст</msg>
   <msg name="tableDays">Дней</msg>
   <msg name="tableZodiac">Зодиак</msg>
@@ -65,7 +65,7 @@
   <msg name="tbHide">Скрыть панель инструментов</msg>
   
   <msg name="configEdit">Изменить таблицу Google</msg>
-  <msg name="configEditLite">Edit Birthday Lite List</msg>
+  <msg name="configEditLite">Изменить рождения облегченной список</msg>
   <msg name="configFontColor">Цвет шрифта</msg>
   <msg name="configBGColor">Цвет фона</msg>
   <msg name="configFontSize">Размер шрифта</msg>
@@ -102,15 +102,15 @@
   <msg name="convertClear">Открытый старые данные</msg>
   <msg name="convertMore">См. помощью веб-сайт для получения дополнительной помощи.</msg>
   
-  <msg name="liteH1">Birthday List Lite</msg>
-  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
-  <msg name="litePrev">Preview</msg>
-  <msg name="liteStep1">Enter your birthdays below:</msg>
-  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
-  <msg name="liteErrLine">Line</msg>
-  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
-  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
-  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  <msg name="liteH1">Дата рождения список облегченной</msg>
+  <msg name="liteWarn">Предупреждение: Возможно, Вы захотите сохранить копию этого списка в другом месте.</msg>
+  <msg name="litePrev">Предварительный просмотр</msg>
+  <msg name="liteStep1">Введите свой день рождения ниже:</msg>
+  <msg name="liteErrMax">Ошибка: В День рождения Напоминания Лите Версия максимум 1000 символов.</msg>
+  <msg name="liteErrLine">Строка</msg>
+  <msg name="liteErrFormat">Введите рождения, как "Дата; Name"</msg>
+  <msg name="liteErrOne">Ошибка: Пожалуйста, введите один день рождения на каждой строке.</msg>
+  <msg name="liteErrDate">Ошибка: Неправильная дата.</msg>
   
   <msg name="errH1">Ошибка</msg>
   <msg name="errDateFormat">Пожалуйста, установите "Формат" в графе "А" до "дата".</msg>
@@ -122,10 +122,10 @@
   <msg name="errLogin">Убедитесь, что у вас есть доступ к этой таблице или войдите в свою учетную запись Google, чтобы просмотреть список рождения.</msg>
   <msg name="errTimeout">Тайм-аут сервера</msg>
   <msg name="errRefresh">Пожалуйста, обновите страницу и повторите попытку.</msg>
-  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
-  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
-  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
-  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
+  <msg name="errLite">Если эта ошибка сохранится, пожалуйста, нажмите здесь, чтобы сохранить свой день рождения информации в гаджете.</msg>
+  <msg name="errGoLite">Использование напоминания о дне рождения облегченной</msg>
+  <msg name="errLiteReady">Вы имеете рождения в День рождения Напоминания Lite, нажмите кнопку ниже, чтобы удалить таблицу URL.</msg>
+  <msg name="errLiteClear">Открытый URL таблицы</msg>
   <msg name="errMore">См. помощью веб-сайт для получения дополнительной помощи.</msg>
   <msg name="errCommon">Нажмите кнопку "Обновить" после того, как вы решили внести изменения в вашем Google таблицы.</msg>
 </messagebundle>

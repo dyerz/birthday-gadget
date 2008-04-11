@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title"> Lembrete de aniversário 2,0</msg>
-  <msg name="description"> Nunca perca uma aniversário de novo! </msg>
+  <msg name="title">Lembrete de aniversário 2,0</msg>
+  <msg name="description">Nunca perca uma aniversário de novo!</msg>
   
-  <msg name="titleName"> Gadget Título</msg>
+  <msg name="titleName">Gadget Título</msg>
   <msg name="formatName">Data Format</msg>
-  <msg name="showName"> Máximo visível aniversários</msg>
+  <msg name="showName">Máximo visível aniversários</msg>
   <msg name="futureNoticeName">Dias Antes</msg>
-  <msg name="pastNoticeName"> Dias Após</msg>
+  <msg name="pastNoticeName">Dias Após</msg>
   <msg name="noticeAll">Todos</msg>
   <msg name="noticeNone">Nenhum</msg>
   <msg name="showAge">Mostrar idade coluna</msg>
@@ -16,7 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Novo recurso: arrasto. Re-ordem das colunas.</msg>
-  <msg name="mmLite">New Feature: Birthday Gadget Lite. Save your birthdays without a Spreadsheet.</msg>
+  <msg name="mmLite">Novo recurso: Aniversário gadget Lite. Salve seus aniversários sem uma planilha.</msg>
   
   <msg name="Loading">Carregando</msg>
   
@@ -27,7 +27,7 @@
   <msg name="tableZodiac">Zodiac</msg>
   <msg name="tableSwap">Swap</msg>
   
-  <msg name="noBirthdays1"> Nenhum aniversários nos próximos</msg>
+  <msg name="noBirthdays1">Nenhum aniversários nos próximos</msg>
   <msg name="noBirthdays2">dias.</msg>
   
   <msg name="ajan">jan.</msg>
@@ -44,18 +44,18 @@
   <msg name="adec">dez.</msg>
   <msg name="today">Hoje</msg>
   
-  <msg name="zCapricorn">Capricórnio </msg>
+  <msg name="zCapricorn">Capricórnio</msg>
   <msg name="zAquarius">Aquarius</msg>
   <msg name="zPisces">Pisces</msg>
-  <msg name="zAries">Áries </msg>
+  <msg name="zAries">Áries</msg>
   <msg name="zTaurus">Taurus</msg>
   <msg name="zGemini">Gemini</msg>
-  <msg name="zCancer">Câncer </msg>
+  <msg name="zCancer">Câncer</msg>
   <msg name="zLeo">Leo</msg>
   <msg name="zVirgo">Virgo</msg>
   <msg name="zLibra">Libra</msg>
-  <msg name="zScorpio">Escorpião </msg>
-  <msg name="zSagittarius">Sagitário </msg>
+  <msg name="zScorpio">Escorpião</msg>
+  <msg name="zSagittarius">Sagitário</msg>
   
   <msg name="tbConfig">Configurar</msg>
   <msg name="tbConvert">Converter</msg>
@@ -65,7 +65,7 @@
   <msg name="tbHide">Ocultar Barra de Ferramentas</msg>
   
   <msg name="configEdit">Editar Google planilha</msg>
-  <msg name="configEditLite">Edit Birthday Lite List</msg>
+  <msg name="configEditLite">Editar lista Aniversário Lite</msg>
   <msg name="configFontColor">Cor da fonte</msg>
   <msg name="configBGColor">Cor do plano de fundo</msg>
   <msg name="configFontSize">Tamanho da fonte</msg>
@@ -74,25 +74,25 @@
   <msg name="configSave">Salvar</msg>
   <msg name="configPick">Pick</msg>
   <msg name="configConfirm">Continuar sem salvar?</msg>
-  <msg name="configErr">Inválido </msg>
+  <msg name="configErr">Inválido</msg>
   
   <msg name="fSizeXS">X-Pequenas</msg>
   <msg name="fSizeS">Pequenas</msg>
-  <msg name="fSizeM">Médias </msg>
+  <msg name="fSizeM">Médias</msg>
   <msg name="fSizeL">Large</msg>
   <msg name="fSizeXL">X-Large</msg>
   
   <msg name="setupH1">Gadget Setup</msg>
-  <msg name="setupGreet1"> Bem-vindo ao novo Aniversário Lembretes 2,0!</msg>
-  <msg name="setupGreet2"> Você está apenas a alguns cliques de distância de gozar alguns novos recursos! </msg>
-  <msg name="setupGreet3"> Não se preocupe, o seu antigo aniversário lista é seguro!</msg>
+  <msg name="setupGreet1">Bem-vindo ao novo Aniversário Lembretes 2,0!</msg>
+  <msg name="setupGreet2">Você está apenas a alguns cliques de distância de gozar alguns novos recursos!</msg>
+  <msg name="setupGreet3">Não se preocupe, o seu antigo aniversário lista é seguro!</msg>
   <msg name="setupStep1">Criar uma nova planilha do Google.</msg>
   <msg name="setupStep2">Datas entra na coluna "A" e Nomes na Coluna "B".</msg>
-  <msg name="setupStep2P"> Instruções para converter suas antigas aniversário lista está disponível na página seguinte.</msg>
+  <msg name="setupStep2P">Instruções para converter suas antigas aniversário lista está disponível na página seguinte.</msg>
   <msg name="setupStep3">Salvar a planilha do Google.</msg>
-  <msg name="setupStep4"> Copie o endereço do Google planilha barra de endereços.</msg>
-  <msg name="setupStep5"> Cole a planilha endereço abaixo.</msg>
-  <msg name="setupMore"> Clique Aqui Para obter instruções mais detalhadas</msg>
+  <msg name="setupStep4">Copie o endereço do Google planilha barra de endereços.</msg>
+  <msg name="setupStep5">Cole a planilha endereço abaixo.</msg>
+  <msg name="setupMore">Clique Aqui Para obter instruções mais detalhadas</msg>
   
   <msg name="convertH1">Converter</msg>
   <msg name="convertStep1">Abra sua planilha do Google</msg>
@@ -100,32 +100,32 @@
   <msg name="convertStep3">Cole o texto na planilha.</msg>
   <msg name="convertStep4">Limpar os dados antigos quando tiver terminado.</msg>
   <msg name="convertClear">Limpar dados antigos</msg>
-  <msg name="convertMore"> Veja o website para ajudar a assistência adicional. </msg>
+  <msg name="convertMore">Veja o website para ajudar a assistência adicional.</msg>
   
-  <msg name="liteH1">Birthday List Lite</msg>
-  <msg name="liteWarn">Warning: You may want to save a copy of this list in another location.</msg>
+  <msg name="liteH1">Aniversário List Lite</msg>
+  <msg name="liteWarn">Aviso: Você pode querer guardar uma cópia desta lista em outro local.</msg>
   <msg name="litePrev">Preview</msg>
-  <msg name="liteStep1">Enter your birthdays below:</msg>
-  <msg name="liteErrMax">Error: The Birthday Reminders Lite Version has a maximum of 1000 characters.</msg>
+  <msg name="liteStep1">Digite seu aniversários abaixo:</msg>
+  <msg name="liteErrMax">Erro: O Aniversário Lembretes Lite Version tem um máximo de 1000 caracteres.</msg>
   <msg name="liteErrLine">Line</msg>
-  <msg name="liteErrFormat">Please enter birthdays like "Date; Name"</msg>
-  <msg name="liteErrOne">Error: Please enter one birthday per line.</msg>
-  <msg name="liteErrDate">Error: Invalid Date.</msg>
+  <msg name="liteErrFormat">Digite aniversários como "Data; Name"</msg>
+  <msg name="liteErrOne">Erro: Digite um aniversário por linha.</msg>
+  <msg name="liteErrDate">Erro: Data inválida.</msg>
   
   <msg name="errH1">Erro</msg>
   <msg name="errDateFormat">Por favor, defina o "Tipo" da coluna "A" a "data".</msg>
   <msg name="errColumn">Por favor mova as datas da coluna "B" a coluna "A".</msg>
   <msg name="errUnk">Erro inesperado</msg>
   <msg name="errSheet">Erro de planilha</msg>
-  <msg name="errNoData"> Certifique-se de que você tem os dados em sua planilha do Google.</msg>
+  <msg name="errNoData">Certifique-se de que você tem os dados em sua planilha do Google.</msg>
   <msg name="errAccess">Acesso negado</msg>
-  <msg name="errLogin"> Certifique-se de que você tenha acesso a essa planilha ou acessar a sua conta do Google para ver o seu aniversário lista. </msg>
+  <msg name="errLogin">Certifique-se de que você tenha acesso a essa planilha ou acessar a sua conta do Google para ver o seu aniversário lista.</msg>
   <msg name="errTimeout">Server Timeout</msg>
-  <msg name="errRefresh"> Atualize a página para tentar novamente. </msg>
-  <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
-  <msg name="errGoLite">Use Birthday Reminders Lite</msg>
-  <msg name="errLiteReady">You have Birthdays in Birthday Reminders Lite, click below to clear your spreadsheet URL.</msg>
-  <msg name="errLiteClear">Clear Spreadsheet URL</msg>
-  <msg name="errMore"> Veja o website para ajudar a assistência adicional. </msg>
-  <msg name="errCommon"> Clique em "Atualizar" após fazer as alterações em sua planilha do Google.</msg>
+  <msg name="errRefresh">Atualize a página para tentar novamente.</msg>
+  <msg name="errLite">Se este erro persistir, por favor clique abaixo para guardar informação no seu aniversário gadget.</msg>
+  <msg name="errGoLite">Use lembretes de aniversário Lite</msg>
+  <msg name="errLiteReady">Você tem Aniversários no Aniversário Lembretes Lite, clique abaixo para limpar a sua planilha URL.</msg>
+  <msg name="errLiteClear">Limpar planilha URL</msg>
+  <msg name="errMore">Veja o website para ajudar a assistência adicional.</msg>
+  <msg name="errCommon">Clique em "Atualizar" após fazer as alterações em sua planilha do Google.</msg>
 </messagebundle>
