@@ -701,7 +701,7 @@
 		endStr=endStr==-1?testStr.length:endStr; testStr=testStr.substring(strStart, endStr);
 		testArr=testStr.indexOf(";")!=-1?testStr.split(";"):testStr.split("\t");
 		if(!liteTestRow__MODULE_ID__(testArr, -1)) return;
-		var tempDate=new Date(); tempDate.setTime(Date.parse(testArr[0]));
+		var tempDate=new Date(), nowDate=new Date(); tempDate.setTime(Date.parse(testArr[0]));
 		if(tempDate.getMonth()<nowDate.getMonth() ||
 			(tempDate.getMonth()==nowDate.getMonth()&&tempDate.getDate()<nowDate.getDate()))
 			tempDate.setFullYear(nowDate.getFullYear()+1);
@@ -734,7 +734,7 @@
 	
 	function liteTestRow__MODULE_ID__(testArr, row){
 		var rowStr=row==-1?"":"Line "+row+" ", prevObj=_gel('litePrev');
-		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter birthdays like "Date; Name"'; return false; }
+		if(testArr.length==1) {	prevObj.className="red"; prevObj.innerHTML=rowStr+'Please enter birthdays like "Date; Name"'; return false; }
 		if(testArr.length>2) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Please enter one birthday per line'; return false; }
 		var testDate=Date.parse(testArr[0]);
 		if(isNaN(testDate)) { prevObj.className="red"; prevObj.innerHTML=rowStr+'Error: Invalid Date'; return false; }
