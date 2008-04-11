@@ -210,7 +210,7 @@ var hideTB__MODULE_ID__=null;
 		tbObj=_gel("toolbar");
 		tbObj.onmouseover=function(){
 			if(hideTB__MODULE_ID__) clearTimeout(hideTB__MODULE_ID__)
-			this.style.top="0";
+			hideTBHeight__MODULE_ID__=0; this.style.top="0";
 		}
 		tbObj.onmouseout=function(){
 			hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 500);
@@ -219,9 +219,8 @@ var hideTB__MODULE_ID__=null;
 	
 	var hideTBHeight__MODULE_ID__=0;
 	function waitHideTB__MODULE_ID__(){
-		if(hideTBHeight__MODULE_ID__==-15) {hideTBHeight__MODULE_ID__=0; return;}
-		hideTBHeight__MODULE_ID__-=3;
-		tbObj=_gel("toolbar").style.top=hideTBHeight__MODULE_ID__+"px";
+		if(hideTBHeight__MODULE_ID__<=-15) {hideTBHeight__MODULE_ID__=0; return;}
+		_gel("toolbar").style.top=(hideTBHeight__MODULE_ID__--)+"px";
 		hideTB__MODULE_ID__=setTimeout("waitHideTB__MODULE_ID__()", 100);
 	}
 
