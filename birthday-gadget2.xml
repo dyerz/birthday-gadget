@@ -79,7 +79,7 @@
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
 <UserPref name="MM0" default_value="1" datatype="hidden" /> 
-<UserPref name="MMs" default_value="10" datatype="hidden" /> 
+<UserPref name="MMs" default_value="01" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
