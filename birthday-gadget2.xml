@@ -204,7 +204,7 @@
 
 		//toolbar actions
 		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}}
+		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}}
 		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
 
 		//js event config
