@@ -607,7 +607,7 @@
 		_gel('bgcSet').onclick=function(){ showColorGrid2__MODULE_ID__("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
 		_gel('configSave').onclick=function(){ if(configSave__MODULE_ID__()) {chooseDataSource__MODULE_ID__(); buildToolbar__MODULE_ID__();}}
-		_gel('editLite').onclick=function(){showLiteData__MODULE_ID__();}
+		if(prefArr__MODULE_ID__["_table_query_url"]=="") _gel('editLite').onclick=function(){showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 	
