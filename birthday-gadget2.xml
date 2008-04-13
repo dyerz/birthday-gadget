@@ -678,10 +678,8 @@
 		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_convertMore__" target="_blank">__MSG_convertMore__</a></div>');
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
-			prefs__MODULE_ID__.set("birthdays","");
-			prefArr__MODULE_ID__["birthdays"]="";
-			buildToolbar__MODULE_ID__();
-			chooseDataSource__MODULE_ID__();
+		  var source=prefArr__MODULE_ID__["birthdays"]==""?"birthdays2":"birthdays";
+			prefs__MODULE_ID__.set(source,""); prefArr__MODULE_ID__[source]="";	buildToolbar__MODULE_ID__(); chooseDataSource__MODULE_ID__();
 		}
 		_IG_AdjustIFrameHeight();
 	}
