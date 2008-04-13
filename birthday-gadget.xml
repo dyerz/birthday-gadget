@@ -170,11 +170,13 @@
 			}
 		}
 		
-		/*** DEBUG 
+		/*** DEBUG
 		if(prefs__MODULE_ID__.getBool("debugMe")){
 			prefArr__MODULE_ID__["_table_query_url"]="";
 			prefs__MODULE_ID__.set("_table_query_url", "");
-			prefArr__MODULE_ID__["birthdays"]="2008/08/12\tName";
+			prefArr__MODULE_ID__["birthdays2"]="";
+			prefs__MODULE_ID__.set("birthdays2", "");
+			prefArr__MODULE_ID__["birthdays"]="2008/08/12;Name|2001/08/12;Test";
 			prefs__MODULE_ID__.set("birthdays", prefArr__MODULE_ID__["birthdays"]);
 			prefs__MODULE_ID__.set("debugMe", false);
 		}
@@ -195,15 +197,15 @@
 	function buildToolbar__MODULE_ID__(){
 		var html = [];
 		html.push('<table><tr><td id="tbConfig">__MSG_tbConfig__</td>');
-		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<td id="tbConvert">__MSG_tbConvert__</td>');
+		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) html.push('<td id="tbConvert">__MSG_tbConvert__</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_tbHelp__" target="_blank">__MSG_tbHelp__</a></td>');
 		html.push('<td id="tbRefresh">__MSG_tbRefresh__</td></tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
 
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}
-		_gel("tbRefresh").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
+		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
+		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}}
+		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
 
 		//js event config
 		tbObj=_gel("toolbar");
@@ -220,7 +222,7 @@
 		switch(tableDivObj__MODULE_ID__.firstChild.id){
 			case "configH1": return (!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
 			case "liteH1": return (!liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
-			default: return false;
+			default: return true;
 		}
 	}
 
@@ -604,8 +606,8 @@
 		_gel('textSet').onclick=function(){ showColorGrid2__MODULE_ID__("textDiv","textSpan");_IG_AdjustIFrameHeight();}
 		_gel('bgcSet').onclick=function(){ showColorGrid2__MODULE_ID__("bgcDiv","bgcSpan");_IG_AdjustIFrameHeight();}
 		_gel('configBack').onclick=function(){ if(!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"))  chooseDataSource__MODULE_ID__();}
-		_gel('configSave').onclick=function(){ if(configSave__MODULE_ID__()) chooseDataSource__MODULE_ID__();}
-		_gel('editLite').onclick=function(){showLiteData__MODULE_ID__();}
+		_gel('configSave').onclick=function(){ if(configSave__MODULE_ID__()) {chooseDataSource__MODULE_ID__(); buildToolbar__MODULE_ID__();}}
+		if(prefArr__MODULE_ID__["_table_query_url"]=="") _gel('editLite').onclick=function(){showLiteData__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}
 	
@@ -666,19 +668,18 @@
 /* Convert - Reverse Compatibility Functions ***/
 	function goConvert__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/convert");	
+		var source=prefArr__MODULE_ID__["birthdays"]==""?prefArr__MODULE_ID__["birthdays2"]:prefArr__MODULE_ID__["birthdays"];
 		var html=[];
 		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
 		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_convertStep1__</a></li>');
-		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t").replace(/\|/g, "\n").replace(/\r/g, "")+'</textarea></li>');
+		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+source.replace(/;/g, "\t").replace(/\|/g, "\n").replace(/\r/g, "")+'</textarea></li>');
 		html.push('<li>__MSG_convertStep3__</li><li>__MSG_convertStep4__');
 		html.push('<br /><input type="button" value="__MSG_convertClear__" id="clearOld" /></li></ol>');
 		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_convertMore__" target="_blank">__MSG_convertMore__</a></div>');
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');		
 		_gel('clearOld').onclick=function(){
-			prefs__MODULE_ID__.set("birthdays","");
-			prefArr__MODULE_ID__["birthdays"]="";
-			buildToolbar__MODULE_ID__();
-			chooseDataSource__MODULE_ID__();
+		  var source=prefArr__MODULE_ID__["birthdays"]==""?"birthdays2":"birthdays";
+			prefs__MODULE_ID__.set(source,""); prefArr__MODULE_ID__[source]="";	buildToolbar__MODULE_ID__(); chooseDataSource__MODULE_ID__();
 		}
 		_IG_AdjustIFrameHeight();
 	}
@@ -692,7 +693,7 @@
 			prefs__MODULE_ID__.set("birthdays","");	prefArr__MODULE_ID__["birthdays"]="";
 		}	
 		html.push('<h1 id="liteH1">__MSG_liteH1__</h1><h3 class="red">__MSG_liteWarn__</h3><div id="litePrev"></div><div style="text-align: left;">');
-		html.push('__MSG_liteStep1__<br /><textarea id="litetxt">'+prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n")+'</textarea></li>');
+		html.push('__MSG_liteStep1__<br /><textarea id="litetxt">'+oldtxt+prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n")+'</textarea></li>');
 		html.push('</div><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="liteBack" type="button" value="__MSG_configBack__" /></td>');
 		html.push('<td><input id="liteSave" type="button" value="__MSG_configSave__" /></td></tr></table>');
