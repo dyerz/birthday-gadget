@@ -696,7 +696,7 @@
 			prefs__MODULE_ID__.set("birthdays","");	prefArr__MODULE_ID__["birthdays"]="";
 		}	
 		html.push('<h1 id="liteH1">__MSG_liteH1__</h1><h3 class="red">__MSG_liteWarn__</h3><div id="litePrev"></div><div style="text-align: left;">');
-		html.push('__MSG_liteStep1__<br /><textarea id="litetxt">'+prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n")+'</textarea></li>');
+		html.push('__MSG_liteStep1__<br /><textarea id="litetxt">'+oldtxt+prefArr__MODULE_ID__["birthdays2"].replace(/~;~/g, ";").replace(/\|/g, "\n")+'</textarea></li>');
 		html.push('</div><table style="margin: 0; padding: 0; text-align: center;">');
 		html.push('<tr><td><input id="liteBack" type="button" value="__MSG_configBack__" /></td>');
 		html.push('<td><input id="liteSave" type="button" value="__MSG_configSave__" /></td></tr></table>');
