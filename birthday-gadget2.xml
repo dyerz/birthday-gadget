@@ -70,7 +70,6 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
-<UserPref name="debugMe" default_value="false" datatype="bool" />
 <UserPref name="birthdays" datatype="hidden" default_value="" /> 
 <UserPref name="birthdays2" datatype="hidden" default_value="" /> 
 <UserPref name="fontColor" default_value="#000000" datatype="hidden" />
@@ -171,7 +170,7 @@
 			}
 		}
 		
-		/*** DEBUG 	***/
+		/*** DEBUG
 		if(prefs__MODULE_ID__.getBool("debugMe")){
 			prefArr__MODULE_ID__["_table_query_url"]="";
 			prefs__MODULE_ID__.set("_table_query_url", "");
@@ -181,7 +180,7 @@
 			prefs__MODULE_ID__.set("birthdays", prefArr__MODULE_ID__["birthdays"]);
 			prefs__MODULE_ID__.set("debugMe", false);
 		}
-
+		***/
 		
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
