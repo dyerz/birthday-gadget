@@ -203,9 +203,9 @@
 		_gel('toolbar').innerHTML = html.join('');
 
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
-		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}
-		_gel("tbRefresh").onclick=function(){ if(!checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
+		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
+		if(prefArr__MODULE_ID__["birthdays"]!="") _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}}
+		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
 
 		//js event config
 		tbObj=_gel("toolbar");
@@ -222,7 +222,7 @@
 		switch(tableDivObj__MODULE_ID__.firstChild.id){
 			case "configH1": return (!configChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
 			case "liteH1": return (!liteChanged__MODULE_ID__() || confirm("__MSG_configConfirm__"));
-			default: return false;
+			default: return true;
 		}
 	}
 
