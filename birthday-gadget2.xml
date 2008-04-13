@@ -198,7 +198,7 @@
 	function buildToolbar__MODULE_ID__(){
 		var html = [];
 		html.push('<table><tr><td id="tbConfig">__MSG_tbConfig__</td>');
-		if(prefArr__MODULE_ID__["birthdays"]!="") html.push('<td id="tbConvert">__MSG_tbConvert__</td>');
+		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) html.push('<td id="tbConvert">__MSG_tbConvert__</td>');
 		html.push('<td id="tbHelp"><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_tbHelp__" target="_blank">__MSG_tbHelp__</a></td>');
 		html.push('<td id="tbRefresh">__MSG_tbRefresh__</td></tr></table>');	
 		_gel('toolbar').innerHTML = html.join('');
@@ -669,10 +669,11 @@
 /* Convert - Reverse Compatibility Functions ***/
 	function goConvert__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/convert");	
+		var source=prefArr__MODULE_ID__["birthdays"]==""?prefArr__MODULE_ID__["birthdays2"]:prefArr__MODULE_ID__["birthdays"];
 		var html=[];
 		html.push('<h1>__MSG_convertH1__</h1><div style="text-align: left;"><ol>');
 		html.push('<li><a target="_blank" href="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'">__MSG_convertStep1__</a></li>');
-		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+prefArr__MODULE_ID__["birthdays"].replace(/;/g, "\t").replace(/\|/g, "\n").replace(/\r/g, "")+'</textarea></li>');
+		html.push('<li>__MSG_convertStep2__<br /><textarea id="oldtxt">'+source.replace(/;/g, "\t").replace(/\|/g, "\n").replace(/\r/g, "")+'</textarea></li>');
 		html.push('<li>__MSG_convertStep3__</li><li>__MSG_convertStep4__');
 		html.push('<br /><input type="button" value="__MSG_convertClear__" id="clearOld" /></li></ol>');
 		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_convertMore__" target="_blank">__MSG_convertMore__</a></div>');
