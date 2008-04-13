@@ -171,15 +171,17 @@
 			}
 		}
 		
-		/*** DEBUG 
+		/*** DEBUG 	***/
 		if(prefs__MODULE_ID__.getBool("debugMe")){
 			prefArr__MODULE_ID__["_table_query_url"]="";
 			prefs__MODULE_ID__.set("_table_query_url", "");
+			prefArr__MODULE_ID__["birthdays2"]="";
+			prefs__MODULE_ID__.set("birthdays2", "");
 			prefArr__MODULE_ID__["birthdays"]="2008/08/12;Name|2001/08/12;Test";
 			prefs__MODULE_ID__.set("birthdays", prefArr__MODULE_ID__["birthdays"]);
 			prefs__MODULE_ID__.set("debugMe", false);
 		}
-		***/
+
 		
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
