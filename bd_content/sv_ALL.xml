@@ -16,7 +16,7 @@
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nyhet: Ändra ordningen av kolumnerna</msg>
-  <msg name="mmLite">Ny Huvudnummer: Födelsedagen Anordning Läs- och skrivkunnighet. Rädda din födelsedag utan en Spreadsheet.</msg>
+  <msg name="mmLite">Nyhet: Birthday Gadget Lite. Spara dina födelsedagar utan google spreadsheet.</msg>
   
   <msg name="Loading">Laddar</msg>
   
@@ -65,7 +65,7 @@
   <msg name="tbHide">Dölj Verktygsraden</msg>
   
   <msg name="configEdit">Ändra Google kalkylblad</msg>
-  <msg name="configEditLite">Redigera Födelsedagen Läs- och skrivkunnighet Ta upp på en lista</msg>
+  <msg name="configEditLite">Redigera födelsedagslista</msg>
   <msg name="configFontColor">Fontfärg</msg>
   <msg name="configBGColor">Bakgrundsfärg</msg>
   <msg name="configFontSize">Fontstorlek</msg>
@@ -102,15 +102,15 @@
   <msg name="convertClear">Radera tidigare data</msg>
   <msg name="convertMore">Se hjälpsidan för vidare instruktion</msg>
   
-  <msg name="liteH1">Födelsedagen Ta upp på en lista Läs- och skrivkunnighet</msg>
-  <msg name="liteWarn">varningen Du kan vilja till rädda en kopia av den här ta upp på en lista i en annan läge.</msg>
-  <msg name="litePrev">Förhandsvisningen</msg>
-  <msg name="liteStep1">Gå in din födelsedag nedan:</msg>
-  <msg name="liteErrMax">misstag Födelsedagen Påminnelserna Läs- och skrivkunnighet Version har et maximum av 1000 karaktärerna.</msg>
-  <msg name="liteErrLine">Lina</msg>
-  <msg name="liteErrFormat">Behaga gå in födelsedag lik "datum; Namn"</msg>
-  <msg name="liteErrOne">misstag Behaga gå in en födelsedagen per lina.</msg>
-  <msg name="liteErrDate">misstag Sjukling Datum.</msg>
+  <msg name="liteH1">Födelsedagslista Lite</msg>
+  <msg name="liteWarn">Varning: Om du vill spara listan, kopiera denna till din dator lokalt.</msg>
+  <msg name="litePrev">Förhandsgranskning</msg>
+  <msg name="liteStep1">Ange dina födelsedagar nedan:</msg>
+  <msg name="liteErrMax">Fel: Max antal tecken i Lite version är 1000 st.</msg>
+  <msg name="liteErrLine">Rad</msg>
+  <msg name="liteErrFormat">Ange dina födelsedagar i formatet "Datum; Namn"</msg>
+  <msg name="liteErrOne">Fel: Ange en födelsedag per rad.</msg>
+  <msg name="liteErrDate">Fel: Felaktigt datumformat.</msg>
   
   <msg name="errH1">Fel</msg>
   <msg name="errDateFormat">Sätt "Format" av kolumn "A" till "datum".</msg>
@@ -122,10 +122,10 @@
   <msg name="errLogin">Se till att du har access till kalkylbladet eller logga in till Google kontot för att se födelsedatat.</msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh">Uppdatera sidan och försök igen.</msg>
-  <msg name="errLite">Om den här misstag fortsätt, behaga klick nedan till rädda din födelsedagen informationen inne om anordning.</msg>
-  <msg name="errGoLite">Använda Födelsedagen Påminnelserna Läs- och skrivkunnighet</msg>
-  <msg name="errLiteReady">Du har Födelsedag i Födelsedagen Påminnelserna Läs- och skrivkunnighet, klick nedan till klar din spreadsheet URL.</msg>
-  <msg name="errLiteClear">Klar Spreadsheet URL</msg>
+  <msg name="errLite">Om felet fortsätter, vänligen klicka nedan för att spara informationen i gadgeten.</msg>
+  <msg name="errGoLite">Använda Birthday reminders Lite</msg>
+  <msg name="errLiteReady">Tabort URL-adressen till spreadsheeten då du använder Lite versionen.</msg>
+  <msg name="errLiteClear">Radera Spreadsheet URL</msg>
   <msg name="errMore">Se hjälpsidan för vidare instruktion.</msg>
   <msg name="errCommon">Klicka på "Uppdatera" efter att du ändrat ditt Google kalkylblad.</msg>
 </messagebundle>
