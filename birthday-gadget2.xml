@@ -567,7 +567,7 @@
 	}
 
 	function goError__MODULE_ID__(errText, errType){
-		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/error/"+errType);	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
 		if(prefArr__MODULE_ID__["birthdays2"]=="") moreErr.push('<br />__MSG_errLite__<br /><input type="button" id="goLite" value="__MSG_errGoLite__" />');
