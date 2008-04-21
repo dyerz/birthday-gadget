@@ -245,8 +245,8 @@
 
     function handleQueryResponse__MODULE_ID__(response) {
 		if(response.isError()) {
-			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?");
-			switch(response.getReasons()){
+			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?"), errType=response.getReasons();
+			switch(errType[0]){
 				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
 				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__', 'timeout'); break;
 				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'invalid_query'); break;
