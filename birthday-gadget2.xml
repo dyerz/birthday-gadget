@@ -245,11 +245,12 @@
 
     function handleQueryResponse__MODULE_ID__(response) {
 		if(response.isError()) {
+			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?");
 			switch(response.getReasons()){
-				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br />__MSG_errLogin__', 'access_denied'); break;
+				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__">__MSG_errLogin__</a>', 'access_denied'); break;
 				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__', 'timeout'); break;
-				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br />__MSG_errNoData__', 'invalid_query'); break;
-				default: goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />__MSG_errNoData__', 'unknown');
+				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__">__MSG_errNoData__</a>', 'invalid_query'); break;
+				default: goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__">__MSG_errNoData__</a>', 'unknown');
 			}
 			return;
 		}
@@ -537,7 +538,7 @@
 		}
 	}
 	
-/* Setup / Error Functions **********************/
+/* Setup Functions **********************/
 	function showHelp__MODULE_ID__(){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/setup");	
 		var html = [];
@@ -549,8 +550,8 @@
 		html.push('</li><li>__MSG_setupStep3__</li><li>__MSG_setupStep4__</li>');
 		html.push('<li>__MSG_setupStep5__<br /><input type="text" style="width: 100%" id="newurl" />');
 		html.push('<br /><input type="button" value="__MSG_configSave__" id="saveurl" /></li></ol>');
-		html.push('<div style="text-align: center;">If you do not want to use Google spreadsheets or <br />If you have problems with Google spreadsheets');
-		html.push('<br /><span id="goLite" class="link">Use Birthday Gadgets Lite</span></div>');
+		html.push('<div style="text-align: center;">__MSG_setupLite1__<br />__MSG_setupLite2__');
+		html.push('<br /><span id="goLite" class="link">__MSG_setupLiteGo__</span></div>');
 		html.push('<a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_setupMore__" target="_blank">__MSG_setupMore__</a>');
 	
 		tableDivObj__MODULE_ID__.innerHTML = html.join('');
@@ -566,6 +567,7 @@
 		_IG_AdjustIFrameHeight();
 	}
 
+/* Error Functions **********************/
 	function goError__MODULE_ID__(errText, errType){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error/"+errType);	
 		var moreErr=[];

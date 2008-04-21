@@ -92,6 +92,9 @@
   <msg name="setupStep3">Save the Google spreadsheet.</msg>
   <msg name="setupStep4">Copy the Google spreadsheet address from the address bar.</msg>
   <msg name="setupStep5">Paste the spreadsheet address below.</msg>
+  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
+  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
   <msg name="setupMore">Click Here For more detailed instructions</msg>
   
   <msg name="convertH1">Convert</msg>
@@ -117,9 +120,9 @@
   <msg name="errColumn">Please move the dates from column "B" to column "A".</msg>
   <msg name="errUnk">Unexpected Error</msg>
   <msg name="errSheet">Spreadsheet Error</msg>
-  <msg name="errNoData">Please make sure you have access to this spreadsheet and that you have data in your Google spreadsheet.</msg>
+  <msg name="errNoData">Click here to make sure that you have data in your Google spreadsheet.</msg>
   <msg name="errAccess">Access Denied</msg>
-  <msg name="errLogin">Please make sure you have access to this spreadsheet or sign in to your Google account to see your birthday list.</msg>
+  <msg name="errLogin">Click here to make sure that you have access to your Google spreadsheet.</msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh">Please refresh the webpage to try again.</msg>
   <msg name="errLite">If this error continues, please click below to save your birthday information in the gadget.</msg>
