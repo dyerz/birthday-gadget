@@ -246,19 +246,19 @@
     function handleQueryResponse__MODULE_ID__(response) {
 		if(response.isError()) {
 			switch(response.getReasons()){
-				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br />__MSG_errLogin__'); break;
-				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__'); break;
-				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br />__MSG_errNoData__'); break;
-				default: goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />__MSG_errNoData__');
+				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br />__MSG_errLogin__', 'access_denied'); break;
+				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__', 'timeout'); break;
+				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br />__MSG_errNoData__', 'invalid_query'); break;
+				default: goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />__MSG_errNoData__', 'unknown');
 			}
 			return;
 		}
 		var data = response.getDataTable();
 
 		//check for dates
-		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__'); return; }
-		if(data.getColumnType(0)!="date"){ goError__MODULE_ID__('__MSG_errDateFormat__'); return; }
-		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__'); return; }
+		if(data.getColumnType(1)=="date"){ goError__MODULE_ID__('__MSG_errColumn__', 'date_in_b'); return; }
+		if(data.getColumnType(0)!="date"){ goError__MODULE_ID__('__MSG_errDateFormat__', 'a_not_date'); return; }
+		if(data.getNumberOfRows()==0 || data.getNumberOfColumns()==0){ goError__MODULE_ID__('__MSG_errNoData__', 'no_data'); return; }
 		
 		dataArray__MODULE_ID__=buildArray__MODULE_ID__(data);
 		buildTable__MODULE_ID__();
@@ -566,7 +566,7 @@
 		_IG_AdjustIFrameHeight();
 	}
 
-	function goError__MODULE_ID__(errText){
+	function goError__MODULE_ID__(errText, errType){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/error");	
 		var moreErr=[];
 		moreErr.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span>');
