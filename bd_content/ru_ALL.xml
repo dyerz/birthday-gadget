@@ -92,6 +92,9 @@
   <msg name="setupStep3">Спасите Google таблицы.</msg>
   <msg name="setupStep4">Скопируйте таблицу Google-адрес из адресной строки.</msg>
   <msg name="setupStep5">Вставьте таблицу ниже адресу.</msg>
+  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
+  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
   <msg name="setupMore">Щелкните Здесь Для более подробных инструкций</msg>
   
   <msg name="convertH1">Конвертировать</msg>

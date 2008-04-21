@@ -92,6 +92,9 @@
   <msg name="setupStep3">Sparen spreadsheet Google.</msg>
   <msg name="setupStep4">Kopiëer het spreadsheet Google adres van de adresstaaf.</msg>
   <msg name="setupStep5">Kleef het spreadsheet hieronder vermelde adres.</msg>
+  <msg name="setupLite1"> Als u geen gebruik wilt maken van Google spreadsheets, </msg>
+  <msg name="setupLite2"> Als je problemen hebt met Google spreadsheets, </msg>
+  <msg name="setupLiteGo">Use Birthday Reminders Lite</msg>
   <msg name="setupMore">Klik hier voor meer gedetailleerde instructies</msg>
   
   <msg name="convertH1">Verbetering</msg>

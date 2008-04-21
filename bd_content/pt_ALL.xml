@@ -92,6 +92,9 @@
   <msg name="setupStep3">Salvar a planilha do Google.</msg>
   <msg name="setupStep4">Copie o endereço do Google planilha barra de endereços.</msg>
   <msg name="setupStep5">Cole a planilha endereço abaixo.</msg>
+  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
+  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
   <msg name="setupMore">Clique Aqui Para obter instruções mais detalhadas</msg>
   
   <msg name="convertH1">Converter</msg>

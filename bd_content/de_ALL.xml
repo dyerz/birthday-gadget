@@ -92,6 +92,9 @@
   <msg name="setupStep3">Speichern Sie die Google-Tabelle.</msg>
   <msg name="setupStep4">Kopieren Sie die Google-Tabelle Adresse aus der Adressleiste.</msg>
   <msg name="setupStep5">Fügen Sie die Tabelle unten angegebene Adresse.</msg>
+  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
+  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
   <msg name="setupMore">Klicken Sie hier für detaillierte Anweisungen</msg>
   
   <msg name="convertH1">Convert</msg>

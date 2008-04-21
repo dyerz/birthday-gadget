@@ -87,11 +87,14 @@
   <msg name="setupGreet2">Du är nu endast ett par steg ifrån att åtnjuta några nya egenskaper!</msg>
   <msg name="setupGreet3">Dina tidigare födelsedata är sparat!</msg>
   <msg name="setupStep1">Skapa ett nytt Google kalkylblad.</msg>
-    <msg name="setupStep2">Ange datum i kolumn "A" och namn in kolumn "B".</msg>
+  <msg name="setupStep2">Ange datum i kolumn "A" och namn in kolumn "B".</msg>
   <msg name="setupStep2P">Instruktion för att konvertera tidigare födelsedata är tillgängligt på nästa sida.</msg>
   <msg name="setupStep3">Spara Google kalkylblad.</msg>
   <msg name="setupStep4">Kopiera Google kalkylbladets adress från adressfältet.</msg>
   <msg name="setupStep5">Kopiera kalkylbladets nedanstående adress.</msg>
+  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
+  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
   <msg name="setupMore">Klicka här för mer information</msg>
   
   <msg name="convertH1">Konvertera</msg>
