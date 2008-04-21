@@ -92,9 +92,9 @@
   <msg name="setupStep3">google 스프레드 시트에 저장합니다.</msg>
   <msg name="setupStep4">google 스프레드 시트를 복사하여 주소 표시줄에서 주소를합니다.</msg>
   <msg name="setupStep5">아래 주소를 붙여 스프레드 시트를합니다.</msg>
-  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
-  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
-  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
+  <msg name="setupLite1">google 스프레드 시트를 사용하지 않으려는 경우,</msg>
+  <msg name="setupLite2">google 스프레드 시트에 문제가있는 경우,</msg>
+  <msg name="setupLiteGo">생일 알림을 사용 라이트</msg>
   <msg name="setupMore">자세한 지침을 보려면 여기를 클릭하십시오</msg>
   
   <msg name="convertH1">변환</msg>
@@ -120,9 +120,9 @@
   <msg name="errColumn">에서 날짜로 이동하시기 바랍니다 열 "b"를 열 "를"합니다.</msg>
   <msg name="errUnk">예기치 않은 오류</msg>
   <msg name="errSheet">스프레드 쉬트 오류</msg>
-  <msg name="errNoData">데이터를 수 있는지 확인하시기 바랍니다 귀하의 구글 스프레드 시트를합니다.</msg>
+  <msg name="errNoData">이 설치되어 있는지 확인하려면 여기를 클릭하십시오 귀하의 구글 스프레드 시트에서 데이터를합니다.</msg>
   <msg name="errAccess">액세스 거부</msg>
-  <msg name="errLogin">이 스프레드 쉬트에 액세스 권한을 갖고 있는지 확인하시기 바랍니다하거나 귀하의 구글 계정으로 로그인하여 귀하의 생일을 목록을 참조하십시오.</msg>
+  <msg name="errLogin">여기를 클릭하여 액세스 권한을 갖고 있는지 확인합니다 귀하의 구글 스프레드 시트를합니다.</msg>
   <msg name="errTimeout">서버 시간 초과</msg>
   <msg name="errRefresh">웹 페이지를 새로 고치십시오을 다시 시도하십시오.</msg>
   <msg name="errLite">이 오류가 계속되면 귀하의 생일을 저장하려면 아래를 클릭하십시오 가제트의 정보를합니다.</msg>

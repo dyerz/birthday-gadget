@@ -92,9 +92,9 @@
   <msg name="setupStep3">Sparen spreadsheet Google.</msg>
   <msg name="setupStep4">Kopiëer het spreadsheet Google adres van de adresstaaf.</msg>
   <msg name="setupStep5">Kleef het spreadsheet hieronder vermelde adres.</msg>
-  <msg name="setupLite1"> Als u geen gebruik wilt maken van Google spreadsheets, </msg>
-  <msg name="setupLite2"> Als je problemen hebt met Google spreadsheets, </msg>
-  <msg name="setupLiteGo">Use Birthday Reminders Lite</msg>
+  <msg name="setupLite1">Als u geen gebruik wilt maken van Google spreadsheets,</msg>
+  <msg name="setupLite2">Als je problemen hebt met Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Gebruik verjaardagsherinneringen Lite</msg>
   <msg name="setupMore">Klik hier voor meer gedetailleerde instructies</msg>
   
   <msg name="convertH1">Verbetering</msg>
@@ -120,9 +120,9 @@
   <msg name="errColumn">Beweeg de data uit kolom "B" kolom "A".</msg>
   <msg name="errUnk">Onverwachte fout</msg>
   <msg name="errSheet">Spreadsheet fout</msg>
-  <msg name="errNoData">Zorg ervoor dat u de gegevens in uw Google spreadsheet.</msg>
+  <msg name="errNoData">Klik hier om ervoor te zorgen dat u de gegevens in uw Google spreadsheet.</msg>
   <msg name="errAccess">Zwijnen</msg>
-  <msg name="errLogin">Zorg ervoor dat u toegang heeft tot deze spreadsheet of melden bij uw Google-account om uw verjaardag lijst.</msg>
+  <msg name="errLogin">Klik hier om ervoor te zorgen dat u toegang heeft tot uw Google-spreadsheet.</msg>
   <msg name="errTimeout">Server Time-out</msg>
   <msg name="errRefresh">Vernieuw de webpagina om het nogmaals te proberen.</msg>
   <msg name="errLite">Als deze fout blijft, klik hieronder om uw verjaardag informatie in de gadget.</msg>

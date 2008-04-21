@@ -92,9 +92,9 @@
   <msg name="setupStep3">Spara Google kalkylblad.</msg>
   <msg name="setupStep4">Kopiera Google kalkylbladets adress från adressfältet.</msg>
   <msg name="setupStep5">Kopiera kalkylbladets nedanstående adress.</msg>
-  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
-  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
-  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
+  <msg name="setupLite1">Om du viljade inte till använda Google spreadsheets,</msg>
+  <msg name="setupLite2">Om du har problemen med Google spreadsheets,</msg>
+  <msg name="setupLiteGo">Använda Födelsedagen Påminnelserna Läs- och skrivkunnighet</msg>
   <msg name="setupMore">Klicka här för mer information</msg>
   
   <msg name="convertH1">Konvertera</msg>
@@ -120,9 +120,9 @@
   <msg name="errColumn">Flytta datum från kolumn "B" till kolumn "A".</msg>
   <msg name="errUnk">Oväntat fel</msg>
   <msg name="errSheet">Kalkylbladsfel</msg>
-  <msg name="errNoData">Se till att du har access till kalkylbladet och att du har data i detsamma.</msg>
+  <msg name="errNoData">Klick här till göra säker så pass du har datan i din Google spreadsheet.</msg>
   <msg name="errAccess">Otillåten access</msg>
-  <msg name="errLogin">Se till att du har access till kalkylbladet eller logga in till Google kontot för att se födelsedatat.</msg>
+  <msg name="errLogin">Klick här till göra säker så pass du har tillträde till din Google spreadsheet.</msg>
   <msg name="errTimeout">Server Timeout</msg>
   <msg name="errRefresh">Uppdatera sidan och försök igen.</msg>
   <msg name="errLite">Om felet fortsätter, vänligen klicka nedan för att spara informationen i gadgeten.</msg>

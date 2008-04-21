@@ -92,9 +92,9 @@
   <msg name="setupStep3">Opspare den Google regneark.</msg>
   <msg name="setupStep4">Afskrift den Google regneark henvende af den henvende advokatstanden.</msg>
   <msg name="setupStep5">Opklæbe den regneark henvende nedenstående.</msg>
-  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
-  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
-  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
+  <msg name="setupLite1">Selv om jer lave ikke ville gerne hjælp Google regneark,</msg>
+  <msg name="setupLite2">Selv om du har problematik hos Google regneark,</msg>
+  <msg name="setupLiteGo">Hjælp Fødselsdag Påmindelser Ordret</msg>
   <msg name="setupMore">Falde i hak Her ovre Om mere indgående instruks</msg>
   
   <msg name="convertH1">Omforme</msg>
@@ -120,9 +120,9 @@
   <msg name="errColumn">Behage skridt den stammer fra søjle "B" hen til søjle "en".</msg>
   <msg name="errUnk">Uventede Fejl</msg>
   <msg name="errSheet">Regneark Fejl</msg>
-  <msg name="errNoData">Behage sikre du har data i jeres Google regneark.</msg>
+  <msg name="errNoData">Falde i hak her ovre for en ordens skyld at du har data i jeres Google regneark.</msg>
   <msg name="errAccess">Adgang Nægtede</msg>
-  <msg name="errLogin">Behage sikre du har adgang hen til indeværende regneark eller påtegne i hen til jeres Google beretning hen til se efter jeres fødselsdag liste.</msg>
+  <msg name="errLogin">Falde i hak her ovre for en ordens skyld at du har adgang hen til jeres Google regneark.</msg>
   <msg name="errTimeout">Styreenhed Pause</msg>
   <msg name="errRefresh">Behage forny den webpage hen til prøve igen.</msg>
   <msg name="errLite">Selv om indeværende fejl fortsætter, behage falde i hak nedenstående hen til opspare jeres fødselsdag information i den indretning.</msg>

@@ -92,9 +92,9 @@
   <msg name="setupStep3">Guardar la hoja de cálculo de Google.</msg>
   <msg name="setupStep4">Copie la hoja de cálculo de Google dirección de la barra de direcciones.</msg>
   <msg name="setupStep5">Pega la hoja de cálculo siguiente dirección.</msg>
-  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
-  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
-  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
+  <msg name="setupLite1">Si no desea utilizar Google hojas de cálculo,</msg>
+  <msg name="setupLite2">Si tiene problemas con Google hojas de cálculo,</msg>
+  <msg name="setupLiteGo">Utilizar recordatorios de cumpleaños Lite</msg>
   <msg name="setupMore">Haga clic aquí Para obtener instrucciones más detalladas</msg>
   
   <msg name="convertH1">Convertir</msg>
@@ -120,9 +120,9 @@
   <msg name="errColumn">Por favor, mover las fechas a partir de la columna "B" a la columna "A".</msg>
   <msg name="errUnk">Error inesperado</msg>
   <msg name="errSheet">Error de hoja de cálculo</msg>
-  <msg name="errNoData">Por favor, asegúrese de que tiene los datos en su hoja de cálculo de Google.</msg>
+  <msg name="errNoData">Pulse aquí para asegurarse de que tiene los datos en su hoja de cálculo de Google.</msg>
   <msg name="errAccess">Acceso denegado</msg>
-  <msg name="errLogin">Por favor, asegúrese de que tiene acceso a esta hoja de cálculo o acceder a su cuenta de Google para ver su lista de cumpleaños.</msg>
+  <msg name="errLogin">Pulse aquí para asegurarse de que tiene acceso a su hoja de cálculo de Google.</msg>
   <msg name="errTimeout">Servidor de Tiempo</msg>
   <msg name="errRefresh">Por favor, actualice la página web para intentarlo de nuevo.</msg>
   <msg name="errLite">Si el error persiste, por favor haga click abajo para guardar la información de cumpleaños en el complemento.</msg>

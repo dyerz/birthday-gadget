@@ -92,9 +92,9 @@
   <msg name="setupStep3">Speichern Sie die Google-Tabelle.</msg>
   <msg name="setupStep4">Kopieren Sie die Google-Tabelle Adresse aus der Adressleiste.</msg>
   <msg name="setupStep5">Fügen Sie die Tabelle unten angegebene Adresse.</msg>
-  <msg name="setupLite1">If you do not want to use Google spreadsheets,</msg>
-  <msg name="setupLite2">If you have problems with Google spreadsheets,</msg>
-  <msg name="setupLiteGo">Use Birthday Gadgets Lite</msg>
+  <msg name="setupLite1">Wenn Sie nicht wollen, dass die Nutzung von Google Spreadsheets,</msg>
+  <msg name="setupLite2">Wenn Sie Probleme mit Google Spreadsheets,</msg>
+  <msg name="setupLiteGo">Verwenden Sie Geburtstagserinnerungen Lite</msg>
   <msg name="setupMore">Klicken Sie hier für detaillierte Anweisungen</msg>
   
   <msg name="convertH1">Convert</msg>
@@ -120,9 +120,9 @@
   <msg name="errColumn">Bitte bewegen Sie die Daten aus der Spalte "B" in Spalte "A".</msg>
   <msg name="errUnk">Unerwarteter Fehler</msg>
   <msg name="errSheet">Spreadsheet-Fehler</msg>
-  <msg name="errNoData">Bitte stellen Sie sicher, dass Sie in Ihrem Google-Tabelle.</msg>
+  <msg name="errNoData">Klicken Sie hier, um sicherzustellen, dass Sie die Daten in Ihrem Google-Tabelle. .</msg>
   <msg name="errAccess">Zugriff verweigert</msg>
-  <msg name="errLogin">Bitte stellen Sie sicher, dass Sie Zugriff auf diese Tabelle an oder melden Sie sich bei Ihrem Google-Konto an, um Ihre Geburtstags-Liste.</msg>
+  <msg name="errLogin">Klicken Sie hier, um sicherzustellen, dass Sie Zugriff auf den Google-Tabelle.</msg>
   <msg name="errTimeout">Server-Timeout</msg>
   <msg name="errRefresh">Bitte aktualisieren Sie die Web-Seite um es erneut zu versuchen.</msg>
   <msg name="errLite">Wenn dieser Fehler weiterhin auftritt, klicken Sie bitte unten auf Ihren Geburtstag speichern Informationen in das Gadget.</msg>
