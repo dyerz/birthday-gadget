@@ -246,13 +246,16 @@
 
     function handleQueryResponse__MODULE_ID__(response){
 		if(response.isError()){
-			if(retry__MODULE_ID__(response)) return;
 			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?"), errType=response.getReasons();
 			switch(errType[0]){
-				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
+				case "access_denied":
+					if(retry__MODULE_ID__(errType[0])) return;
+					goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
 				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__', 'timeout'); break;
 				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'invalid_query'); break;
-				default: goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'unknown');
+				default:
+					if(retry__MODULE_ID__(errType[0])) return;
+					goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'unknown');
 			}
 			return;
 		}
@@ -594,10 +597,9 @@
 		_IG_AdjustIFrameHeight();
 	}	
 	
-	function retry__MODULE_ID__(response){
-		var errType=response.getReasons()
+	function retry__MODULE_ID__(errType){
 		var maxWait=5;
-		_IG_Analytics("UA-310375-4", "/birthday-gadget/retry/"+errType[0]+"/"+numRetry__MODULE_ID__);	
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/retry/"+errType+"/"+numRetry__MODULE_ID__);	
 		//reset contents loading + iframe + error message + retry
 		var retryHtml=[];
 		retryHtml.push('<h1>__MSG_errH1__</h1>'+spinMSG__MODULE_ID__(2));
