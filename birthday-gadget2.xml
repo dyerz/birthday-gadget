@@ -608,7 +608,7 @@
 		tableDivObj__MODULE_ID__.innerHTML = retryHtml.join('');
 		waitTimeout__MODULE_ID__=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
 		numRetry__MODULE_ID__++; waiting__MODULE_ID__=true;
-		return numRetry__MODULE_ID__<2;
+		return numRetry__MODULE_ID__<=2;
 	}
 	
 	function retryWait__MODULE_ID__(waitTime){
