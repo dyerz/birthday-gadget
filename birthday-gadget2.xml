@@ -619,6 +619,7 @@
 			return;
 		}
 		clearTimeout(waitTimeout__MODULE_ID__);
+		waiting__MODULE_ID__=false;
 		sendQuery__MODULE_ID__();
 	}
 
