@@ -142,7 +142,7 @@
 <script type="text/javascript">
     google.load("visualization", "1");
 	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__=new _IG_MiniMessage(__MODULE_ID__);
-	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__, numRetry__MODULE_ID__=0, waiting__MODULE_ID__=false, waitTimeout__MODULE_ID__;
+	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__, numRetry__MODULE_ID__=1, waiting__MODULE_ID__=false, waitTimeout__MODULE_ID__;
     
 	//get started
     function init__MODULE_ID__(){
@@ -506,8 +506,8 @@
 	function spinMSG__MODULE_ID__(pickMSG){
 		var showMSG="";
 		switch(pickMSG){
-			case 1: showMSG="__MSG_Loading__ ..."; break;
-			case 2: showMSG="Retrying ..."; break;
+			case 1: showMSG="__MSG_Loading__..."; break;
+			case 2: showMSG="Retrying..."; break;
 			default: showMSG="";
 		}
 		return '<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" alt="'+showMSG+'" height="16px" width="16px" /> '+showMSG;
@@ -598,15 +598,15 @@
 	}	
 	
 	function retry__MODULE_ID__(errType, errText){
-		var maxWait=5;
+		var maxWait=5, maxTry=3;
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/retry/"+errType+"/"+numRetry__MODULE_ID__);	
 		//reset contents loading + iframe + error message + retry
 		var retryHtml=[];
 		retryHtml.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span><br />'+spinMSG__MODULE_ID__(2));
-		retryHtml.push('<div id="waitTime">'+maxWait+'</div>');
+		retryHtml.push('<div id="waitNum">'+numRetry__MODULE_ID__+'/'+maxTry+'</div><div id="waitTime">'+maxWait+'</div>');
 		retryHtml.push('<iframe src="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'" style="display: none; height: 1px; width: 1px; border: 0;"></iframe>');
 		tableDivObj__MODULE_ID__.innerHTML = retryHtml.join('');
-		if(numRetry__MODULE_ID__>2) return false;
+		if(numRetry__MODULE_ID__>=maxTry) return false;
 		_IG_AdjustIFrameHeight();
 		waitTimeout__MODULE_ID__=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
 		numRetry__MODULE_ID__++; waiting__MODULE_ID__=true;
