@@ -13,6 +13,7 @@
   <msg name="showAge">Inserisci colonna di età</msg>
   <msg name="showDays">Inserisci colonna di giorni</msg>
   <msg name="showZodiac">Inserisci colonna zodiaco</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nuova funzione: di trascinamento. Riordinare le colonne.</msg>

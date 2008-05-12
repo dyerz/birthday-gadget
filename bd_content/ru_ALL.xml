@@ -13,6 +13,7 @@
   <msg name="showAge">Показать Возраст колонка</msg>
   <msg name="showDays">Показать дней колонка</msg>
   <msg name="showZodiac">Показать зодиака колонка</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Новая функция: Перетаскивание. Восстановление порядка столбцов.</msg>

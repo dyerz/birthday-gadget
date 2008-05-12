@@ -13,6 +13,7 @@
   <msg name="showAge">Toon leeftijd kolom</msg>
   <msg name="showDays">Toon dagen kolom</msg>
   <msg name="showZodiac">Toon sterrenbeeld kolom</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nieuwe functie: slepen. Re-order de kolommen.</msg>

@@ -70,6 +70,7 @@
 <UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
 <UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
 <UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
+<UserPref name="clearURL" display_name="__MSG_clearURL__" default_value="false" datatype="bool" />
 <UserPref name="birthdays" datatype="hidden" default_value="" /> 
 <UserPref name="birthdays2" datatype="hidden" default_value="" /> 
 <UserPref name="fontColor" default_value="#000000" datatype="hidden" />
@@ -78,8 +79,7 @@
 <UserPref name="group" default_value="" datatype="hidden" />
 <UserPref name="_table_query_url" datatype="hidden" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
-<UserPref name="MM0" default_value="1" datatype="hidden" /> 
-<UserPref name="MMs" default_value="01" datatype="hidden" /> 
+<UserPref name="MMs" default_value="00" datatype="hidden" /> 
 
 <Content type="html">
 <![CDATA[ 
@@ -137,21 +137,21 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <div id="toolbar"></div>
-<div id="tablediv" >__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
+<div id="tablediv" ></div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script type="text/javascript">
     google.load("visualization", "1");
 	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__=new _IG_MiniMessage(__MODULE_ID__);
-	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__;
+	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__, numRetry__MODULE_ID__=0;
     
 	//get started
     function init__MODULE_ID__(){
-		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays",
-			"showZodiac", "_table_query_url", "tbVis", "birthdays", "birthdays2", "fontSize", "fontColor", "bgColor", 
+		var prefNames=new Array("dateFormat", "showBDay", "warnForward", "warnPast", "showAge", "showDays", "showZodiac", 
+			"clearURL", "_table_query_url", "tbVis", "birthdays", "birthdays2", "fontSize", "fontColor", "bgColor", 
 			"tbOrder", "group", "MMs");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
-		tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; 
+		tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); 
 		//get prefs
 		for(var i=0; i<prefNames.length; i++){
 			switch(prefNames[i]){
@@ -159,11 +159,11 @@
 				case "showBDay":
 				case "warnForward":
 				case "warnPast":
-				case "MM0":
 					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getInt(prefNames[i]); break;
 				case "showAge":
 				case "showDays":
 				case "showZodiac":
+				case "clearURL":
 					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getBool(prefNames[i]); break;
 				default:
 					prefArr__MODULE_ID__[prefNames[i]]=prefs__MODULE_ID__.getString(prefNames[i]);
@@ -178,10 +178,11 @@
 			prefs__MODULE_ID__.set("birthdays2", "");
 			prefArr__MODULE_ID__["birthdays"]="2008/08/12;Name|2001/08/12;Test";
 			prefs__MODULE_ID__.set("birthdays", prefArr__MODULE_ID__["birthdays"]);
-			prefs__MODULE_ID__.set("debugMe", false);
 		}
 		***/
-		
+
+		if(prefArr__MODULE_ID__["clearURL"]){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("clearURL", false, "_table_query_url", "");}		
+
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
 		//toolbar creation
@@ -203,9 +204,9 @@
 		_gel('toolbar').innerHTML = html.join('');
 
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConfig__MODULE_ID__();}};
-		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; goConvert__MODULE_ID__();}}
-		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__..."; chooseDataSource__MODULE_ID__();}};
+		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); goConfig__MODULE_ID__();}};
+		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); goConvert__MODULE_ID__();}}
+		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); chooseDataSource__MODULE_ID__();}};
 
 		//js event config
 		tbObj=_gel("toolbar");
@@ -496,6 +497,10 @@
 	function visitMM__MODULE_ID__(msg){
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/visitMM/"+msg);	
 	}
+	
+	function loadMSG__MODULE_ID__(){
+		return '<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.jpg" alt="__MSG_Loading__" height="16px" width="16px" />__MSG_Loading__...';
+	}
 
 	function makeSel(id, sel, valArr, dispArr){
 		var html=['<select id="'+id+'">'], selStr="";
@@ -518,7 +523,6 @@
 	
 	function handleMMs__MODULE_ID__(){
 		var m=prefArr__MODULE_ID__["MMs"].split(""), msgStr=[];
-		if(prefArr__MODULE_ID__["MM0"]){ m[0]="1"; prefs__MODULE_ID__.set("MMs", m.join("")); }
 		for(var i=0; i<m.length; i++){
 			msgStr=[];
 			if(m[i]=="1"){
@@ -560,7 +564,7 @@
 			if(!urlCheck__MODULE_ID__(tempStr)) return;
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
-			tableDivObj__MODULE_ID__.innerHTML ="__MSG_Loading__...";
+			tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__();
 			init__MODULE_ID__();
 		}
 		_gel('goLite').onclick=function(){ showLiteData__MODULE_ID__();}

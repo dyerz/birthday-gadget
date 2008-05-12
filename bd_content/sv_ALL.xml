@@ -13,7 +13,8 @@
   <msg name="showAge">Visa ålder</msg>
   <msg name="showDays">Visa antal dagar</msg>
   <msg name="showZodiac">Visa stjärntecken</msg>
-  
+  <msg name="clearURL">Clear URL</msg>
+ 
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nyhet: Ändra ordningen av kolumnerna</msg>
   <msg name="mmLite">Nyhet: Birthday Gadget Lite. Spara dina födelsedagar utan google spreadsheet.</msg>

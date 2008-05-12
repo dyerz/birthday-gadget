@@ -13,6 +13,7 @@
   <msg name="showAge">Karte Alter Spalte</msg>
   <msg name="showDays">Zeigen Tagen Spalte</msg>
   <msg name="showZodiac">Karte Zodiac Spalte</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Neue Funktion: Ziehen. Re-order die Spalten</msg>

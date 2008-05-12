@@ -13,6 +13,7 @@
   <msg name="showAge">Mostrar idade coluna</msg>
   <msg name="showDays">Mostrar dias coluna</msg>
   <msg name="showZodiac">Mostrar Zodiac coluna</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Novo recurso: arrasto. Re-ordem das colunas.</msg>

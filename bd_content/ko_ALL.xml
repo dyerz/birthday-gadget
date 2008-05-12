@@ -13,6 +13,7 @@
   <msg name="showAge">나이 칼럼 게재</msg>
   <msg name="showDays">쇼 일간 열</msg>
   <msg name="showZodiac">조디악이 열에 표시</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">새로운 기능 : 드래그합니다. 다시 - 주문 열을합니다.</msg>

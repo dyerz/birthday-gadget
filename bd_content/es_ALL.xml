@@ -13,6 +13,7 @@
   <msg name="showAge">Mostrar edad columna</msg>
   <msg name="showDays">Mostrar columna días</msg>
   <msg name="showZodiac">Mostrar columna Zodiac</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Nueva función: Arrastrando. Vuelva a fin de las columnas.</msg>

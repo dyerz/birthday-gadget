@@ -13,6 +13,7 @@
   <msg name="showAge">Vise alder</msg>
   <msg name="showDays">Vise dato</msg>
   <msg name="showZodiac">Vise Stjernetegn</msg>
+  <msg name="clearURL">Clear URL</msg>
   
   <msg name="myMinis"></msg>
   <msg name="mmDrag">Ny Indslag: Dragging. Re-opstille den søjler.</msg>
