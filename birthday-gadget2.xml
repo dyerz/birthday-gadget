@@ -137,7 +137,7 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <div id="toolbar"></div>
-<div id="tablediv" ><img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.jpg" alt="__MSG_Loading__" height="16px" width="16px" />__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
+<div id="tablediv" ><img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" alt="__MSG_Loading__" height="16px" width="16px" />__MSG_Loading__...</div><div id="colorpicker201" class="colorpicker201"></div>
 
 <script type="text/javascript">
     google.load("visualization", "1");
@@ -499,7 +499,7 @@
 	}
 	
 	function loadMSG__MODULE_ID__(){
-		return '<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.jpg" alt="__MSG_Loading__" height="16px" width="16px" />__MSG_Loading__...';
+		return '<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" alt="__MSG_Loading__" height="16px" width="16px" />__MSG_Loading__...';
 	}
 
 	function makeSel(id, sel, valArr, dispArr){
