@@ -598,7 +598,7 @@
 	}	
 	
 	function retry__MODULE_ID__(errType, errText){
-		var maxWait=5, maxTry=3;
+		var maxWait=5*numRetry__MODULE_ID__, maxTry=3;
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/retry/"+errType+"/"+numRetry__MODULE_ID__);	
 		//reset contents loading + iframe + error message + retry
 		var retryHtml=[];
