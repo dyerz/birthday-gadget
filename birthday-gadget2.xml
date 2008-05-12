@@ -606,7 +606,7 @@
 		retryHtml.push('<div id="waitTime">'+maxWait+'</div>');
 		retryHtml.push('<iframe src="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'" style="display: none; height: 1px; width: 1px; border: 0;"></iframe>');
 		tableDivObj__MODULE_ID__.innerHTML = retryHtml.join('');
-		var waitTimeout__MODULE_ID__=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
+		waitTimeout__MODULE_ID__=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
 		numRetry__MODULE_ID__++; waiting__MODULE_ID__=true;
 		return numRetry__MODULE_ID__<2;
 	}
