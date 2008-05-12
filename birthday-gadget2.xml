@@ -181,7 +181,7 @@
 		}
 		***/
 
-		if(prefArr__MODULE_ID__["clearURL"]){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("clearURL", false, "_table_query_url", "");}		
+		if(prefArr__MODULE_ID__["clearURL"]){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("clearURL", "false", "_table_query_url", "");}		
 
 		//queryurl check
 		if(prefArr__MODULE_ID__["_table_query_url"]=="" && prefArr__MODULE_ID__["birthdays2"]=="") {showHelp__MODULE_ID__(); return;}
@@ -449,8 +449,8 @@
 		switch(prefArr__MODULE_ID__["dateFormat"]){
 			case 0: return (month[m]+" "+d);
 			case 1: return (d+" "+month[m]);
-			case 2: return (m+"/"+d);
-			case 3: return (d+"/"+m);
+			case 2: return ((m+1)+"/"+d);
+			case 3: return (d+"/"+(m+1));
 		}
 	}
 
