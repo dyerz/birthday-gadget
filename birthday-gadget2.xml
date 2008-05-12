@@ -142,7 +142,7 @@
 <script type="text/javascript">
     google.load("visualization", "1");
 	var prefs__MODULE_ID__, prefArr__MODULE_ID__=new Object(), msg__MODULE_ID__=new _IG_MiniMessage(__MODULE_ID__);
-	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__, numRetry__MODULE_ID__=0;
+	var tableDivObj__MODULE_ID__, dataArray__MODULE_ID__, groupArray__MODULE_ID__, numRetry__MODULE_ID__=0, waiting__MODULE_ID__=false, waitTimeout__MODULE_ID__;
     
 	//get started
     function init__MODULE_ID__(){
@@ -249,12 +249,12 @@
 			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?"), errType=response.getReasons();
 			switch(errType[0]){
 				case "access_denied":
-					if(retry__MODULE_ID__(errType[0])) return;
+					if(waiting__MODULE_ID__ || retry__MODULE_ID__(errType[0])) return;
 					goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
 				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__', 'timeout'); break;
 				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'invalid_query'); break;
 				default:
-					if(retry__MODULE_ID__(errType[0])) return;
+					if(waiting__MODULE_ID__ || retry__MODULE_ID__(errType[0])) return;
 					goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'unknown');
 			}
 			return;
@@ -602,12 +602,12 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/retry/"+errType+"/"+numRetry__MODULE_ID__);	
 		//reset contents loading + iframe + error message + retry
 		var retryHtml=[];
-		retryHtml.push('<h1>__MSG_errH1__</h1>'+spinMSG__MODULE_ID__(2));
+		retryHtml.push('<h1>__MSG_errH1__</h1><span class="error">'+errText+'</span><br />'+spinMSG__MODULE_ID__(2));
 		retryHtml.push('<div id="waitTime">'+maxWait+'</div>');
 		retryHtml.push('<iframe src="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'" style="display: none; height: 1px; width: 1px; border: 0;"></iframe>');
 		tableDivObj__MODULE_ID__.innerHTML = retryHtml.join('');
-		var waitTimeout=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
-		numRetry__MODULE_ID__++;
+		var waitTimeout__MODULE_ID__=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
+		numRetry__MODULE_ID__++; waiting__MODULE_ID__=true;
 		return numRetry__MODULE_ID__<2;
 	}
 	
@@ -615,9 +615,10 @@
 		waitTime--;
 		_gel("waitTime").innerHTML=waitTime;
 		if(waitTime>0){
-			var waitTimeout=setTimeout("retryWait__MODULE_ID__("+waitTime+")", 1000);
+			var waitTimeout__MODULE_ID__=setTimeout("retryWait__MODULE_ID__("+waitTime+")", 1000);
 			return;
 		}
+		clearTimeout(waitTimeout__MODULE_ID__);
 		sendQuery__MODULE_ID__();
 	}
 
