@@ -389,6 +389,7 @@
 			var tempOrder=prefArr__MODULE_ID__["tbOrder"].replace(src,"x").replace(tar,"y");
 			prefArr__MODULE_ID__["tbOrder"]=tempOrder.replace(/x/, tar).replace(/y/, src);
 			prefs__MODULE_ID__.set("tbOrder", prefArr__MODULE_ID__["tbOrder"]);
+			buildToolbar__MODULE_ID__();
 			buildTable__MODULE_ID__();
 		};
 	}
