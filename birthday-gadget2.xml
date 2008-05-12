@@ -151,7 +151,7 @@
 			"tbOrder", "group", "MMs");
 		prefs__MODULE_ID__ = new _IG_Prefs();
 		tableDivObj__MODULE_ID__=_gel('tablediv');
-		tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); 
+		tableDivObj__MODULE_ID__.innerHTML =spinMSG__MODULE_ID__(1); 
 		//get prefs
 		for(var i=0; i<prefNames.length; i++){
 			switch(prefNames[i]){
@@ -204,9 +204,9 @@
 		_gel('toolbar').innerHTML = html.join('');
 
 		//toolbar actions
-		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); goConfig__MODULE_ID__();}};
-		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); goConvert__MODULE_ID__();}}
-		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__(); chooseDataSource__MODULE_ID__();}};
+		_gel("tbConfig").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =spinMSG__MODULE_ID__(1); goConfig__MODULE_ID__();}};
+		if(prefArr__MODULE_ID__["birthdays"]!="" || (prefArr__MODULE_ID__["birthdays2"]!="" && prefArr__MODULE_ID__["_table_query_url"]!="")) _gel("tbConvert").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =spinMSG__MODULE_ID__(1); goConvert__MODULE_ID__();}}
+		_gel("tbRefresh").onclick=function(){ if(checkConfirm__MODULE_ID__()) {tableDivObj__MODULE_ID__.innerHTML =spinMSG__MODULE_ID__(1); chooseDataSource__MODULE_ID__();}};
 
 		//js event config
 		tbObj=_gel("toolbar");
@@ -244,8 +244,9 @@
 		query.send(handleQueryResponse__MODULE_ID__);
 	}
 
-    function handleQueryResponse__MODULE_ID__(response) {
-		if(response.isError()) {
+    function handleQueryResponse__MODULE_ID__(response){
+		if(response.isError()){
+			if(retry__MODULE_ID__(response)) return;
 			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?"), errType=response.getReasons();
 			switch(errType[0]){
 				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
@@ -499,8 +500,14 @@
 		_IG_Analytics("UA-310375-4", "/birthday-gadget/visitMM/"+msg);	
 	}
 	
-	function loadMSG__MODULE_ID__(){
-		return '<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" alt="__MSG_Loading__" height="16px" width="16px" />__MSG_Loading__...';
+	function spinMSG__MODULE_ID__(pickMSG){
+		var showMSG="";
+		switch(pickMSG){
+			case 1: showMSG="__MSG_Loading__ ..."; break;
+			case 2: showMSG="Retrying ..."; break;
+			default: showMSG="";
+		}
+		return '<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" alt="'+showMSG+'" height="16px" width="16px" /> '+showMSG;
 	}
 
 	function makeSel(id, sel, valArr, dispArr){
@@ -565,7 +572,7 @@
 			if(!urlCheck__MODULE_ID__(tempStr)) return;
 			prefArr__MODULE_ID__["_table_query_url"]=escapeHtml__MODULE_ID__(tempStr)
 			prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]);
-			tableDivObj__MODULE_ID__.innerHTML =loadMSG__MODULE_ID__();
+			tableDivObj__MODULE_ID__.innerHTML =spinMSG__MODULE_ID__(1);
 			init__MODULE_ID__();
 		}
 		_gel('goLite').onclick=function(){ showLiteData__MODULE_ID__();}
@@ -586,6 +593,31 @@
 		else _gel('goClear').onclick=function(){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]); chooseDataSource__MODULE_ID__();}
 		_IG_AdjustIFrameHeight();
 	}	
+	
+	function retry__MODULE_ID__(response){
+		var errType=response.getReasons()
+		var maxWait=5;
+		_IG_Analytics("UA-310375-4", "/birthday-gadget/retry/"+errType[0]+"/"+numRetry__MODULE_ID__);	
+		//reset contents loading + iframe + error message + retry
+		var retryHtml=[];
+		retryHtml.push('<h1>__MSG_errH1__</h1>'+spinMSG__MODULE_ID__(2));
+		retryHtml.push('<div id="waitTime">'+maxWait+'</div>');
+		retryHtml.push('<iframe src="'+prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?")+'" style="display: none; height: 1px; width: 1px; border: 0;"></iframe>');
+		tableDivObj__MODULE_ID__.innerHTML = retryHtml.join('');
+		var waitTimeout=setTimeout("retryWait__MODULE_ID__("+maxWait+")", 1000);
+		numRetry__MODULE_ID__++;
+		return numRetry__MODULE_ID__<2;
+	}
+	
+	function retryWait__MODULE_ID__(waitTime){
+		waitTime--;
+		_gel("waitTime").innerHTML=waitTime;
+		if(waitTime>0){
+			var waitTimeout=setTimeout("retryWait__MODULE_ID__("+waitTime+")", 1000);
+			return;
+		}
+		sendQuery__MODULE_ID__();
+	}
 
 /* Config Page Functions ***********************/	
 	function goConfig__MODULE_ID__(){
