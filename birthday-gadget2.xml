@@ -255,7 +255,7 @@
 				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'invalid_query'); break;
 				default:
 					if(waiting__MODULE_ID__ || retry__MODULE_ID__(errType[0], "__MSG_errUnk__")) return;
-					goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'unknown');
+					goError__MODULE_ID__('__MSG_errUnk__: '+response.getDetailedMessage()+'<br />'+errType[0]+'<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'unknown');
 			}
 			return;
 		}
