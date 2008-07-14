@@ -122,6 +122,8 @@
   <msg name="errUnk">Oväntat fel</msg>
   <msg name="errSheet">Kalkylbladsfel</msg>
   <msg name="errNoData">Klick här till göra säker så pass du har datan i din Google spreadsheet.</msg>
+  <msg name="errAuthen">Du är inte inloggad</msg>
+  <msg name="errSignIn">Klicka här för att logga in</msg>
   <msg name="errAccess">Otillåten access</msg>
   <msg name="errLogin">Klick här till göra säker så pass du har tillträde till din Google spreadsheet.</msg>
   <msg name="errTimeout">Server Timeout</msg>

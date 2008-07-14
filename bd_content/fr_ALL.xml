@@ -122,6 +122,8 @@
   <msg name="errUnk">Erreur inattendue</msg>
   <msg name="errSheet">Erreur tableur</msg>
   <msg name="errNoData">Cliquez ici pour vous assurer que vous avez données dans votre feuille de calcul Google.</msg>
+  <msg name="errAuthen">Vous n'êtes pas connecté</msg>
+  <msg name="errSignIn">Cliquez ici pour Sign in</msg>
   <msg name="errAccess">Accès interdit</msg>
   <msg name="errLogin">Cliquez ici pour vous assurer que vous avez accès à votre feuille de calcul Google.</msg>
   <msg name="errTimeout">Server Timeout</msg>

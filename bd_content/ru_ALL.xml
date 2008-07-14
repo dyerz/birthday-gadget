@@ -122,6 +122,8 @@
   <msg name="errUnk">Неожиданная ошибка</msg>
   <msg name="errSheet">Таблиц Ошибка</msg>
   <msg name="errNoData">Нажмите сюда, чтобы убедиться, что у Вас есть данные в вашем Google таблицы.</msg>
+  <msg name="errAuthen">Вы не вошли дюйма</msg>
+  <msg name="errSignIn">Нажмите здесь, войдите</msg>
   <msg name="errAccess">Отказано в доступе</msg>
   <msg name="errLogin">Нажмите сюда, чтобы убедиться, что у вас имеется доступ к Google таблицы.</msg>
   <msg name="errTimeout">Тайм-аут сервера</msg>

@@ -122,6 +122,8 @@
   <msg name="errUnk">Error inesperado</msg>
   <msg name="errSheet">Error de hoja de cálculo</msg>
   <msg name="errNoData">Pulse aquí para asegurarse de que tiene los datos en su hoja de cálculo de Google.</msg>
+  <msg name="errAuthen">Usted no se ha firmado pulg</msg>
+  <msg name="errSignIn">Pulse aquí para Entrar</msg>
   <msg name="errAccess">Acceso denegado</msg>
   <msg name="errLogin">Pulse aquí para asegurarse de que tiene acceso a su hoja de cálculo de Google.</msg>
   <msg name="errTimeout">Servidor de Tiempo</msg>

@@ -122,6 +122,8 @@
   <msg name="errUnk">Unerwarteter Fehler</msg>
   <msg name="errSheet">Spreadsheet-Fehler</msg>
   <msg name="errNoData">Klicken Sie hier, um sicherzustellen, dass Sie die Daten in Ihrem Google-Tabelle. .</msg>
+  <msg name="errAuthen">Sie sind nicht angemeldet in.</msg>
+  <msg name="errSignIn">Klicken Sie hier, um sich in.</msg>
   <msg name="errAccess">Zugriff verweigert</msg>
   <msg name="errLogin">Klicken Sie hier, um sicherzustellen, dass Sie Zugriff auf den Google-Tabelle.</msg>
   <msg name="errTimeout">Server-Timeout</msg>

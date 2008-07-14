@@ -122,6 +122,8 @@
   <msg name="errUnk">Onverwachte fout</msg>
   <msg name="errSheet">Spreadsheet fout</msg>
   <msg name="errNoData">Klik hier om ervoor te zorgen dat u de gegevens in uw Google spreadsheet.</msg>
+  <msg name="errAuthen">U bent niet aangemeld inch</msg>
+  <msg name="errSignIn">Klik hier om in te loggen</msg>
   <msg name="errAccess">Zwijnen</msg>
   <msg name="errLogin">Klik hier om ervoor te zorgen dat u toegang heeft tot uw Google-spreadsheet.</msg>
   <msg name="errTimeout">Server Time-out</msg>

@@ -248,6 +248,7 @@
 		if(response.isError()) {
 			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?"), errType=response.getReasons();
 			switch(errType[0]){
+            case "user_not_authenticated": goError__MODULE_ID__('__MSG_errAuthen__<br /><a href="'+sheetAdd+'" title="__MSG_errSignIn__" target="_blank">__MSG_errSignIn__</a>', 'user_not_authenticated'); break;
 				case "access_denied": goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
 				case "timeout": goError__MODULE_ID__('__MSG_errTimeout__<br />__MSG_errRefresh__', 'timeout'); break;
 				case "invalid_query": goError__MODULE_ID__('__MSG_errSheet__<br /><a href="'+sheetAdd+'" title="__MSG_errNoData__" target="_blank">__MSG_errNoData__</a>', 'invalid_query'); break;
@@ -580,7 +581,6 @@
 		if(prefArr__MODULE_ID__["birthdays2"]=="") moreErr.push('<br />__MSG_errLite__<br /><input type="button" id="goLite" value="__MSG_errGoLite__" />');
 		else moreErr.push('<br />__MSG_errLiteReady__<br /><input type="button" id="goClear" value="__MSG_errLiteClear__" />');
 		moreErr.push('<br /><a href="http://birthday-gadget.googlecode.com/svn/trunk/faq.html" title="__MSG_errMore__" target="_blank">__MSG_errMore__</a>');
-		moreErr.push('<br />__MSG_errCommon__');
 		tableDivObj__MODULE_ID__.innerHTML = moreErr.join('');
 		if(prefArr__MODULE_ID__["birthdays2"]=="") _gel('goLite').onclick=function(){showLiteData__MODULE_ID__();}
 		else _gel('goClear').onclick=function(){ prefArr__MODULE_ID__["_table_query_url"]=""; prefs__MODULE_ID__.set("_table_query_url", prefArr__MODULE_ID__["_table_query_url"]); chooseDataSource__MODULE_ID__();}

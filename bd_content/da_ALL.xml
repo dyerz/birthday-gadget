@@ -122,6 +122,8 @@
   <msg name="errUnk">Uventede Fejl</msg>
   <msg name="errSheet">Regneark Fejl</msg>
   <msg name="errNoData">Falde i hak her ovre for en ordens skyld at du har data i jeres Google regneark.</msg>
+  <msg name="errAuthen">Du er ikke logget ind</msg>
+  <msg name="errSignIn">Klik her for at logge ind</msg>
   <msg name="errAccess">Adgang Nægtede</msg>
   <msg name="errLogin">Falde i hak her ovre for en ordens skyld at du har adgang hen til jeres Google regneark.</msg>
   <msg name="errTimeout">Styreenhed Pause</msg>

@@ -122,6 +122,8 @@
   <msg name="errUnk">Errore inatteso</msg>
   <msg name="errSheet">Errore foglio di calcolo</msg>
   <msg name="errNoData">Fai clic qui per assicurarsi che i dati che hai nel tuo foglio di lavoro di Google.</msg>
+  <msg name="errAuthen">Non si è effettuato l'accesso</msg>
+  <msg name="errSignIn">Fai clic qui per accedere</msg>
   <msg name="errAccess">Accesso negato</msg>
   <msg name="errLogin">Fai clic qui per assicurarsi che hai accesso al tuo foglio di lavoro di Google.</msg>
   <msg name="errTimeout">Timeout server</msg>

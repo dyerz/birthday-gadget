@@ -122,6 +122,8 @@
   <msg name="errUnk">예기치 않은 오류</msg>
   <msg name="errSheet">스프레드 쉬트 오류</msg>
   <msg name="errNoData">이 설치되어 있는지 확인하려면 여기를 클릭하십시오 귀하의 구글 스프레드 시트에서 데이터를합니다.</msg>
+  <msg name="errAuthen">로그인이되지 않습니다</msg>
+  <msg name="errSignIn">로그인하려면 여기를 클릭하십시오</msg>
   <msg name="errAccess">액세스 거부</msg>
   <msg name="errLogin">여기를 클릭하여 액세스 권한을 갖고 있는지 확인합니다 귀하의 구글 스프레드 시트를합니다.</msg>
   <msg name="errTimeout">서버 시간 초과</msg>

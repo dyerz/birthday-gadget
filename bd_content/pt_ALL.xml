@@ -122,6 +122,8 @@
   <msg name="errUnk">Erro inesperado</msg>
   <msg name="errSheet">Erro de planilha</msg>
   <msg name="errNoData">Clique aqui para certificar-se de que você tem os dados em sua planilha do Google.</msg>
+  <msg name="errAuthen">Você não é acessado</msg>
+  <msg name="errSignIn">Clique aqui para efetuar login</msg>
   <msg name="errAccess">Acesso negado</msg>
   <msg name="errLogin">Clique aqui para certificar-se de que você tenha acesso à sua planilha do Google.</msg>
   <msg name="errTimeout">Server Timeout</msg>
