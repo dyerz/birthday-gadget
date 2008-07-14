@@ -249,7 +249,7 @@
 			var sheetAdd=prefArr__MODULE_ID__["_table_query_url"].replace(/tq\?/, "ccc?"), errType=response.getReasons();
 			switch(errType[0]){
             case "user_not_authenticated":
-               goError__MODULE_ID__(response.getMessage()+'<br />'+response.getDetailedMessage(), 'user_not_authenticated'); break;
+               goError__MODULE_ID__('__MSG_errAuthen__<br /><a href="'+sheetAdd+'" title="__MSG_errSignIn__" target="_blank">__MSG_errSignIn__</a>, 'user_not_authenticated'); break;
 				case "access_denied":
 					if(waiting__MODULE_ID__ || retry__MODULE_ID__(errType[0], "__MSG_errAccess__")) return;
 					goError__MODULE_ID__('__MSG_errAccess__<br /><a href="'+sheetAdd+'" title="__MSG_errLogin__" target="_blank">__MSG_errLogin__</a>', 'access_denied'); break;
