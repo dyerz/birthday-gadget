@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
 <ModulePrefs title="__UP_title__"
-  directory_title="Simple Birthday Reminders"
+  directory_title="Simple Birthday Reminder"
   description="This gadget reminds you of all your important birthdays and events! New features take advantage of Google Spreadsheets so you can save as many birthdays as you want! You can even share birthday lists with your friends and family. Also, Google Spreadsheets keeps your birthday list private, you must be logged in to your Google account to view your personal birthday list. If you are unable to use Google spreadsheets, you can still use this amazing gadget to remember your birthdays. Using an easy to read table design, all your birthdays are right in front of you. You can choose to view only a few birthdays or your whole list. Add this gadget to help you never miss a birthday again!"
   screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
   thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
