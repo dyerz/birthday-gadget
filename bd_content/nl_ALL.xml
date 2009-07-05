@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Verjaardagsherinnering 2,0</msg>
   <msg name="description">Mis nooit meer een verjaardag!</msg>
@@ -87,11 +87,11 @@
   <msg name="setupGreet1">Onthaal aan nieuwe Herinneringen 2,0 van de Verjaardag!</msg>
   <msg name="setupGreet2">U bent enkel een paar kliks vanaf het genieten van van sommige nieuwe eigenschappen!</msg>
   <msg name="setupGreet3">Me maak niet ongerust, is uw oude verjaardagslijst veilig!</msg>
-  <msg name="setupStep1">Cre�er nieuwe spreadsheet Google.</msg>
+  <msg name="setupStep1">Creëer nieuwe spreadsheet Google.</msg>
   <msg name="setupStep2">Ga Data in Kolom "A" en Namen in Kolom "B" in.</msg>
   <msg name="setupStep2P">De instructies voor het omzetten van uw oude verjaardagslijst is beschikbaar op de volgende pagina.</msg>
   <msg name="setupStep3">Sparen spreadsheet Google.</msg>
-  <msg name="setupStep4">Kopi�er het spreadsheet Google adres van de adresstaaf.</msg>
+  <msg name="setupStep4">Kopiëer het spreadsheet Google adres van de adresstaaf.</msg>
   <msg name="setupStep5">Kleef het spreadsheet hieronder vermelde adres.</msg>
   <msg name="setupLite1">Als u geen gebruik wilt maken van Google spreadsheets,</msg>
   <msg name="setupLite2">Als je problemen hebt met Google spreadsheets,</msg>
