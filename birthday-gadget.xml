@@ -77,7 +77,7 @@
 <UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
 <UserPref name="fontSize" default_value="small" datatype="hidden" />
 <UserPref name="group" default_value="" datatype="hidden" />
-<UserPref name="_table_query_url" datatype="hidden" /> 
+<UserPref name="_table_query_url" display_name="URL" /> 
 <UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
 <UserPref name="MMs" default_value="00" datatype="hidden" /> 
 
