@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Geburtstagserinnerungen 2.0</msg>
   <msg name="description">Verpassen Sie nie wieder einen Geburtstag!</msg>
@@ -28,8 +28,8 @@
   <msg name="tableZodiac">Tierkreis</msg>
   <msg name="tableSwap">Swap</msg>
   
-  <msg name="noBirthdays1">Keine Geburtstage in den n�chsten</msg>
-  <msg name="noBirthdays2">Tagen.</msg>
+  <msg name="noBirthdays1">Keine Geburtstage in den nächsten </msg>
+  <msg name="noBirthdays2"> Tagen.</msg>
   
   <msg name="ajan">Jan.</msg>
   <msg name="afeb">Feb.</msg>
