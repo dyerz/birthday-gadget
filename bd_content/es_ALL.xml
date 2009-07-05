@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
   <msg name="title">Recordatorio de cumpleaños 2,0</msg>
   <msg name="description">Nunca pierdas un cumpleaños de nuevo!</msg>
@@ -65,7 +65,7 @@
   <msg name="tbShow">Mostrar la Barra de Herramientas</msg>
   <msg name="tbHide">Ocultar la Barra de Herramientas</msg>
   
-  <msg name="configEdit">Editar Google hoja de c�lculo</msg>
+  <msg name="configEdit">Editar Google hoja de cálculo</msg>
   <msg name="configEditLite">Editar lista cumpleaños Lite</msg>
   <msg name="configFontColor">Font Color</msg>
   <msg name="configBGColor">Color de fondo</msg>
