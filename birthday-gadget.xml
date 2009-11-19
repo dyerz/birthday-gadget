@@ -17,7 +17,7 @@
     <Locale lang="ko" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ko_ALL.xml" />
     <Locale lang="nl" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/nl_ALL.xml" />
     <Locale lang="pt-PT" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_ALL.xml" />
-    <Locale lang="pt-BR" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_br_ALL.xml" />
+    <Locale lang="pt-BR" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_br.xml" />
     <Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
     <Locale lang="sv" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/sv_ALL.xml" />
     <Require feature="idi" /> 
