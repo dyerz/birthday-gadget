@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="__UP_title__"
+	directory_title="Simple Birthday Reminder"
+	description="This gadget reminds you of all your important birthdays and events! New features take advantage of Google Spreadsheets so you can save as many birthdays as you want! You can even share birthday lists with your friends and family. Also, Google Spreadsheets keeps your birthday list private, you must be logged in to your Google account to view your personal birthday list. If you are unable to use Google spreadsheets, you can still use this amazing gadget to remember your birthdays. Using an easy to read table design, all your birthdays are right in front of you. You can choose to view only a few birthdays or your whole list. Add this gadget to help you never miss a birthday again!"
+	screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
+	thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
+	author="Adam"
+	author_email="birthdaygadget@gmail.com"
+	height="200">
+		<Locale messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ALL_ALL.xml" />
+		<Locale lang="da" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/da_ALL.xml" />
+		<Locale lang="de" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/de_ALL.xml" />
+		<Locale lang="es" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/es_ALL.xml" />
+		<Locale lang="fr" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/fr_ALL.xml" />
+		<Locale lang="it" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/it_ALL.xml" />
+		<Locale lang="ko" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ko_ALL.xml" />
+		<Locale lang="nl" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/nl_ALL.xml" />
+		<Locale lang="pt-PT" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_ALL.xml" />
+		<Locale lang="pt-BR" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/pt_br_ALL.xml" />
+		<Locale lang="ru" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/ru_ALL.xml" />
+		<Locale lang="sv" messages="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/sv_ALL.xml" />
+		<Require feature="idi" /> 
+		<Require feature="locked-domain" /> 
+		<Require feature="analytics" /> 
+		<Require feature="dynamic-height" />
+		<Require feature="setprefs"/>
+	<Require feature="drag" /> 
+	<Require feature="minimessage"/>
+</ModulePrefs>
+<UserPref name="title" display_name="__MSG_titleName__" default_value="__MSG_title__" />
+<UserPref name="dateFormat" display_name="__MSG_formatName__" default_value="0" datatype="enum" >
+	<EnumValue value="0" display_value="MMM DD" />
+	<EnumValue value="1" display_value="DD MMM" />
+	<EnumValue value="2" display_value="MM/DD" />
+	<EnumValue value="3" display_value="DD/MM" />
+</UserPref>
+<UserPref name="showBDay" display_name="__MSG_showName__" default_value="5" datatype="enum" >
+	<EnumValue value="1" />
+	<EnumValue value="2" />
+	<EnumValue value="3" />
+	<EnumValue value="4" />
+	<EnumValue value="5" />
+	<EnumValue value="6" />
+	<EnumValue value="7" />
+	<EnumValue value="8" />
+	<EnumValue value="9" />
+	<EnumValue value="10" />
+	<EnumValue value="20" />
+	<EnumValue value="0" display_value="__MSG_noticeAll__" />
+</UserPref>
+<UserPref name="warnForward" display_name="__MSG_futureNoticeName__" default_value="14" datatype="enum" >
+	<EnumValue value="3" />
+	<EnumValue value="7" />
+	<EnumValue value="10" />
+	<EnumValue value="14" />
+	<EnumValue value="21" />
+	<EnumValue value="30" />
+	<EnumValue value="60" />
+	<EnumValue value="90" /> 
+	<EnumValue value="0" display_value="__MSG_noticeAll__" /> 
+</UserPref>
+<UserPref name="warnPast" display_name="__MSG_pastNoticeName__" default_value="0" datatype="enum" >
+	<EnumValue value="0" display_value="__MSG_noticeNone__"/>
+	<EnumValue value="3" />
+	<EnumValue value="7" />
+	<EnumValue value="10" />
+	<EnumValue value="14" />
+</UserPref>
+<UserPref name="showAge" display_name="__MSG_showAge__" default_value="true" datatype="bool" />
+<UserPref name="showDays" display_name="__MSG_showDays__" default_value="false" datatype="bool" />
+<UserPref name="showZodiac" display_name="__MSG_showZodiac__" default_value="false" datatype="bool" />
+<UserPref name="clearURL" display_name="__MSG_clearURL__" default_value="false" datatype="bool" />
+<UserPref name="birthdays" datatype="hidden" default_value="" /> 
+<UserPref name="birthdays2" datatype="hidden" default_value="" /> 
+<UserPref name="fontColor" default_value="#000000" datatype="hidden" />
+<UserPref name="bgColor" default_value="#FFFFFF" datatype="hidden" />
+<UserPref name="fontSize" default_value="small" datatype="hidden" />
+<UserPref name="group" default_value="" datatype="hidden" />
+<UserPref name="_table_query_url" display_name="URL" /> 
+<UserPref name="tbOrder" default_value="12345" datatype="hidden" /> 
+<UserPref name="MMs" default_value="00" datatype="hidden" /> 
+
+<Content type="html">
+	<![CDATA[
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<script src="http://birthday-gadget.googlecode.com/svn/trunk/birthday-gadget.js" type="text/javascript"></script>
+	]]> 
+</Content>
+</Module>
