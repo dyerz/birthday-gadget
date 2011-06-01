@@ -649,6 +649,7 @@
 		fS=_gel("fontSize").value;
 		//gG=_gel("group").value;
 		tempStr=_trim(_gel("shUrl").value);
+		tempStr=formatURL__MODULE_ID__(tempStr);
 		if(!urlCheck__MODULE_ID__(tempStr)) return false;
 		
 		//prefs__MODULE_ID__.set("fontColor", fC, "bgColor", bC, "fontSize", fS, "group", gG, "_table_query_url", tempStr);
@@ -665,9 +666,23 @@
 		return true;
 	}
 	
+	function formatURL__MODULE_ID__(tempStr){
+		if(tempStr.length==0) return "";
+		var tempSplit=tempStr.split("?");
+		if(tempSplit.length==2){
+			var querySplit=tempSplit[1].split("&");
+			for(var i=0; i<querySplit.length; i++){
+				var pair=querySplit[i].split("=");
+				if(pair[0]=="key"){
+					return tempSplit[0] + "?" + querySplit[i];
+				}
+			}
+		}
+		return tempStr;
+	}
+	
 	function urlCheck__MODULE_ID__(tempStr){
 		if(tempStr.length==0) return true;
-		while(tempStr.search(/\&/)!=-1) { tempStr=tempStr.substring(0, tempStr.indexOf("&"));}
 		if(tempStr.search(/^http[s]{0,1}:\/\/spreadsheets\.google\.com\/(spreadsheet\/){0,1}(ccc|tq|pub)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
 		return true;
 	}
