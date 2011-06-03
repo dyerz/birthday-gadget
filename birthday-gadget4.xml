@@ -23,9 +23,10 @@
 
     function sendQuery() {
       // To see the data that this visualization uses, browse to // http://spreadsheets.google.com/ccc?key=pCQbetd-CptGXxxQIG7VFIQ  
-	  var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ');
+	  var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
   
       // Send the query with a callback function.
+	  query.setQuery("select * format A 'yyyy/MM/dd'");
 	  query.send(handleQueryResponse);
     }
     
