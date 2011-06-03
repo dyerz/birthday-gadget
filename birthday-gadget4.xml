@@ -40,11 +40,11 @@
 	  
 	  var table = new google.visualization.Table(document.getElementById('visualization'));
 	  
-	  var formatter = new google.visualization.PatternFormat('<a href="mailto:{2}">{1}</a>');
-	  formatter.format(data, [1, 2]);
+	  var formatter = new google.visualization.PatternFormat('<a href="mailto:{1}">{0}</a>');
+	  formatter.format(data, [1, 2]); // Apply formatter and set the formatted value of the first column.
 
 	  var view = new google.visualization.DataView(data);
-	  view.setColumns([0, 1]);
+	  view.setColumns([0, 1]); 
 	  
 	  table.draw(view, {allowHtml: true});
   
