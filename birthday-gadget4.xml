@@ -10,11 +10,10 @@
 	<Content type="html">
   <![CDATA[
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="birthday-gadget4.js"></script>
+  <script type="text/javascript" src="http://birthday-gadget.googlecode.com/svn/trunk/birthday-gadget4.js"></script>
   <div id="visualization">
-  <img src="http://visapi-gadgets.googlecode.com/svn/trunk/image/spinner.gif" />
+  	<img src="http://visapi-gadgets.googlecode.com/svn/trunk/image/spinner.gif" />
   </div>
-  
   ]]>
 	</Content>
 </Module>
