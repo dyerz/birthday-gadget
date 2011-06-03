@@ -46,6 +46,9 @@
 	  var view = new google.visualization.DataView(data);
 	  view.setColumns([0, 1]); 
 	  
+	  data.setColumnLabel(0, "Date");
+	  data.setColumnLabel(1, "Name");
+	  
 	  table.draw(view, {allowHtml: true});
   
     }   
