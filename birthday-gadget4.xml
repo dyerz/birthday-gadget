@@ -50,6 +50,8 @@
 	  data.setColumnLabel(1, "Name");
 	  
 	  table.draw(view, {allowHtml: true});
+	  
+	  gadgets.window.adjustHeight;
   
     }   
   </script>
