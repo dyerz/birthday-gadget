@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Custom gadget" 
+      author="Google"
+      author_email="visualization.api@gmail.com"
+      description="Custom gadget"
+      thumbnail="http://visapi-gadgets.googlecode.com/svn/trunk/image/thumbnail.png" 
+      screenshot="http://visapi-gadgets.googlecode.com/svn/trunk/image/screenshot.png">
+    <Require feature="idi" />
+    <Require feature="locked-domain" />  
+  </ModulePrefs>
+  <Content type="html">
+  <![CDATA[
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1', {packages: ['table']});
+    google.setOnLoadCallback(init);
+
+    function init() {
+      var container = document.getElementById('chart');
+      sendQuery();
+    }
+
+    function sendQuery() {
+      var query = new google.visualization.Query('http://google-visualization.appspot.com/python/dynamic_example');
+      query.send(handleQueryResponse);  
+    }
+    
+    function handleQueryResponse(response) {
+      // Default error message handling
+      var gadgetHelper = new google.visualization.GadgetHelper();
+      if (!gadgetHelper.validateResponse(response))
+        return;
+      
+      var data = response.getDataTable();
+      var visualization = new google.visualization.Table(document.getElementById('visualization'));
+      visualization.draw(data, null);
+    }   
+  </script>
+  <div id="visualization">
+  <img src="http://visapi-gadgets.googlecode.com/svn/trunk/image/spinner.gif" />
+  </div>
+  
+  ]]>
+ </Content>
+</Module>
