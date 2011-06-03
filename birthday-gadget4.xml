@@ -22,8 +22,11 @@
     }
 
     function sendQuery() {
-      var query = new google.visualization.Query('http://google-visualization.appspot.com/python/dynamic_example');
-      query.send(handleQueryResponse);  
+      // To see the data that this visualization uses, browse to // http://spreadsheets.google.com/ccc?key=pCQbetd-CptGXxxQIG7VFIQ  
+	  var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ');
+  
+      // Send the query with a callback function.
+	  query.send(handleQueryResponse);
     }
     
     function handleQueryResponse(response) {
