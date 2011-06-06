@@ -140,13 +140,13 @@
 		
 		function saveLiteString()
 		{
-			var liteString = {[]};
+			var liteString = {r:[]};
 			
 			var liteTable = document.getElementById('enterLiteTable');
 			
 			for(var i = 1; i < liteTable.rows.length; i++)
 			{
-				liteString.push=[liteTable.rows[i].cells[1].firstChild.value, 
+				liteString.r.push=[liteTable.rows[i].cells[1].firstChild.value, 
 					liteTable.rows[i].cells[2].firstChild.value];
 			}
 		
