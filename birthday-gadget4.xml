@@ -21,7 +21,6 @@
 		google.setOnLoadCallback(init);
 		
 		var _prefs = new gadgets.Prefs();
-		var _content = document.getElementById('content');
 		
 		function init() 
 		{
@@ -41,6 +40,8 @@
 		
 		function showWelcome()
 		{
+			var content = document.getElementById('content');
+			
 			var html = '';
 			html += '<table style="border: 1px solid #000000; border-collapse: true;"><tr>';
 			html += '<td>Lite</td>';
@@ -48,7 +49,7 @@
 			html += '</tr></table>';
 			
 			
-			_content.innerHTML = html;
+			content.innerHTML = html;
 		}
 		
 		function showChoice()
