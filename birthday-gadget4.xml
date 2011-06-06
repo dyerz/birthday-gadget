@@ -58,6 +58,7 @@
 		
 	</style>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="http://birthday-gadget.googlecode.com/svn/trunk/json2.js"></script>
 	<script type="text/javascript">
 		google.setOnLoadCallback(init);
 		google.load('visualization', '1', {packages: ['table']});	
@@ -145,7 +146,8 @@
 			
 			for(var i = 1; i < liteTable.rows.length; i++)
 			{
-				liteString.rows[i-1]={date:liteTable.rows[i].cells[1], name:liteTable.rows[i].cells[2]};
+				liteString.rows[i-1]={date:liteTable.rows[i].cells[1].firstChild.value, 
+					name:liteTable.rows[i].cells[2].firstChild.value};
 			}
 		
 			addHTML('<p>'+JSON.stringify(liteString)+'</p>');
