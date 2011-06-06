@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	google.load('visualization', '1', {packages: ['table']});
+	//google.load('visualization', '1', {packages: ['table']});
 	google.setOnLoadCallback(init);
 	
 	var _prefs = new gadgets.Prefs();
@@ -10,7 +10,7 @@
 	{
 		var debug = _prefs.getString("debug");
 		
-		if(debug == "")
+		if(debug === "")
 		{
 			showWelcome();
 		}
