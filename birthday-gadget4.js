@@ -1,5 +1,3 @@
-<script type="text/javascript">
-
 	google.setOnLoadCallback(init);
 	
 	var _prefs;
@@ -40,4 +38,3 @@
 	{
 		
 	}
-</script>
