@@ -148,7 +148,7 @@
 				liteString.rows[i-1]={date:liteTable.rows[i].cells[1], name:liteTable.rows[i].cells[2]};
 			}
 		
-			addHTML(liteString.toString());
+			addHTML(liteString.toJSONString());
 		
 			//_prefs.set('liteString', '');
 			
