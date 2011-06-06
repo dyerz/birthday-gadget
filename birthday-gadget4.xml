@@ -15,7 +15,7 @@
 	</ModulePrefs>
 	<UserPref name="debug" display_name="Debug" default_value="" datatype="string" />
 	<UserPref name="url" display_name="URL" default_value="" datatype="string" />
-	<UserPref name="liteData" default_value="" datatype="hidden" />
+	<UserPref name="liteString" default_value="" datatype="hidden" />
 	<Content type="html">
 	<![CDATA[
 	<style>
@@ -53,15 +53,29 @@
 
 		function init() 
 		{
-			var debug = _prefs.getString("debug");
+			goMain(0);
+		}
 			
-			if(debug === "")
+		function goMain(mode)
+		{
+			var url = _prefs.getString("url");
+
+			if(url === "")
 			{
-				goWelcome();
+				var liteString = _prefs.getString("liteString");
+				
+				if(liteSring === "")
+				{
+					goWelcome();
+				}
+				else
+				{
+					goLite(liteString);
+				}
 			}
 			else
 			{
-				goChoice();
+				goFull(url);
 			}
 		}
 		
@@ -76,23 +90,9 @@
 			document.getElementById('content').innerHTML = html;
 		}
 		
-		function goChoice()
+		function goLite(liteString)
 		{
-			var url = _prefs.getString("url");
-			
-			if(url === "")
-			{
-				goLite();
-			}
-			else
-			{
-				goFull();
-			}
-		}
-		
-		function goLite()
-		{
-			var liteData = buildLiteData(_prefs.getString("liteData"));
+			var liteData = buildLiteData(liteString);
 			
 			goMainTable(liteData);
 		}
@@ -105,10 +105,8 @@
 			return liteData;
 		}
 		
-		function goFull()
+		function goFull(url)
 		{
-			var url = _prefs.getString("url");
-			
 			if(url === "")
 			{
 				goEnterURL();
