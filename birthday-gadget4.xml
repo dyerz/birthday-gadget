@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="Version 3"
-		author="Adam">
+	<ModulePrefs title="Number 4"
+		directory_title="Debug"
+		description="Debug"
+		screenshot="http://birthday-gadget.googlecode.com/svn/trunk/screenshot.png"
+		thumbnail="http://birthday-gadget.googlecode.com/svn/trunk/thumbnail.png"
+		author="Adam"
+		author_email="birthdaygadget@gmail.com"
+		height="200">
 		<Require feature="dynamic-height"/>
 		<Require feature="idi" />
 		<Require feature="locked-domain" />
