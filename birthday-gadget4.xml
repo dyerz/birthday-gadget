@@ -139,7 +139,7 @@
 		
 		function saveLiteString()
 		{
-			var liteString = {rows:{}};
+			var liteString = {rows:[]};
 			
 			var liteTable = document.getElementById('enterLiteTable');
 			
