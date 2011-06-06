@@ -24,7 +24,7 @@
 			border: 1px solid #000000; 
 			border-collapse: true; 
 			vertical-align: middle;
-			horizontal-align: center;
+			align: center;
 		}
 		
 	</style>
