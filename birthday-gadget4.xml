@@ -1,71 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="Custom gadget" author="Google"
-		author_email="visualization.api@gmail.com" description="Custom gadget"
-		thumbnail="http://visapi-gadgets.googlecode.com/svn/trunk/image/thumbnail.png"
-		screenshot="http://visapi-gadgets.googlecode.com/svn/trunk/image/screenshot.png">
+	<ModulePrefs title="Version 3"
+		author="Adam">
+		<Require feature="dynamic-height"/>
 		<Require feature="idi" />
 		<Require feature="locked-domain" />
+		<Require feature="setprefs"/>
 	</ModulePrefs>
+	<UserPref name="debug" display_name="Debug" default_value="" datatype="string" />
 	<Content type="html">
 	<![CDATA[
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript">
-		google.load('visualization', '1', {packages: ['table']});
-		google.setOnLoadCallback(init);
-		
-		function init() 
-		{
-			sendQuery();
-		}
-		
-		function sendQuery()
-		{
-			var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
-			
-			// Send the query with a callback function.
-			query.setQuery("select A,B,C format A 'yyyy/MM/dd'");
-			query.send(handleQueryResponse);
-		}
-		
-		function handleQueryResponse(response)
-		{
-			// Default error message handling
-			var gadgetHelper = new google.visualization.GadgetHelper();
-			if (!gadgetHelper.validateResponse(response))
-			{
-				return;
-			}
-			
-			var data = response.getDataTable();
-			
-			var table = new google.visualization.Table(document.getElementById('wrapper'));
-			
-			var formatter0 = new google.visualization.DateFormat({pattern: "M/d"});
-			formatter0.format(data, 0);
-			
-			var formatter = new google.visualization.PatternFormat('<a href="mailto:{1}">{0}</a>');
-			formatter.format(data, [1, 2]);
-			
-			var view = new google.visualization.DataView(data);
-			view.setColumns([0, 1]); 
-			
-			data.setColumnLabel(0, "Date");
-			data.setColumnLabel(1, "Name");
-			
-			google.visualization.events.addListener(table, 'ready', doStuff);
-			
-			table.draw(view, {allowHtml: true});
-			
-			
-		}
-		
-		function doStuff()
-		{
-			gadgets.window.adjustHeight;
-		}
-	</script>
-	<div id="wrapper">
+	<script type="text/javascript" src="http://birthday-gadget.googlecode.com/svn/trunk/birthday-gadget4.js"></script>
+	<div id="content">
 		<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" />
 	</div>
 	]]>
