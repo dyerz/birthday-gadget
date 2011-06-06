@@ -97,15 +97,21 @@
 			html += '<td><a onClick="goFull(\'\');">Full</a></td>';
 			html += '</tr></table>';
 			
-			document.getElementById('content').innerHTML = html;
+			setHTML(html);
 		}
 		
 		// Lite Functions
 		function goLite(liteString)
 		{
-			var liteData = buildLiteData(liteString);
-			
-			goMainTable(liteData);
+			if(liteString !== "")
+			{
+				var liteData = buildLiteData(liteString);
+				goMainTable(liteData);
+			}
+			else
+			{
+				goEnterLite();
+			}
 		}
 		
 		function goEnterLite()
@@ -116,14 +122,14 @@
 			html += '<th>Date</th>';
 			html += '<th>Name</th>';
 			html += '</tr><tr>'
-			html += '<th></th>';
-			html += '<th><input type="text" style="width:100%" /></th>';
-			html += '<th><input type="text" style="width:100%" /></th>';
+			html += '<td></td>';
+			html += '<td><input type="text" style="width:100%" /></td>';
+			html += '<td><input type="text" style="width:100%" /></td>';
 			html += '</tr></table>';
 			
 			html += '<input type="button" value="Save" onClick="saveLiteString();" />';
 			
-			document.getElementById('content').innerHTML = html;
+			setHTML(html);
 		}
 		
 		function saveLiteString()
@@ -181,12 +187,19 @@
 			html += '<p>Key <input id="urlInput" type="text" style="width:100%" /></p>';
 			html += '<input type="button" value="Save" onClick="saveURL();" />';
 			
-			document.getElementById('content').innerHTML = html;
+			setHTML(html);
 		}
 		
 		function saveURL()
 		{
 			_prefs.set('key', 'pC4N73ZOVzvp9XsOBCaK7KA');
+			
+			goMain('full');
+		}
+		
+		function clearURL()
+		{
+			_prefs.set('key', '');
 			
 			goMain('full');
 		}
@@ -225,6 +238,16 @@
 			
 			table.draw(view, {allowHtml: true});
 			
+			document.getElementById('content').innerHTML += '<br /><input type="button" value="Clear" onClick="clearURL();" />';
+			
+			gadgets.window.adjustHeight();
+		}
+		
+	
+		function setHTML(html)
+		{		
+			document.getElementById('content').innerHTML = html;
+		
 			gadgets.window.adjustHeight();
 		}
 		
