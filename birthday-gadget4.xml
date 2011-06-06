@@ -22,7 +22,7 @@
 	google.setOnLoadCallback(init);
 	
 	var _prefs = new gadgets.Prefs();
-	var _content = document.getElementsById("content");
+	var _content = document.getElementById("content");
 	
 	function init() 
 	{
