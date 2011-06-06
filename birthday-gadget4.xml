@@ -140,14 +140,14 @@
 		
 		function saveLiteString()
 		{
-			var liteString = {r:[]};
+			var liteString = [];
 			
 			var liteTable = document.getElementById('enterLiteTable');
 			
 			for(var i = 1; i < liteTable.rows.length; i++)
 			{
-				liteString.r.push=[liteTable.rows[i].cells[1].firstChild.value, 
-					liteTable.rows[i].cells[2].firstChild.value];
+				liteString.push([liteTable.rows[i].cells[1].firstChild.value, 
+					liteTable.rows[i].cells[2].firstChild.value]);
 			}
 		
 			addHTML('<p>'+JSON.stringify(liteString)+'</p>');
