@@ -13,7 +13,7 @@
 		<Require feature="locked-domain" />
 		<Require feature="setprefs"/>
 	</ModulePrefs>
-	<UserPref name="url" display_name="URL" default_value="" datatype="string" />
+	<UserPref name="key" display_name="Key" default_value="" datatype="string" />
 	<UserPref name="liteString" display_name="lite String" default_value="" datatype="string" />
 	<Content type="html">
 	<![CDATA[
@@ -63,16 +63,16 @@
 		function init() 
 		{
 			_prefs = new gadgets.Prefs()
-			goMain(0);
+			goMain('init');
 		}
 			
 		function goMain(mode)
 		{
-			var url = _prefs.getString("url");
+			var key = _prefs.getString("key");
 
-			if(url !== "")
+			if(key !== "")
 			{
-				goFull(url);
+				goFull(key);
 			}
 			else
 			{
@@ -115,6 +115,10 @@
 			html += '<th>+ / -</th>';
 			html += '<th>Date</th>';
 			html += '<th>Name</th>';
+			html += '</tr><tr>'
+			html += '<th></th>';
+			html += '<th><input type="text" style="width:100%" /></th>';
+			html += '<th><input type="text" style="width:100%" /></th>';
 			html += '</tr></table>';
 			
 			html += '<input type="button" value="Save" onClick="saveLiteString();" />';
@@ -125,6 +129,8 @@
 		function saveLiteString()
 		{
 			_prefs.set('liteString', '');
+			
+			goMain('lite');
 		}
 		
 		function buildLiteData(liteString)
@@ -154,15 +160,15 @@
 		
 		
 		// Full Functions
-		function goFull(url)
+		function goFull(key)
 		{
-			if(url === "")
+			if(key === "")
 			{
 				goEnterURL();
 			}
 			else
 			{
-				var query = new google.visualization.Query(url);
+				var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + key);
 
 				query.setQuery("select A,B,C format A 'yyyy/MM/dd'");
 				query.send(handleQueryResponse);
@@ -172,17 +178,17 @@
 		function goEnterURL()
 		{
 			var html = '';
-			html += '<input id="urlInput" type="text" style="width:100%" /><br />';
+			html += '<p>Key <input id="urlInput" type="text" style="width:100%" /></p>';
 			html += '<input type="button" value="Save" onClick="saveURL();" />';
 			
 			document.getElementById('content').innerHTML = html;
-			
-			goMain(1);
 		}
 		
 		function saveURL()
 		{
-			_prefs.set('url', 'https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
+			_prefs.set('key', 'pC4N73ZOVzvp9XsOBCaK7KA');
+			
+			goMain('full');
 		}
 		
 		function handleQueryResponse(response)
