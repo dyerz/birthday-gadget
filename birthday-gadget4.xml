@@ -16,16 +16,25 @@
 	<UserPref name="debug" display_name="Debug" default_value="" datatype="string" />
 	<Content type="html">
 	<![CDATA[
+	<style>
+		.welcomeTable
+		{
+			width: 100%;
+			height: 100%; 
+			border: 1px solid #000000; 
+			border-collapse: true; 
+			vertical-align: middle;
+			horizontal-align: center;
+		}
+		
+	</style>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 		google.setOnLoadCallback(init);
 		var _prefs = new gadgets.Prefs();
-		var _content;
-		
+
 		function init() 
 		{
-			_content = document.getElementById('content');
-		
 			var debug = _prefs.getString("debug");
 			
 			if(debug === "")
@@ -40,16 +49,13 @@
 		
 		function showWelcome()
 		{
-			
-			
 			var html = '';
-			html += '<table style="width: 100%; height: 100%; border: 1px solid #000000; border-collapse: true;"><tr>';
+			html += '<table class="welcomeTable"><tr>';
 			html += '<td>Lite</td>';
 			html += '<td>Full</td>';
 			html += '</tr></table>';
 			
-			
-			_content.innerHTML = html;
+			document.getElementById('content').innerHTML = html;
 		}
 		
 		function showChoice()
