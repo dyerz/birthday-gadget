@@ -166,6 +166,8 @@
 			view.setColumns([0, 1]);
 			
 			table.draw(view, {allowHtml: true});
+			
+			gadgets.window.adjustHeight();
 		}
 		
 		
