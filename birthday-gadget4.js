@@ -2,11 +2,14 @@
 
 	google.setOnLoadCallback(init);
 	
-	var _prefs = new gadgets.Prefs();
-	var _content = document.getElementsById("content");
+	var _prefs;
+	var _content;
 	
 	function init() 
 	{
+		_prefs = new gadgets.Prefs();
+		_content = document.getElementById("content");
+		 
 		var debug = _prefs.getString("debug");
 		
 		if(debug === "")
