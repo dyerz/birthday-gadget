@@ -93,8 +93,8 @@
 		{
 			var html = '';
 			html += '<table class="welcomeTable"><tr>';
-			html += '<td><a onClick="goLite(\"\");">Lite</a></td>';
-			html += '<td><a onClick="goFull(\"\");">Full</a></td>';
+			html += '<td><a onClick="goLite(\'\');">Lite</a></td>';
+			html += '<td><a onClick="goFull(\'\');">Full</a></td>';
 			html += '</tr></table>';
 			
 			document.getElementById('content').innerHTML = html;
