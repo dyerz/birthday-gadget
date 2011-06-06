@@ -28,7 +28,7 @@
 		html += '<table style="border: 1px solid #000000; border-collapse: true;"><tr>';
 		html += '<td>Lite</td>';
 		html += '<td>Full</td>';
-		html += '</tr></table>'
+		html += '</tr></table>';
 		
 		
 		_content.innerHTML = html;
