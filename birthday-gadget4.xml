@@ -22,10 +22,15 @@
 			width: 100%;
 			height: 100%; 
 			border: 1px solid #000000; 
-			border-collapse: true; 
+			border-collapse: collapse;
 			vertical-align: middle;
-			align: center;
+			text-align: center;
 		}
+		.welcomeTable td, .welcomeTable tr
+		{
+			border: 1px solid #000000; 
+		}
+		
 		
 	</style>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
