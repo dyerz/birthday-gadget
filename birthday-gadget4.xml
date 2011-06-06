@@ -145,8 +145,8 @@
 			
 			for(var i = 1; i < liteTable.rows.length; i++)
 			{
-				liteString.rows[i-1].date=liteTable.rows[i][1];
-				liteString.rows[i-1].name=liteTable.rows[i][2];
+				liteString.rows[i-1].date=liteTable.rows[i].cells[1];
+				liteString.rows[i-1].name=liteTable.rows[i].cells[2];
 			}
 		
 			addHTML(liteString.toString());
