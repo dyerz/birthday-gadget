@@ -13,7 +13,6 @@
 		<Require feature="locked-domain" />
 		<Require feature="setprefs"/>
 	</ModulePrefs>
-	<UserPref name="debug" display_name="Debug" default_value="" datatype="string" />
 	<UserPref name="url" display_name="URL" default_value="" datatype="string" />
 	<UserPref name="liteString" display_name="lite String" default_value="" datatype="string" />
 	<Content type="html">
