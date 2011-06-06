@@ -1,25 +1,4 @@
-	google.setOnLoadCallback(init);
-	
-	var _prefs = new gadgets.Prefs();
-	var _content = document.getElementById('content');
-	
-	function init() 
-	{
-		var debug = _prefs.getString("debug");
-		
-		if(debug === "")
-		{
-			showWelcome();
-		}
-		else
-		{
-			showChoice();
-		}
-		
-		// sendQuery();
-	}
-	
-	function showWelcome()
+	function showWelcome(content)
 	{
 		var html = '';
 		html += '<table style="border: 1px solid #000000; border-collapse: true;"><tr>';
@@ -28,10 +7,14 @@
 		html += '</tr></table>';
 		
 		
-		_content.innerHTML = html;
+		content.innerHTML = html;
 	}
 	
-	function showChoice()
+	function showChoice(content)
 	{
+		var html = '';
+		html += 'Details';
 		
+		
+		content.innerHTML = html;		
 	}
