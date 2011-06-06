@@ -16,11 +16,11 @@
 	<UserPref name="debug" display_name="Debug" default_value="" datatype="string" />
 	<Content type="html">
 	<![CDATA[
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="http://birthday-gadget.googlecode.com/svn/trunk/birthday-gadget4.js"></script>
 	<div id="content">
 		<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" />
 	</div>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="http://birthday-gadget.googlecode.com/svn/trunk/birthday-gadget4.js"></script>
 	]]>
 	</Content>
 </Module>
