@@ -17,7 +17,46 @@
 	<Content type="html">
 	<![CDATA[
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="http://birthday-gadget.googlecode.com/svn/trunk/birthday-gadget4.js"></script>
+<script type="text/javascript">
+
+	google.setOnLoadCallback(init);
+	
+	var _prefs = new gadgets.Prefs();
+	var _content = document.getElementsById("content");
+	
+	function init() 
+	{
+		var debug = _prefs.getString("debug");
+		
+		if(debug === "")
+		{
+			showWelcome();
+		}
+		else
+		{
+			showChoice();
+		}
+		
+		// sendQuery();
+	}
+	
+	function showWelcome()
+	{
+		var html = '';
+		html += '<table style="border: 1px solid #000000; border-collapse: true;"><tr>';
+		html += '<td>Lite</td>';
+		html += '<td>Full</td>';
+		html += '</tr></table>';
+		
+		
+		_content.innerHTML = html;
+	}
+	
+	function showChoice()
+	{
+		
+	}
+</script>
 	<div id="content">
 		<img src="http://birthday-gadget.googlecode.com/svn/trunk/bd_content/spinner.gif" />
 	</div>
