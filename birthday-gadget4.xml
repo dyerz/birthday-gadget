@@ -44,9 +44,14 @@
 		.enterLiteTable
 		{
 			width: 100%;
-			height: 100%;
 			border-collapse: collapse;
 			vertical-align: middle;
+			text-align: center;
+		}
+		
+		.saveDiv
+		{
+			width: 100%;
 			text-align: center;
 		}
 		
@@ -127,7 +132,7 @@
 			html += '<td><input type="text" style="width:100%" /></td>';
 			html += '</tr></table>';
 			
-			html += '<input type="button" value="Save" onClick="saveLiteString();" />';
+			html += '<div class="centerDiv"><input type="button" value="Save" onClick="saveLiteString();" /></div>';
 			
 			setHTML(html);
 		}
@@ -185,7 +190,7 @@
 		{
 			var html = '';
 			html += '<p>Key <input id="urlInput" type="text" style="width:100%" /></p>';
-			html += '<input type="button" value="Save" onClick="saveURL();" />';
+			html += '<div class="centerDiv"><input type="button" value="Save" onClick="saveURL();" /></div>';
 			
 			setHTML(html);
 		}
