@@ -115,11 +115,27 @@
 			}
 			else
 			{
-				var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
+				var query = new google.visualization.Query(_prefs.getString("url"));
 
 				query.setQuery("select A,B,C format A 'yyyy/MM/dd'");
 				query.send(handleQueryResponse);
 			}
+		}
+		
+		function goEnterURL()
+		{
+			var html = '';
+			html += '<input id="urlInput" type="text" style="width:100%" /><br />';
+			html += '<input type="button" text="Set" onClick="saveURL();" />';
+			
+			document.getElementById('content').innerHTML = html;
+			
+			goChoice();
+		}
+		
+		function saveURL()
+		{
+			_prefs.set("url", 'https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
 		}
 		
 		function handleQueryResponse(response)
