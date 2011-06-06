@@ -140,7 +140,7 @@
 		
 		function saveLiteString()
 		{
-			var liteString = [];
+			var liteString = {[]};
 			
 			var liteTable = document.getElementById('enterLiteTable');
 			
