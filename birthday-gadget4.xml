@@ -115,7 +115,7 @@
 			}
 			else
 			{
-				var query = new google.visualization.Query(_prefs.getString("url"));
+				var query = new google.visualization.Query(url);
 
 				query.setQuery("select A,B,C format A 'yyyy/MM/dd'");
 				query.send(handleQueryResponse);
@@ -126,7 +126,7 @@
 		{
 			var html = '';
 			html += '<input id="urlInput" type="text" style="width:100%" /><br />';
-			html += '<input type="button" text="Set" onClick="saveURL();" />';
+			html += '<input type="button" value="Set" onClick="saveURL();" />';
 			
 			document.getElementById('content').innerHTML = html;
 			
@@ -135,7 +135,7 @@
 		
 		function saveURL()
 		{
-			_prefs.set("url", 'https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
+			_prefs.set('url', 'https://spreadsheets.google.com/tq?key=pC4N73ZOVzvp9XsOBCaK7KA');
 		}
 		
 		function handleQueryResponse(response)
