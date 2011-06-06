@@ -150,9 +150,9 @@
 		
 			addHTML(liteString.toString());
 		
-			_prefs.set('liteString', '');
+			//_prefs.set('liteString', '');
 			
-			goMain('lite');
+			//goMain('lite');
 		}
 		
 		function buildLiteData(liteString)
