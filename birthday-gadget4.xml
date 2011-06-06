@@ -48,10 +48,11 @@
 		google.setOnLoadCallback(init);
 		google.load('visualization', '1', {packages: ['table']});	
 		
-		var _prefs = new gadgets.Prefs();
+		var _prefs;
 
 		function init() 
 		{
+			_prefs = new gadgets.Prefs()
 			goMain(0);
 		}
 			
