@@ -68,7 +68,7 @@
 			{
 				var liteString = _prefs.getString("liteString");
 				
-				if(liteSring !== "")
+				if(liteString !== "")
 				{
 					goLite(liteString);
 				}
