@@ -41,6 +41,15 @@
 			text-align: center;
 		}
 		
+		.enterLiteTable
+		{
+			width: 100%;
+			height: 100%;
+			border-collapse: collapse;
+			vertical-align: middle;
+			text-align: center;
+		}
+		
 		
 	</style>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -50,6 +59,7 @@
 		
 		var _prefs;
 
+		//Landing Functions
 		function init() 
 		{
 			_prefs = new gadgets.Prefs()
@@ -83,13 +93,14 @@
 		{
 			var html = '';
 			html += '<table class="welcomeTable"><tr>';
-			html += '<td><a onClick="goLite();">Lite</a></td>';
-			html += '<td><a onClick="goFull();">Full</a></td>';
+			html += '<td><a onClick="goLite(\"\");">Lite</a></td>';
+			html += '<td><a onClick="goFull(\"\");">Full</a></td>';
 			html += '</tr></table>';
 			
 			document.getElementById('content').innerHTML = html;
 		}
 		
+		// Lite Functions
 		function goLite(liteString)
 		{
 			var liteData = buildLiteData(liteString);
@@ -97,14 +108,52 @@
 			goMainTable(liteData);
 		}
 		
+		function goEnterLite()
+		{
+			var html = '';
+			html += '<table id="enterLiteTable" class="enterLiteTable"><tr>';
+			html += '<th>+ / -</th>';
+			html += '<th>Date</th>';
+			html += '<th>Name</th>';
+			html += '</tr></table>';
+			
+			html += '<input type="button" value="Save" onClick="saveLiteString();" />';
+			
+			document.getElementById('content').innerHTML = html;
+		}
+		
+		function saveLiteString()
+		{
+			_prefs.set('liteString', '');
+		}
+		
 		function buildLiteData(liteString)
 		{
-			var liteData = new google.visualization.DataTable();
+			var liteData = new google.visualization.DataTable(
+			{
+				cols:[{label: 'Date', type:'string'}, {label: 'Name', type:'string'}],
+				rows:[]
+			}
+			);
 		
+			/*
+			{
+		       cols: [{id: 'task', label: 'Task', type: 'string'},
+		                {id: 'hours', label: 'Hours per Day', type: 'number'}],
+		       rows: [{c:[{v: 'Work'}, {v: 11}]},
+		              {c:[{v: 'Eat'}, {v: 2}]},
+		              {c:[{v: 'Commute'}, {v: 2}]},
+		              {c:[{v: 'Watch TV'}, {v:2}]},
+		              {c:[{v: 'Sleep'}, {v:7, f:'7.000'}]}
+		             ]
+     		}
+			*/
 			
 			return liteData;
 		}
 		
+		
+		// Full Functions
 		function goFull(url)
 		{
 			if(url === "")
@@ -124,7 +173,7 @@
 		{
 			var html = '';
 			html += '<input id="urlInput" type="text" style="width:100%" /><br />';
-			html += '<input type="button" value="Set" onClick="saveURL();" />';
+			html += '<input type="button" value="Save" onClick="saveURL();" />';
 			
 			document.getElementById('content').innerHTML = html;
 			
@@ -159,6 +208,8 @@
 			goMainTable(data);
 		}		
 		
+		
+		// Main Table Functions
 		function goMainTable(input)
 		{
 			var table = new google.visualization.Table(document.getElementById('content'));
