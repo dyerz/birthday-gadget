@@ -60,22 +60,22 @@
 		{
 			var url = _prefs.getString("url");
 
-			if(url === "")
+			if(url !== "")
 			{
-				var liteString = _prefs.getString("liteString");
-				
-				if(liteSring === "")
-				{
-					goWelcome();
-				}
-				else
-				{
-					goLite(liteString);
-				}
+				goFull(url);
 			}
 			else
 			{
-				goFull(url);
+				var liteString = _prefs.getString("liteString");
+				
+				if(liteSring !== "")
+				{
+					goLite(liteString);
+				}
+				else
+				{
+					goWelcome();
+				}
 			}
 		}
 		
@@ -128,7 +128,7 @@
 			
 			document.getElementById('content').innerHTML = html;
 			
-			goChoice();
+			goMain(1);
 		}
 		
 		function saveURL()
