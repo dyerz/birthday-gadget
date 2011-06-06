@@ -52,7 +52,7 @@
 		.saveDiv
 		{
 			width: 100%;
-			text-align: center;
+			horizontal-align: center;
 		}
 		
 		
@@ -139,6 +139,18 @@
 		
 		function saveLiteString()
 		{
+			var liteString = {};
+			
+			var liteTable = document.getElementById('enterLiteTable');
+			
+			for(var i = 1; i < liteTable.rows.length; i++)
+			{
+				liteString.rows[i-1].date=liteTable.rows[i][1];
+				liteString.rows[i-1].name=liteTable.rows[i][2];
+			}
+		
+			addHTML(liteString.toString());
+		
 			_prefs.set('liteString', '');
 			
 			goMain('lite');
@@ -243,12 +255,24 @@
 			
 			table.draw(view, {allowHtml: true});
 			
-			document.getElementById('content').innerHTML += '<br /><input type="button" value="Clear" onClick="clearURL();" />';
-			
-			gadgets.window.adjustHeight();
+			if(_prefs.getString("key") !== "")
+			{
+				addHTML('<br /><input type="button" value="Clear" onClick="clearURL();" />');
+			}
+			else
+			{
+				gadgets.window.adjustHeight();
+			}
 		}
 		
 	
+		function addHTML(html)
+		{		
+			document.getElementById('content').innerHTML += html;
+		
+			gadgets.window.adjustHeight();
+		}
+
 		function setHTML(html)
 		{		
 			document.getElementById('content').innerHTML = html;
