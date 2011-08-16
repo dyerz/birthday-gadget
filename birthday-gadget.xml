@@ -683,7 +683,7 @@
 	
 	function urlCheck__MODULE_ID__(tempStr){
 		if(tempStr.length==0) return true;
-		if(tempStr.search(/^http[s]{0,1}:\/\/spreadsheets\.google\.com\/(spreadsheet\/){0,1}(ccc|tq|pub)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
+		if(tempStr.search(/^http[s]{0,1}:\/\/(docs|spreadsheets)\.google\.com\/(spreadsheet\/){0,1}(ccc|tq|pub)\?key=[a-z0-9\-_]+/i)==-1){ alert('__MSG_configErr__ __MSG_configURL__'); return false;}
 		return true;
 	}
 
