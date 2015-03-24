@@ -1,0 +1,1 @@
+This gadget was designed to help you remember those important birthdays. Enter your friend's name and birthday, and the Birthday Gadget will keep you up to date!
